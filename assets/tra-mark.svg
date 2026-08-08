@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">TRA</title>
+  <desc id="desc">סמל TRA בצבעי כחול, כתום וירוק</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#031b2a"/>
+      <stop offset="1" stop-color="#0b4264"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <path d="M222 104h68l-13-29 35 20 25-34 8 42 42-6-27 34 27 28h-98z" fill="#f28a0c"/>
+  <text x="256" y="322" fill="#fff" font-family="Arial,sans-serif" font-size="188" font-weight="900" text-anchor="middle" letter-spacing="-24">TRA</text>
+  <rect x="153" y="340" width="206" height="10" rx="5" fill="#f28a0c"/>
+  <text x="256" y="393" fill="#9ac26e" font-family="Arial,sans-serif" font-size="31" font-weight="700" text-anchor="middle" letter-spacing="4">LIVE LOVE CREATE</text>
+</svg>
