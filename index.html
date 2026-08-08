@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TRA Games — כפר בלום 2026</title>
+<style>
+:root{--bg:#071421;--panel:#0d2235;--text:#f7fbff;--muted:#b9c9d8;--gold:#f3c75f;--green:#55c98f;--blue:#6bc7ef;--silver:#c7d2dc;--danger:#ff7b7b}*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Hebrew",sans-serif;background:linear-gradient(180deg,#071421,#0a1b2b 55%,#071421);color:var(--text);min-height:100vh}button,a{font:inherit}.wrap{max-width:1100px;margin:auto;padding:20px}.hero{text-align:center;padding:28px 8px 18px}.hero h1{font-size:clamp(34px,7vw,68px);margin:0 0 8px}.hero p{color:var(--muted);font-size:18px;margin:6px 0}.motto{color:var(--gold);font-weight:700}.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:22px 0}.card{background:rgba(13,34,53,.9);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.18)}.card h2{margin:4px 0 8px}.card p{color:var(--muted);min-height:48px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border:0;border-radius:14px;background:var(--gold);color:#15202b;font-weight:800;text-decoration:none;cursor:pointer}.btn.secondary{background:var(--blue)}.btn.green{background:var(--green)}.btn.silver{background:var(--silver)}.section{display:none;margin-top:22px}.section.active{display:block}.topbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0}.stat{background:#102a41;border-radius:12px;padding:8px 12px;color:var(--muted);font-size:14px}.chess-wrap{display:grid;grid-template-columns:minmax(280px,640px) minmax(220px,1fr);gap:20px;align-items:start}.board{display:grid;grid-template-columns:repeat(8,1fr);aspect-ratio:1/1;border:4px solid #d7b56a;border-radius:12px;overflow:hidden;direction:ltr}.sq{display:flex;align-items:center;justify-content:center;font-size:clamp(28px,6vw,54px);cursor:pointer;border:0;padding:0;aspect-ratio:1/1}.light{background:#e9d7b4}.dark{background:#7e5d43}.sq.sel{outline:5px solid #37b6ff;outline-offset:-5px}.sq.move{box-shadow:inset 0 0 0 5px rgba(80,201,143,.85)}.panel{background:#102a41;border-radius:16px;padding:16px}.panel h3{margin-top:0}.status{font-weight:800;color:var(--gold);font-size:18px}.speedbox{text-align:center;max-width:700px;margin:auto}.timer{font-size:72px;font-weight:900;line-height:1;margin:16px 0;color:var(--gold)}.question{font-size:clamp(24px,4vw,38px);font-weight:800;min-height:110px;display:flex;align-items:center;justify-content:center;background:#102a41;border-radius:18px;padding:20px}.controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:16px}.note{color:var(--muted);font-size:14px}.footer{text-align:center;color:var(--muted);padding:34px 0 20px}.hidden{display:none}@media(max-width:760px){.chess-wrap{grid-template-columns:1fr}.wrap{padding:12px}.card{padding:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero"><h1>TRA GAMES</h1><p>כפר בלום 2026 • משחקים פשוטים, ברורים ואינטראקטיביים</p><p class="motto">תכלית • רלוונטיות • איכות</p></header>
+<div class="topbar"><span class="stat">היטסטר: <b id="s-hitster">0</b></span><span class="stat">שחמט: <b id="s-chess">0</b></span><span class="stat">ספיד דייט: <b id="s-speed">0</b></span></div>
+<main>
+<section id="home" class="section active">
+<div class="games">
+<article class="card"><div style="font-size:44px">🎵</div><h2>היטסטר ישראלי</h2><p>המשחק הפעיל הקיים: מזהים, מנחשים ומסדרים שירים ישראליים.</p><a class="btn" id="hitsterBtn" href="https://tra-games-arcade.tomerangel212.chatgpt.site/#games" target="_blank" rel="noopener">פתח היטסטר</a></article>
+<article class="card"><div style="font-size:44px">♟️</div><h2>שחמט אינטראקטיבי</h2><p>לוח מלא לשני שחקנים על אותו מסך. בוחרים כלי ואז משבצת יעד.</p><button class="btn secondary" onclick="openGame('chess')">שחק שחמט</button></article>
+<article class="card"><div style="font-size:44px">⏱️</div><h2>ספיד דייט משפחתי</h2><p>60 שניות לשיחה עם שאלה מתחלפת. מתאים למשפחה ולקבוצות.</p><button class="btn green" onclick="openGame('speed')">התחל סבב</button></article>
+</div>
+<div class="card"><h2>עקרון סבתא אסתל</h2><p style="min-height:0">שלושה משחקים. כפתור אחד להתחלה. בלי הסברים מסובכים.</p></div>
+</section>
+<section id="chess" class="section">
+<div class="controls" style="justify-content:flex-start"><button class="btn silver" onclick="openGame('home')">← חזרה למשחקים</button></div>
+<div class="chess-wrap">
+<div id="board" class="board" aria-label="לוח שחמט"></div>
+<div class="panel"><h3>♟️ שחמט TRA</h3><p id="chessStatus" class="status">תור הלבן</p><p>לחץ על כלי שלך ואז על משבצת יעד. המשחק תומך בתנועות הרגילות ובאכילה.</p><button class="btn secondary" onclick="resetChess()">משחק חדש</button><p class="note">גרסה משפחתית פשוטה: אין כרגע הצרחה, שח־מט או הכתרה אוטומטית.</p></div>
+</div>
+</section>
+<section id="speed" class="section">
+<div class="controls" style="justify-content:flex-start"><button class="btn silver" onclick="openGame('home')">← חזרה למשחקים</button></div>
+<div class="speedbox">
+<div class="card"><div class="timer" id="timer">60</div><div class="question" id="question">לחצו “התחל” וקבלו שאלה.</div><div class="controls"><button class="btn green" id="startTimer">התחל 60 שניות</button><button class="btn secondary" id="nextQ">שאלה חדשה</button><button class="btn silver" id="resetTimer">איפוס</button></div><p class="note">המטרה: להכיר, להקשיב ולמצוא משהו משותף — לא לנצח.</p></div>
+</div>
+</section>
+</main>
+<footer class="footer">TRA — מסגרת ברורה, חופש פעולה מלא.</footer>
+</div>
+<script>
+const $=s=>document.querySelector(s); const stats=JSON.parse(localStorage.getItem('traStats')||'{"hitster":0,"chess":0,"speed":0}');
+function saveStats(){localStorage.setItem('traStats',JSON.stringify(stats));$('#s-hitster').textContent=stats.hitster;$('#s-chess').textContent=stats.chess;$('#s-speed').textContent=stats.speed} saveStats();
+$('#hitsterBtn').addEventListener('click',()=>{stats.hitster++;saveStats()});
+function openGame(id){document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));$('#'+id).classList.add('active'); if(id==='chess'){stats.chess++;renderBoard()} if(id==='speed'){stats.speed++;newQuestion()} saveStats(); location.hash=id==='home'?'':id; window.scrollTo({top:0,behavior:'smooth'})}
+const U={w:{k:'♔',q:'♕',r:'♖',b:'♗',n:'♘',p:'♙'},b:{k:'♚',q:'♛',r:'♜',b:'♝',n:'♞',p:'♟'}}; let turn='w',selected=null,board=[];
+function initial(){return [['br','bn','bb','bq','bk','bb','bn','br'],['bp','bp','bp','bp','bp','bp','bp','bp'],['','','','','','','',''],['','','','','','','','',''],['','','','','','','','',''],['','','','','','','','',''],['wp','wp','wp','wp','wp','wp','wp','wp'],['wr','wn','wb','wq','wk','wb','wn','wr']]}
+function resetChess(){board=initial();turn='w';selected=null;renderBoard()}
+function inb(r,c){return r>=0&&r<8&&c>=0&&c<8} function color(p){return p?p[0]:''} function type(p){return p?p[1]:''}
+function clearPath(r1,c1,r2,c2){let dr=Math.sign(r2-r1),dc=Math.sign(c2-c1),r=r1+dr,c=c1+dc;while(r!==r2||c!==c2){if(board[r][c])return false;r+=dr;c+=dc}return true}
+function legal(r1,c1,r2,c2){if(!inb(r2,c2)||(r1===r2&&c1===c2))return false;const p=board[r1][c1],dst=board[r2][c2];if(!p||color(p)!==turn||color(dst)===turn)return false;const t=type(p),dr=r2-r1,dc=c2-c1,adr=Math.abs(dr),adc=Math.abs(dc);if(t==='n')return (adr===2&&adc===1)||(adr===1&&adc===2);if(t==='k')return adr<=1&&adc<=1;if(t==='r')return (dr===0||dc===0)&&clearPath(r1,c1,r2,c2);if(t==='b')return adr===adc&&clearPath(r1,c1,r2,c2);if(t==='q')return ((dr===0||dc===0)||adr===adc)&&clearPath(r1,c1,r2,c2);if(t==='p'){const dir=color(p)==='w'?-1:1,start=color(p)==='w'?6:1;if(dc===0&&!dst&&dr===dir)return true;if(dc===0&&!dst&&r1===start&&dr===2*dir&&!board[r1+dir][c1])return true;if(adc===1&&dr===dir&&dst&&color(dst)!==turn)return true}return false}
+function movesFrom(r,c){const a=[];for(let rr=0;rr<8;rr++)for(let cc=0;cc<8;cc++)if(legal(r,c,rr,cc))a.push(rr+'-'+cc);return a}
+function clickSq(r,c){const p=board[r][c];if(selected){const [sr,sc]=selected;if(legal(sr,sc,r,c)){board[r][c]=board[sr][sc];board[sr][sc]='';turn=turn==='w'?'b':'w';selected=null;renderBoard();return}selected=null}if(p&&color(p)===turn)selected=[r,c];renderBoard()}
+function renderBoard(){if(!board.length)board=initial();const el=$('#board');el.innerHTML='';let hints=selected?movesFrom(...selected):[];for(let r=0;r<8;r++)for(let c=0;c<8;c++){const b=document.createElement('button');b.className='sq '+((r+c)%2?'dark':'light');if(selected&&selected[0]===r&&selected[1]===c)b.classList.add('sel');if(hints.includes(r+'-'+c))b.classList.add('move');const p=board[r][c];b.textContent=p?U[color(p)][type(p)]:'';b.onclick=()=>clickSq(r,c);el.appendChild(b)}$('#chessStatus').textContent='תור '+(turn==='w'?'הלבן':'השחור')}
+const questions=['איזה שיר תמיד מעלה לך חיוך?','מה הדבר הכי מצחיק שקרה לך בחופשה משפחתית?','איזה מקום בארץ היית רוצה להראות לכולם?','מה כישרון קטן שיש לך שאנשים לא תמיד יודעים עליו?','איזה מאכל משפחתי אתה הכי אוהב?','איזה זיכרון מכפר בלום אתה רוצה לשמור?','עם מי במשפחה היית יוצא למסע של שבוע ולמה?','מה למדת השנה על עצמך?','איזה משחק היית ממציא למשפחה?','איזה שיר מייצג מבחינתך את ישראל?','מה הדבר שהכי עוזר לך להרגיש בבית?','איזו עצה טובה קיבלת מאדם מבוגר ממך?','מה היית רוצה ללמוד ממישהו צעיר ממך?','אם הייתה למשפחה להקת מוזיקה — איזה תפקיד היה לך?','מה הדבר הקטן שיכול להפוך יום רגיל ליום טוב?'];let seconds=60,tick=null;
+function newQuestion(){let q=questions[Math.floor(Math.random()*questions.length)];$('#question').textContent=q}
+function stop(){if(tick){clearInterval(tick);tick=null}}
+$('#startTimer').onclick=()=>{stop(); if(seconds<=0)seconds=60;$('#timer').textContent=seconds;tick=setInterval(()=>{seconds--;$('#timer').textContent=seconds;if(seconds<=0){stop();$('#question').textContent='⏰ הזמן נגמר — החליפו זוג וקבלו שאלה חדשה.'}},1000)};
+$('#nextQ').onclick=()=>{newQuestion()};$('#resetTimer').onclick=()=>{stop();seconds=60;$('#timer').textContent=60};
+resetChess(); const h=location.hash.replace('#',''); if(h==='chess'||h==='speed')openGame(h);
+</script>
+</body>
+</html>
