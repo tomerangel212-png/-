@@ -1,31 +1,100 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TRA Dashboard</title>
-  <style>
-    body{font-family:Arial,sans-serif;margin:0;background:#f6f7f9;color:#111}header{padding:24px;background:#fff;border-bottom:1px solid #ddd}h1{margin:0}.wrap{max-width:1100px;margin:auto;padding:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.04)}.status{font-size:30px}.green{color:#16803b}.yellow{color:#b7791f}.red{color:#c53030}.metric{font-size:28px;font-weight:700}.bar{height:10px;background:#eee;border-radius:10px;overflow:hidden}.fill{height:100%;background:#16803b}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.controls button{border:1px solid #ccc;background:#fff;padding:10px 14px;border-radius:10px;cursor:pointer}.controls button.active{background:#111;color:#fff}.hidden{display:none}footer{padding:30px;text-align:center;color:#666}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRA Command Center</title>
+<style>
+:root{--bg:#08111f;--panel:#101b2d;--panel2:#15233a;--text:#f5f7fb;--muted:#9fb0c8;--line:#263957;--accent:#67d6c0;--gold:#f1c86b;--danger:#ff7b7b;--ok:#62d98b;--warn:#f4c85d}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Hebrew",sans-serif;background:linear-gradient(180deg,#07101d,#0d1727 45%,#08111f);color:var(--text)}button,input,select{font:inherit}.shell{max-width:1180px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:18px 0}.brand h1{margin:0;font-size:clamp(28px,5vw,48px)}.brand p{margin:7px 0;color:var(--muted)}.pill{border:1px solid var(--line);background:#0d192b;padding:9px 12px;border-radius:999px;color:var(--accent);white-space:nowrap}.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(4,1fr)}.main{grid-template-columns:1.3fr .7fr;margin-top:14px}.card{background:rgba(16,27,45,.94);border:1px solid var(--line);border-radius:18px;padding:16px}.kpi .label,.sub{color:var(--muted);font-size:13px}.kpi .value{font-size:32px;font-weight:800;margin-top:6px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.section-title h2{font-size:18px;margin:0}.focus{background:linear-gradient(135deg,rgba(103,214,192,.13),rgba(241,200,107,.07));border-color:#31516a}.focus-big{font-size:26px;font-weight:800;margin:4px 0 8px}.meter{height:10px;border-radius:999px;background:#21324c;overflow:hidden}.meter>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:inherit}.tasks{display:grid;gap:8px}.task{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:13px}.task input{accent-color:var(--accent)}.task.done .txt{text-decoration:line-through;color:var(--muted)}.tag{margin-inline-start:auto;font-size:12px;padding:5px 8px;border-radius:999px;background:#20334f;color:#c7d4e6}.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.project{padding:13px;border:1px solid var(--line);border-radius:14px;background:#0e1a2d}.project-head{display:flex;justify-content:space-between;gap:8px}.project strong{font-size:15px}.progress{font-size:12px;color:var(--muted);margin:8px 0 6px}.traffic{display:grid;gap:9px}.signal{display:grid;grid-template-columns:14px 1fr auto;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.signal:last-child{border-bottom:0}.dot{width:12px;height:12px;border-radius:50%}.green{background:var(--ok)}.yellow{background:var(--warn)}.red{background:var(--danger)}.btns{display:flex;flex-wrap:wrap;gap:8px}.btn{border:1px solid var(--line);background:#15243a;color:var(--text);padding:9px 12px;border-radius:11px;cursor:pointer}.btn.primary{background:var(--accent);color:#062019;border-color:transparent;font-weight:700}.addrow{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}.addrow input{width:100%;border:1px solid var(--line);background:#091525;color:var(--text);border-radius:11px;padding:10px}.footer{color:var(--muted);font-size:12px;text-align:center;padding:20px 0}.privacy{border:1px dashed #3b526e;background:#0a1626;color:#b9c8da;padding:11px;border-radius:13px;margin-top:12px}.small{font-size:12px;color:var(--muted)}@media(max-width:850px){.kpis{grid-template-columns:repeat(2,1fr)}.main{grid-template-columns:1fr}.projects{grid-template-columns:1fr}}@media(max-width:500px){.top{display:block}.pill{display:inline-block;margin-top:8px}.kpis{grid-template-columns:1fr 1fr}.kpi .value{font-size:25px}.shell{padding:12px}.card{border-radius:15px;padding:13px}}
+</style>
 </head>
 <body>
-<header><div class="wrap"><h1>TRA — תכלית. רלוונטיות. איכות.</h1><p>דשבורד אישי אינטראקטיבי</p></div></header>
-<main class="wrap">
-  <div class="controls">
-    <button class="active" data-filter="all">הכול</button><button data-filter="health">בריאות</button><button data-filter="projects">פרויקטים</button><button data-filter="music">מוזיקה</button><button data-filter="travel">נסיעות</button>
+<div class="shell">
+<header class="top">
+  <div class="brand"><h1>TRA Command Center</h1><p>תכלית · רלוונטיות · איכות — מסך אחד שמראה מה חשוב עכשיו.</p></div>
+  <div class="pill" id="today"></div>
+</header>
+
+<section class="grid kpis">
+  <div class="card kpi"><div class="label">פוקוס היום</div><div class="value" id="focusScore">80%</div><div class="sub">עד 3 מטרות פעילות</div></div>
+  <div class="card kpi"><div class="label">משימות פתוחות</div><div class="value" id="openCount">4</div><div class="sub">המטרה: פחות, אבל לסיים</div></div>
+  <div class="card kpi"><div class="label">מצב כללי</div><div class="value" id="overall">🟡</div><div class="sub">צהוב = מתקדם עם בקרה</div></div>
+  <div class="card kpi"><div class="label">עיקרון מוביל</div><div class="value">תכלית</div><div class="sub">למה זה חשוב עכשיו?</div></div>
+</section>
+
+<section class="grid main">
+  <div class="grid">
+    <div class="card focus">
+      <div class="section-title"><h2>🎯 שלושת הדברים של היום</h2><span class="small" id="doneSummary"></span></div>
+      <div class="focus-big">פחות רעש. יותר סיום.</div>
+      <div class="tasks" id="tasks"></div>
+      <div class="addrow"><input id="newTask" placeholder="הוסף משימה קצרה ומעשית"><button class="btn primary" id="addTask">הוסף</button></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><h2>🚀 פרויקטים</h2><span class="small">לחץ על אחוז כדי לעדכן</span></div>
+      <div class="projects" id="projects"></div>
+    </div>
   </div>
-  <section class="grid">
-    <div class="card item" data-cat="health"><div class="status green">●</div><h2>ברך שמאל</h2><p>מצב נוכחי: ירוק</p></div>
-    <div class="card item" data-cat="health"><div class="status yellow">●</div><h2>ברך ימין</h2><p>מעקב שיקום וזהירות בעומסים</p></div>
-    <div class="card item" data-cat="projects"><h2>TRA</h2><div class="metric">3</div><p>עקרונות יסוד: תכלית, רלוונטיות, איכות</p></div>
-    <div class="card item" data-cat="projects"><h2>KFAR-BLOOM/2026</h2><p>משחק משפחתי רב-גילאי, פשוט וברור</p><div class="bar"><div class="fill" style="width:72%"></div></div></div>
-    <div class="card item" data-cat="music"><h2>מוזיקה</h2><p>יצירה, עיבוד, עריכה מוזיקלית ופיתוח רפרטואר</p></div>
-    <div class="card item" data-cat="travel"><h2>נסיעות</h2><p>רודוס ולונדון — תקציב, לינה, תחבורה וכרטיסים</p></div>
-  </section>
-</main>
-<footer>TRA Dashboard · GitHub Pages ready</footer>
+
+  <div class="grid">
+    <div class="card">
+      <div class="section-title"><h2>🚦 רמזור החלטות</h2><span class="small">לא הכול ירוק — וזה בסדר</span></div>
+      <div class="traffic">
+        <div class="signal"><span class="dot green"></span><div><strong>להמשיך</strong><div class="small">פעולה ברורה ובטוחה</div></div><span>GO</span></div>
+        <div class="signal"><span class="dot yellow"></span><div><strong>לבדוק</strong><div class="small">חסר פרט או יש עומס</div></div><span>CHECK</span></div>
+        <div class="signal"><span class="dot red"></span><div><strong>לעצור</strong><div class="small">סיכון, כפילות או חוסר תכלית</div></div><span>STOP</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><h2>🧭 בדיקת TRA</h2><span class="small">30 שניות לפני פעולה</span></div>
+      <div class="traffic">
+        <div class="signal"><span>ת</span><div><strong>תכלית</strong><div class="small">מה התוצאה שאני רוצה?</div></div><span>למה?</span></div>
+        <div class="signal"><span>ר</span><div><strong>רלוונטיות</strong><div class="small">האם זה חשוב עכשיו?</div></div><span>למי?</span></div>
+        <div class="signal"><span>א</span><div><strong>איכות</strong><div class="small">מהו הביצוע הפשוט והטוב?</div></div><span>איך?</span></div>
+      </div>
+      <div class="privacy">🔒 הגרסה הציבורית לא שומרת כברירת מחדל פרטי בריאות, כתובות, לינה או מסלולי נסיעה. פרטים אישיים שתוסיף נשמרים רק בדפדפן שלך.</div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><h2>⚙️ פעולות</h2></div>
+      <div class="btns"><button class="btn" id="reset">איפוס</button><button class="btn" id="export">ייצוא JSON</button></div>
+    </div>
+  </div>
+</section>
+<div class="footer">TRA · Command Center · local-first dashboard</div>
+</div>
 <script>
-const buttons=[...document.querySelectorAll('button[data-filter]')];const items=[...document.querySelectorAll('.item')];buttons.forEach(b=>b.onclick=()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;items.forEach(i=>i.classList.toggle('hidden',f!=='all'&&i.dataset.cat!==f));});
+const defaultState={tasks:[
+ {text:'סגור משימה אחת חשובה עד הסוף',tag:'פוקוס',done:false},
+ {text:'30 דקות לימוד ממוקד',tag:'לימודים',done:false},
+ {text:'בדיקת פרויקט TRA פעיל אחד',tag:'TRA',done:false},
+ {text:'תכנון קצר למחר',tag:'מערכת',done:false}
+],projects:[
+ {name:'TRA Official',progress:62,status:'🟡'},
+ {name:'KFAR-BLOOM/2026',progress:74,status:'🟡'},
+ {name:'מוזיקה ויצירה',progress:45,status:'🟢'},
+ {name:'לימודים',progress:68,status:'🟡'}
+]};
+let state;
+try{state=JSON.parse(localStorage.getItem('tra-command-center'))||structuredClone(defaultState)}catch(e){state=structuredClone(defaultState)}
+const save=()=>localStorage.setItem('tra-command-center',JSON.stringify(state));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(){
+ const tasks=document.getElementById('tasks');tasks.innerHTML='';
+ state.tasks.forEach((t,i)=>{const row=document.createElement('label');row.className='task'+(t.done?' done':'');row.innerHTML=`<input type="checkbox" ${t.done?'checked':''}><span class="txt">${esc(t.text)}</span><span class="tag">${esc(t.tag||'כללי')}</span>`;row.querySelector('input').addEventListener('change',e=>{state.tasks[i].done=e.target.checked;save();render()});tasks.appendChild(row)});
+ const open=state.tasks.filter(t=>!t.done).length,done=state.tasks.length-open;document.getElementById('openCount').textContent=open;document.getElementById('doneSummary').textContent=`${done}/${state.tasks.length} הושלמו`;document.getElementById('focusScore').textContent=Math.round((done/Math.max(1,state.tasks.length))*100)+'%';
+ const p=document.getElementById('projects');p.innerHTML='';state.projects.forEach((x,i)=>{const el=document.createElement('div');el.className='project';el.innerHTML=`<div class="project-head"><strong>${esc(x.name)}</strong><button class="btn pct" data-i="${i}">${x.progress}% ${x.status}</button></div><div class="progress">התקדמות</div><div class="meter"><span style="width:${Math.max(0,Math.min(100,x.progress))}%"></span></div>`;p.appendChild(el)});document.querySelectorAll('.pct').forEach(b=>b.addEventListener('click',()=>{const i=+b.dataset.i;const v=prompt('אחוז התקדמות חדש (0-100):',state.projects[i].progress);if(v!==null&&!isNaN(v)){state.projects[i].progress=Math.max(0,Math.min(100,+v));state.projects[i].status=+v>=80?'🟢':+v>=40?'🟡':'🔴';save();render()}}));
+ document.getElementById('overall').textContent=open<=2?'🟢':open<=5?'🟡':'🔴';
+}
+document.getElementById('today').textContent=new Intl.DateTimeFormat('he-IL',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
+document.getElementById('addTask').addEventListener('click',()=>{const input=document.getElementById('newTask');const text=input.value.trim();if(!text)return;state.tasks.unshift({text,tag:'חדש',done:false});input.value='';save();render()});
+document.getElementById('newTask').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('addTask').click()});
+document.getElementById('reset').addEventListener('click',()=>{if(confirm('לאפס את הדשבורד לברירת המחדל?')){state=structuredClone(defaultState);save();render()}});
+document.getElementById('export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='tra-dashboard-data.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+render();
 </script>
 </body>
 </html>
