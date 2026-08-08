@@ -1,0 +1,20 @@
+{
+  "name": "KFAR BLOOM 2026 · TRA",
+  "short_name": "TRA 2026",
+  "description": "משחק משפחתי רב־דורי: מוזיקה, קשר, חשיבה וחוויה משותפת.",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#031b2a",
+  "theme_color": "#082f49",
+  "icons": [
+    {
+      "src": "./assets/tra-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
