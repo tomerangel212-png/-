@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TRA Dashboard</title>
+  <style>
+    body{font-family:Arial,sans-serif;margin:0;background:#f6f7f9;color:#111}header{padding:24px;background:#fff;border-bottom:1px solid #ddd}h1{margin:0}.wrap{max-width:1100px;margin:auto;padding:20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.04)}.status{font-size:30px}.green{color:#16803b}.yellow{color:#b7791f}.red{color:#c53030}.metric{font-size:28px;font-weight:700}.bar{height:10px;background:#eee;border-radius:10px;overflow:hidden}.fill{height:100%;background:#16803b}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.controls button{border:1px solid #ccc;background:#fff;padding:10px 14px;border-radius:10px;cursor:pointer}.controls button.active{background:#111;color:#fff}.hidden{display:none}footer{padding:30px;text-align:center;color:#666}
+  </style>
+</head>
+<body>
+<header><div class="wrap"><h1>TRA — תכלית. רלוונטיות. איכות.</h1><p>דשבורד אישי אינטראקטיבי</p></div></header>
+<main class="wrap">
+  <div class="controls">
+    <button class="active" data-filter="all">הכול</button><button data-filter="health">בריאות</button><button data-filter="projects">פרויקטים</button><button data-filter="music">מוזיקה</button><button data-filter="travel">נסיעות</button>
+  </div>
+  <section class="grid">
+    <div class="card item" data-cat="health"><div class="status green">●</div><h2>ברך שמאל</h2><p>מצב נוכחי: ירוק</p></div>
+    <div class="card item" data-cat="health"><div class="status yellow">●</div><h2>ברך ימין</h2><p>מעקב שיקום וזהירות בעומסים</p></div>
+    <div class="card item" data-cat="projects"><h2>TRA</h2><div class="metric">3</div><p>עקרונות יסוד: תכלית, רלוונטיות, איכות</p></div>
+    <div class="card item" data-cat="projects"><h2>KFAR-BLOOM/2026</h2><p>משחק משפחתי רב-גילאי, פשוט וברור</p><div class="bar"><div class="fill" style="width:72%"></div></div></div>
+    <div class="card item" data-cat="music"><h2>מוזיקה</h2><p>יצירה, עיבוד, עריכה מוזיקלית ופיתוח רפרטואר</p></div>
+    <div class="card item" data-cat="travel"><h2>נסיעות</h2><p>רודוס ולונדון — תקציב, לינה, תחבורה וכרטיסים</p></div>
+  </section>
+</main>
+<footer>TRA Dashboard · GitHub Pages ready</footer>
+<script>
+const buttons=[...document.querySelectorAll('button[data-filter]')];const items=[...document.querySelectorAll('.item')];buttons.forEach(b=>b.onclick=()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;items.forEach(i=>i.classList.toggle('hidden',f!=='all'&&i.dataset.cat!==f));});
+</script>
+</body>
+</html>
