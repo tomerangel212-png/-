@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1c332d">
+  <title>TRA Games — שחמט חי</title>
+  <link rel="stylesheet" href="games.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <a class="brand" href="./">TRA GAMES</a>
+      <span class="tag">שחמט חי · ביחד</span>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">THE TRA · תכלית · רלוונטיות · איכות</p>
+      <h1>שחמט אמיתי, מיד על הלוח.</h1>
+      <p>שני שחקנים, טלפון אחד. בוחרים כלי, רואים מהלכים חוקיים ומשחקים.</p>
+    </section>
+    <section class="game-shell" aria-label="משחק שחמט">
+      <div class="clocks" aria-label="שעוני משחק">
+        <button class="clock black" id="black-clock" type="button"><span>שחור</span><strong>05:00</strong></button>
+        <button class="clock white active" id="white-clock" type="button"><span>לבן</span><strong>05:00</strong></button>
+      </div>
+      <div id="status" class="status" aria-live="polite">הלבן מתחיל. לחצו על כלי.</div>
+      <div id="board" class="board" role="grid" aria-label="לוח שחמט"></div>
+      <div class="controls">
+        <button id="new-game" class="primary" type="button">משחק חדש</button>
+        <button id="flip-board" type="button">הפכו לוח</button>
+        <button id="undo-move" type="button" disabled>בטלו מסע</button>
+      </div>
+      <p class="hint">השעון מתחיל במסע הראשון. המשחק כולל שח, מט, תיקו, הצרחה וקידום רגלי.</p>
+    </section>
+  </main>
+  <script type="module" src="games.js"></script>
+</body>
+</html>
