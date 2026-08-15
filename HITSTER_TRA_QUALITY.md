@@ -22,13 +22,23 @@ HITSTER Score = 40% data accuracy + 20% audio + 15% game rules + 10% UX + 10% st
 
 Hard rule: any wrong decade or wrong release year caps the quality score at 90.
 
-## Release gate
-Do not publish new song batches unless:
-1. Every card has a validated releaseYear.
-2. releaseYear matches the selected decade range.
-3. The audio preview loads and plays.
-4. Reveal adds the card only to the active team's timeline.
-5. A complete game session can be finished without a critical failure.
+## Enforced release gate
+GitHub Pages deployment now depends on `node hitster-quality-check.js` passing.
+
+The automated gate blocks deployment when:
+1. A card is missing title, artist, integer year, era, or a valid Apple Music URL.
+2. A card's year does not match its era.
+3. A card falls outside the supported 1960–2026 range.
+4. The 1960–1969 category contains any year outside 1960–1969.
+5. The same title + artist + year identity appears more than once.
+6. The songs dataset is empty or cannot be parsed.
+
+## Remaining release targets
+These require dedicated runtime/integration checks before they can honestly be called automatically enforced:
+- Audio preview actually loads and plays for 20 seconds.
+- Reveal inserts the card only into the active team's timeline.
+- Full-session gameplay finishes without a critical failure.
+- Mobile/iPhone reliability and interaction latency meet their targets.
 
 ## Known regression to prevent
 The 1960–1969 category must never surface tracks from the 2020s or any year outside 1960–1969.
