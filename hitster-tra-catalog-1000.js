@@ -13,9 +13,9 @@ const HITSTER_SOURCE_PLAYLISTS = [
   "PLsLeaTfKv4phc4aAByQXMtZAzcTs87v_k",
 ];
 
-export const HITSTER_TIER_TARGETS = Object.freeze({ A: 700, B: 200, C: 100 });
+const HITSTER_TIER_TARGETS = Object.freeze({ A: 700, B: 200, C: 100 });
 
-export const HITSTER_CATALOG_1000 = Object.freeze(Array.from({ length: 1000 }, (_, index) => {
+const HITSTER_CATALOG_1000 = Object.freeze(Array.from({ length: 1000 }, (_, index) => {
   const rank = index + 1;
   const tier = rank <= 700 ? "A" : rank <= 900 ? "B" : "C";
   const sourcePart = Math.floor(index / 200) + 1;
@@ -36,7 +36,7 @@ export const HITSTER_CATALOG_1000 = Object.freeze(Array.from({ length: 1000 }, (
   });
 }));
 
-export function catalog1000Report(catalog = HITSTER_CATALOG_1000) {
+function catalog1000Report(catalog = HITSTER_CATALOG_1000) {
   const counts = { A: 0, B: 0, C: 0 };
   const ids = new Set();
   let duplicateIds = 0;
@@ -51,3 +51,7 @@ export function catalog1000Report(catalog = HITSTER_CATALOG_1000) {
   const tierCountsValid = counts.A === 700 && counts.B === 200 && counts.C === 100;
   return Object.freeze({ indexed, counts, duplicateIds, tierCountsValid, productionReady, ok: indexed === 1000 && tierCountsValid && duplicateIds === 0 });
 }
+
+const api = { HITSTER_SOURCE_PLAYLISTS, HITSTER_TIER_TARGETS, HITSTER_CATALOG_1000, catalog1000Report };
+if (typeof window !== "undefined") window.HITSTER_TRA_CATALOG = api;
+if (typeof module !== "undefined" && module.exports) module.exports = api;
