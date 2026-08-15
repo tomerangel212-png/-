@@ -16,7 +16,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  quality:
+    name: HITSTER TRA · Zero Wrong Cards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Enforce HITSTER quality gate
+        run: node hitster-quality-check.js
+
   deploy:
+    needs: quality
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
