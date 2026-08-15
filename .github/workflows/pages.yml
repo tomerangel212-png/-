@@ -22,8 +22,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Enforce HITSTER quality gate
+      - name: Enforce HITSTER production quality gate
         run: node hitster-quality-check.js
+      - name: Enforce HITSTER 1000 catalog gate
+        run: node hitster-catalog-1000-check.js
 
   deploy:
     needs: quality
