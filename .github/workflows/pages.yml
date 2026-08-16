@@ -24,8 +24,8 @@ jobs:
         uses: actions/checkout@v6
       - name: Enforce HITSTER production quality gate
         run: node hitster-quality-check.js
-      - name: Enforce HITSTER 1000 catalog gate
-        run: node hitster-catalog-1000-check.js
+      - name: Enforce HITSTER 11,111 catalog capacity gate
+        run: node hitster-catalog-11111-check.js
 
   deploy:
     needs: quality
