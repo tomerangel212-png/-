@@ -1,4 +1,4 @@
-name: Deploy KFAR BLOOM 2026 to GitHub Pages
+name: Publish KFAR BLOOM 2026
 
 on:
   push:
@@ -7,12 +7,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: publish
   cancel-in-progress: true
 
 jobs:
@@ -34,21 +32,26 @@ jobs:
       - name: Enforce HITSTER 11,111 catalog capacity gate
         run: node hitster-catalog-11111-check.js
 
-  deploy:
+  publish:
+    name: Publish static site to gh-pages branch
     needs: quality
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: .
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Prepare publish tree
+        run: |
+          rm -rf .git .github
+          touch .nojekyll
+      - name: Publish gh-pages branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publish $GITHUB_SHA"
+          git branch -M gh-pages
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin gh-pages
