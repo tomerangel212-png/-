@@ -7,11 +7,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+  actions: read
 
 concurrency:
-  group: publish
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   quality:
@@ -19,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - name: Check JavaScript syntax
         run: |
           node --check app.js
@@ -32,26 +35,24 @@ jobs:
       - name: Enforce HITSTER 11,111 catalog capacity gate
         run: node hitster-catalog-11111-check.js
 
-  publish:
-    name: Publish static site to gh-pages branch
+  deploy:
+    name: Deploy static site to GitHub Pages
     needs: quality
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
-      - name: Prepare publish tree
-        run: |
-          rm -rf .git .github
-          touch .nojekyll
-      - name: Publish gh-pages branch
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          git init
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Publish $GITHUB_SHA"
-          git branch -M gh-pages
-          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git push --force origin gh-pages
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
