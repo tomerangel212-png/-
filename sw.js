@@ -1,4 +1,4 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v3";
+const CACHE = "tra-kfar-bloom-2026-offline-v4";
 const CORE = [
   "./",
   "./index.html",
@@ -43,17 +43,17 @@ self.addEventListener("activate", event => {
   })());
 });
 
-async function cacheFirst(request) {
-  const cached = await caches.match(request, {ignoreSearch:false});
-  if (cached) return cached;
+async function networkFirst(request) {
   try {
     const response = await fetch(request);
-    if (response && (response.ok || response.type === "opaque")) {
+    if (response && response.ok) {
       const copy = response.clone();
       caches.open(CACHE).then(cache => cache.put(request, copy)).catch(() => {});
     }
     return response;
   } catch (error) {
+    const cached = await caches.match(request, {ignoreSearch:false});
+    if (cached) return cached;
     if (request.mode === "navigate") {
       return (await caches.match("./links/index.html")) || (await caches.match("./index.html"));
     }
@@ -61,10 +61,22 @@ async function cacheFirst(request) {
   }
 }
 
+async function cacheFirstExternal(request) {
+  const cached = await caches.match(request, {ignoreSearch:false});
+  if (cached) return cached;
+  const response = await fetch(request);
+  if (response && (response.ok || response.type === "opaque")) {
+    const copy = response.clone();
+    caches.open(CACHE).then(cache => cache.put(request, copy)).catch(() => {});
+  }
+  return response;
+}
+
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
   const sameOrigin = url.origin === self.location.origin;
   const applePreview = /(^|\.)itunes\.apple\.com$/.test(url.hostname) || /(^|\.)mzstatic\.com$/.test(url.hostname);
-  if (sameOrigin || applePreview) event.respondWith(cacheFirst(event.request));
+  if (sameOrigin) event.respondWith(networkFirst(event.request));
+  else if (applePreview) event.respondWith(cacheFirstExternal(event.request));
 });
