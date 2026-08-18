@@ -17,11 +17,18 @@ concurrency:
 
 jobs:
   quality:
-    name: HITSTER TRA · Zero Wrong Cards
+    name: TRA · Production release gate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check games.js
+          node --check site-smoke-check.js
+      - name: Run full-site smoke check
+        run: node site-smoke-check.js
       - name: Enforce HITSTER production quality gate
         run: node hitster-quality-check.js
       - name: Enforce HITSTER 11,111 catalog capacity gate
