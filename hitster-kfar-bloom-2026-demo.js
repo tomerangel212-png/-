@@ -13,6 +13,17 @@ const $ = (id) => document.getElementById(id);
 const state = { data:null, era:"1960–1969", current:null, used:new Set(), previewTimer:null, timelines:{} };
 TEAMS.forEach(([id]) => state.timelines[id] = []);
 
+async function enableOffline(){
+  if(!("serviceWorker" in navigator)) return false;
+  try{
+    await navigator.serviceWorker.register("./sw.js",{scope:"./"});
+    await navigator.serviceWorker.ready;
+    return true;
+  }catch{
+    return false;
+  }
+}
+
 function save(){
   localStorage.setItem(STORE, JSON.stringify({used:[...state.used], timelines:state.timelines, era:state.era}));
 }
@@ -88,15 +99,21 @@ async function draw(){
   if(!available.length){$("status").textContent="אין עוד קלפים בטווח הזה. אפשר לבחור תקופה אחרת או לאפס.";return;}
   const pick=available[Math.floor(Math.random()*available.length)]; state.current={era:pick.era,card:pick.card,preview:null}; state.used.add(key(pick.card)); save();
   $("revealed").hidden=true; $("concealed").hidden=false; $("card-meta").textContent=`${pick.era} · קלף ${state.used.size}/350`;
-  $("reveal").disabled=false; $("play").disabled=true; $("status").textContent="מחפש preview פנימי…";
-  try{state.current.preview=await resolvePreview(pick.card); $("play").disabled=!state.current.preview; $("status").textContent=state.current.preview?"מוכן להשמעת 20 שניות בתוך הדמו":"לא נמצא preview; אפשר לחשוף ולהמשיך.";}
-  catch{$("status").textContent="Preview לא זמין כרגע; הקלף עדיין תקין למשחק.";}
+  $("reveal").disabled=false; $("play").disabled=true;
+  $("status").textContent=navigator.onLine?"מחפש preview פנימי…":"📴 Offline · הקלף זמין; בודק אם ה־preview נשמר במכשיר…";
+  try{
+    state.current.preview=await resolvePreview(pick.card);
+    $("play").disabled=!state.current.preview;
+    $("status").textContent=state.current.preview?(navigator.onLine?"מוכן להשמעת 20 שניות בתוך הדמו":"📴 Offline · ה־preview השמור מוכן להשמעה"):"לא נמצא preview; אפשר לחשוף ולהמשיך.";
+  }catch{
+    $("status").textContent=navigator.onLine?"Preview לא זמין כרגע; הקלף עדיין תקין למשחק.":"📴 Offline · המשחק והקלף עובדים; לשיר הזה אין preview שמור במכשיר.";
+  }
 }
 async function play20(){
   if(!state.current?.preview)return; const audio=$("audio");
   if(!audio.paused){stopAudio();return;}
   audio.src=state.current.preview; audio.currentTime=0; $("play").textContent="■ עצירה";
-  try{await audio.play(); state.previewTimer=setTimeout(()=>{audio.pause();audio.currentTime=0;$("play").textContent="▶ 20 שניות";},20000);}catch{$("status").textContent="הדפדפן חסם את ה-preview. לחצו שוב על 20 שניות.";}
+  try{await audio.play(); state.previewTimer=setTimeout(()=>{audio.pause();audio.currentTime=0;$("play").textContent="▶ 20 שניות";},20000);}catch{$("status").textContent=navigator.onLine?"הדפדפן חסם את ה-preview. לחצו שוב על 20 שניות.":"📴 ה־preview הזה עדיין לא נשמר ל־Offline.";}
 }
 function reveal(){
   if(!state.current)return; stopAudio(); const [title,artist,year]=state.current.card;
@@ -110,10 +127,15 @@ function reset(){
 }
 
 async function init(){
-  const response=await fetch("./hitster-kfar-bloom-2026-demo-data.json",{cache:"no-store"}); if(!response.ok) throw new Error("dataset load failed"); state.data=await response.json();
+  const offlineReady=await enableOffline();
+  const response=await fetch("./hitster-kfar-bloom-2026-demo-data.json"); if(!response.ok) throw new Error("dataset load failed"); state.data=await response.json();
   const report=validate(state.data); $("m-total").textContent=report.total; $("m-era").textContent=`${report.validEras}/7`; $("m-dupes").textContent=report.duplicates.length;
-  const badge=$("quality-badge"); badge.textContent=report.ok?"✅ Demo Gate: 350/350 מבנית תקינים":"⛔ Demo Gate נכשל"; if(!report.ok){$("draw").disabled=true; $("status").textContent=report.errors[0]||"Quality gate failed";}
+  const badge=$("quality-badge");
+  badge.textContent=report.ok?(offlineReady?(navigator.onLine?"✅ 350/350 · Offline מוכן":"📴 350/350 · Offline פעיל"):"✅ Demo Gate: 350/350 מבנית תקינים"):"⛔ Demo Gate נכשל";
+  if(!report.ok){$("draw").disabled=true; $("status").textContent=report.errors[0]||"Quality gate failed";}
   restore(); renderEras(); renderTimelines();
   $("draw").onclick=draw; $("play").onclick=play20; $("reveal").onclick=reveal; $("reset").onclick=reset;
+  window.addEventListener("offline",()=>{if(report.ok){badge.textContent="📴 350/350 · Offline פעיל";}});
+  window.addEventListener("online",()=>{if(report.ok){badge.textContent="✅ 350/350 · Offline מוכן";}});
 }
 init().catch(error=>{$("quality-badge").textContent="⛔ הדמו לא נטען";$("status").textContent=String(error.message||error);$("draw").disabled=true;});
