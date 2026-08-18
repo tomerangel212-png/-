@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>קזינו אנג׳ל — שולחן המשפחה</title>
+<style>
+:root{--bg:#070707;--panel:#111;--gold:#d7ad52;--text:#f7f2e8;--muted:#aaa}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,#20170d,#090909 42%,#050505);color:var(--text)}
+button,input,select{font:inherit}.wrap{max-width:1100px;margin:auto;padding:18px}.header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand h1{margin:0;color:var(--gold);font-size:30px}.brand p{margin:5px 0;color:#d1c8b5}.stats{display:flex;gap:10px;flex-wrap:wrap}.pill{padding:10px 14px;border:1px solid #353535;border-radius:999px;background:#141414}
+.gold{color:var(--gold);font-weight:800}.card{background:linear-gradient(180deg,#151515,#0e0e0e);border:1px solid #292929;border-radius:20px;padding:18px;margin-top:16px;box-shadow:0 14px 40px #0006}
+.login{max-width:620px;margin:28px auto}.login h2{margin-top:0}label{display:block;margin:12px 0 6px;color:#d5d5d5}input,select{width:100%;padding:12px;border-radius:12px;border:1px solid #383838;background:#0d0d0d;color:white}
+.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}.primary{background:linear-gradient(#e2be67,#b9892d);color:#161008}.secondary{background:#1a1a1a;color:white;border:1px solid #373737}
+.danger{background:#251313;color:#f1c8c8;border:1px solid #5c2c2c}.hidden{display:none!important}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.tra{font-size:14px;line-height:1.7;color:#cfcfcf;background:#0d0d0d;border-right:4px solid var(--gold);padding:12px 14px;border-radius:10px}
+.table{height:520px;border-radius:47%;background:radial-gradient(ellipse at center,#176645 0,#0c5037 60%,#6b5225 63%,#17120a 68%,#080808 71%);position:relative;margin-top:18px;box-shadow:inset 0 0 90px #0008}
+.seat{position:absolute;text-align:center;min-width:90px}.avatar{width:56px;height:56px;border-radius:50%;border:2px solid #b99548;background:#1b1b1b;display:grid;place-items:center;margin:auto;font-size:26px}
+.name{font-weight:800;margin-top:3px}.stack{font-size:12px;color:#dfc47f}.s1{left:5%;top:18%}.s2{left:26%;top:2%}.s3{right:26%;top:2%}.s4{right:5%;top:18%}
+.s5{right:6%;bottom:16%}.s6{right:30%;bottom:2%}.s7{left:30%;bottom:2%}.s8{left:6%;bottom:16%}.pot{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);color:#ffe2a5;font-weight:900;font-size:22px}
+.board{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);display:flex;gap:6px}.playcard{width:46px;height:64px;background:#f5f0e6;color:#111;border-radius:8px;display:grid;place-items:center;font-weight:900;box-shadow:0 4px 10px #0009}
+.grid{display:grid;grid-template-columns:1fr 330px;gap:16px}.log{max-height:420px;overflow:auto;display:flex;flex-direction:column;gap:8px}.logItem{padding:10px;border-radius:10px;background:#171717;color:#d1d1d1;font-size:13px}
+.status{font-size:14px;line-height:1.6}@media(max-width:850px){.grid{grid-template-columns:1fr}.table{height:430px}.seat{min-width:72px}.avatar{width:48px;height:48px;font-size:22px}.playcard{width:38px;height:54px}.brand h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="header">
+<div class="brand"><h1>👼 קזינו אנג׳ל</h1><p>חברה ותרבות לפני כסף • מהות לפני רווח</p></div>
+<div class="stats"><div class="pill">🪙 בנק: <span class="gold" id="bank">0</span></div><div class="pill">🪽 Wings: <span class="gold" id="wings">0</span></div><button class="btn secondary hidden" id="switchBtn" onclick="switchPlayer()">👤 החלף/י שחקן</button></div>
+</header>
+
+<section class="card login" id="loginCard">
+<h2>👼 כניסה לשולחן</h2>
+<p>הירשם/י עם מייל ובחר/י שם ודמות. הפרופיל שלך (ז׳טוני בנק וקינגס) יישמר לפי המייל, ותוכל/י לחזור אליו בכל פעם.</p>
+<label>אימייל</label><input id="email" type="email" placeholder="you@example.com">
+<label>איך קוראים לך בשולחן?</label><input id="displayName" type="text" placeholder="תומר">
+<label>בחר/י דמות (אווטאר)</label>
+<select id="avatar"><option>👼</option><option>🎮</option><option>🃏</option><option>🏀</option><option>🏐</option><option>🩺</option><option>🎲</option><option>🎵</option></select>
+<div class="actions"><button class="btn primary" onclick="enterTable()">🚪 כניסה לשולחן</button></div>
+</section>
+
+<main id="gameApp" class="hidden">
+<section class="card">
+<h2 style="margin-top:0">שולחן המשפחה — 8 שחקנים</h2>
+<p>אתה מול 7 בוטים • ז׳טונים וירטואליים בלבד</p>
+<div class="tra"><b>TRA:</b> תכלית — משחק חברתי. רלוונטיות — כל שחקן עם אופי משלו, כולל אתה. איכות — חפיסה אמיתית של 52 קלפים עם קלף שריפה בכל רחוב, 8 ערכי ז׳טונים (10/50/100/200/250/500/750/1000), שעון תור של 15 שניות לכל שחקן, בליינדים, קופות צד וסיום טורניר. נגישות — HTML יחיד, ללא שרת; הכניסה במייל נשמרת רק בדפדפן שלך.</div>
+<div class="actions"><button class="btn primary" onclick="manualHand()">▶ משחק ידני</button><button class="btn primary" onclick="runFullGame()">⚡ הרץ משחק מלא</button><button class="btn secondary" onclick="manualHand()">יד אחת</button><button class="btn danger" onclick="resetTournament()">איפוס</button></div>
+</section>
+
+<div class="grid">
+<section class="card"><div class="table">
+<div class="seat s1"><div class="avatar">🃏</div><div class="name">איילת</div><div class="stack" id="st-ayelet">10,000</div></div>
+<div class="seat s2"><div class="avatar">🏀</div><div class="name">דוד</div><div class="stack" id="st-david">10,000</div></div>
+<div class="seat s3"><div class="avatar">🎲</div><div class="name">שרון</div><div class="stack" id="st-sharon">10,000</div></div>
+<div class="seat s4"><div class="avatar">🏐</div><div class="name">נעמה</div><div class="stack" id="st-naama">10,000</div></div>
+<div class="seat s5"><div class="avatar">🎮</div><div class="name">רז</div><div class="stack" id="st-raz">10,000</div></div>
+<div class="seat s6"><div class="avatar">🩺</div><div class="name">נווה</div><div class="stack" id="st-naveh">10,000</div></div>
+<div class="seat s7"><div class="avatar">🤖</div><div class="name">בוט TRA</div><div class="stack" id="st-tra">10,000</div></div>
+<div class="seat s8"><div class="avatar" id="meAvatar">👼</div><div class="name" id="meName">אתה</div><div class="stack" id="st-me">10,000</div></div>
+<div class="pot">קופה: <span id="pot">0</span></div><div class="board" id="board"></div>
+</div></section>
+<aside><section class="card"><h3>מצב הטורניר</h3><div class="status" id="status">8 שחקנים פעילים • יד 0 • בליינדים 50/100</div></section><section class="card"><h3>יומן משחק</h3><div class="log" id="log"><div class="logItem">מוכן להתחלה.</div></div></section></aside>
+</div>
+</main>
+
+<section class="card"><small>אין הפקדה, משיכה או הימור בכסף אמיתי. כל הז׳טונים הם וירטואליים. המייל משמש רק לשמירת הפרופיל שלך בדפדפן זה — לא נשלח לשום שרת.</small></section>
+</div>
+
+<script>
+const PROFILE_PREFIX='casinoAngelProfile:';const CHIP_VALUES=[10,50,100,200,250,500,750,1000];
+const BOT_PROFILES={ayelet:{name:'איילת',skill:.90,aggr:.64,patience:.84},david:{name:'דוד',skill:.70,aggr:.88,patience:.40},sharon:{name:'שרון',skill:.73,aggr:.56,patience:.75},naama:{name:'נעמה',skill:.77,aggr:.60,patience:.69},raz:{name:'רז',skill:.82,aggr:.68,patience:.64},naveh:{name:'נווה',skill:.95,aggr:.52,patience:.95},tra:{name:'בוט TRA',skill:.80,aggr:.61,patience:.72},me:{name:'אתה',skill:.78,aggr:.63,patience:.64}};
+let currentEmail='',profile=null,stacks={},hand=0,pot=0,running=false;
+function fmt(n){return Math.max(0,Math.round(n)).toLocaleString('he-IL')}
+function log(msg){const el=document.createElement('div');el.className='logItem';el.textContent=msg;document.getElementById('log').prepend(el)}
+function saveProfile(){if(currentEmail&&profile)localStorage.setItem(PROFILE_PREFIX+currentEmail,JSON.stringify(profile))}
+function enterTable(){const email=document.getElementById('email').value.trim().toLowerCase(),name=document.getElementById('displayName').value.trim(),avatar=document.getElementById('avatar').value;if(!email||!email.includes('@'))return alert('נא להזין אימייל תקין');if(!name)return alert('נא לבחור שם לשולחן');currentEmail=email;const saved=localStorage.getItem(PROFILE_PREFIX+email);profile=saved?JSON.parse(saved):{email,name,avatar,bank:10000,wings:0};profile.name=name;profile.avatar=avatar;saveProfile();document.getElementById('loginCard').classList.add('hidden');document.getElementById('gameApp').classList.remove('hidden');document.getElementById('switchBtn').classList.remove('hidden');document.getElementById('meName').textContent=profile.name;document.getElementById('meAvatar').textContent=profile.avatar;updateTop();resetTournament();log('נכנסת לשולחן כ-'+profile.name+'.')}
+function switchPlayer(){document.getElementById('gameApp').classList.add('hidden');document.getElementById('loginCard').classList.remove('hidden');document.getElementById('switchBtn').classList.add('hidden')}
+function updateTop(){document.getElementById('bank').textContent=fmt(profile?profile.bank:0);document.getElementById('wings').textContent=fmt(profile?profile.wings:0)}
+function resetTournament(){stacks={ayelet:10000,david:10000,sharon:10000,naama:10000,raz:10000,naveh:10000,tra:10000,me:10000};hand=0;pot=0;running=false;document.getElementById('board').innerHTML='';document.getElementById('log').innerHTML='<div class="logItem">הטורניר אופס. 8 שחקנים × 10,000 = 80,000 ז׳טונים.</div>';updateUI()}
+function updateUI(){Object.keys(stacks).forEach(k=>{const e=document.getElementById('st-'+k);if(e)e.textContent=fmt(stacks[k])+(stacks[k]<=0?' • OUT':'')});document.getElementById('pot').textContent=fmt(pot);const alive=Object.values(stacks).filter(v=>v>0).length;document.getElementById('status').textContent=alive+' שחקנים פעילים • יד '+hand+' • בליינדים 50/100';const total=Object.values(stacks).reduce((a,b)=>a+b,0)+pot;if(total!==80000)log('⚠ בדיקת ז׳טונים נכשלה: '+fmt(total)+'/80,000')}
+function makeDeck(){const suits=['♠','♥','♦','♣'],ranks=['2','3','4','5','6','7','8','9','10','J','Q','K','A'],deck=[];suits.forEach(s=>ranks.forEach(r=>deck.push(r+s)));for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}return deck}
+function cardValue(c){const r=c.slice(0,-1),map={J:11,Q:12,K:13,A:14};return map[r]||Number(r)}
+function bestScore(hole,board){const vals=hole.concat(board).map(cardValue).sort((a,b)=>b-a),unique=[...new Set(vals)],counts={};vals.forEach(v=>counts[v]=(counts[v]||0)+1);let score=unique[0]/100;const groups=Object.entries(counts).sort((a,b)=>b[1]-a[1]||b[0]-a[0]);if(groups[0][1]===4)score+=7;else if(groups[0][1]===3&&groups[1]&&groups[1][1]>=2)score+=6;else if(groups[0][1]===3)score+=3;else if(groups[0][1]===2&&groups[1]&&groups[1][1]===2)score+=2;else if(groups[0][1]===2)score+=1;return score}
+function manualHand(){if(Object.values(stacks).filter(v=>v>0).length<=1)return log('הטורניר כבר הסתיים.');hand++;pot=0;const active=Object.keys(stacks).filter(k=>stacks[k]>0),deck=makeDeck(),hole={};active.forEach(k=>hole[k]=[deck.pop(),deck.pop()]);const burn=()=>deck.pop();burn();const board=[deck.pop(),deck.pop(),deck.pop()];burn();board.push(deck.pop());burn();board.push(deck.pop());document.getElementById('board').innerHTML=board.map(c=>'<div class="playcard">'+c+'</div>').join('');active.forEach(k=>{const ante=Math.min(stacks[k],100);stacks[k]-=ante;pot+=ante;if(stacks[k]>0){const p=BOT_PROFILES[k],bet=Math.min(stacks[k],CHIP_VALUES[Math.min(CHIP_VALUES.length-1,Math.floor((p.aggr*Math.random()+.25)*CHIP_VALUES.length))]);stacks[k]-=bet;pot+=bet}});let best=-1,winners=[];active.forEach(k=>{const p=BOT_PROFILES[k],score=bestScore(hole[k],board)+p.skill*.08+Math.random()*.12;if(score>best+.0001){best=score;winners=[k]}else if(Math.abs(score-best)<.0001){winners.push(k)}});if(winners.length===1){stacks[winners[0]]+=pot;log('🏆 יד '+hand+': '+BOT_PROFILES[winners[0]].name+' לקח/ה '+fmt(pot)+' ז׳טונים.')}else{const share=Math.floor(pot/winners.length),rem=pot-share*winners.length;winners.forEach((k,i)=>stacks[k]+=share+(i===0?rem:0));log('🤝 תיקו — תשבי יבוא ויתרץ קושיות. הקופה התחלקה.')}pot=0;updateUI()}
+async function runFullGame(){if(running)return;running=true;let guard=0;while(Object.values(stacks).filter(v=>v>0).length>1&&guard<300){manualHand();guard++;await new Promise(r=>setTimeout(r,20))}running=false;const champ=Object.keys(stacks).find(k=>stacks[k]>0);if(champ){log('👑 אלוף הטורניר: '+BOT_PROFILES[champ].name+' עם '+fmt(stacks[champ])+' ז׳טונים.');if(champ==='me'&&profile){profile.bank+=10000;profile.wings+=100;saveProfile();updateTop()}}else log('🤝 תיקו — תשבי יבוא ויתרץ קושיות.')}
+</script>
+</body></html>
