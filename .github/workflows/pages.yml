@@ -97,6 +97,6 @@ jobs:
       - name: Record successful deploy health in PostHog
         shell: bash
         run: |
-          curl -fsS --max-time 20 "https://us.i.posthog.com/i/v0/e/" \
+          curl -fsS --max-time 20 "https://us.i.posthog.com/i/v0/e" \
             -H "Content-Type: application/json" \
-            --data-binary '{"api_key":"phc_va9g3UBzamuTv5vAe4PYnbwrDwdxY2d5WboVW7VWtVBE","event":"tomer_links_deploy_verified","properties":{"distinct_id":"github-actions-tomer-links-health","site":"tomer-rafael-angel-links","status":"live","synthetic":true,"url":"https://tomerangel212-png.github.io/-/links/"}}'
+            --data-binary '{"api_key":"phc_va9g3UBzamuTv5vAe4PYnbwrDwdxY2d5WboVW7VWtVBE","event":"tomer_links_deploy_verified","distinct_id":"github-actions-tomer-links-health","properties":{"site":"tomer-rafael-angel-links","status":"live","synthetic":true,"url":"https://tomerangel212-png.github.io/-/links/"}}'
