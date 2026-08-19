@@ -30,13 +30,13 @@ jobs:
           node --check games-hub.js
           node --check hitster-kfar-bloom-2026-demo.js
           node --check build-hitster-hebrew-alist.js
-          node --check hitster-444-check.js
+          node --check hitster-888-check.js
           node --check site-smoke-check.js
           node --check tra-games-quality-check.js
       - name: Build HITSTER 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
       - name: Enforce HITSTER 888 = 222×4
-        run: node hitster-444-check.js
+        run: node hitster-888-check.js
       - name: Run full-site smoke check
         run: node site-smoke-check.js
       - name: Enforce TRA Games quality gate
@@ -80,7 +80,7 @@ jobs:
       - name: Verify generated deck exists
         run: |
           test -s hitster-hebrew-alist-888.json
-          node hitster-444-check.js
+          node hitster-888-check.js
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
@@ -104,7 +104,21 @@ jobs:
             sleep 10
           done
           test "$ok" -eq 1
-      - name: Verify public HITSTER 888 UI
+      - name: Verify public HITSTER 888 hub
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="https://tomerangel212-png.github.io/-/hitster.html"
+          ok=0
+          for attempt in {1..12}; do
+            if body="$(curl -fsSL --max-time 20 "$URL" 2>/dev/null)" && grep -q "888 קלפי שירים" <<<"$body" && ! grep -q "350 הקלפים" <<<"$body" && ! grep -q "444 קלפי" <<<"$body"; then
+              ok=1
+              break
+            fi
+            sleep 10
+          done
+          test "$ok" -eq 1
+      - name: Verify public HITSTER 888 game UI
         shell: bash
         run: |
           set -euo pipefail
