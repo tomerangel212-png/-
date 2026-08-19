@@ -41,11 +41,24 @@ const patches = [
 ];
 
 for (const patch of patches) {
-  if (!source.includes(patch.from)) {
-    throw new Error("TRA Chess upgrade patch target not found");
-  }
+  if (!source.includes(patch.from)) throw new Error("TRA Chess upgrade patch target not found");
   source = source.replace(patch.from, patch.to);
 }
+
+const ratingLabels = {
+  shaked: "שקד · 1000",
+  tomer: "תומר · 1500",
+  matan: "מתן · 2000",
+  shiki: "שיקי · 2500",
+  anti: "♛ אנט / אנטי · 3000 · מלכת השחמט"
+};
+const botSelect = document.querySelector("#bot-select");
+for (const [id,label] of Object.entries(ratingLabels)) {
+  const option = botSelect?.querySelector(`option[value="${id}"]`);
+  if (option) option.textContent = label;
+}
+const chessCard = document.querySelector('[data-game-number="7"] p');
+if (chessCard) chessCard.textContent = "שחמט מול שקד 1000, תומר 1500, מתן 2000, שיקי 2500 ואנט/אנטי 3000 — מלכת השחמט.";
 
 const blobUrl = URL.createObjectURL(new Blob([source], { type: "text/javascript" }));
 try {
