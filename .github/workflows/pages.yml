@@ -26,6 +26,7 @@ jobs:
         run: |
           node --check app.js
           node --check games.js
+          node --check games-hub.js
           node --check site-smoke-check.js
           node --check tra-games-quality-check.js
       - name: Run full-site smoke check
