@@ -1,10 +1,9 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v6";
+const CACHE = "tra-kfar-bloom-2026-offline-v6-hebrew-alist";
 const HITSTER_OFFLINE = [
   "./hitster.html",
   "./hitster-kfar-bloom-2026-demo.html",
   "./hitster-kfar-bloom-2026-demo.js",
-  "./hitster-kfar-bloom-2026-demo-data.json",
-  "./hitster-expansion-444.json",
+  "./hitster-hebrew-alist-444.json",
   "./games.html",
   "./games.css",
   "./games.js",
@@ -31,8 +30,7 @@ const CORE = [
   "./music-drive.html",
   "./hitster-kfar-bloom-2026-demo.html",
   "./hitster-kfar-bloom-2026-demo.js",
-  "./hitster-kfar-bloom-2026-demo-data.json",
-  "./hitster-expansion-444.json",
+  "./hitster-hebrew-alist-444.json",
   "./songs/",
   "./songs/index.html",
   "./poetry/",
@@ -83,7 +81,7 @@ async function networkFirst(request) {
     }
     return response;
   } catch (error) {
-    const cached = await caches.match(request, {ignoreSearch:false});
+    const cached = await caches.match(request, { ignoreSearch: false });
     if (cached) return cached;
     if (request.mode === "navigate") {
       const url = new URL(request.url);
@@ -97,7 +95,7 @@ async function networkFirst(request) {
 }
 
 async function cacheFirstExternal(request) {
-  const cached = await caches.match(request, {ignoreSearch:false});
+  const cached = await caches.match(request, { ignoreSearch: false });
   if (cached) return cached;
   const response = await fetch(request);
   if (response && (response.ok || response.type === "opaque")) {
