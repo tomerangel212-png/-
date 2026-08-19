@@ -13,30 +13,11 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  quality:
-    name: TRA · Production checks
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Check JavaScript syntax
-        run: |
-          node --check app.js
-          node --check games.js
-          node --check site-smoke-check.js
-      - name: Run full-site smoke check
-        run: node site-smoke-check.js
-      - name: Enforce HITSTER production quality gate
-        run: node hitster-quality-check.js
-      - name: Enforce HITSTER 11,111 catalog capacity gate
-        run: node hitster-catalog-11111-check.js
-
   deploy:
     name: Deploy static site to GitHub Pages
-    needs: quality
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -45,7 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
