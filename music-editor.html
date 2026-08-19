@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10152a">
+  <meta name="description" content="מי רוצה להיות עורך מוזיקלי? משחק TRA בן 15 שלבים על עריכה מוזיקלית, רצף, קצב, מעברים והחלטות מערכת.">
+  <title>מי רוצה להיות עורך מוזיקלי? — TRA Games</title>
+  <style>
+    :root{--bg:#090d1b;--panel:#121936;--panel2:#182146;--text:#f7f8ff;--muted:#aeb8d9;--line:#2b386b;--gold:#f2c75c;--good:#66d7a7;--bad:#ff7a88}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -15%,#26346e 0,#111831 35%,var(--bg) 75%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.app{width:min(920px,calc(100% - 24px));margin:auto;padding:24px 0 48px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.brand,.back{color:var(--text);text-decoration:none;font-weight:900}.tag{color:var(--gold);font-size:13px;font-weight:900}.hero,.game,.ladder{border:1px solid var(--line);background:linear-gradient(145deg,var(--panel2),var(--panel));border-radius:24px;box-shadow:0 16px 42px rgba(0,0,0,.24)}.hero{padding:24px;text-align:center}.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--gold);font-weight:900}.hero h1{font-size:clamp(32px,7vw,58px);margin:8px 0}.hero p{color:var(--muted);line-height:1.6;margin:0 auto;max-width:700px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:16px;margin-top:16px}.game{padding:20px}.topline{display:flex;justify-content:space-between;gap:10px;align-items:center}.level{font-weight:950;color:var(--gold)}.status{font-size:13px;color:var(--muted)}.question{font-size:clamp(21px,4.5vw,30px);font-weight:900;line-height:1.45;margin:22px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #394985;background:#101735;color:var(--text);border-radius:16px;padding:15px;text-align:right;font:inherit;font-weight:800;cursor:pointer;min-height:64px}.answer:hover:not(:disabled){border-color:#788de4;transform:translateY(-1px)}.answer.correct{border-color:var(--good);background:#123a35}.answer.wrong{border-color:var(--bad);background:#46202d}.answer:disabled{cursor:default}.feedback{margin-top:14px;min-height:68px;border-radius:16px;padding:14px;background:#0d1430;color:var(--muted);line-height:1.55}.feedback strong{color:var(--text)}.lifelines{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.lifelines button,.next,.restart{border:1px solid #3a4d8d;border-radius:14px;background:#1b2854;color:var(--text);padding:11px 14px;font-weight:850;cursor:pointer}.lifelines button:disabled{opacity:.4;cursor:default}.next{width:100%;margin-top:14px;background:var(--gold);border-color:var(--gold);color:#17130a}.next:disabled{opacity:.38;cursor:default}.ladder{padding:14px}.ladder h2{font-size:14px;margin:0 0 10px;color:var(--muted)}.rung{display:flex;justify-content:space-between;gap:8px;padding:7px 9px;border-radius:10px;font-size:12px;color:#99a6d2}.rung.current{background:#273469;color:#fff;font-weight:900}.rung.safe{color:var(--gold);font-weight:800}.rung.done{color:var(--good)}.finish{text-align:center;padding:18px}.finish h2{font-size:30px;margin:4px}.finish p{color:var(--muted);line-height:1.6}.restart{background:var(--gold);color:#17130a;border-color:var(--gold)}footer{margin-top:18px;text-align:center;color:#7f8aae;font-size:12px}@media(max-width:720px){.layout{grid-template-columns:1fr}.ladder{order:-1}.ladder-list{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.rung{display:block;text-align:center;padding:7px 3px}.rung span:last-child{display:none}}@media(max-width:520px){.answers{grid-template-columns:1fr}.hero{padding:20px 14px}.game{padding:15px}.app{width:min(100% - 16px,920px)}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header><a class="brand" href="games.html">← TRA GAMES</a><span class="tag">משחק 16 · MUSIC EDITOR</span></header>
+  <section class="hero">
+    <div class="eyebrow">THE TRA · הקשבה · שיקול דעת · רצף</div>
+    <h1>🎚️ מי רוצה להיות עורך מוזיקלי?</h1>
+    <p>15 החלטות מקצועיות בדרך לכיסא העורך. בחרו את ההחלטה המוזיקלית הטובה ביותר, השתמשו בגלגלי ההצלה, ונסו להגיע ל־1,000,000 נקודות עריכה.</p>
+  </section>
+
+  <section class="layout" id="play-area">
+    <div class="game" id="game-card">
+      <div class="topline"><span class="level" id="level">שלב 1</span><span class="status" id="score">100 נקודות</span></div>
+      <div class="question" id="question"></div>
+      <div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback">בחרו תשובה. המטרה היא לא רק לדעת מוזיקה — אלא להבין רצף, קהל והקשר.</div>
+      <div class="lifelines">
+        <button id="fifty" type="button">50:50</button>
+        <button id="hint" type="button">🎧 רמז מקצועי</button>
+        <button id="skip" type="button">⏭️ דילוג</button>
+      </div>
+      <button class="next" id="next" type="button" disabled>לשלב הבא</button>
+    </div>
+    <aside class="ladder"><h2>סולם העריכה</h2><div class="ladder-list" id="ladder"></div></aside>
+  </section>
+
+  <footer>TRA · תכלית · רלוונטיות · איכות</footer>
+</main>
+<script>
+const questions=[
+  {q:"שני שירים חזקים נשמעים מצוין לבד, אבל המעבר ביניהם צורם. מה בודקים קודם?",a:["רק את אורך השירים","קצב, אנרגיה וטונאליות במעבר","כמה עוקבים יש לאמנים","מי יצא קודם"],c:1,h:"עריכה מוזיקלית עוסקת גם במה שקורה בין השירים.",e:"מעבר טוב נבחן לפי אנרגיה, BPM, אופי פתיחה/סיום ולעיתים גם סולם — לא רק לפי איכות כל שיר בפני עצמו."},
+  {q:"מהו רצף מוזיקלי טוב לשעת האזנה?",a:["15 שירים באותה אנרגיה","רק שירים חדשים","קשת אנרגיה עם עליות, נשימה והיגיון","סדר אקראי לחלוטין"],c:2,h:"חשבו על שעה כעל סיפור.",e:"רצף טוב יוצר קשת: פתיחה, בנייה, רגעי שיא ונשימה. אחידות מוחלטת מעייפת; אקראיות שוברת הקשר."},
+  {q:"שיר נפתח ב־28 שניות שקטות. הוא משובץ אחרי קטע מהיר. מה הסיכון המרכזי?",a:["המאזין יחשוב שהנגן נתקע","הזמר ישיר גבוה מדי","הקובץ יהפוך למונו","השיר יתארך בדקה"],c:0,h:"חשבו על חוויית ההאזנה הרציפה.",e:"אחרי קטע אנרגטי, פתיחה שקטה וארוכה עלולה להרגיש כמו תקלה או נפילת מתח. צריך להחליט אם ההקשר דווקא משרת את זה."},
+  {q:"מתי נכון לשלב שיר מוכר מאוד?",a:["תמיד ראשון","רק בסוף","כשצריך עוגן מוכר בתוך רצף פחות צפוי","אסור לשלב להיטים"],c:2,h:"להיט יכול להיות עוגן, לא רק יעד.",e:"שיר מוכר יכול להחזיר קשב ולתת ביטחון בין בחירות פחות צפויות. המיקום חשוב יותר מהעיקרון 'להיט = ראשון'."},
+  {q:"שני שירים רצופים מתחילים באותה צורת תוף ובאותו BPM. מה עלול לקרות?",a:["הם בהכרח יתמזגו מושלם","המעבר עלול להרגיש שטוח או כמו אותו שיר","הווליום יוכפל","אין לזה משמעות"],c:1,h:"דמיון יכול לעזור — אבל גם למחוק ניגוד.",e:"דמיון רב מדי יכול לייצר רצף שטוח. לפעמים דווקא שינוי במרקם או בדינמיקה יוצר מעבר חד וברור יותר."},
+  {q:"מה חשוב יותר בבחירת שיר לקהל מסוים?",a:["הטעם האישי של העורך בלבד","הקשר, קהל ומטרת המשבצת","מספר כלי הנגינה","שם קצר"],c:1,h:"עורך עובד עבור הקשר, לא רק עבור עצמו.",e:"בחירה מקצועית מאזנת טעם עם קהל, זמן, מצב רוח ומטרה. טעם אישי הוא כלי — לא הקריטריון היחיד."},
+  {q:"יש לכם שיר מצוין אבל הטקסט שלו לא מתאים לאירוע משפחתי. מה עושים?",a:["משמיעים כי המוזיקה טובה","בודקים גרסה חלופית או בוחרים שיר אחר","מנמיכים רק את המילים","משנים את שם השיר"],c:1,h:"עריכה כוללת גם משמעות, לא רק סאונד.",e:"מילים והקשר הם חלק מהבחירה. כשיש חוסר התאמה, עדיף גרסה מתאימה או בחירה אחרת — במיוחד באירוע עם קהל מגוון."},
+  {q:"איזה מעבר לרוב ירגיש טבעי יותר?",a:["קפיצה חדה בלי סיבה בין קצוות אנרגיה","שינוי שמכין את האוזן דרך קצב, מרקם או אווירה","שני שירים זהים","תמיד Fade של 10 שניות"],c:1,h:"הכנה יכולה להיות מוזיקלית, לא טכנית בלבד.",e:"מעבר טבעי יכול להישען על קצב, מרקם, טונאליות, תוכן או אנרגיה. Fade הוא רק כלי אחד ולא פתרון אוניברסלי."},
+  {q:"מה עושים כשיש התלבטות בין שתי גרסאות של אותו שיר?",a:["בוחרים תמיד את הארוכה","משווים בהקשר האמיתי של הרצף","מטילים מטבע","בוחרים את זו עם עטיפה יפה"],c:1,h:"האזינו לפני ואחרי, לא רק לשיר עצמו.",e:"הגרסה הנכונה נבחרת לפי מה שעובד בתוך הרצף: פתיחה, אורך, מיקס, טקסט ואנרגיה ביחס לשירים הסמוכים."},
+  {q:"רצף טוב נבנה בעיקר לפי…",a:["שנת יציאה בלבד","דירוגי מצעדים בלבד","יחסים בין השירים והחוויה הכוללת","סדר אלפביתי"],c:2,h:"השלם צריך להיות חזק מסכום חלקיו.",e:"עריכה מוזיקלית היא אמנות היחסים בין שירים. נתונים עוזרים, אבל החוויה הכוללת היא המדד המרכזי."},
+  {q:"מהו סימן לכך שהרצף צריך תיקון?",a:["כל השירים טובים","יש נקודה שבה הקשב והאנרגיה נופלים בלי כוונה","יש יותר מזמר אחד","יש שירים משלוש שנים שונות"],c:1,h:"חפשו נפילה לא מכוונת.",e:"נפילת אנרגיה יכולה להיות מצוינת אם היא מכוונת. הבעיה היא כשהיא מרגישה מקרית ושוברת את הקשת."},
+  {q:"שיר חדש ולא מוכר מתאים מושלם לרצף. מה הגישה המקצועית?",a:["לפסול כי אינו מוכר","לשלב אם הוא משרת את הרצף והקהל","לשים רק אחרי חצות","להשמיע פעמיים ברצף"],c:1,h:"חדשנות היא חלק מעריכה, כשהיא משרתת מטרה.",e:"עורך טוב לא רק משחזר מוכר; הוא גם מגלה. אם השיר מתאים להקשר, אפשר לשלב אותו בעזרת עוגנים נכונים סביבו."},
+  {q:"מתי ניגוד חד בין שני שירים יכול להיות החלטה טובה?",a:["אף פעם","רק כשה־BPM זהה","כשהניגוד יוצר רגע מכוון, הפתעה או שינוי פרק","רק אם אותו אמן שר"],c:2,h:"לא כל מעבר צריך להיות חלק.",e:"ניגוד חד יכול להיות כלי דרמטי. ההבדל הוא בין שבירה מכוונת עם משמעות לבין מעבר מקרי שמרגיש כמו טעות."},
+  {q:"מה התפקיד של שקט או ירידת אנרגיה ברצף?",a:["תמיד תקלה","לתת נשימה ולהעצים את השיא הבא","להאריך את התוכנית","להחליש את כל השירים"],c:1,h:"בלי שקט, שיאים מאבדים כוח.",e:"נשימה היא חלק מהדינמיקה. ירידה מתוכננת יכולה לגרום לחזרה האנרגטית להרגיש חזקה יותר."},
+  {q:"אתם בשלב האחרון. מהי ההגדרה הטובה ביותר לעורך מוזיקלי מצוין?",a:["מי שמכיר הכי הרבה טריוויה","מי שבוחר רק את השירים שהוא אוהב","מי שמחבר מוזיקה, קהל, הקשר ורצף להחלטה אחת ברורה","מי שלא משנה אף פעם את הבחירה הראשונה"],c:2,h:"המבחן הוא חיבור בין ידע לשיקול דעת.",e:"עריכה מוזיקלית מצוינת מחברת ידע, הקשבה, קהל, הקשר ותזמון. המטרה היא חוויה שלמה — לא אוסף בחירות נפרדות."}
+];
+const prizes=[100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
+let index=0,answered=false,failed=false;const used={fifty:false,hint:false,skip:false};
+const qEl=document.getElementById('question'),answersEl=document.getElementById('answers'),feedback=document.getElementById('feedback'),next=document.getElementById('next'),level=document.getElementById('level'),score=document.getElementById('score'),ladder=document.getElementById('ladder');
+function safeLevel(i){if(i>=14)return 1000000;if(i>=9)return 32000;if(i>=4)return 1000;return 0}
+function renderLadder(){ladder.innerHTML='';for(let i=14;i>=0;i--){const r=document.createElement('div');r.className='rung'+(i===index?' current':'')+(i<index?' done':'')+([4,9,14].includes(i)?' safe':'');r.innerHTML=`<span>${i+1}</span><span>${prizes[i].toLocaleString('he-IL')}</span>`;ladder.appendChild(r)}}
+function render(){const item=questions[index];answered=false;failed=false;level.textContent=`שלב ${index+1} מתוך 15`;score.textContent=`${prizes[index].toLocaleString('he-IL')} נקודות`;qEl.textContent=item.q;answersEl.innerHTML='';item.a.forEach((text,i)=>{const b=document.createElement('button');b.className='answer';b.dataset.index=i;b.textContent=`${String.fromCharCode(65+i)}. ${text}`;b.onclick=()=>choose(i,b);answersEl.appendChild(b)});feedback.textContent='בחרו תשובה. המטרה היא לא רק לדעת מוזיקה — אלא להבין רצף, קהל והקשר.';next.disabled=true;next.textContent=index===14?'סיימו את המשחק':'לשלב הבא';document.getElementById('fifty').disabled=used.fifty;document.getElementById('hint').disabled=used.hint;document.getElementById('skip').disabled=used.skip;renderLadder()}
+function choose(choice,button){if(answered)return;answered=true;const item=questions[index];document.querySelectorAll('.answer').forEach(b=>b.disabled=true);const correct=document.querySelector(`.answer[data-index="${item.c}"]`);correct.classList.add('correct');if(choice!==item.c){button.classList.add('wrong');failed=true;feedback.innerHTML=`<strong>לא הפעם.</strong> ${item.e}<br>נקודת הביטחון האחרונה: ${safeLevel(index-1).toLocaleString('he-IL')}.`}else{feedback.innerHTML=`<strong>נכון.</strong> ${item.e}`;}next.disabled=false;}
+function finish(won){const area=document.getElementById('play-area');const final=won?1000000:safeLevel(index-1);area.innerHTML=`<section class="game finish" style="grid-column:1/-1"><div class="eyebrow">TRA MUSIC EDITOR</div><h2>${won?'🏆 עורך מוזיקלי ראשי!':'🎚️ סיום סבב'}</h2><p>${won?'עברתם את כל 15 שלבי העריכה.':'הגעתם לשלב '+(index+1)+'.'}<br><strong>${final.toLocaleString('he-IL')} נקודות עריכה</strong></p><button class="restart" onclick="location.reload()">שחקו שוב</button> <a class="back" href="games.html">חזרה למשחקים</a></section>`}
+next.onclick=()=>{if(!answered)return;if(failed){finish(false);return}if(index===14){finish(true);return}index++;render()};
+document.getElementById('fifty').onclick=()=>{if(answered||used.fifty)return;used.fifty=true;const item=questions[index];const wrong=[0,1,2,3].filter(i=>i!==item.c).sort(()=>Math.random()-.5).slice(0,2);wrong.forEach(i=>{const b=document.querySelector(`.answer[data-index="${i}"]`);b.disabled=true;b.style.opacity='.25'});document.getElementById('fifty').disabled=true};
+document.getElementById('hint').onclick=()=>{if(answered||used.hint)return;used.hint=true;feedback.innerHTML=`<strong>רמז:</strong> ${questions[index].h}`;document.getElementById('hint').disabled=true};
+document.getElementById('skip').onclick=()=>{if(answered||used.skip)return;used.skip=true;feedback.innerHTML='<strong>דילוג הופעל.</strong> השלב נחשב כעברתם אותו.';answered=true;document.querySelectorAll('.answer').forEach(b=>b.disabled=true);next.disabled=false;document.getElementById('skip').disabled=true};
+render();
+</script>
+</body>
+</html>
