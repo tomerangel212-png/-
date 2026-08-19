@@ -92,8 +92,29 @@ const checks = [
     pass:
       gamesJs.includes("king cannot move into rook check") &&
       gamesJs.includes("king cannot stay in check") &&
+      gamesJs.includes("king cannot capture protected piece") &&
       gamesJs.includes("kings cannot become adjacent") &&
       gamesJs.includes("castle through check blocked")
+  },
+  {
+    name: "Special chess rules are regression-tested",
+    pass:
+      gamesJs.includes("en passant available immediately") &&
+      gamesJs.includes("en passant expires after the immediate reply") &&
+      gamesJs.includes("promotion exposes queen rook bishop knight") &&
+      gamesJs.includes("fifty move rule remains a draw")
+  },
+  {
+    name: "Promotion offers all four legal pieces",
+    pass:
+      gamesJs.includes("מלכה (Q)") &&
+      gamesJs.includes("צריח (R)") &&
+      gamesJs.includes("רץ (B)") &&
+      gamesJs.includes("סוס (N)") &&
+      gamesJs.includes('מלכה:"q"') &&
+      gamesJs.includes('צריח:"r"') &&
+      gamesJs.includes('רץ:"b"') &&
+      gamesJs.includes('סוס:"n"')
   },
   {
     name: "Bot move engine and telemetry are wired",
