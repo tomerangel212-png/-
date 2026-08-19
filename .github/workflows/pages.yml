@@ -27,12 +27,16 @@ jobs:
           node --check app.js
           node --check games.js
           node --check games-hub.js
+          node --check hitster-kfar-bloom-2026-demo.js
+          node --check hitster-444-check.js
           node --check site-smoke-check.js
           node --check tra-games-quality-check.js
       - name: Run full-site smoke check
         run: node site-smoke-check.js
       - name: Enforce TRA Games 100/100 quality gate
         run: node tra-games-quality-check.js
+      - name: Enforce HITSTER 444-card deck and New Game reset
+        run: node hitster-444-check.js
       - name: Enforce HITSTER production quality gate
         run: node hitster-quality-check.js
       - name: Enforce HITSTER 11,111 catalog capacity gate
