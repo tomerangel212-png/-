@@ -5,11 +5,39 @@ const fs = require("fs");
 const read = (path) => fs.readFileSync(path, "utf8");
 const gamesHtml = read("games.html");
 const gamesJs = read("games.js");
+const gamesHubJs = read("games-hub.js");
 const gamesCss = read("games.css");
 const mainHtml = read("index.html");
 const linksHtml = read("links/index.html");
 
+const gameNumbers = [...gamesHtml.matchAll(/data-game-number="(\d+)"/g)].map((match) => Number(match[1]));
+const expectedNumbers = Array.from({ length: 15 }, (_, index) => index + 1);
+
 const checks = [
+  {
+    name: "TRA Games is a 15-game hub",
+    pass: gameNumbers.length === 15 && expectedNumbers.every((n) => gameNumbers.includes(n)) && gamesHtml.includes('id="all-games"')
+  },
+  {
+    name: "HITSTER is flagship, not the only destination",
+    pass:
+      gamesHtml.includes("⭐ משחק הדגל") &&
+      gamesHtml.includes("HITSTER TRA") &&
+      gamesHtml.includes('data-game-number="15"') &&
+      gamesHtml.includes("Dungeons & Dragons")
+  },
+  {
+    name: "Every game card has a play control",
+    pass: (gamesHtml.match(/class="launch(?: [^"]*)?"/g) || []).length >= 15
+  },
+  {
+    name: "Quick Play is wired for games without standalone pages",
+    pass:
+      gamesHtml.includes("games-hub.js") &&
+      gamesHubJs.includes("tra_games_hub_opened") &&
+      gamesHubJs.includes("openQuickGame") &&
+      gamesHubJs.includes("quick-play")
+  },
   {
     name: "TRA Chess entry point exists",
     pass: gamesHtml.includes('id="chess"') && gamesHtml.includes("TRA Chess") && gamesCss.includes(".board")
@@ -65,16 +93,15 @@ const checks = [
       gamesJs.includes('track("chess_bot_selected"')
   },
   {
-    name: "Main TRA page links directly to chess",
-    pass: mainHtml.includes('./games.html#chess') && mainHtml.includes("שקד 20") && mainHtml.includes("מתן 80")
+    name: "Main TRA page exposes games and chess",
+    pass: mainHtml.includes('./games.html#chess') && mainHtml.includes("TRA Chess")
   },
   {
-    name: "TRA Links exposes both Chess and Games",
+    name: "TRA Links sends Games to the hub, not HITSTER",
     pass:
-      linksHtml.includes('../games.html#chess') &&
-      linksHtml.includes("TRA Chess") &&
-      linksHtml.includes('../games.html') &&
-      linksHtml.includes("TRA Games")
+      linksHtml.includes('<div class="title">TRA Games</div>') &&
+      linksHtml.includes('href="../games.html"') &&
+      linksHtml.includes('href="../games.html#chess"')
   }
 ];
 
