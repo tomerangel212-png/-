@@ -16,8 +16,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  quality:
+    name: TRA · Production checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check games.js
+          node --check site-smoke-check.js
+          node --check tra-games-quality-check.js
+      - name: Run full-site smoke check
+        run: node site-smoke-check.js
+      - name: Enforce TRA Games 100/100 quality gate
+        run: node tra-games-quality-check.js
+      - name: Enforce HITSTER production quality gate
+        run: node hitster-quality-check.js
+      - name: Enforce HITSTER 11,111 catalog capacity gate
+        run: node hitster-catalog-11111-check.js
+
   deploy:
     name: Deploy static site to GitHub Pages
+    needs: quality
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
