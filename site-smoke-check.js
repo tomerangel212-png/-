@@ -14,6 +14,8 @@ const requiredFiles = [
   "hitster-888-check.js",
   "casino-angel.html",
   "connect-talk.html",
+  "music-drive.html",
+  "music-editor.html",
   "links/index.html",
   "tra-dashboard/index.html",
   "app.js",
@@ -47,6 +49,13 @@ if (fs.existsSync("hitster.html")) {
 if (fs.existsSync("games.html")) {
   const games = fs.readFileSync("games.html", "utf8");
   if (!games.includes('href="hitster.html"')) failures.push("games.html: HITSTER must route through hitster.html hub");
+  if (!games.includes('href="music-editor.html"')) failures.push("games.html: music editor game route missing");
+  if (!games.includes('data-game-number="16"')) failures.push("games.html: game 16 missing");
+}
+
+if (fs.existsSync("links/index.html")) {
+  const links = fs.readFileSync("links/index.html", "utf8");
+  if (!links.includes('href="../music-drive.html"')) failures.push("links/index.html: family musical journey route missing");
 }
 
 if (failures.length) {
@@ -58,3 +67,4 @@ if (failures.length) {
 console.log(`TRA production smoke check PASSED: ${requiredFiles.length}/${requiredFiles.length} required files present and non-empty.`);
 console.log(`HTML baseline PASSED: ${htmlFiles.length}/${htmlFiles.length} pages have html/title/viewport.`);
 console.log("HITSTER canonical release: 888 cards · unified hub · PASS");
+console.log("Music additions: Family Musical Journey + Music Editor game · PASS");
