@@ -23,15 +23,22 @@ jobs:
         run: |
           node --check app.js
           node --check games.js
+          node --check games-hub.js
+          node --check hitster-kfar-bloom-2026-demo.js
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
+          node --check tra-games-quality-check.js
+          node --check hitster-quality-check.js
+          node --check hitster-catalog-11111-check.js
       - name: Build HITSTER 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
       - name: Enforce HITSTER 888 = 222×4
         run: node hitster-888-check.js
       - name: Run full-site smoke check
         run: node site-smoke-check.js
+      - name: Enforce TRA Games quality gate
+        run: node tra-games-quality-check.js
       - name: Enforce HITSTER production quality gate
         run: node hitster-quality-check.js
       - name: Enforce HITSTER 11,111 catalog capacity gate
