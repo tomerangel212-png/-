@@ -1,9 +1,10 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v5";
+const CACHE = "tra-kfar-bloom-2026-offline-v6";
 const HITSTER_OFFLINE = [
   "./hitster.html",
   "./hitster-kfar-bloom-2026-demo.html",
   "./hitster-kfar-bloom-2026-demo.js",
   "./hitster-kfar-bloom-2026-demo-data.json",
+  "./hitster-expansion-444.json",
   "./games.html",
   "./games.css",
   "./games.js",
@@ -31,6 +32,7 @@ const CORE = [
   "./hitster-kfar-bloom-2026-demo.html",
   "./hitster-kfar-bloom-2026-demo.js",
   "./hitster-kfar-bloom-2026-demo-data.json",
+  "./hitster-expansion-444.json",
   "./songs/",
   "./songs/index.html",
   "./poetry/",
