@@ -2,40 +2,41 @@
 
 const fs = require("fs");
 
-const payload = JSON.parse(fs.readFileSync("hitster-hebrew-alist-444.json", "utf8"));
+const payload = JSON.parse(fs.readFileSync("hitster-hebrew-alist-888.json", "utf8"));
 const html = fs.readFileSync("hitster-kfar-bloom-2026-demo.html", "utf8");
 const js = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
 const sw = fs.readFileSync("sw.js", "utf8");
 const builder = fs.readFileSync("build-hitster-hebrew-alist.js", "utf8");
 
-const TARGET_TOTAL = 444;
+const TARGET_PER_ERA = 222;
+const TARGET_TOTAL = 888;
 const ranges = {
-  "1948–1959": [1948, 1959],
-  "1960–1969": [1960, 1969],
-  "1970–1979": [1970, 1979],
   "1980–1989": [1980, 1989],
   "1990–1999": [1990, 1999],
   "2000–2009": [2000, 2009],
-  "2010–2019": [2010, 2019],
-  "2020–2026": [2020, 2026],
+  "2010–2020": [2010, 2020],
 };
-const allowedSources = new Set(["המצעד של המדינה 2009", "שיר ה-75 של ישראל 2023"]);
 const blockedParts = ["אייל גולן", "michael jackson", "eyal golan"];
 const norm = value => String(value || "").normalize("NFKC").trim().toLocaleLowerCase("he");
 const key = card => `${norm(card[0])}|${norm(card[1])}|${card[2]}`;
 const hasHebrew = value => /[\u0590-\u05FF]/.test(String(value || ""));
 const hasLatin = value => /[A-Za-z]/.test(String(value || ""));
 const blocked = artist => blockedParts.some(part => norm(artist).includes(norm(part)));
+const approvedSource = source => /^מצעד שנתי \d{4}$/.test(String(source || "")) || source === "גלגלצ מצעד שנתי 2020";
 const failures = [];
 const seen = new Set();
 let total = 0;
 
 if (payload?.meta?.total !== TARGET_TOTAL) failures.push(`meta.total must be ${TARGET_TOTAL}`);
+if (payload?.meta?.perEra !== TARGET_PER_ERA) failures.push(`meta.perEra must be ${TARGET_PER_ERA}`);
 if (!payload?.eras || !payload?.provenance) failures.push("generated A-list payload is missing eras/provenance");
 
 for (const [era, [lo, hi]] of Object.entries(ranges)) {
   const cards = payload?.eras?.[era];
-  if (!Array.isArray(cards)) { failures.push(`${era}: missing era array`); continue; }
+  if (!Array.isArray(cards) || cards.length !== TARGET_PER_ERA) {
+    failures.push(`${era}: expected exactly ${TARGET_PER_ERA} cards`);
+    continue;
+  }
   for (const card of cards) {
     total++;
     if (!Array.isArray(card) || card.length !== 3) { failures.push(`${era}: malformed card`); continue; }
@@ -48,29 +49,29 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     if (seen.has(id)) failures.push(`${title}: duplicate title/artist/year`);
     seen.add(id);
     const source = payload.provenance[id];
-    if (!source || !allowedSources.has(source.source)) failures.push(`${title}: missing approved A-list provenance`);
-    if (!Number.isInteger(source?.sourceRank) || source.sourceRank < 1) failures.push(`${title}: invalid A-list rank`);
+    if (!source || !approvedSource(source.source)) failures.push(`${title}: missing approved annual-chart provenance`);
+    if (!Number.isInteger(source?.sourceRank) || source.sourceRank < 1 || source.sourceRank > 60) failures.push(`${title}: invalid annual-chart rank`);
   }
 }
 
 if (total !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} cards, got ${total}`);
 if (seen.size !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} unique cards, got ${seen.size}`);
-if (!html.includes('id="new-game"') || !html.includes("444 קלפי שירים בעברית בלבד") || !html.includes("A-list בלבד")) failures.push("Hebrew A-list UI or New Game button missing");
-if (!js.includes('fetch("./hitster-hebrew-alist-444.json")') || !js.includes("function newGame()") || !js.includes("TARGET_TOTAL = 444")) failures.push("Runtime is not locked to generated Hebrew A-list deck / New Game");
-if (js.includes("hitster-expansion-444.json") || js.includes("hitster-kfar-bloom-2026-demo-data.json")) failures.push("Runtime still references legacy mixed-language HITSTER data");
-if (!sw.includes("hitster-hebrew-alist-444.json")) failures.push("Hebrew A-list deck is not cached for offline use");
-if (!builder.includes("pizmonet.co.il") || !builder.includes("israelhayom.co.il")) failures.push("A-list builder is missing ranked source URLs");
+if (!html.includes('id="new-game"') || !html.includes("888 קלפי שירים") || !html.includes("222 קלפים בכל תקופה")) failures.push("888 / 222×4 UI or New Game button missing");
+if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("Runtime is not locked to 888 = 222×4 / New Game");
+if (!sw.includes("hitster-hebrew-alist-888.json")) failures.push("888-card deck is not cached for offline use");
+if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA = 222") || !builder.includes("GLZ_2020")) failures.push("888 builder is not configured for 222×4 including 2020");
 
 if (failures.length) {
-  console.error("HITSTER 444 HEBREW A-LIST GATE FAILED:\n");
+  console.error("HITSTER 888 HEBREW A-LIST GATE FAILED:\n");
   failures.forEach(failure => console.error(`- ${failure}`));
   process.exit(1);
 }
 
-console.log("HITSTER 444 Hebrew A-list gate PASSED");
-for (const era of Object.keys(ranges)) console.log(`${era}: ${payload.eras[era].length}`);
-console.log(`Total: ${total}/444 unique Hebrew A-list cards`);
-console.log("Approved provenance: PASS");
-console.log("Blocked artists: PASS");
+console.log("HITSTER 888 Hebrew A-list gate PASSED");
+for (const era of Object.keys(ranges)) console.log(`${era}: ${payload.eras[era].length}/${TARGET_PER_ERA}`);
+console.log(`Total: ${total}/${TARGET_TOTAL} unique cards`);
+console.log("Hebrew-only: PASS");
+console.log("Annual-chart A-list provenance: PASS");
+console.log("2020 included: PASS");
 console.log("New Game timeline reset: PASS");
 console.log("Offline deck cache: PASS");
