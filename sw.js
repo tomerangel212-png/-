@@ -1,4 +1,16 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v4";
+const CACHE = "tra-kfar-bloom-2026-offline-v5";
+const HITSTER_OFFLINE = [
+  "./hitster.html",
+  "./hitster-kfar-bloom-2026-demo.html",
+  "./hitster-kfar-bloom-2026-demo.js",
+  "./hitster-kfar-bloom-2026-demo-data.json",
+  "./games.html",
+  "./games.css",
+  "./games.js",
+  "./games-hub.js",
+  "./manifest.webmanifest",
+  "./assets/tra-mark.svg"
+];
 const CORE = [
   "./",
   "./index.html",
@@ -11,6 +23,8 @@ const CORE = [
   "./games.html",
   "./games.css",
   "./games.js",
+  "./games-hub.js",
+  "./hitster.html",
   "./casino-angel.html",
   "./connect-talk.html",
   "./music-drive.html",
@@ -43,6 +57,21 @@ self.addEventListener("activate", event => {
   })());
 });
 
+self.addEventListener("message", event => {
+  if (event.data?.type !== "CACHE_HITSTER_OFFLINE") return;
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    const results = await Promise.allSettled(HITSTER_OFFLINE.map(url => cache.add(url)));
+    const failed = results.filter(result => result.status === "rejected").length;
+    event.source?.postMessage({
+      type: "HITSTER_OFFLINE_READY",
+      ok: failed === 0,
+      cached: HITSTER_OFFLINE.length - failed,
+      total: HITSTER_OFFLINE.length
+    });
+  })());
+});
+
 async function networkFirst(request) {
   try {
     const response = await fetch(request);
@@ -55,7 +84,11 @@ async function networkFirst(request) {
     const cached = await caches.match(request, {ignoreSearch:false});
     if (cached) return cached;
     if (request.mode === "navigate") {
-      return (await caches.match("./links/index.html")) || (await caches.match("./index.html"));
+      const url = new URL(request.url);
+      if (url.pathname.includes("hitster")) {
+        return (await caches.match("./hitster.html")) || (await caches.match("./hitster-kfar-bloom-2026-demo.html")) || (await caches.match("./index.html"));
+      }
+      return (await caches.match("./games.html")) || (await caches.match("./index.html"));
     }
     throw error;
   }
