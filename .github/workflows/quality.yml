@@ -18,12 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Check JavaScript syntax
         run: |
           node --check app.js
           node --check games.js
+          node --check build-hitster-hebrew-alist.js
+          node --check hitster-888-check.js
           node --check site-smoke-check.js
+      - name: Build HITSTER 888 Hebrew A-list deck
+        run: node build-hitster-hebrew-alist.js
+      - name: Enforce HITSTER 888 = 222×4
+        run: node hitster-888-check.js
       - name: Run full-site smoke check
         run: node site-smoke-check.js
       - name: Enforce HITSTER production quality gate
