@@ -4,28 +4,64 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#1c332d">
-  <title>TRA Games — שחמט חי</title>
+  <meta name="description" content="TRA Games — מרכז 15 המשחקים של TRA. HITSTER הוא משחק הדגל, אבל מכאן נכנסים לכל המשחקים.">
+  <title>TRA Games — כל 15 המשחקים</title>
   <link rel="stylesheet" href="games.css">
 </head>
 <body>
   <main class="app">
     <header>
       <a class="brand" href="./">TRA GAMES</a>
-      <span class="tag">משחקים · ביחד</span>
+      <span class="tag">15 משחקים · ביחד</span>
     </header>
-    <section class="hero">
+
+    <section class="hero" id="all-games">
       <p class="eyebrow">THE TRA · תכלית · רלוונטיות · איכות</p>
       <h1>TRA Games</h1>
-      <p>משחקים קצרים, ברורים ומשפחתיים — בטלפון אחד.</p>
+      <p>לוחצים על <strong>משחקים</strong> — ובוחרים מתוך כל 15 המשחקים. HITSTER נשאר משחק הדגל, לא היעד היחיד.</p>
     </section>
 
-    <section class="game-shell" aria-label="נסיעה מוזיקלית">
-      <h2>🚗🎵 נסיעה מוזיקלית</h2>
-      <p>רכב של 5 נוסעים בגילים 20, 30, 50, 70 ו־80. כל שיר נחשב הצלחה רק אם כל חמשת הנוסעים מזהים אותו.</p>
-      <div class="controls"><a class="primary" href="music-drive.html" style="text-decoration:none;display:inline-block">פתחו את המשחק</a></div>
+    <section class="flagship" aria-label="משחק הדגל">
+      <div>
+        <span class="badge">⭐ משחק הדגל</span>
+        <h2>🎵 HITSTER TRA</h2>
+        <p>ציר הזמן המוזיקלי של TRA — האזנה, זיהוי, שנה ומיקום על הציר.</p>
+      </div>
+      <a class="launch primary" href="hitster-kfar-bloom-2026-demo.html">שחקו HITSTER</a>
+    </section>
+
+    <section class="games-grid" aria-label="כל 15 משחקי TRA">
+      <article class="game-card flagship-card" data-game-number="1"><span class="number">01</span><h3>🎵 HITSTER TRA</h3><p>משחק הדגל המוזיקלי.</p><a class="launch" href="hitster-kfar-bloom-2026-demo.html">שחקו</a></article>
+      <article class="game-card" data-game-number="2"><span class="number">02</span><h3>🕵️ שם קוד TRA</h3><p>רמז אחד. כמה מילים. עבודת צוות.</p><button class="launch quick-play" data-game="codename" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="3"><span class="number">03</span><h3>💬 מילה טובה</h3><p>שאלות קצרות שמחברות בין אנשים.</p><button class="launch quick-play" data-game="goodword" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="4"><span class="number">04</span><h3>⏱️ ספיד־דייט</h3><p>שאלה, שיחה קצרה והחלפת זוג.</p><button class="launch quick-play" data-game="speeddate" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="5"><span class="number">05</span><h3>⚖️ דיבייט TRA</h3><p>מחלוקת מכבדת, טיעון והקשבה.</p><button class="launch quick-play" data-game="debate" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="6"><span class="number">06</span><h3>🔐 אסקייפ רום</h3><p>חידות קצרות שמרכיבות קוד.</p><button class="launch quick-play" data-game="escape" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="7"><span class="number">07</span><h3>♟️ TRA Chess</h3><p>שחמט מול שקד, תומר, שיקי ומתן.</p><a class="launch" href="#chess">שחקו</a></article>
+      <article class="game-card" data-game-number="8"><span class="number">08</span><h3>🧩 פאזל והיגיון</h3><p>סדרות, ריבועים וחידות חשיבה.</p><button class="launch quick-play" data-game="puzzle" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="9"><span class="number">09</span><h3>👀 דאבל TRA</h3><p>מצאו את הסמל המשותף במהירות.</p><button class="launch quick-play" data-game="double" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="10"><span class="number">10</span><h3>🚗 נסיעה מוזיקלית</h3><p>שיר מצליח רק אם כולם מזהים.</p><a class="launch" href="music-drive.html">שחקו</a></article>
+      <article class="game-card" data-game-number="11"><span class="number">11</span><h3>🗣️ חברו • דברו</h3><p>ניקוד על הבנה והקשבה, לא על הסכמה.</p><a class="launch" href="connect-talk.html">שחקו</a></article>
+      <article class="game-card" data-game-number="12"><span class="number">12</span><h3>⚗️ אלכימאי קטן — תומרון</h3><p>מחברים שני דברים ומגלים מה נוצר.</p><button class="launch quick-play" data-game="alchemy" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="13"><span class="number">13</span><h3>🚪 חופש בקנוקה</h3><p>100 Floors בסגנון כפר בלום.</p><button class="launch quick-play" data-game="knoke" type="button">שחקו</button></article>
+      <article class="game-card" data-game-number="14"><span class="number">14</span><h3>🎰 Casino Angel</h3><p>קזינו אנגל — משחק 14.</p><a class="launch" href="casino-angel.html">שחקו</a></article>
+      <article class="game-card" data-game-number="15"><span class="number">15</span><h3>🐉 Dungeons & Dragons</h3><p>TRA D&amp;D — דמויות, בחירות וקוביות.</p><button class="launch quick-play" data-game="dnd" type="button">שחקו</button></article>
+    </section>
+
+    <section class="quick-panel" id="quick-panel" hidden aria-live="polite">
+      <button class="quick-close" id="quick-close" type="button" aria-label="סגירה">×</button>
+      <span class="badge">TRA QUICK PLAY</span>
+      <h2 id="quick-title">משחק</h2>
+      <p id="quick-rules"></p>
+      <div class="challenge" id="quick-challenge"></div>
+      <div class="quick-actions">
+        <button class="primary" id="quick-next" type="button">משימה חדשה</button>
+        <button id="quick-done" type="button">סיימנו</button>
+      </div>
     </section>
 
     <section class="game-shell" id="chess" aria-label="משחק שחמט">
+      <div class="section-kicker">משחק 07</div>
       <h2>♟️ TRA Chess</h2>
       <div class="bot-picker">
         <label for="bot-select">בחרו יריב</label>
@@ -49,9 +85,11 @@
         <button id="flip-board" type="button">הפכו לוח</button>
         <button id="undo-move" type="button" disabled>בטלו מסע</button>
       </div>
-      <p class="hint">במצב בוט אתם משחקים בלבן והבוט בשחור. כל בוט משתמש באופי משחק שונה — לא רק בעומק חישוב. החוקיות כוללת שח, מט, פט, הצרחה, אן־פסאן וקידום רגלי.</p>
+      <p class="hint">במצב בוט אתם משחקים בלבן והבוט בשחור. החוקיות כוללת שח, מט, פט, הצרחה, אן־פסאן וקידום רגלי.</p>
+      <a class="back-games" href="#all-games">↑ חזרה לכל 15 המשחקים</a>
     </section>
   </main>
+  <script src="games-hub.js"></script>
   <script type="module" src="games.js"></script>
 </body>
 </html>
