@@ -1,4 +1,4 @@
-name: Deploy KFAR BLOOM 2026 to GitHub Pages
+name: Deploy TRA Sites to GitHub Pages
 
 on:
   push:
@@ -42,9 +42,28 @@ jobs:
       - name: Enforce HITSTER 11,111 catalog capacity gate
         run: node hitster-catalog-11111-check.js
 
+  links-quality:
+    name: Tomer Links · publish gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Verify link-in-bio pages
+        run: |
+          test -s links/index.html
+          test -s songs/index.html
+          test -s poetry/index.html
+          test -s instrumentals/index.html
+          grep -q "posthog.init" links/index.html
+          grep -q "tomer_links_page_loaded" links/index.html
+          grep -q "tomer_links_card_clicked" links/index.html
+          grep -q "../songs/" links/index.html
+          grep -q "../poetry/" links/index.html
+          grep -q "../instrumentals/" links/index.html
+
   deploy:
     name: Deploy static site to GitHub Pages
-    needs: quality
+    needs: links-quality
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
