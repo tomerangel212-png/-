@@ -1,4 +1,4 @@
-# publish trigger 2026-08-19T10:20+03:00
+# publish trigger 2026-08-19T10:40+03:00
 name: Deploy TRA Sites to GitHub Pages
 
 on:
@@ -81,8 +81,20 @@ jobs:
         run: |
           test -s hitster-hebrew-alist-888.json
           node hitster-888-check.js
-      - name: Configure GitHub Pages
+      - name: Require PAGES_PAT secret
+        shell: bash
+        env:
+          PAGES_PAT: ${{ secrets.PAGES_PAT }}
+        run: |
+          if [ -z "$PAGES_PAT" ]; then
+            echo "::error::Missing repository secret PAGES_PAT. Add a GitHub PAT with Administration: write and Pages: write access."
+            exit 1
+          fi
+      - name: Configure and enable GitHub Pages
         uses: actions/configure-pages@v6.0.0
+        with:
+          token: ${{ secrets.PAGES_PAT }}
+          enablement: true
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
         with:
