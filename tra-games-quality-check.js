@@ -11,22 +11,23 @@ const mainHtml = read("index.html");
 const linksHtml = read("links/index.html");
 const hitsterHub = read("hitster.html");
 const hitsterGame = read("hitster-kfar-bloom-2026-demo.html");
+const musicEditor = read("music-editor.html");
 
 const gameNumbers = [...gamesHtml.matchAll(/data-game-number="(\d+)"/g)].map((match) => Number(match[1]));
-const expectedNumbers = Array.from({ length: 15 }, (_, index) => index + 1);
+const expectedNumbers = Array.from({ length: 16 }, (_, index) => index + 1);
 
 const checks = [
   {
-    name: "TRA Games is a 15-game hub",
-    pass: gameNumbers.length === 15 && expectedNumbers.every((n) => gameNumbers.includes(n)) && gamesHtml.includes('id="all-games"')
+    name: "TRA Games is a 16-game hub",
+    pass: gameNumbers.length === 16 && expectedNumbers.every((n) => gameNumbers.includes(n)) && gamesHtml.includes('id="all-games"')
   },
   {
     name: "HITSTER is flagship, not the only destination",
     pass:
       gamesHtml.includes("⭐ משחק הדגל") &&
       gamesHtml.includes("HITSTER TRA · 888") &&
-      gamesHtml.includes('data-game-number="15"') &&
-      gamesHtml.includes("Dungeons & Dragons")
+      gamesHtml.includes('data-game-number="16"') &&
+      gamesHtml.includes("מי רוצה להיות עורך מוזיקלי?")
   },
   {
     name: "HITSTER routes through unified 888 hub",
@@ -39,7 +40,7 @@ const checks = [
   },
   {
     name: "Every game card has a play control",
-    pass: (gamesHtml.match(/class="launch(?: [^"]*)?"/g) || []).length >= 15
+    pass: (gamesHtml.match(/class="launch(?: [^"]*)?"/g) || []).length >= 16
   },
   {
     name: "Quick Play is wired for games without standalone pages",
@@ -48,6 +49,21 @@ const checks = [
       gamesHubJs.includes("tra_games_hub_opened") &&
       gamesHubJs.includes("openQuickGame") &&
       gamesHubJs.includes("quick-play")
+  },
+  {
+    name: "Music Editor game is standalone and has 15 stages",
+    pass:
+      gamesHtml.includes('href="music-editor.html"') &&
+      musicEditor.includes("מי רוצה להיות עורך מוזיקלי?") &&
+      musicEditor.includes("15 החלטות מקצועיות") &&
+      musicEditor.includes("1000000") &&
+      musicEditor.includes("50:50")
+  },
+  {
+    name: "Family Musical Journey is exposed in main links",
+    pass:
+      linksHtml.includes("נסיעה מוזיקלית משפחתית") &&
+      linksHtml.includes('href="../music-drive.html"')
   },
   {
     name: "TRA Chess entry point exists",
