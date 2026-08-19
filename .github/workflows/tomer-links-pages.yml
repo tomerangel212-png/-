@@ -10,6 +10,9 @@ on:
       - 'poetry/**'
       - 'instrumentals/**'
       - 'tra-dashboard/**'
+      - 'music-drive.html'
+      - 'music-editor.html'
+      - 'games.html'
       - '.github/workflows/tomer-links-pages.yml'
   workflow_dispatch:
 
@@ -19,8 +22,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: tomer-links-pages
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   links-quality:
@@ -35,12 +38,16 @@ jobs:
           test -s songs/index.html
           test -s poetry/index.html
           test -s instrumentals/index.html
+          test -s music-drive.html
+          test -s music-editor.html
           grep -q "posthog.init" links/index.html
           grep -q "tomer_links_page_loaded" links/index.html
           grep -q "tomer_links_card_clicked" links/index.html
           grep -q "../songs/" links/index.html
           grep -q "../poetry/" links/index.html
           grep -q "../instrumentals/" links/index.html
+          grep -q "../music-drive.html" links/index.html
+          grep -q "music-editor.html" games.html
 
   deploy:
     name: Deploy and verify Tomer Links
@@ -52,10 +59,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Configure or enable GitHub Pages
-        uses: actions/configure-pages@v6.0.0
-        with:
-          enablement: true
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
         with:
@@ -70,7 +75,7 @@ jobs:
           URL="https://tomerangel212-png.github.io/-/links/"
           ok=0
           for attempt in {1..12}; do
-            if body="$(curl -fsSL --max-time 20 "$URL" 2>/dev/null)" && grep -q "Tomer Rafael Angel" <<<"$body" && grep -q "posthog.init" <<<"$body"; then
+            if body="$(curl -fsSL --max-time 20 "$URL" 2>/dev/null)" && grep -q "Tomer Rafael Angel" <<<"$body" && grep -q "נסיעה מוזיקלית משפחתית" <<<"$body"; then
               ok=1
               break
             fi
