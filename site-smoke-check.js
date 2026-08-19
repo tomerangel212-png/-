@@ -6,6 +6,7 @@ const requiredFiles = [
   "index.html",
   "games.html",
   "games.js",
+  "games-hub.js",
   "casino-angel.html",
   "connect-talk.html",
   "links/index.html",
