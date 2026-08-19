@@ -4,36 +4,93 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#173c33">
-  <meta name="description" content="HITSTER TRA — בחרו בין HITSTER ישראלי לבין HITSTER המסע אל הארץ.">
+  <meta name="description" content="HITSTER TRA — בחרו בין HITSTER ישראלי לבין HITSTER המסע אל הארץ, עם מצב Offline.">
+  <link rel="manifest" href="manifest.webmanifest">
   <title>HITSTER TRA — בחרו מסלול</title>
   <style>
-    :root{font-family:Arial,"Noto Sans Hebrew",system-ui,sans-serif;color:#f7f7f2;background:#102720}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,#5a786b 0,#193a31 44%,#102720 76%)}main{width:min(760px,calc(100% - 28px));margin:auto;padding:24px 0 44px}.top{display:flex;justify-content:space-between;align-items:center}.top a{color:#fff;text-decoration:none;font-weight:900}.tag{background:#ffffff18;padding:7px 11px;border-radius:999px;font-size:.78rem}.hero{text-align:center;padding:44px 12px 28px}.hero .eyebrow{color:#e7c75f;font-weight:900;font-size:.8rem;letter-spacing:.08em}.hero h1{font-size:clamp(2.2rem,9vw,4.4rem);margin:10px 0}.hero p{color:#dfeae5;line-height:1.6;margin:0 auto;max-width:42ch}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{background:#edf1ed;color:#15362c;border-radius:24px;padding:22px;display:flex;flex-direction:column;min-height:290px;box-shadow:0 20px 50px #0005}.card.journey{background:linear-gradient(145deg,#f6edc5,#e9cf73)}.badge{display:inline-flex;width:max-content;border-radius:999px;padding:6px 10px;background:#173c33;color:#fff;font-weight:900;font-size:.74rem}.card h2{margin:14px 0 8px;font-size:1.5rem}.card p{line-height:1.55;color:#4b655a;margin:0 0 18px}.card.journey p{color:#5c522e}.play{margin-top:auto;display:block;text-align:center;text-decoration:none;border-radius:14px;padding:14px;background:#173c33;color:#fff;font-weight:900}.back{display:block;margin:20px auto 0;text-align:center;color:#d9e6e0;font-weight:900;text-decoration:none}.note{text-align:center;color:#bcd0c7;font-size:.82rem;line-height:1.5;margin-top:18px}@media(max-width:620px){.grid{grid-template-columns:1fr}.card{min-height:230px}}
+    :root{font-family:Arial,"Noto Sans Hebrew",system-ui,sans-serif;color:#f7f7f2;background:#102720}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,#5a786b 0,#193a31 44%,#102720 76%)}button{font:inherit}.wrap{width:min(760px,calc(100% - 28px));margin:auto;padding:24px 0 44px}.top{display:flex;justify-content:space-between;align-items:center}.top a{color:#fff;text-decoration:none;font-weight:900}.tag{background:#ffffff18;padding:7px 11px;border-radius:999px;font-size:.78rem}.hero{text-align:center;padding:44px 12px 28px}.hero .eyebrow{color:#e7c75f;font-weight:900;font-size:.8rem;letter-spacing:.08em}.hero h1{font-size:clamp(2.2rem,9vw,4.4rem);margin:10px 0}.hero p{color:#dfeae5;line-height:1.6;margin:0 auto;max-width:42ch}.offline{background:#0e211c;border:1px solid #41685c;border-radius:20px;padding:16px;margin:0 0 16px;display:grid;gap:10px}.offline-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.offline strong{font-size:1.05rem}.offline p{margin:0;color:#bdd0c8;font-size:.86rem;line-height:1.45}.offline button{border:0;border-radius:12px;padding:11px 14px;background:#e7c75f;color:#1c2a20;font-weight:900;cursor:pointer}.offline button:disabled{opacity:.55;cursor:default}.offline-status{font-size:.82rem;color:#9fd7c3}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{background:#edf1ed;color:#15362c;border-radius:24px;padding:22px;display:flex;flex-direction:column;min-height:310px;box-shadow:0 20px 50px #0005}.card.journey{background:linear-gradient(145deg,#f6edc5,#e9cf73)}.badge{display:inline-flex;width:max-content;border-radius:999px;padding:6px 10px;background:#173c33;color:#fff;font-weight:900;font-size:.74rem}.card h2{margin:14px 0 8px;font-size:1.5rem}.card p{line-height:1.55;color:#4b655a;margin:0 0 18px}.card.journey p{color:#5c522e}.play{margin-top:auto;display:block;text-align:center;text-decoration:none;border-radius:14px;padding:14px;background:#173c33;color:#fff;font-weight:900}.offline-play{margin-top:8px;display:block;text-align:center;text-decoration:none;border-radius:14px;padding:11px;border:1px solid #173c33;color:#173c33;font-weight:900;background:#fff9}.back{display:block;margin:20px auto 0;text-align:center;color:#d9e6e0;font-weight:900;text-decoration:none}.note{text-align:center;color:#bcd0c7;font-size:.82rem;line-height:1.5;margin-top:18px}@media(max-width:620px){.grid{grid-template-columns:1fr}.card{min-height:250px}.offline-row{align-items:stretch;flex-direction:column}}
   </style>
 </head>
 <body>
-<main>
+<main class="wrap">
   <div class="top"><a href="games.html#all-games">TRA GAMES</a><span class="tag">HITSTER × 2</span></div>
   <section class="hero">
     <div class="eyebrow">משחק הדגל של TRA</div>
     <h1>🎵 HITSTER TRA</h1>
-    <p>אותו בית משחקים, שני מסלולים שונים. בחרו את גרסת HITSTER שמתאימה למשחק שלכם.</p>
+    <p>אותו בית משחקים, שני מסלולים שונים — ובנוסף מצב Offline למשחק גם כשאין קליטה.</p>
   </section>
+
+  <section class="offline" aria-label="מצב אופליין">
+    <div class="offline-row">
+      <div><strong>📴 HITSTER Offline</strong><p>שומר במכשיר את ממשק המשחק, 350 הקלפים, צירי הזמן והקבצים הדרושים למשחק ללא אינטרנט.</p></div>
+      <button id="offline-save" type="button">שמור לאופליין</button>
+    </div>
+    <div class="offline-status" id="offline-status">צריך לבצע שמירה פעם אחת בזמן שיש אינטרנט.</div>
+  </section>
+
   <section class="grid" aria-label="בחירת גרסת HITSTER">
     <article class="card">
       <span class="badge">🇮🇱 ישראל</span>
       <h2>HITSTER ישראלי</h2>
       <p>גרסת ה־HITSTER שנמצאת בתוך TRA Games Arcade — שירים ישראליים, ציר זמן וזיהוי מוזיקלי.</p>
       <a class="play" href="https://tra-games-arcade.tomerangel212.chatgpt.site/#games">פתחו HITSTER ישראלי</a>
+      <a class="offline-play" href="hitster-kfar-bloom-2026-demo.html">📴 גרסת Offline מקומית</a>
     </article>
     <article class="card journey">
       <span class="badge">🧭 המסע אל הארץ</span>
       <h2>HITSTER: המסע אל הארץ</h2>
       <p>גרסת כפר בלום — HITSTER כחלק מהמסע אל הארץ, עם חוויית המשחק של אתר KFAR BLOOM 2026.</p>
       <a class="play" href="https://kfar-bloom-2026.tomerangel212.chatgpt.site/">פתחו את המסע אל הארץ</a>
+      <a class="offline-play" href="hitster-kfar-bloom-2026-demo.html">📴 המשיכו במצב Offline</a>
     </article>
   </section>
   <a class="back" href="games.html#all-games">← חזרה לכל 15 משחקי TRA</a>
-  <p class="note">שני המשחקים נשארים באתרים הקיימים שלהם; העמוד הזה מחבר ביניהם תחת כניסה אחת.</p>
+  <p class="note">באופליין ממשק המשחק והקלפים עובדים במלואם. אודיו של Apple/iTunes זמין רק אם ה־preview כבר נשמר במכשיר; סטרימינג חדש דורש אינטרנט.</p>
 </main>
+<script>
+(async function(){
+  const button=document.getElementById('offline-save');
+  const status=document.getElementById('offline-status');
+  if(!('serviceWorker' in navigator)){
+    button.disabled=true;
+    status.textContent='הדפדפן הזה אינו תומך ב-Service Worker.';
+    return;
+  }
+  try{
+    const reg=await navigator.serviceWorker.register('./sw.js',{scope:'./'});
+    await navigator.serviceWorker.ready;
+    if(navigator.storage?.persist){ try{ await navigator.storage.persist(); }catch{} }
+    navigator.serviceWorker.addEventListener('message',event=>{
+      if(event.data?.type!=='HITSTER_OFFLINE_READY') return;
+      if(event.data.ok){
+        status.textContent=`✅ Offline מוכן · ${event.data.cached}/${event.data.total} קבצים נשמרו במכשיר`;
+        button.textContent='נשמר ✓';
+        button.disabled=true;
+        localStorage.setItem('hitster-offline-ready','1');
+      }else{
+        status.textContent=`⚠️ נשמרו ${event.data.cached}/${event.data.total}. בדקו חיבור ונסו שוב.`;
+        button.disabled=false;
+      }
+    });
+    if(localStorage.getItem('hitster-offline-ready')==='1'){
+      status.textContent=navigator.onLine?'✅ HITSTER כבר מוכן ל-Offline':'📴 HITSTER פועל כרגע במצב Offline';
+      button.textContent='נשמר ✓';
+    }
+    button.addEventListener('click',async()=>{
+      button.disabled=true;
+      button.textContent='שומר…';
+      status.textContent='מוריד את HITSTER למכשיר…';
+      const worker=reg.active||reg.waiting||reg.installing||navigator.serviceWorker.controller;
+      if(worker) worker.postMessage({type:'CACHE_HITSTER_OFFLINE'});
+      else { status.textContent='ה-Service Worker עדיין לא פעיל. רעננו ונסו שוב.'; button.disabled=false; button.textContent='שמור לאופליין'; }
+    });
+    window.addEventListener('offline',()=>{status.textContent='📴 אין אינטרנט · HITSTER המקומי זמין מהמטמון';});
+    window.addEventListener('online',()=>{if(localStorage.getItem('hitster-offline-ready')==='1')status.textContent='✅ חזר החיבור · Offline עדיין שמור';});
+  }catch{
+    button.disabled=true;
+    status.textContent='לא ניתן להפעיל Offline בדפדפן הזה כרגע.';
+  }
+})();
+</script>
 </body>
 </html>
