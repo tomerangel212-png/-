@@ -1,0 +1,95 @@
+"use strict";
+
+const fs = require("fs");
+
+const read = (path) => fs.readFileSync(path, "utf8");
+const gamesHtml = read("games.html");
+const gamesJs = read("games.js");
+const gamesCss = read("games.css");
+const mainHtml = read("index.html");
+const linksHtml = read("links/index.html");
+
+const checks = [
+  {
+    name: "TRA Chess entry point exists",
+    pass: gamesHtml.includes('id="chess"') && gamesHtml.includes("TRA Chess") && gamesCss.includes(".board")
+  },
+  {
+    name: "All four TRA bots are selectable",
+    pass: ["shaked", "tomer", "shiki", "matan"].every((id) => gamesHtml.includes(`value="${id}"`))
+  },
+  {
+    name: "Bot strengths are locked to 20/40/60/80",
+    pass:
+      /shaked[\s\S]*?strength:20/.test(gamesJs) &&
+      /tomer[\s\S]*?strength:40/.test(gamesJs) &&
+      /shiki[\s\S]*?strength:60/.test(gamesJs) &&
+      /matan[\s\S]*?strength:80/.test(gamesJs)
+  },
+  {
+    name: "Bots have distinct personality styles",
+    pass:
+      gamesJs.includes('style:"modern-queen"') &&
+      gamesJs.includes('style:"classical-minors"') &&
+      gamesJs.includes('style:"initiative"') &&
+      gamesJs.includes('style:"balanced-tactical"')
+  },
+  {
+    name: "Chess legality is delegated to chess.js",
+    pass:
+      gamesJs.includes("chess.js@1.4.0") &&
+      gamesJs.includes("strictLegalMove") &&
+      gamesJs.includes("chess.moves({square")
+  },
+  {
+    name: "Checkmate and stalemate are handled separately",
+    pass:
+      gamesJs.includes("isCheckmate()") &&
+      gamesJs.includes("isStalemate()") &&
+      gamesJs.includes("stalemate remains a draw")
+  },
+  {
+    name: "Illegal king movement regression tests exist",
+    pass:
+      gamesJs.includes("king cannot move into rook check") &&
+      gamesJs.includes("king cannot stay in check") &&
+      gamesJs.includes("kings cannot become adjacent") &&
+      gamesJs.includes("castle through check blocked")
+  },
+  {
+    name: "Bot move engine and telemetry are wired",
+    pass:
+      gamesJs.includes("scheduleBotMove") &&
+      gamesJs.includes("chooseBotMove") &&
+      gamesJs.includes('track("chess_bot_move"') &&
+      gamesJs.includes('track("chess_bot_selected"')
+  },
+  {
+    name: "Main TRA page links directly to chess",
+    pass: mainHtml.includes('./games.html#chess') && mainHtml.includes("שקד 20") && mainHtml.includes("מתן 80")
+  },
+  {
+    name: "TRA Links exposes both Chess and Games",
+    pass:
+      linksHtml.includes('../games.html#chess') &&
+      linksHtml.includes("TRA Chess") &&
+      linksHtml.includes('../games.html') &&
+      linksHtml.includes("TRA Games")
+  }
+];
+
+const failed = checks.filter((check) => !check.pass);
+const score = Math.round((checks.filter((check) => check.pass).length / checks.length) * 100);
+
+for (const check of checks) {
+  console.log(`${check.pass ? "PASS" : "FAIL"} - ${check.name}`);
+}
+
+console.log(`\nTRA Games quality score: ${score}/100 (${checks.length - failed.length}/${checks.length})`);
+
+if (failed.length) {
+  console.error("\nTRA Games quality gate FAILED.");
+  process.exit(1);
+}
+
+console.log("TRA Games quality gate PASSED: 100/100.");
