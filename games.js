@@ -63,6 +63,7 @@ function resultState(game=chess){
   if(game.isStalemate()) return {over:true,reason:"stalemate",winner:null,loser:null,text:"פט — אין מהלך חוקי, אבל המלך אינו בשח. לפי חוקי השחמט זה תיקו."};
   if(game.isThreefoldRepetition()) return {over:true,reason:"threefold_repetition",winner:null,loser:null,text:"תיקו — חזרה משולשת על העמדה."};
   if(game.isInsufficientMaterial()) return {over:true,reason:"insufficient_material",winner:null,loser:null,text:"תיקו — אין מספיק חומר למט."};
+  if(game.isDrawByFiftyMoves?.()) return {over:true,reason:"fifty_move",winner:null,loser:null,text:"תיקו — 50 מסעים לכל צד ללא מהלך רגלי או הכאה."};
   if(game.isDraw()) return {over:true,reason:"draw",winner:null,loser:null,text:"תיקו."};
   return {over:false,reason:null,winner:null,loser:null,text:null};
 }
@@ -97,7 +98,13 @@ function render(){
   undoButton.disabled=chess.history().length===0 || botThinking;
   renderClock();
 }
-function promote(move){if(move.promotion)return move;const wants=window.confirm("הרגלי הגיע לסוף. לחצו אישור למלכה; ביטול לפרש.");return {...move,promotion:wants?"q":"n"};}
+function promote(move){
+  if(!move.promotion)return move;
+  const raw=window.prompt("קידום רגלי: בחרו מלכה (Q), צריח (R), רץ (B) או סוס (N).", "Q");
+  const value=String(raw||"q").trim().toLocaleLowerCase("he");
+  const aliases={q:"q",מלכה:"q",r:"r",צריח:"r",b:"b",רץ:"b",n:"n",סוס:"n"};
+  return {...move,promotion:aliases[value]||"q"};
+}
 function finishGameIfNeeded(){const result=resultState();if(!result.over)return false;started=false;if(interval){clearInterval(interval);interval=null;}if(botTimer){clearTimeout(botTimer);botTimer=null;}botThinking=false;track("chess_game_finished",{reason:result.reason,winner:result.winner?colorName(result.winner):"draw",loser:result.loser?colorName(result.loser):null,bot:isBotMode()?activeBot().name:"none"});return true;}
 
 function press(square){
@@ -119,14 +126,14 @@ function press(square){
         }
       }catch(err){
         track("chess_illegal_move_blocked",{from:selected,to:square,error:String(err)});
-        statusEl.textContent="מהלך לא חוקי נחסם — המלך אינו יכול להיכנס לשח או להישאר בשח.";
+        statusEl.textContent="מהלך לא חוקי נחסם — המלך אינו יכול להיכנס לשח, להישאר בשח או להכות כלי שמוגן בידי היריב.";
         selected=null;
         render();
         return;
       }
     }else{
       track("chess_illegal_move_blocked",{from:selected,to:square});
-      statusEl.textContent="מהלך לא חוקי נחסם — המלך אינו יכול להיכנס לשח או להישאר בשח.";
+      statusEl.textContent="מהלך לא חוקי נחסם — המלך אינו יכול להיכנס לשח, להישאר בשח או להכות כלי שמוגן בידי היריב.";
       selected=null;
       render();
       return;
@@ -298,10 +305,15 @@ function regressionCheck(){
   addMove("king cannot move into rook check","4k3/8/8/8/8/8/r7/4K3 w - - 0 1","e1","e2",false);
   addMove("king in check may move only to a safe square","4k3/8/8/8/8/8/4r3/4K3 w - - 0 1","e1","d1",true);
   addMove("king cannot stay in check","4k3/8/8/8/8/8/4r3/4K3 w - - 0 1","e1","e2",false);
+  addMove("king cannot capture protected piece","4k3/8/8/8/8/8/r3r3/4K3 w - - 0 1","e1","e2",false);
   addMove("kings cannot become adjacent","8/8/8/8/8/4k3/8/4K3 w - - 0 1","e1","e2",false);
   addMove("castle through check blocked","r3k2r/8/8/8/8/5r2/8/R3K2R w KQkq - 0 1","e1","g1",false);
+  addMove("en passant available immediately","4k3/8/8/8/3pP3/8/8/4K3 w - d6 0 1","e5","d6",true);
+  addMove("en passant expires after the immediate reply","4k3/8/8/8/3pP3/8/8/4K3 w - - 0 1","e5","d6",false);
+  addState("promotion exposes queen rook bishop knight","k7/4P3/8/8/8/8/8/4K3 w - - 0 1",t=>["q","r","b","n"].every(piece=>t.moves({square:"e7",verbose:true}).some(m=>m.to==="e8"&&m.promotion===piece)));
   addState("checkmate means loss","7k/6Q1/5K2/8/8/8/8/8 b - - 0 1",t=>t.isCheck()&&t.isCheckmate()&&t.moves().length===0);
   addState("stalemate remains a draw","7k/5Q2/6K1/8/8/8/8/8 b - - 0 1",t=>!t.isCheck()&&t.isStalemate()&&t.moves().length===0);
+  addState("fifty move rule remains a draw","4k3/8/8/8/8/8/8/4K3 w - - 100 51",t=>Boolean(t.isDrawByFiftyMoves?.()));
   track("chess_rules_regression",{passed:tests.filter(t=>t.pass).length,total:tests.length,failed:tests.filter(t=>!t.pass).map(t=>t.name)});
   return tests.every(t=>t.pass);
 }
