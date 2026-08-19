@@ -23,7 +23,9 @@ jobs:
         run: |
           node --check app.js
           node --check games.js
+          node --check games-loader.js
           node --check games-hub.js
+          node --check music-editor.js
           node --check hitster-kfar-bloom-2026-demo.js
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
@@ -35,6 +37,13 @@ jobs:
         run: node build-hitster-hebrew-alist.js
       - name: Enforce HITSTER 888 = 222×4
         run: node hitster-888-check.js
+      - name: Verify Music Editor shares HITSTER 888
+        run: |
+          grep -q "hitster-hebrew-alist-888.json" music-editor.js
+          grep -q "hitsterCount !== 888" music-editor.js
+          grep -q "music-editor.js" music-editor.html
+          grep -q "data-era=\"1960\"" music-editor.html
+          grep -q "data-era=\"2026\"" music-editor.html
       - name: Run full-site smoke check
         run: node site-smoke-check.js
       - name: Enforce TRA Games quality gate
