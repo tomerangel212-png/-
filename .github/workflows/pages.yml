@@ -1,4 +1,4 @@
-name: Deploy TRA Sites to GitHub Pages
+name: Deploy Tomer Links to GitHub Pages
 
 on:
   push:
@@ -12,36 +12,10 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: tomer-links-pages
   cancel-in-progress: true
 
 jobs:
-  quality:
-    name: TRA · Production checks
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Check JavaScript syntax
-        run: |
-          node --check app.js
-          node --check games.js
-          node --check games-hub.js
-          node --check hitster-kfar-bloom-2026-demo.js
-          node --check hitster-444-check.js
-          node --check site-smoke-check.js
-          node --check tra-games-quality-check.js
-      - name: Run full-site smoke check
-        run: node site-smoke-check.js
-      - name: Enforce TRA Games 100/100 quality gate
-        run: node tra-games-quality-check.js
-      - name: Enforce HITSTER 444-card deck and New Game reset
-        run: node hitster-444-check.js
-      - name: Enforce HITSTER production quality gate
-        run: node hitster-quality-check.js
-      - name: Enforce HITSTER 11,111 catalog capacity gate
-        run: node hitster-catalog-11111-check.js
-
   links-quality:
     name: Tomer Links · publish gate
     runs-on: ubuntu-latest
