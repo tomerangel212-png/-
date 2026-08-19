@@ -4,11 +4,17 @@ const ERA_RANGES = {
   "1960–1969": [1960, 1969], "1970–1979": [1970, 1979], "1980–1989": [1980, 1989],
   "1990–1999": [1990, 1999], "2000–2009": [2000, 2009], "2010–2019": [2010, 2019], "2020–2026": [2020, 2026],
 };
+const TARGET_COUNTS = {
+  "1960–1969": 64, "1970–1979": 64, "1980–1989": 64,
+  "1990–1999": 63, "2000–2009": 63, "2010–2019": 63, "2020–2026": 63,
+};
+const TARGET_TOTAL = 444;
+const BLOCKED_ARTISTS = new Set(["michael jackson", "אייל גולן", "eyal golan"]);
 const TEAMS = [
   ["green","ירוק · איילת ודודי"],["blue","תכלת · שרון ונווה"],["gold","זהב · נעמה ורז"],
   ["orange","כתום · מעיין ומנואל"],["silver","כסף · עירית ונתן"],
 ];
-const STORE = "hitster-tra-kfar-bloom-2026-demo-v1";
+const STORE = "hitster-tra-kfar-bloom-2026-demo-v2";
 const $ = (id) => document.getElementById(id);
 const state = { data:null, era:"1960–1969", current:null, used:new Set(), previewTimer:null, timelines:{} };
 TEAMS.forEach(([id]) => state.timelines[id] = []);
@@ -37,26 +43,62 @@ function restore(){
   }catch{}
 }
 function key(card){return `${card[0]}|${card[1]}|${card[2]}`;}
+function normalized(value){return String(value||"").trim().toLocaleLowerCase("he");}
+function blocked(card){return BLOCKED_ARTISTS.has(normalized(card?.[1]));}
+function validCardForEra(card,era){
+  const range=ERA_RANGES[era];
+  return Array.isArray(card)&&card.length===3&&Boolean(card[0])&&Boolean(card[1])&&Number.isInteger(card[2])&&card[2]>=range[0]&&card[2]<=range[1];
+}
+function mergeExpansion(base, expansion){
+  const merged={};
+  const seen=new Set();
+  for(const era of Object.keys(ERA_RANGES)){
+    merged[era]=[];
+    const source=Array.isArray(base[era])?base[era]:[];
+    for(const card of source){
+      if(!validCardForEra(card,era)||blocked(card)) continue;
+      const id=key(card).toLowerCase();
+      if(seen.has(id)) continue;
+      seen.add(id); merged[era].push(card);
+    }
+    const candidates=Array.isArray(expansion[era])?expansion[era]:[];
+    for(const card of candidates){
+      if(merged[era].length>=TARGET_COUNTS[era]) break;
+      if(!validCardForEra(card,era)||blocked(card)) continue;
+      const id=key(card).toLowerCase();
+      if(seen.has(id)) continue;
+      seen.add(id); merged[era].push(card);
+    }
+    if(merged[era].length!==TARGET_COUNTS[era]){
+      throw new Error(`${era}: צריך ${TARGET_COUNTS[era]} קלפים, נמצאו ${merged[era].length}`);
+    }
+  }
+  const total=Object.values(merged).reduce((sum,pool)=>sum+pool.length,0);
+  if(total!==TARGET_TOTAL) throw new Error(`HITSTER deck must contain ${TARGET_TOTAL} cards, got ${total}`);
+  return merged;
+}
 function validate(data){
   const duplicates=[]; const seen=new Set(); let total=0; let validEras=0; const errors=[];
   for(const [era,[lo,hi]] of Object.entries(ERA_RANGES)){
     const pool=data[era];
-    if(!Array.isArray(pool) || pool.length!==50){errors.push(`${era}: expected 50, got ${pool?.length??0}`); continue;}
+    if(!Array.isArray(pool) || pool.length!==TARGET_COUNTS[era]){errors.push(`${era}: expected ${TARGET_COUNTS[era]}, got ${pool?.length??0}`); continue;}
     let eraOk=true;
     for(const card of pool){
       total++;
       if(!Array.isArray(card)||card.length!==3||!card[0]||!card[1]||!Number.isInteger(card[2])||card[2]<lo||card[2]>hi){eraOk=false;errors.push(`${era}: invalid card ${JSON.stringify(card)}`);continue;}
+      if(blocked(card)){eraOk=false;errors.push(`${era}: blocked artist ${card[1]}`);continue;}
       const k=key(card).toLowerCase(); if(seen.has(k)) duplicates.push(k); seen.add(k);
     }
     if(eraOk) validEras++;
   }
-  return {ok:errors.length===0&&duplicates.length===0&&total===350,total,validEras,duplicates,errors};
+  return {ok:errors.length===0&&duplicates.length===0&&total===TARGET_TOTAL,total,validEras,duplicates,errors};
 }
 function renderEras(){
   const host=$("eras"); host.replaceChildren();
   Object.keys(ERA_RANGES).forEach(era=>{
-    const b=document.createElement("button"); b.type="button"; b.className=`era-btn${era===state.era?" active":""}`; b.textContent=`${era} · 50`;
-    b.onclick=()=>{state.era=era; renderEras(); save(); $("card-meta").textContent=`נבחר ${era} · 50 קלפים`;}; host.append(b);
+    const count=state.data?.[era]?.length||TARGET_COUNTS[era];
+    const b=document.createElement("button"); b.type="button"; b.className=`era-btn${era===state.era?" active":""}`; b.textContent=`${era} · ${count}`;
+    b.onclick=()=>{state.era=era; renderEras(); save(); $("card-meta").textContent=`נבחר ${era} · ${count} קלפים`;}; host.append(b);
   });
 }
 function renderTimelines(){
@@ -86,19 +128,19 @@ async function resolvePreview(card){
   const url=`https://itunes.apple.com/search?term=${term}&entity=song&limit=5&country=IL`;
   const response=await fetch(url); if(!response.ok) throw new Error("preview search failed");
   const json=await response.json(); if(!json.results?.length) throw new Error("preview not found");
-  const normalized=s=>String(s||"").toLowerCase().replace(/[^a-z0-9א-ת]+/g," ").trim();
-  const title=normalized(card[0]); const artist=normalized(card[1]);
+  const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9א-ת]+/g," ").trim();
+  const title=clean(card[0]); const artist=clean(card[1]);
   const ranked=[...json.results].sort((a,b)=>{
-    const score=x=>(normalized(x.trackName).includes(title)||title.includes(normalized(x.trackName))?3:0)+(normalized(x.artistName).includes(artist)||artist.includes(normalized(x.artistName))?2:0);
+    const score=x=>(clean(x.trackName).includes(title)||title.includes(clean(x.trackName))?3:0)+(clean(x.artistName).includes(artist)||artist.includes(clean(x.artistName))?2:0);
     return score(b)-score(a);
   });
   return ranked.find(x=>x.previewUrl)?.previewUrl||null;
 }
 async function draw(){
   stopAudio(); const available=pool();
-  if(!available.length){$("status").textContent="אין עוד קלפים בטווח הזה. אפשר לבחור תקופה אחרת או לאפס.";return;}
+  if(!available.length){$("status").textContent="אין עוד קלפים בטווח הזה. אפשר לבחור תקופה אחרת או להתחיל משחק חדש.";return;}
   const pick=available[Math.floor(Math.random()*available.length)]; state.current={era:pick.era,card:pick.card,preview:null}; state.used.add(key(pick.card)); save();
-  $("revealed").hidden=true; $("concealed").hidden=false; $("card-meta").textContent=`${pick.era} · קלף ${state.used.size}/350`;
+  $("revealed").hidden=true; $("concealed").hidden=false; $("card-meta").textContent=`${pick.era} · קלף ${state.used.size}/${TARGET_TOTAL}`;
   $("reveal").disabled=false; $("play").disabled=true;
   $("status").textContent=navigator.onLine?"מחפש preview פנימי…":"📴 Offline · הקלף זמין; בודק אם ה־preview נשמר במכשיר…";
   try{
@@ -121,21 +163,29 @@ function reveal(){
   const team=$("team").value; if(!state.timelines[team].some(c=>key(c)===key(state.current.card))) state.timelines[team].push(state.current.card);
   save(); renderTimelines(); $("status").textContent=`נוסף אוטומטית לציר הזמן של ${TEAMS.find(x=>x[0]===team)[1]}.`;
 }
-function reset(){
-  if(!confirm("לאפס את הדמו, החפיסה וכל צירי הזמן?"))return; stopAudio(); state.used.clear(); TEAMS.forEach(([id])=>state.timelines[id]=[]); state.current=null; localStorage.removeItem(STORE);
-  $("revealed").hidden=true; $("concealed").hidden=false; $("card-meta").textContent=`נבחר ${state.era} · 50 קלפים`; $("status").textContent="הדמו אופס"; $("play").disabled=true; $("reveal").disabled=true; renderTimelines();
+function newGame(){
+  if(!confirm("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו."))return;
+  stopAudio(); state.used.clear(); TEAMS.forEach(([id])=>state.timelines[id]=[]); state.current=null; localStorage.removeItem(STORE);
+  $("revealed").hidden=true; $("concealed").hidden=false; $("card-meta").textContent=`נבחר ${state.era} · ${state.data[state.era].length} קלפים`; $("status").textContent="🎮 משחק חדש התחיל · צירי הזמן אופסו"; $("play").disabled=true; $("reveal").disabled=true; renderTimelines();
 }
 
 async function init(){
   const offlineReady=await enableOffline();
-  const response=await fetch("./hitster-kfar-bloom-2026-demo-data.json"); if(!response.ok) throw new Error("dataset load failed"); state.data=await response.json();
+  const [baseResponse, expansionResponse]=await Promise.all([
+    fetch("./hitster-kfar-bloom-2026-demo-data.json"),
+    fetch("./hitster-expansion-444.json")
+  ]);
+  if(!baseResponse.ok) throw new Error("base dataset load failed");
+  if(!expansionResponse.ok) throw new Error("expansion dataset load failed");
+  const base=await baseResponse.json(); const expansion=await expansionResponse.json();
+  state.data=mergeExpansion(base,expansion);
   const report=validate(state.data); $("m-total").textContent=report.total; $("m-era").textContent=`${report.validEras}/7`; $("m-dupes").textContent=report.duplicates.length;
   const badge=$("quality-badge");
-  badge.textContent=report.ok?(offlineReady?(navigator.onLine?"✅ 350/350 · Offline מוכן":"📴 350/350 · Offline פעיל"):"✅ Demo Gate: 350/350 מבנית תקינים"):"⛔ Demo Gate נכשל";
+  badge.textContent=report.ok?(offlineReady?(navigator.onLine?"✅ 444/444 · Offline מוכן":"📴 444/444 · Offline פעיל"):"✅ Demo Gate: 444/444 מבנית תקינים"):"⛔ Demo Gate נכשל";
   if(!report.ok){$("draw").disabled=true; $("status").textContent=report.errors[0]||"Quality gate failed";}
   restore(); renderEras(); renderTimelines();
-  $("draw").onclick=draw; $("play").onclick=play20; $("reveal").onclick=reveal; $("reset").onclick=reset;
-  window.addEventListener("offline",()=>{if(report.ok){badge.textContent="📴 350/350 · Offline פעיל";}});
-  window.addEventListener("online",()=>{if(report.ok){badge.textContent="✅ 350/350 · Offline מוכן";}});
+  $("draw").onclick=draw; $("play").onclick=play20; $("reveal").onclick=reveal; $("new-game").onclick=newGame;
+  window.addEventListener("offline",()=>{if(report.ok){badge.textContent="📴 444/444 · Offline פעיל";}});
+  window.addEventListener("online",()=>{if(report.ok){badge.textContent="✅ 444/444 · Offline מוכן";}});
 }
 init().catch(error=>{$("quality-badge").textContent="⛔ הדמו לא נטען";$("status").textContent=String(error.message||error);$("draw").disabled=true;});
