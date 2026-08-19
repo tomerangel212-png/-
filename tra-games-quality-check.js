@@ -9,6 +9,8 @@ const gamesHubJs = read("games-hub.js");
 const gamesCss = read("games.css");
 const mainHtml = read("index.html");
 const linksHtml = read("links/index.html");
+const hitsterHub = read("hitster.html");
+const hitsterGame = read("hitster-kfar-bloom-2026-demo.html");
 
 const gameNumbers = [...gamesHtml.matchAll(/data-game-number="(\d+)"/g)].map((match) => Number(match[1]));
 const expectedNumbers = Array.from({ length: 15 }, (_, index) => index + 1);
@@ -22,9 +24,18 @@ const checks = [
     name: "HITSTER is flagship, not the only destination",
     pass:
       gamesHtml.includes("⭐ משחק הדגל") &&
-      gamesHtml.includes("HITSTER TRA") &&
+      gamesHtml.includes("HITSTER TRA · 888") &&
       gamesHtml.includes('data-game-number="15"') &&
       gamesHtml.includes("Dungeons & Dragons")
+  },
+  {
+    name: "HITSTER routes through unified 888 hub",
+    pass:
+      gamesHtml.includes('href="hitster.html"') &&
+      hitsterHub.includes("888 קלפי שירים") &&
+      !hitsterHub.includes("350 הקלפים") &&
+      !hitsterHub.includes("444 קלפי") &&
+      hitsterGame.includes("888 קלפי שירים")
   },
   {
     name: "Every game card has a play control",
