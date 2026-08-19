@@ -25,8 +25,19 @@
       <div class="controls"><a class="primary" href="music-drive.html" style="text-decoration:none;display:inline-block">פתחו את המשחק</a></div>
     </section>
 
-    <section class="game-shell" aria-label="משחק שחמט">
-      <h2>♟️ שחמט חי</h2>
+    <section class="game-shell" id="chess" aria-label="משחק שחמט">
+      <h2>♟️ TRA Chess</h2>
+      <div class="bot-picker">
+        <label for="bot-select">בחרו יריב</label>
+        <select id="bot-select" aria-label="בחירת בוט שחמט">
+          <option value="local">שני שחקנים · מקומי</option>
+          <option value="shaked">שקד · 20/100</option>
+          <option value="tomer">תומר · 40/100</option>
+          <option value="shiki">שיקי · 60/100</option>
+          <option value="matan">מתן · 80/100</option>
+        </select>
+      </div>
+      <div id="bot-profile" class="bot-profile" aria-live="polite"></div>
       <div class="clocks" aria-label="שעוני משחק">
         <button class="clock black" id="black-clock" type="button"><span>שחור</span><strong>05:00</strong></button>
         <button class="clock white active" id="white-clock" type="button"><span>לבן</span><strong>05:00</strong></button>
@@ -38,7 +49,7 @@
         <button id="flip-board" type="button">הפכו לוח</button>
         <button id="undo-move" type="button" disabled>בטלו מסע</button>
       </div>
-      <p class="hint">השעון מתחיל במסע הראשון. המשחק כולל שח, מט, תיקו, הצרחה וקידום רגלי.</p>
+      <p class="hint">במצב בוט אתם משחקים בלבן והבוט בשחור. כל בוט משתמש באופי משחק שונה — לא רק בעומק חישוב. החוקיות כוללת שח, מט, פט, הצרחה, אן־פסאן וקידום רגלי.</p>
     </section>
   </main>
   <script type="module" src="games.js"></script>
