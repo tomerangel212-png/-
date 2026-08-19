@@ -7,6 +7,11 @@ const requiredFiles = [
   "games.html",
   "games.js",
   "games-hub.js",
+  "hitster.html",
+  "hitster-kfar-bloom-2026-demo.html",
+  "hitster-kfar-bloom-2026-demo.js",
+  "hitster-hebrew-alist-888.json",
+  "hitster-888-check.js",
   "casino-angel.html",
   "connect-talk.html",
   "links/index.html",
@@ -33,6 +38,17 @@ for (const file of htmlFiles) {
   if (!/<meta[^>]+name=["']viewport["']/i.test(source)) failures.push(`${file}: missing viewport meta`);
 }
 
+if (fs.existsSync("hitster.html")) {
+  const hub = fs.readFileSync("hitster.html", "utf8");
+  if (!hub.includes("888 קלפי שירים")) failures.push("hitster.html: canonical 888-card copy missing");
+  if (hub.includes("350 הקלפים") || hub.includes("444 קלפי")) failures.push("hitster.html: stale song count remains");
+}
+
+if (fs.existsSync("games.html")) {
+  const games = fs.readFileSync("games.html", "utf8");
+  if (!games.includes('href="hitster.html"')) failures.push("games.html: HITSTER must route through hitster.html hub");
+}
+
 if (failures.length) {
   console.error("TRA production smoke check FAILED:\n");
   failures.forEach((failure) => console.error(`- ${failure}`));
@@ -41,3 +57,4 @@ if (failures.length) {
 
 console.log(`TRA production smoke check PASSED: ${requiredFiles.length}/${requiredFiles.length} required files present and non-empty.`);
 console.log(`HTML baseline PASSED: ${htmlFiles.length}/${htmlFiles.length} pages have html/title/viewport.`);
+console.log("HITSTER canonical release: 888 cards · unified hub · PASS");
