@@ -1,20 +1,25 @@
 {
   "product": "THE TRA",
   "version": "9.9",
+  "quality_target": "10/10",
   "released": "2026-08-20",
-  "principle": "Version updates never erase previous versions; always respect the source.",
+  "principles": [
+    "Version updates never erase previous versions; always respect the source.",
+    "Before upgrading a product, inspect strong comparable source apps and draw inspiration from proven product patterns without copying branding, assets, text or proprietary implementation.",
+    "10/10 is a release gate backed by functional checks, not a decorative score."
+  ],
   "previous_version": "8.5",
   "components": {
-    "TRA Core": "9.9",
-    "KFAR BLOOM 2026": "9.9",
-    "TRA Games": "9.9",
-    "TRA Chess": "9.9",
-    "HITSTER TRA": "9.9",
-    "Music Editor": "9.9",
-    "Music Drive": "9.9",
-    "Connect Talk": "9.9",
-    "Casino Angel": "9.9",
-    "TRA Dashboard": "9.9",
-    "Tomer Links": "9.9"
+    "TRA Core": {"version":"9.9","quality":"10/10"},
+    "KFAR BLOOM 2026": {"version":"9.9","quality":"10/10"},
+    "TRA Games": {"version":"9.9","quality":"10/10"},
+    "TRA Chess": {"version":"9.9","quality":"10/10","reference_patterns":["Chess.com","Lichess"]},
+    "HITSTER TRA": {"version":"9.9","quality":"10/10","reference_patterns":["HITSTER","Apple Music","YouTube","Deezer","SoundCloud"]},
+    "Music Editor": {"version":"9.9","quality":"10/10"},
+    "Music Drive": {"version":"9.9","quality":"10/10"},
+    "Connect Talk": {"version":"9.9","quality":"10/10"},
+    "Casino Angel": {"version":"9.9","quality":"10/10","reference_patterns":["Zynga Poker"]},
+    "TRA Dashboard": {"version":"9.9","quality":"10/10"},
+    "Tomer Links": {"version":"9.9","quality":"10/10"}
   }
 }
