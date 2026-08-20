@@ -42,16 +42,37 @@ function pickDiverse(pool, count, selected=[]) {
   }
   return picks;
 }
+function hasStructuralViolation(list) {
+  const newRun = longestRun(list, isNewSong);
+  const oldSameLanguage = list.slice(1).some((song, index) => {
+    const previous = list[index];
+    return !isNewSong(previous) && !isNewSong(song) && metadata(previous).language === metadata(song).language;
+  });
+  return newRun > 2 || oldSameLanguage;
+}
+function arrangeHour(list) {
+  for (let attempt = 0; attempt < 600; attempt += 1) {
+    const candidate = shuffle(list);
+    if (!hasStructuralViolation(candidate)) return candidate;
+  }
+  return shuffle(list);
+}
 function buildHour() {
-  const pool = filteredCatalog();
+  const pool = catalog.filter(song => song.nightSuitable !== false);
   const newPool = pool.filter(isNewSong);
   const olderPool = pool.filter(song => !isNewSong(song));
   if (newPool.length < NEW_TRACKS_REQUIRED || olderPool.length < HOUR_SIZE - NEW_TRACKS_REQUIRED) {
     throw new Error("אין מספיק שירים מאומתים כדי לבנות שעה של 14 עם ארבעה חדשים.");
   }
   const fresh = pickDiverse(newPool, NEW_TRACKS_REQUIRED);
-  const older = pickDiverse(olderPool, HOUR_SIZE - NEW_TRACKS_REQUIRED, fresh);
-  hourTracks = shuffle([...fresh, ...older]);
+  const olderHebrew = pickDiverse(olderPool.filter(song => songLanguage(song) === "עברית"), 5, fresh);
+  const olderInternational = pickDiverse(olderPool.filter(song => songLanguage(song) === "לועזית"), 5, [...fresh, ...olderHebrew]);
+  const older = [...olderHebrew, ...olderInternational];
+  if (older.length < HOUR_SIZE - NEW_TRACKS_REQUIRED) {
+    const rest = olderPool.filter(song => !older.includes(song));
+    older.push(...pickDiverse(rest, HOUR_SIZE - NEW_TRACKS_REQUIRED - older.length, [...fresh, ...older]));
+  }
+  hourTracks = arrangeHour([...fresh, ...older].slice(0, HOUR_SIZE));
   transitionChecks = new Set();
   renderHour();
   track("music_editor_hour_built", { size:HOUR_SIZE, new_tracks:fresh.length });
@@ -130,7 +151,7 @@ function renderHour() {
 }
 function setupHourBuilder() {
   $("build-hour").onclick = () => { try { buildHour(); } catch (error) { $("hour-rubric").textContent = String(error.message || error); } };
-  $("reshuffle-hour").onclick = () => { if (hourTracks.length === HOUR_SIZE) { hourTracks = shuffle(hourTracks); transitionChecks = new Set(); renderHour(); } else { buildHour(); } };
+  $("reshuffle-hour").onclick = () => { if (hourTracks.length === HOUR_SIZE) { hourTracks = arrangeHour(hourTracks); transitionChecks = new Set(); renderHour(); } else { buildHour(); } };
   buildHour();
 }
 
