@@ -63,7 +63,7 @@ if (fs.existsSync("hitster-kfar-bloom-2026-demo.html")) {
 if (fs.existsSync("hitster-kfar-bloom-2026-demo.js")) {
   const demoJs = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
   if (!demoJs.includes("prepareAudio(state.current.preview)")) failures.push("hitster demo: preview audio is not prepared before play tap");
-  if (!demoJs.includes('error?.name === "NotAllowedError"')) failures.push("hitster demo: blocked-playback recovery missing");
+  if (!/error\?\.name\s*===\s*["']NotAllowedError["']/.test(demoJs)) failures.push("hitster demo: blocked-playback recovery missing");
 }
 
 if (fs.existsSync("games.html")) {
