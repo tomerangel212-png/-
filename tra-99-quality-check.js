@@ -21,7 +21,10 @@ check("TRA quality target is 10/10", version.quality_target === "10/10" && quali
 check("Previous version is preserved", version.previous_version === "8.5" && history.includes("TRA 8.5"));
 check("Reference-app principle is recorded", history.includes("Reference-app principle") && history.includes("Zynga Poker") && history.includes("Chess.com") && history.includes("HITSTER"));
 
-const sites = ["index.html","games.html","hitster.html","hitster-kfar-bloom-2026-demo.html","casino-angel.html","connect-talk.html","music-drive.html","music-editor.html","links/index.html","tra-dashboard/index.html"];
+const sites = [
+  "index.html","games.html","hitster.html","hitster-kfar-bloom-2026-demo.html","casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",
+  "links/index.html","tra-dashboard/index.html","songs/index.html","poetry/index.html","instrumentals/index.html"
+];
 for (const site of sites) {
   check(`${site} exists`, exists(site));
   if(exists(site)){
@@ -31,11 +34,12 @@ for (const site of sites) {
   }
 }
 
-check("Universal TRA quality layer exists", qualityLayer.includes('data.traQuality = "10/10"') && qualityLayer.includes("prefers-reduced-motion") && qualityLayer.includes("focus-visible"));
+check("Universal TRA quality layer exists", qualityLayer.includes('dataset.traQuality = "10/10"') && qualityLayer.includes("prefers-reduced-motion") && qualityLayer.includes("focus-visible"));
 check("Service worker caches quality layer", sw.includes('"./tra-quality.js"') && sw.includes('"./TRA_VERSION.json"') && sw.includes("injectQuality"));
 check("Service worker injects quality layer into HTML", sw.includes('html.includes("tra-quality.js")') && sw.includes('<script src="./tra-quality.js"></script>'));
 
-check("Chess keeps chess.js as legality source", read("games.js").includes("chess.js@1.4.0") && read("games.js").includes("strictLegalMove"));
+const gamesJs = read("games.js");
+check("Chess keeps chess.js as legality source", gamesJs.includes("chess.js@1.4.0") && gamesJs.includes("strictLegalMove"));
 check("Chess has Ant/Anti 3000", chess.includes('name:"אנט / אנטי ♛"') && chess.includes("elo:3000") && chess.includes('style:"perfect-counter"'));
 check("Chess has Review API", chess.includes("TRA_CHESS_API") && chess.includes("review:") && chess.includes("suggestHumanMove"));
 check("Chess can export PGN and FEN", chess.includes("copy-pgn") && chess.includes("copy-fen") && chess.includes("chess.pgn()") && chess.includes("chess.fen()"));
