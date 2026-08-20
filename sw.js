@@ -1,4 +1,4 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v10-hitster-ios-audio";
+const CACHE = "tra-kfar-bloom-2026-offline-v11-hitster-888-ios-audio";
 const HITSTER_OFFLINE = [
   "./hitster.html",
   "./hitster-kfar-bloom-2026-demo.html",
