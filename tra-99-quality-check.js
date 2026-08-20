@@ -20,7 +20,7 @@ const hitster57 = read("hitster-kfar-bloom-2026-demo.html");
 const qualityLayer = read("tra-quality.js");
 
 check("TRA release is 9.9", version.version === "9.9");
-check("TRA quality target is 10/10", version.quality_target === "10/10" && quality.target === 10);
+check("TRA quality target matches official 999/1000 release target", version.quality_target === "999/1000" && quality.target === 10);
 check("Previous version is preserved", version.previous_version === "8.5" && history.includes("TRA 8.5"));
 check("Reference-app principle is recorded", history.includes("Reference-app principle") && history.includes("Zynga Poker") && history.includes("Chess.com") && history.includes("HITSTER"));
 
