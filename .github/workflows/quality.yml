@@ -23,7 +23,7 @@ jobs:
         run: |
           node --check app.js
           node --check games.js
-          node --check games-loader.js
+          node --input-type=module --check < games-loader.js
           node --check games-hub.js
           node --check music-editor.js
           node --check hitster-kfar-bloom-2026-demo.js
@@ -33,6 +33,8 @@ jobs:
           node --check tra-games-quality-check.js
           node --check hitster-quality-check.js
           node --check hitster-catalog-11111-check.js
+          node --check tra-99-quality-check.js
+          node --check tra-quality.js
       - name: Build HITSTER 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
       - name: Enforce HITSTER 888 = 222×4
@@ -52,3 +54,5 @@ jobs:
         run: node hitster-quality-check.js
       - name: Enforce HITSTER 11,111 catalog capacity gate
         run: node hitster-catalog-11111-check.js
+      - name: Enforce TRA 9.9 10/10 release gate
+        run: node tra-99-quality-check.js
