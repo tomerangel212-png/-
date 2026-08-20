@@ -9,6 +9,7 @@ const requiredFiles = [
   "games-hub.js",
   "conversation-questions.js",
   "hitster.html",
+  "hitster-888.html",
   "hitster-kfar-bloom-2026-demo.html",
   "hitster-kfar-bloom-2026-demo.js",
   "hitster-hebrew-alist-888.json",
@@ -50,20 +51,32 @@ if (fs.existsSync("index.html")) {
 if (fs.existsSync("hitster.html")) {
   const hub = fs.readFileSync("hitster.html", "utf8");
   if (!hub.includes("888 קלפי שירים")) failures.push("hitster.html: canonical 888-card copy missing");
+  if (!hub.includes('href="hitster-888.html"')) failures.push("hitster.html: dedicated 888 route missing");
+  if (!hub.includes('href="hitster-kfar-bloom-2026-demo.html"')) failures.push("hitster.html: Kfar Blum 57 route missing");
   if (hub.includes("350 הקלפים") || hub.includes("444 קלפי")) failures.push("hitster.html: stale song count remains");
   if (hub.includes("חזרה לכל 15 משחקי TRA")) failures.push("hitster.html: stale 15-game navigation remains");
 }
 
+if (fs.existsSync("hitster-888.html")) {
+  const full = fs.readFileSync("hitster-888.html", "utf8");
+  if (!full.includes("888 קלפי שירים") || !full.includes("222 קלפים בכל תקופה")) failures.push("hitster-888.html: 888 / 222×4 copy missing");
+  if (!/id=["']audio["'][^>]*preload=["']metadata["']/i.test(full)) failures.push("hitster-888: audio should preload metadata for mobile playback");
+  if (!/id=["']audio["'][^>]*playsinline/i.test(full)) failures.push("hitster-888: audio should use playsinline for iOS compatibility");
+  if (!full.includes('id="new-game"')) failures.push("hitster-888: New Game control missing");
+}
+
 if (fs.existsSync("hitster-kfar-bloom-2026-demo.html")) {
-  const demo = fs.readFileSync("hitster-kfar-bloom-2026-demo.html", "utf8");
-  if (!/id=["']audio["'][^>]*preload=["']metadata["']/i.test(demo)) failures.push("hitster demo: audio should preload metadata for mobile playback");
-  if (!/id=["']audio["'][^>]*playsinline/i.test(demo)) failures.push("hitster demo: audio should use playsinline for iOS compatibility");
+  const family = fs.readFileSync("hitster-kfar-bloom-2026-demo.html", "utf8");
+  if (!family.includes("57 כרטיס")) failures.push("hitster Kfar Blum: 57-card identity missing");
+  if (!family.includes("WIN_CARDS=18")) failures.push("hitster Kfar Blum: chai win condition missing");
+  if (!/id=["']audio["'][^>]*preload=["']metadata["']/i.test(family)) failures.push("hitster Kfar Blum: audio should preload metadata");
+  if (!/id=["']audio["'][^>]*playsinline/i.test(family)) failures.push("hitster Kfar Blum: audio should use playsinline");
 }
 
 if (fs.existsSync("hitster-kfar-bloom-2026-demo.js")) {
-  const demoJs = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
-  if (!demoJs.includes("prepareAudio(state.current.preview)")) failures.push("hitster demo: preview audio is not prepared before play tap");
-  if (!/error\?\.name\s*===\s*["']NotAllowedError["']/.test(demoJs)) failures.push("hitster demo: blocked-playback recovery missing");
+  const fullJs = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
+  if (!fullJs.includes("prepareAudio(state.current.preview)")) failures.push("hitster-888 runtime: preview audio is not prepared before play tap");
+  if (!/error\?\.name\s*===\s*["']NotAllowedError["']/.test(fullJs)) failures.push("hitster-888 runtime: blocked-playback recovery missing");
 }
 
 if (fs.existsSync("games.html")) {
@@ -94,5 +107,5 @@ if (failures.length) {
 console.log(`TRA production smoke check PASSED: ${requiredFiles.length}/${requiredFiles.length} required files present and non-empty.`);
 console.log(`HTML baseline PASSED: ${htmlFiles.length}/${htmlFiles.length} pages have html/title/viewport.`);
 console.log("TRA Games canonical release: 16 games · shared conversation bank · PASS");
-console.log("HITSTER canonical release: 888 cards · iOS playback prep · Offline · PASS");
+console.log("HITSTER release: 888 full + Kfar Blum 57 · iOS playback · Offline · PASS");
 console.log("Music additions: Family Musical Journey + Music Editor game · PASS");
