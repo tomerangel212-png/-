@@ -12,6 +12,7 @@ const linksHtml = read("links/index.html");
 const hitsterHub = read("hitster.html");
 const hitsterGame = read("hitster-kfar-bloom-2026-demo.html");
 const musicEditor = read("music-editor.html");
+const musicEditorJs = read("music-editor.js");
 
 const gameNumbers = [...gamesHtml.matchAll(/data-game-number="(\d+)"/g)].map((match) => Number(match[1]));
 const expectedNumbers = Array.from({ length: 16 }, (_, index) => index + 1);
@@ -57,7 +58,13 @@ const checks = [
       musicEditor.includes("מי רוצה להיות עורך מוזיקלי?") &&
       musicEditor.includes("15 החלטות מקצועיות") &&
       musicEditor.includes("1000000") &&
-      musicEditor.includes("50:50")
+      musicEditor.includes("50:50") &&
+      musicEditor.includes("14 שירים") &&
+      musicEditor.includes("hour-list") &&
+      musicEditorJs.includes("HOUR_SIZE = 14") &&
+      musicEditorJs.includes("NEW_TRACKS_REQUIRED = 4") &&
+      musicEditorJs.includes("reorderHour") &&
+      musicEditorJs.includes("קרוס חייב להתאים קודם כול סגנונית וקצבית")
   },
   {
     name: "Family Musical Journey is exposed in main links",
