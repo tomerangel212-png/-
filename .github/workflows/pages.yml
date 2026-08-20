@@ -33,6 +33,8 @@ jobs:
           node --check hitster-888-check.js
           node --check site-smoke-check.js
           node --check tra-games-quality-check.js
+          node --check hitster-quality-check.js
+          node --check hitster-catalog-11111-check.js
           node --check tra-99-quality-check.js
           node --check tra-quality.js
       - name: Build HITSTER 888 Hebrew A-list deck
@@ -88,6 +90,8 @@ jobs:
       - name: Verify generated deck exists
         run: |
           test -s hitster-hebrew-alist-888.json
+          test -s hitster-888.html
+          test -s hitster-kfar-bloom-2026-demo.html
           node hitster-888-check.js
           node tra-99-quality-check.js
       - name: Configure GitHub Pages
@@ -108,7 +112,7 @@ jobs:
             local needle="$2"
             local ok=0
             for attempt in {1..12}; do
-              if body="$(curl -fsSL --max-time 20 "$url" 2>/dev/null)" && grep -q "$needle" <<<"$body"; then
+              if body="$(curl -fsSL --max-time 20 "$url" 2>/dev/null)" && grep -Fq "$needle" <<<"$body"; then
                 ok=1
                 break
               fi
@@ -123,4 +127,5 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
           check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
-          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER TRA"
+          check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "888 קלפי שירים"
+          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "57 כרטיסים"
