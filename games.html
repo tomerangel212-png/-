@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#1c332d">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="TRA Games — מרכז 16 המשחקים של TRA. HITSTER הוא משחק הדגל, אבל מכאן נכנסים לכל המשחקים.">
   <title>TRA Games — כל 16 המשחקים</title>
   <link rel="stylesheet" href="games.css">
@@ -94,5 +98,6 @@
   <script src="conversation-questions.js"></script>
   <script src="games-hub.js"></script>
   <script type="module" src="games-loader.js"></script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(()=>{}));}</script>
 </body>
 </html>
