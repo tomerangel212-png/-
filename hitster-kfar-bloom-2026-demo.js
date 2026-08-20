@@ -55,7 +55,7 @@ function renderTimelines(){const host=$("timelines");host.replaceChildren();TEAM
 function allCards(){return Object.entries(state.data).flatMap(([era,pool])=>pool.map(card=>({era,card})));}
 function pool(){const source=$("mode").value==="all"?allCards():(state.data[state.era]||[]).map(card=>({era:state.era,card}));return source.filter(({card})=>!state.used.has(key(card))&&!state.previewUnavailable.has(key(card)));}
 function stopAudio(){clearTimeout(state.previewTimer);state.previewTimer=null;const audio=$("audio");audio.pause();try{audio.currentTime=0;}catch{}$("play").textContent=`▶ ${PREVIEW_SECONDS} שניות`;}
-function prepareAudio(previewUrl){const audio=$("audio");if(!previewUrl){audio.removeAttribute("src");audio.load();return;}if(audio.src!==previewUrl){audio.src=previewUrl;audio.preload="auto";audio.playsInline=true;audio.load();}}
+function prepareAudio(previewUrl){const audio=$("audio");if(!previewUrl){audio.removeAttribute("src");audio.load();return;}if(audio.src!==previewUrl){audio.src=previewUrl;audio.preload="metadata";audio.playsInline=true;audio.load();}}
 async function resolvePreview(card){const term=encodeURIComponent(`${card[0]} ${card[1]}`);const response=await fetch(`https://itunes.apple.com/search?term=${term}&entity=song&limit=5&country=IL`);if(!response.ok)throw new Error("preview search failed");const json=await response.json();const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9א-ת]+/g," ").trim();const title=clean(card[0]),artist=clean(card[1]);const ranked=[...(json.results||[])].sort((a,b)=>{const score=x=>(clean(x.trackName).includes(title)||title.includes(clean(x.trackName))?3:0)+(clean(x.artistName).includes(artist)||artist.includes(clean(x.artistName))?2:0);return score(b)-score(a);});return ranked.find(x=>x.previewUrl)?.previewUrl||null;}
 function trackAudio(event,properties={}){try{window.posthog?.capture?.(event,{...properties,preview_seconds:PREVIEW_SECONDS});}catch{}}
 function invalidateNextPick(){state.previewGeneration+=1;state.nextPick=null;state.nextPickPromise=null;}
@@ -110,7 +110,7 @@ function handlePreviewFailure(error,source){
   $("play").textContent=`▶ ${PREVIEW_SECONDS} שניות`;
   $("play").disabled=false;
   trackAudio("hitster_audio_preview_failed",{source,error_name:error?.name||"Error",error_message:String(error?.message||"").slice(0,160)});
-  if(error?.name==="NotAllowedError")$("status").textContent="Safari חסם את ההפעלה. לחצו על ▶ 30 שניות — ההשמעה תתחיל מיד.";
+  if (error?.name === "NotAllowedError") $("status").textContent="Safari חסם את ההפעלה. לחצו על ▶ 30 שניות — ההשמעה תתחיל מיד.";
   else $("status").textContent="האודיו לא הצליח להתנגן. לחצו שוב על ▶ 30 שניות.";
 }
 function draw(){
