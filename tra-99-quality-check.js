@@ -14,6 +14,9 @@ const sw = read("sw.js");
 const chess = read("games-loader.js");
 const casino = read("casino-angel.html");
 const hitster = read("hitster-kfar-bloom-2026-demo.js");
+const hitsterHub = read("hitster.html");
+const hitster888 = read("hitster-888.html");
+const hitster57 = read("hitster-kfar-bloom-2026-demo.html");
 const qualityLayer = read("tra-quality.js");
 
 check("TRA release is 9.9", version.version === "9.9");
@@ -22,7 +25,7 @@ check("Previous version is preserved", version.previous_version === "8.5" && his
 check("Reference-app principle is recorded", history.includes("Reference-app principle") && history.includes("Zynga Poker") && history.includes("Chess.com") && history.includes("HITSTER"));
 
 const sites = [
-  "index.html","games.html","hitster.html","hitster-kfar-bloom-2026-demo.html","casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",
+  "index.html","games.html","hitster.html","hitster-888.html","hitster-kfar-bloom-2026-demo.html","casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",
   "links/index.html","tra-dashboard/index.html","songs/index.html","poetry/index.html","instrumentals/index.html"
 ];
 for (const site of sites) {
@@ -51,9 +54,13 @@ check("Casino is virtual-only", casino.includes("ז׳טונים וירטואלי
 check("Casino includes league/progression pattern", casino.includes("League") && casino.includes("בונוס יומי"));
 
 check("HITSTER target remains exactly 888", hitster.includes("TARGET_TOTAL = 888") && hitster.includes("TARGET_PER_ERA = 222"));
+check("HITSTER 888 page is dedicated and complete", hitster888.includes("888 קלפי שירים") && hitster888.includes("222 קלפים בכל תקופה") && hitster888.includes('id="new-game"'));
+check("HITSTER Kfar Blum 57 remains preserved", hitster57.includes("57 כרטיס") && hitster57.includes("WIN_CARDS=18") && hitster57.includes("5 אסימוני HITSTER"));
+check("HITSTER hub exposes both versions", hitsterHub.includes('href="hitster-888.html"') && hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"'));
 check("HITSTER never drops cards for missing preview", !hitster.includes("previewUnavailable") && hitster.includes("הקלף נשאר זמין"));
 check("HITSTER has Apple/YouTube/Deezer/SoundCloud fallback", ["music.apple.com","youtube.com","deezer.com","soundcloud.com"].every(x=>hitster.includes(x)));
 check("HITSTER auto-plays 30 seconds when preview exists", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes('startPreview("draw")'));
+check("Offline cache contains both HITSTER versions", sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"'));
 
 const score = Math.round(checks.filter(x=>x.pass).length / checks.length * 100);
 for(const item of checks) console.log(`${item.pass?"PASS":"FAIL"} - ${item.name}`);

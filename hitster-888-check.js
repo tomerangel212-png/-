@@ -3,7 +3,8 @@
 const fs = require("fs");
 
 const payload = JSON.parse(fs.readFileSync("hitster-hebrew-alist-888.json", "utf8"));
-const html = fs.readFileSync("hitster-kfar-bloom-2026-demo.html", "utf8");
+const html888 = fs.readFileSync("hitster-888.html", "utf8");
+const family57 = fs.readFileSync("hitster-kfar-bloom-2026-demo.html", "utf8");
 const hub = fs.readFileSync("hitster.html", "utf8");
 const games = fs.readFileSync("games.html", "utf8");
 const js = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
@@ -58,11 +59,13 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
 
 if (total !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} cards, got ${total}`);
 if (seen.size !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} unique cards, got ${seen.size}`);
-if (!html.includes('id="new-game"') || !html.includes("888 קלפי שירים") || !html.includes("222 קלפים בכל תקופה")) failures.push("888 / 222×4 UI or New Game button missing");
-if (!hub.includes("888 קלפי שירים") || hub.includes("350 הקלפים") || hub.includes("444 קלפי")) failures.push("HITSTER hub contains stale song-count copy");
-if (!games.includes('href="hitster.html"') || !games.includes("HITSTER TRA · 888")) failures.push("TRA Games does not route HITSTER through the 888 hub");
-if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("Runtime is not locked to 888 = 222×4 / New Game");
-if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888")) failures.push("888-card deck is not cached with an 888-versioned offline cache");
+if (!html888.includes('id="new-game"') || !html888.includes("888 קלפי שירים") || !html888.includes("222 קלפים בכל תקופה")) failures.push("888 / 222×4 UI or New Game button missing from hitster-888.html");
+if (!family57.includes("57 כרטיס") || !family57.includes("WIN_CARDS=18") || !family57.includes("5 אסימוני HITSTER")) failures.push("Kfar Blum 57 mode contract missing");
+if (!hub.includes("888 קלפי שירים") || !hub.includes('href="hitster-888.html"') || !hub.includes('href="hitster-kfar-bloom-2026-demo.html"')) failures.push("HITSTER hub must expose both 888 and Kfar Blum 57 modes");
+if (hub.includes("350 הקלפים") || hub.includes("444 קלפי")) failures.push("HITSTER hub contains stale song-count copy");
+if (!games.includes('href="hitster.html"') || !games.includes("HITSTER TRA · 888")) failures.push("TRA Games does not route HITSTER through the hub");
+if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("888 runtime is not locked to 888 = 222×4 / New Game");
+if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888.html") || !sw.includes("hitster-888")) failures.push("888-card deck/page is not cached with an 888-versioned offline cache");
 if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA = 222") || !builder.includes("GLZ_2020")) failures.push("888 builder is not configured for 222×4 including 2020");
 
 if (failures.length) {
@@ -78,5 +81,5 @@ console.log("Hebrew-only: PASS");
 console.log("Annual-chart A-list provenance: PASS");
 console.log("2020 included: PASS");
 console.log("New Game timeline reset: PASS");
-console.log("Unified HITSTER hub: PASS");
+console.log("HITSTER 888 + Kfar Blum 57 separation: PASS");
 console.log("Offline deck cache: PASS");

@@ -1,10 +1,9 @@
 name: TRA Live HTTP Verification
 
 on:
-  pull_request:
-    branches: [main]
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ["Deploy TRA Sites to GitHub Pages"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -12,6 +11,7 @@ permissions:
 
 jobs:
   live-http:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     name: TRA · Live HTTP green gate
     runs-on: ubuntu-latest
     steps:
@@ -27,15 +27,15 @@ jobs:
             body_file="$(mktemp)"
             local ok=0
 
-            for attempt in {1..8}; do
+            for attempt in {1..12}; do
               code="$(curl -L --silent --show-error --output "$body_file" --write-out '%{http_code}' --connect-timeout 10 --max-time 25 "$url" || true)"
               if [[ "$code" == "200" ]] && grep -Fq "$needle" "$body_file"; then
                 echo "GREEN  $url  HTTP $code  matched: $needle"
                 ok=1
                 break
               fi
-              echo "WAIT   $url  HTTP ${code:-000}  attempt $attempt/8"
-              sleep 5
+              echo "WAIT   $url  HTTP ${code:-000}  attempt $attempt/12"
+              sleep 10
             done
 
             if [[ "$ok" -ne 1 ]]; then
@@ -50,7 +50,8 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
           check_url "https://tomerangel212-png.github.io/-/games.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
-          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER TRA"
+          check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "888 קלפי שירים"
+          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "57 כרטיסים"
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
           check_url "https://tomerangel212-png.github.io/-/TRA_VERSION.json" '"version": "9.9"'
 
