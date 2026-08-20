@@ -1,0 +1,57 @@
+name: TRA Live HTTP Verification
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-http:
+    name: TRA · Live HTTP green gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify public GitHub Pages over live HTTPS
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          check_url() {
+            local url="$1"
+            local needle="$2"
+            local body_file
+            body_file="$(mktemp)"
+            local ok=0
+
+            for attempt in {1..8}; do
+              code="$(curl -L --silent --show-error --output "$body_file" --write-out '%{http_code}' --connect-timeout 10 --max-time 25 "$url" || true)"
+              if [[ "$code" == "200" ]] && grep -Fq "$needle" "$body_file"; then
+                echo "GREEN  $url  HTTP $code  matched: $needle"
+                ok=1
+                break
+              fi
+              echo "WAIT   $url  HTTP ${code:-000}  attempt $attempt/8"
+              sleep 5
+            done
+
+            if [[ "$ok" -ne 1 ]]; then
+              echo "RED    $url did not return HTTP 200 with expected live content: $needle" >&2
+              echo "---- response preview ----" >&2
+              head -c 800 "$body_file" >&2 || true
+              echo >&2
+              exit 1
+            fi
+          }
+
+          check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
+          check_url "https://tomerangel212-png.github.io/-/games.html" "מי רוצה להיות עורך מוזיקלי"
+          check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
+          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER TRA"
+          check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
+          check_url "https://tomerangel212-png.github.io/-/TRA_VERSION.json" '"version": "9.9"'
+
+          echo "TRA LIVE HTTP VERIFIED GREEN"
