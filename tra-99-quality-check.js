@@ -20,7 +20,7 @@ const hitster57 = read("hitster-kfar-bloom-2026-demo.html");
 const qualityLayer = read("tra-quality.js");
 
 check("TRA release is 9.9", version.version === "9.9");
-check("TRA quality target is 10/10", version.quality_target === "10/10" && quality.target === 10);
+check("TRA quality target is 999/1000 with 10/10 release criteria", version.quality_target === "999/1000" && quality.target === 10);
 check("Previous version is preserved", version.previous_version === "8.5" && history.includes("TRA 8.5"));
 check("Reference-app principle is recorded", history.includes("Reference-app principle") && history.includes("Zynga Poker") && history.includes("Chess.com") && history.includes("HITSTER"));
 
@@ -66,4 +66,4 @@ const score = Math.round(checks.filter(x=>x.pass).length / checks.length * 100);
 for(const item of checks) console.log(`${item.pass?"PASS":"FAIL"} - ${item.name}`);
 console.log(`\nTRA 9.9 release quality: ${score}/100 (${checks.filter(x=>x.pass).length}/${checks.length})`);
 if(failures.length){console.error("\nTRA 9.9 RELEASE BLOCKED:\n- "+failures.join("\n- "));process.exit(1);}
-console.log("TRA 9.9 quality gate PASSED: 10/10 release criteria enforced.");
+console.log("TRA 9.9 quality gate PASSED: 999/1000 target with 10/10 release criteria enforced.");
