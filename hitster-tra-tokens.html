@@ -17,13 +17,13 @@
     <section class="panel" id="home">
       <div class="count" id="deckCount">1,000 כרטיסים מוכנים</div>
       <div class="teams" id="teams"></div>
-      <p class="help">כל קבוצה מתחילה עם 5 אסימוני HITSTER.</p>
+      <p class="help">כל קבוצה צוברת כוכבים בנפרד: מ־0 עד 12.</p>
       <button class="start" id="start">מתחילים לשחק</button>
       <p class="help">אדם אחד מקריא את שם השיר והאמן — וכולם בוחרים את העשור. פשוט גם לסבתא אסתל.</p>
     </section>
     <section class="game" id="game" aria-live="polite">
       <div class="teams" id="gameTeams"></div>
-      <section class="tokenbar"><div class="tokens" id="tokens"></div><div class="tokenActions"><button class="small" id="skip">אסימון 1 · דלגו</button><button class="small" id="challenge">אסימון 1 · HITSTER!</button><button class="small" id="freeCard">3 אסימונים · קלף חופשי</button></div><div class="status" id="status"></div></section>
+      <section class="tokenbar"><div class="tokens" id="tokens"></div><div class="tokenActions"><button class="small" id="skip">כוכב 1 · דלגו</button><button class="small" id="challenge">כוכב 1 · HITSTER!</button><button class="small" id="freeCard">3 כוכבים · קלף חופשי</button><button class="small" id="identify">זיהוי מלא · +כוכב</button></div><div class="status" id="status"></div></section>
       <p class="progress" id="progress"></p>
       <article class="card"><div class="note">באיזה עשור יצא השיר?</div><div class="song" id="song"></div><div class="artist" id="artist"></div></article>
       <div class="answers" id="answers"></div>
@@ -52,12 +52,14 @@
     const $=id=>document.getElementById(id);
     const teamNames=['איילת ודודי','שרון ונווה','נעמה ורז','מעיין ומנואל','עירית ונתן'];
     let activeTeam=0;
-    const saved=JSON.parse(localStorage.getItem('tra-hitster-tokens-v1')||'{}');
-    const teamState=teamNames.map((name,i)=>saved[name]||{tokens:5,cards:0});
-    function persist(){const out={};teamNames.forEach((n,i)=>out[n]=teamState[i]);localStorage.setItem('tra-hitster-tokens-v1',JSON.stringify(out))}
+    const saved=JSON.parse(localStorage.getItem('tra-hitster-stars-v2')||'{}');
+    const teamState=teamNames.map(name=>({stars:Math.max(0,Math.min(12,Number(saved[name]?.stars)||0)),cards:Number(saved[name]?.cards)||0}));
+    function persist(){const out={};teamNames.forEach((n,i)=>out[n]=teamState[i]);localStorage.setItem('tra-hitster-stars-v2',JSON.stringify(out))}
     function renderTeams(){['teams','gameTeams'].forEach(id=>{const root=$(id);if(!root)return;root.innerHTML='';teamNames.forEach((name,i)=>{const b=document.createElement('button');b.className='team'+(i===activeTeam?' active':'');b.textContent=`${i+1}. ${name}`;b.onclick=()=>{activeTeam=i;renderTeams();renderTokens()};root.appendChild(b)})})}
-    function renderTokens(){const t=teamState[activeTeam];$('tokens').textContent=`${teamNames[activeTeam]} · ${t.tokens} אסימונים · ${t.cards} קלפים בציר`;['skip','challenge','freeCard'].forEach(id=>$(id).disabled=(id==='freeCard'?t.tokens<3:t.tokens<1))}
-    function useTokens(cost,message){const t=teamState[activeTeam];if(t.tokens<cost){$('status').textContent='אין מספיק אסימונים.';return false}t.tokens-=cost;persist();renderTokens();$('status').textContent=message;return true}
+    function renderTokens(){const t=teamState[activeTeam];$('tokens').textContent=`${teamNames[activeTeam]} · ${t.stars}/12 כוכבים · ${t.cards} קלפים בציר`;['skip','challenge','freeCard'].forEach(id=>$(id).disabled=(id==='freeCard'?t.stars<3:t.stars<1));$('identify').disabled=t.stars>=12}
+    function useTokens(cost,message){const t=teamState[activeTeam];if(t.stars<cost){$('status').textContent='אין מספיק כוכבים.';return false}t.stars-=cost;persist();renderTokens();$('status').textContent=message;return true}
+    function norm(s){return (s||'').toLowerCase().replace(/[׳'".,!?:()\-–—\s]/g,'')}
+    function awardStar(){const t=teamState[activeTeam];if(t.stars>=12){$('status').textContent='הקבוצה כבר הגיעה לתקרת 12 כוכבים.';return}const title=window.prompt('מה שם השיר?');const artist=window.prompt('מי המבצע/ת?');if(norm(title)===norm(current.title)&&norm(artist)===norm(current.artist)){t.stars++;persist();renderTokens();$('status').textContent='זיהוי מלא נכון — נוסף כוכב!'}else $('status').textContent='לא מדויק. נסו שוב בכרטיס הבא.'}
     function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
     function decade(year){return Math.floor(year/10)*10}
     function answerLabel(d){return d===1940?'1948–1949':d+'–'+(d+9)}
@@ -69,6 +71,7 @@
     $('skip').onclick=()=>{if(useTokens(1,'דילגתם על השיר. נשלף קלף חדש.')){$('next').click()}};
     $('challenge').onclick=()=>{if(useTokens(1,'HITSTER! בדקו את השנה: אם צדקתם, אשרו והעבירו את הקלף לציר שלכם.')){if(window.confirm('הערעור הצליח והקלף עובר לקבוצה שלכם?')){teamState[activeTeam].cards++;persist();renderTokens();$('status').textContent='הערעור הצליח — הקלף נוסף לציר הקבוצה.'}}};
     $('freeCard').onclick=()=>{if(useTokens(3,'קלף חופשי: הוסיפו את הכרטיס לציר שלכם בלי לנחש, ודלגו על התור הבא.')){teamState[activeTeam].cards++;persist();renderTokens();$('next').click()}};
+    $('identify').onclick=awardStar;
     renderTeams();
   </script>
 </body>
