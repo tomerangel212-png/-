@@ -1,0 +1,23 @@
+{
+  "version": "9.9",
+  "quality_scale": "0-10",
+  "target": 10,
+  "status": "enforced-by-quality-gates",
+  "updated": "2026-08-20",
+  "principle": "10/10 is a release gate, not a decorative label.",
+  "sites": {
+    "TRA Core": {"from": null, "target": 10},
+    "TRA Games": {"from": null, "target": 10},
+    "TRA Chess": {"from": 5.5, "target": 10},
+    "HITSTER TRA": {"from": 8.5, "target": 10},
+    "Casino Angel": {"from": 3.5, "target": 10},
+    "Connect Talk": {"from": null, "target": 10},
+    "Music Drive": {"from": null, "target": 10},
+    "Music Editor": {"from": null, "target": 10},
+    "TRA Dashboard": {"from": null, "target": 10},
+    "Tomer Links": {"from": null, "target": 10},
+    "Songs": {"from": null, "target": 10},
+    "Poetry": {"from": null, "target": 10},
+    "Instrumentals": {"from": null, "target": 10}
+  }
+}
