@@ -1,6 +1,138 @@
 "use strict";
 
 const SCORE = [100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000];
+
+const HOUR_SIZE = 14;
+const NEW_TRACKS_REQUIRED = 4;
+const NEW_CUTOFF_YEAR = 2024;
+let hourTracks = [];
+let dragIndex = null;
+let transitionChecks = new Set();
+
+function songLanguage(song) {
+  return /[\u0590-\u05ff]/.test(`${song.title} ${song.artist}`) ? "עברית" : "לועזית";
+}
+function isNewSong(song) { return Number(song.year) >= NEW_CUTOFF_YEAR; }
+function metadata(song) {
+  return {
+    language: song.language || songLanguage(song),
+    genre: String(song.genre || "").trim(),
+    composer: String(song.composer || "").trim(),
+    energy: Number(song.energy),
+    nightSuitable: song.nightSuitable
+  };
+}
+function longestRun(list, predicate) {
+  let best = 0, currentRun = 0;
+  list.forEach(item => { currentRun = predicate(item) ? currentRun + 1 : 0; best = Math.max(best, currentRun); });
+  return best;
+}
+function pickDiverse(pool, count, selected=[]) {
+  const picks = [];
+  const remaining = shuffle(pool);
+  while (picks.length < count && remaining.length) {
+    let index = remaining.findIndex(song => {
+      const all = [...selected, ...picks];
+      return !all.some(existing => norm(existing.artist) === norm(song.artist)) &&
+        !all.some(existing => decade(existing.year) === decade(song.year));
+    });
+    if (index < 0) index = remaining.findIndex(song => ![...selected, ...picks].some(existing => norm(existing.artist) === norm(song.artist)));
+    if (index < 0) index = 0;
+    picks.push(remaining.splice(index, 1)[0]);
+  }
+  return picks;
+}
+function buildHour() {
+  const pool = filteredCatalog();
+  const newPool = pool.filter(isNewSong);
+  const olderPool = pool.filter(song => !isNewSong(song));
+  if (newPool.length < NEW_TRACKS_REQUIRED || olderPool.length < HOUR_SIZE - NEW_TRACKS_REQUIRED) {
+    throw new Error("אין מספיק שירים מאומתים כדי לבנות שעה של 14 עם ארבעה חדשים.");
+  }
+  const fresh = pickDiverse(newPool, NEW_TRACKS_REQUIRED);
+  const older = pickDiverse(olderPool, HOUR_SIZE - NEW_TRACKS_REQUIRED, fresh);
+  hourTracks = shuffle([...fresh, ...older]);
+  transitionChecks = new Set();
+  renderHour();
+  track("music_editor_hour_built", { size:HOUR_SIZE, new_tracks:fresh.length });
+}
+function reorderHour(from, to) {
+  if (from === to || from === null || to === null) return;
+  const [moved] = hourTracks.splice(from, 1);
+  hourTracks.splice(to, 0, moved);
+  transitionChecks = new Set();
+  renderHour();
+  track("music_editor_hour_reordered", { from, to });
+}
+function hourScore() {
+  const exactSize = hourTracks.length === HOUR_SIZE;
+  const newCount = hourTracks.filter(isNewSong).length;
+  const exactNew = newCount === NEW_TRACKS_REQUIRED;
+  const decades = new Set(hourTracks.map(song => decade(song.year))).size;
+  const artists = new Set(hourTracks.map(song => norm(song.artist))).size;
+  const languages = new Set(hourTracks.map(song => metadata(song).language)).size;
+  const maxNewRun = longestRun(hourTracks, isNewSong);
+  const oldSameLanguageCrosses = hourTracks.slice(1).filter((song, index) => {
+    const previous = hourTracks[index];
+    return !isNewSong(previous) && !isNewSong(song) && metadata(previous).language === metadata(song).language;
+  }).length;
+  const tagged = hourTracks.filter(song => metadata(song).genre && metadata(song).composer).length;
+  const score =
+    (exactSize ? 200 : 0) +
+    (exactNew ? 200 : 0) +
+    Math.min(100, Math.max(0, decades - 1) * 20) +
+    Math.min(100, artists * 8) +
+    (languages >= 2 ? 60 : 0) +
+    (maxNewRun <= 2 ? 120 : 0) +
+    (oldSameLanguageCrosses === 0 ? 160 : 0) +
+    Math.round((transitionChecks.size / Math.max(1, HOUR_SIZE - 1)) * 60);
+  return { score, newCount, decades, artists, languages, maxNewRun, oldSameLanguageCrosses, tagged };
+}
+function renderHour() {
+  const host = $("hour-list");
+  const count = $("hour-count");
+  const scoreEl = $("hour-score");
+  const rubric = $("hour-rubric");
+  host.replaceChildren();
+  const review = hourScore();
+  count.textContent = `${hourTracks.length}/${HOUR_SIZE} שירים · ${review.newCount}/${NEW_TRACKS_REQUIRED} חדשים`;
+  scoreEl.textContent = `ניקוד עריכה: ${review.score}/1000`;
+  hourTracks.forEach((song, index) => {
+    const row = document.createElement("li");
+    row.className = "hour-track";
+    row.draggable = true;
+    row.dataset.index = String(index);
+    const meta = metadata(song);
+    row.innerHTML = `<span class="hour-number">${index + 1}</span><div class="hour-main"><div class="hour-title">${song.title}${isNewSong(song) ? '<span class="new-badge">חדש</span>' : ""}</div><span class="hour-meta">${song.artist} · ${song.year} · ${meta.language}</span></div>`;
+    row.addEventListener("dragstart", event => { dragIndex = index; row.classList.add("dragging"); event.dataTransfer.effectAllowed = "move"; });
+    row.addEventListener("dragend", () => { dragIndex = null; row.classList.remove("dragging"); document.querySelectorAll(".hour-track").forEach(item => item.classList.remove("drag-over")); });
+    row.addEventListener("dragover", event => { event.preventDefault(); row.classList.add("drag-over"); });
+    row.addEventListener("dragleave", () => row.classList.remove("drag-over"));
+    row.addEventListener("drop", event => { event.preventDefault(); reorderHour(dragIndex, index); });
+    if (index < hourTracks.length - 1) {
+      const check = document.createElement("button");
+      check.type = "button";
+      check.className = `transition-check${transitionChecks.has(index) ? " done" : ""}`;
+      check.textContent = transitionChecks.has(index) ? "✓ קרוס סגנון+קצב אושר" : "אמת קרוס סגנון+קצב";
+      check.onclick = () => { transitionChecks.add(index); renderHour(); track("music_editor_transition_checked", { index:index + 1 }); };
+      row.append(check);
+    }
+    host.append(row);
+  });
+  const issues = [];
+  if (!exactSize) issues.push("חובה 14 שירים בדיוק");
+  if (review.newCount !== NEW_TRACKS_REQUIRED) issues.push("חובה ארבעה חדשים בדיוק");
+  if (review.maxNewRun > 2) issues.push("יותר משני שירים חדשים ברצף");
+  if (review.oldSameLanguageCrosses) issues.push(`${review.oldSameLanguageCrosses} קרוסים של שני שירים ישנים באותה שפה`);
+  if (transitionChecks.size < Math.max(0, hourTracks.length - 1)) issues.push(`אושרו ${transitionChecks.size}/${Math.max(0, hourTracks.length - 1)} קרוסים בהאזנה`);
+  rubric.innerHTML = `<strong>כללי פיילוט 1:</strong> הקרוס חייב להתאים קודם כול סגנונית וקצבית; האנרגיה נעה בגל, ללא היפוכים חדים; אין רצף ארוך של חדשים; אין שני ישנים באותה שפה ברצף; פופ גדול אינו ברירת מחדל ללילה. <br><strong>בקרת נתונים:</strong> ${review.tagged}/${hourTracks.length} שירים כוללים תגיות סגנון ומלחין מאומתות — נתון חסר אינו מקבל נקודות ואינו מומצא. ${issues.length ? '<br><strong>לטיפול:</strong> ' + issues.join(" · ") : '<br><strong>מוכן לבדיקת עורך.</strong>'}`;
+}
+function setupHourBuilder() {
+  $("build-hour").onclick = () => { try { buildHour(); } catch (error) { $("hour-rubric").textContent = String(error.message || error); } };
+  $("reshuffle-hour").onclick = () => { if (hourTracks.length === HOUR_SIZE) { hourTracks = shuffle(hourTracks); transitionChecks = new Set(); renderHour(); } else { buildHour(); } };
+  buildHour();
+}
+
 const ERA_OPTIONS = [1960,1970,1980,1990,2000,2010,2020,2026];
 const SOURCES = Object.freeze({
   hitster: "HITSTER TRA · 888",
@@ -228,6 +360,7 @@ async function init() {
   setupEraButtons(); setupLifelines(); renderLadder();
   try {
     await loadCatalog();
+    setupHourBuilder();
     renderQuestion();
     track("music_editor_opened", { hitster_target:888, requested_eras:ERA_OPTIONS.join(",") });
   } catch (error) {
