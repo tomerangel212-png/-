@@ -102,7 +102,28 @@ function pool() {
   const source = $("mode").value === "all" ? allCards() : (state.data[state.era] || []).map(card => ({era:state.era,card}));
   return source.filter(({card}) => !state.used.has(key(card)));
 }
-function stopAudio() { clearTimeout(state.previewTimer); state.previewTimer=null; const audio=$("audio"); audio.pause(); audio.currentTime=0; $("play").textContent="▶ 20 שניות"; }
+function stopAudio() {
+  clearTimeout(state.previewTimer);
+  state.previewTimer = null;
+  const audio = $("audio");
+  audio.pause();
+  try { audio.currentTime = 0; } catch {}
+  $("play").textContent = "▶ 20 שניות";
+}
+function prepareAudio(previewUrl) {
+  const audio = $("audio");
+  if (!previewUrl) {
+    audio.removeAttribute("src");
+    audio.load();
+    return;
+  }
+  if (audio.src !== previewUrl) {
+    audio.src = previewUrl;
+    audio.preload = "metadata";
+    audio.playsInline = true;
+    audio.load();
+  }
+}
 async function resolvePreview(card) {
   const term = encodeURIComponent(`${card[0]} ${card[1]}`);
   const response = await fetch(`https://itunes.apple.com/search?term=${term}&entity=song&limit=5&country=IL`);
@@ -117,20 +138,42 @@ async function resolvePreview(card) {
   return ranked.find(x=>x.previewUrl)?.previewUrl||null;
 }
 async function draw() {
-  stopAudio(); const available=pool();
+  stopAudio();
+  prepareAudio(null);
+  const available=pool();
   if (!available.length) { $("status").textContent="אין עוד קלפים בטווח הזה. אפשר לבחור תקופה אחרת או להתחיל משחק חדש."; return; }
   const pick=available[Math.floor(Math.random()*available.length)]; state.current={era:pick.era,card:pick.card,preview:null}; state.used.add(key(pick.card)); save();
   $("revealed").hidden=true; $("concealed").hidden=false; $("card-meta").textContent=`${pick.era} · קלף ${state.used.size}/${TARGET_TOTAL}`; $("reveal").disabled=false; $("play").disabled=true;
   $("status").textContent=navigator.onLine?"מחפש תצוגה מקדימה…":"📴 Offline · הקלף זמין; בודק אם האודיו נשמר במכשיר…";
-  try { state.current.preview=await resolvePreview(pick.card); $("play").disabled=!state.current.preview; $("status").textContent=state.current.preview?(navigator.onLine?"מוכן להשמעת 20 שניות":"📴 האודיו השמור מוכן"):"לא נמצאה תצוגה מקדימה; אפשר לחשוף ולהמשיך."; }
-  catch { $("status").textContent=navigator.onLine?"האודיו לא זמין כרגע; הקלף עדיין תקין.":"📴 המשחק והקלף עובדים; לשיר הזה אין אודיו שמור."; }
+  try {
+    state.current.preview=await resolvePreview(pick.card);
+    prepareAudio(state.current.preview);
+    $("play").disabled=!state.current.preview;
+    $("status").textContent=state.current.preview?(navigator.onLine?"מוכן להשמעת 20 שניות":"📴 האודיו השמור מוכן"):"לא נמצאה תצוגה מקדימה; אפשר לחשוף ולהמשיך.";
+  }
+  catch {
+    prepareAudio(null);
+    $("status").textContent=navigator.onLine?"האודיו לא זמין כרגע; הקלף עדיין תקין.":"📴 המשחק והקלף עובדים; לשיר הזה אין אודיו שמור.";
+  }
 }
 async function play20() {
-  if (!state.current?.preview) return; const audio=$("audio");
+  if (!state.current?.preview) return;
+  const audio=$("audio");
   if (!audio.paused) { stopAudio(); return; }
-  audio.src=state.current.preview; audio.currentTime=0; $("play").textContent="■ עצירה";
-  try { await audio.play(); state.previewTimer=setTimeout(stopAudio,20000); }
-  catch { $("status").textContent=navigator.onLine?"הדפדפן חסם את ההשמעה. נסו שוב.":"📴 האודיו הזה עדיין לא נשמר לאופליין."; }
+  if (!audio.src) prepareAudio(state.current.preview);
+  $("play").textContent="■ עצירה";
+  try {
+    await audio.play();
+    state.previewTimer=setTimeout(stopAudio,20000);
+    $("status").textContent="▶ מנגן 20 שניות";
+  }
+  catch (error) {
+    $("play").textContent="▶ נסו שוב";
+    const blocked = error?.name === "NotAllowedError";
+    $("status").textContent = navigator.onLine
+      ? (blocked ? "הדפדפן דורש לחיצה ישירה. לחצו שוב על ▶ נסו שוב." : "האודיו לא הצליח להתנגן. נסו שוב או עברו לקלף הבא.")
+      : "📴 האודיו הזה עדיין לא נשמר לאופליין.";
+  }
 }
 function reveal() {
   if (!state.current) return; stopAudio(); const [title,artist,year]=state.current.card;
@@ -140,7 +183,7 @@ function reveal() {
 }
 function newGame() {
   if (!confirm("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו.")) return;
-  stopAudio(); state.used.clear(); TEAMS.forEach(([id])=>state.timelines[id]=[]); state.current=null; localStorage.removeItem(STORE);
+  stopAudio(); prepareAudio(null); state.used.clear(); TEAMS.forEach(([id])=>state.timelines[id]=[]); state.current=null; localStorage.removeItem(STORE);
   $("revealed").hidden=true; $("concealed").hidden=false; $("card-meta").textContent=`נבחר ${state.era} · ${(state.data[state.era]||[]).length} קלפים`; $("status").textContent="🎮 משחק חדש התחיל · צירי הזמן אופסו"; $("play").disabled=true; $("reveal").disabled=true; renderTimelines();
 }
 
