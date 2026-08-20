@@ -10,9 +10,31 @@ const quickDone = document.querySelector("#quick-done");
 let activeQuickGame = null;
 
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
+const lastChallengeByGame = {};
+const pickDifferent = (gameId, items) => {
+  if (!items?.length) return "";
+  if (items.length === 1) return items[0];
+  let entry = pick(items);
+  let guard = 0;
+  while (entry === lastChallengeByGame[gameId] && guard < 12) {
+    entry = pick(items);
+    guard += 1;
+  }
+  lastChallengeByGame[gameId] = entry;
+  return entry;
+};
 const track = (name, properties = {}) => {
   if (window.posthog?.capture) window.posthog.capture(name, properties);
 };
+
+const sharedConversationQuestions = Array.isArray(window.TRA_CONVERSATION_QUESTIONS) && window.TRA_CONVERSATION_QUESTIONS.length
+  ? window.TRA_CONVERSATION_QUESTIONS
+  : [
+      "מישהו קרוב אליך שהופך אותך לאדם יותר טוב",
+      "מה מרגיע אותך",
+      "שיר אהוב",
+      "מקום אהוב בארץ"
+    ];
 
 const games = {
   codename: {
@@ -26,13 +48,8 @@ const games = {
   },
   goodword: {
     title: "💬 מילה טובה",
-    rules: "עונים בתור. אין תשובה נכונה; המטרה היא לנסח תשובה קצרה, ספציפית ומכבדת.",
-    challenges: [
-      "מסורת מול חופש: איזה דבר היית שומר ואיזה דבר היית משנה?",
-      "ביטחון מול הרפתקה: מתי כדאי לבחור בכל אחד מהם?",
-      "משפחה מול עצמאות: איך שומרים על שניהם בלי לבטל אחד מהם?",
-      "שקט מול אנרגיה: מה כל אחד מהם נותן לך?"
-    ]
+    rules: "כדור השאלה עובר בין המשתתפים. מי שמקבל אותו עונה על השאלה שעלתה. אין תשובה נכונה; המטרה היא תשובה אישית, ספציפית ומכבדת.",
+    challenges: sharedConversationQuestions
   },
   speeddate: {
     title: "⏱️ ספיד־דייט",
@@ -118,9 +135,12 @@ const games = {
 function renderChallenge() {
   if (!activeQuickGame) return;
   const game = games[activeQuickGame];
-  const entry = pick(game.challenges);
+  const entry = pickDifferent(activeQuickGame, game.challenges);
   quickChallenge.textContent = typeof entry === "function" ? entry() : entry;
-  track("tra_quick_game_challenge", { game: activeQuickGame });
+  track("tra_quick_game_challenge", {
+    game: activeQuickGame,
+    pool_size: game.challenges.length
+  });
 }
 
 function openQuickGame(id) {
@@ -154,4 +174,4 @@ quickNext?.addEventListener("click", renderChallenge);
 quickClose?.addEventListener("click", closeQuickGame);
 quickDone?.addEventListener("click", closeQuickGame);
 
-track("tra_games_hub_opened", { game_count: 15, flagship: "HITSTER TRA" });
+track("tra_games_hub_opened", { game_count: 16, flagship: "HITSTER TRA" });
