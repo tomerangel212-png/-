@@ -95,6 +95,7 @@ function renderHour() {
   const rubric = $("hour-rubric");
   host.replaceChildren();
   const review = hourScore();
+  const exactSize = hourTracks.length === HOUR_SIZE;
   count.textContent = `${hourTracks.length}/${HOUR_SIZE} שירים · ${review.newCount}/${NEW_TRACKS_REQUIRED} חדשים`;
   scoreEl.textContent = `ניקוד עריכה: ${review.score}/1000`;
   hourTracks.forEach((song, index) => {
