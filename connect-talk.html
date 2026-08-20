@@ -1,2 +1,102 @@
 <!doctype html>
-<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>חברו • דברו — TRA Game 15</title><style>body{font-family:Arial,sans-serif;background:#f7f5ef;color:#123c38;margin:0}main{max-width:760px;margin:auto;padding:24px}.card{background:white;padding:22px;border-radius:22px;margin:14px 0;box-shadow:0 8px 24px #0001}h1{font-size:2.4rem;margin:.2em 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answers button{padding:18px;border:0;border-radius:16px;font-size:1rem;font-weight:800;cursor:pointer}.answers button:nth-child(1){background:#e65b55}.answers button:nth-child(2){background:#4c8bd9}.answers button:nth-child(3){background:#e5b93f}.answers button:nth-child(4){background:#55a56b}.score{font-size:1.5rem;font-weight:900}.muted{color:#58706c}.primary{background:#123c38;color:#fff;border:0;padding:14px 20px;border-radius:14px;font-weight:900}</style></head><body><main><div class="card"><small>TRA GAMES · משחק 15 · עלע 999</small><h1>🗣️ חברו • דברו</h1><p>מפגש בין־דורי, פלורליסטי ומכבד. לא מנצחים בוויכוח — מנצחים בהקשבה.</p></div><div class="card"><h2>קבוצה של 4</h2><p>אחד מכל דור. שם הקבוצה מורכב מאות אחת משמו של כל משתתף.</p><p class="muted">דוגמה: איילת + דודי + נעמה + שרון → תומר</p></div><div class="card"><h2 id="question">מה המטרה החשובה ביותר?</h2><div class="answers"><button data-p="0">לשכנע</button><button data-p="1000">להבין את הדעה</button><button data-p="0">לדבר הכי הרבה</button><button data-p="0">לנצח בוויכוח</button></div><p class="score">ניקוד: <span id="score">0</span></p><p id="feedback">בחרו תשובה.</p><button class="primary" id="next">סיבוב הבא</button></div><div class="card"><h2>חוק הזהב</h2><p><strong>אין נקודות על הסכמה. יש נקודות על הבנה.</strong></p><p>תשובה נכונה: 1,000 · רצף הקשבה: +300 · הבנת כל שלושת החברים: +500.</p><p>בסיום: 🥇 המקשיב המצטיין הוא מי שצבר הכי הרבה נקודות והקשיב הכי יפה.</p></div></main><script>let score=0;document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{const p=+b.dataset.p;score+=p;document.querySelector('#score').textContent=score;document.querySelector('#feedback').textContent=p?'✅ הקשבתם כדי להבין — 1,000 נקודות':'נסו שוב: המטרה אינה לנצח אלא להבין.'});document.querySelector('#next').onclick=()=>{document.querySelector('#feedback').textContent='סיבוב חדש: הקשיבו, שאלו, ואז ענו.'};</script></body></html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#123c38">
+  <title>חברו • דברו — TRA</title>
+  <style>
+    :root{font-family:Arial,sans-serif;background:#f7f5ef;color:#123c38}
+    *{box-sizing:border-box}
+    body{margin:0}
+    main{max-width:760px;margin:auto;padding:20px}
+    .card{background:#fff;padding:22px;border-radius:22px;margin:14px 0;box-shadow:0 8px 24px #0001}
+    h1{font-size:clamp(2rem,8vw,3.2rem);margin:.2em 0}
+    .eyebrow{font-weight:900;letter-spacing:.04em;color:#58706c}
+    .question-card{min-height:300px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+    #question{font-size:clamp(1.55rem,6vw,2.4rem);line-height:1.35;margin:0}
+    .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#58706c;font-weight:700}
+    .actions{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+    button,a.button{border:0;border-radius:16px;padding:16px 18px;font-size:1rem;font-weight:900;cursor:pointer;text-decoration:none;text-align:center}
+    .primary{background:#123c38;color:#fff}
+    .secondary{background:#e9eee9;color:#123c38}
+    .rules{line-height:1.6}
+    .pill{display:inline-block;background:#e9eee9;border-radius:999px;padding:7px 11px;font-weight:800}
+    @media(max-width:520px){.actions{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <div class="eyebrow">TRA GAMES · משחק 11</div>
+      <h1>🗣️ חברו • דברו</h1>
+      <p>משחק שיחה פשוט: שאלה אחת בכל פעם, תשובה אמיתית, ואז עוברים לאדם הבא.</p>
+      <span class="pill"><span id="pool-size">0</span> שאלות במאגר</span>
+    </section>
+
+    <section class="card question-card" aria-live="polite">
+      <div class="meta">
+        <span id="progress">שאלה 1</span>
+        <span>אין תשובה נכונה</span>
+      </div>
+      <h2 id="question">טוען שאלה…</h2>
+      <div class="actions">
+        <button class="primary" id="next" type="button">שאלה הבאה</button>
+        <button class="secondary" id="skip" type="button">דלגו</button>
+      </div>
+    </section>
+
+    <section class="card rules">
+      <h2>איך משחקים</h2>
+      <p><strong>1.</strong> אחד קורא את השאלה בקול. <strong>2.</strong> אדם אחד עונה בלי הפרעה. <strong>3.</strong> מותר לשאול שאלת המשך אחת. <strong>4.</strong> עוברים לאדם הבא ולשאלה חדשה.</p>
+      <p><strong>חוק הזהב:</strong> לא חייבים להסכים. כן חייבים להקשיב.</p>
+      <a class="button secondary" href="games.html">חזרה לכל המשחקים</a>
+    </section>
+  </main>
+
+  <script src="conversation-questions.js"></script>
+  <script>
+    const source = Array.isArray(window.TRA_CONVERSATION_QUESTIONS)
+      ? window.TRA_CONVERSATION_QUESTIONS.filter(Boolean)
+      : [];
+    const questionEl = document.querySelector('#question');
+    const progressEl = document.querySelector('#progress');
+    const poolSizeEl = document.querySelector('#pool-size');
+    const nextBtn = document.querySelector('#next');
+    const skipBtn = document.querySelector('#skip');
+
+    let deck = [];
+    let shown = 0;
+
+    function shuffled(items) {
+      const copy = [...items];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function refillDeck() {
+      deck = shuffled(source);
+    }
+
+    function nextQuestion() {
+      if (!source.length) {
+        questionEl.textContent = 'מאגר השאלות לא נטען.';
+        progressEl.textContent = '0 שאלות';
+        return;
+      }
+      if (!deck.length) refillDeck();
+      questionEl.textContent = deck.pop();
+      shown += 1;
+      progressEl.textContent = `שאלה ${shown}`;
+    }
+
+    poolSizeEl.textContent = source.length;
+    nextBtn.addEventListener('click', nextQuestion);
+    skipBtn.addEventListener('click', nextQuestion);
+    nextQuestion();
+  </script>
+</body>
+</html>
