@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - hitster-hezel-4549
   pull_request:
     branches:
       - main
@@ -27,17 +28,20 @@ jobs:
           node --check games-hub.js
           node --check music-editor.js
           node --check hitster-kfar-bloom-2026-demo.js
+          node --check hitster-4549-check.js
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
           node --check tra-games-quality-check.js
           node --check hitster-quality-check.js
           node --check hitster-catalog-11111-check.js
-      - name: Build HITSTER 888 Hebrew A-list deck
+      - name: Enforce HITSTER 4,549 internal library
+        run: node hitster-4549-check.js
+      - name: Build Music Editor 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
-      - name: Enforce HITSTER 888 = 222×4
+      - name: Enforce Music Editor 888 = 222×4
         run: node hitster-888-check.js
-      - name: Verify Music Editor shares HITSTER 888
+      - name: Verify Music Editor shares verified 888 deck
         run: |
           grep -q "hitster-hebrew-alist-888.json" music-editor.js
           grep -q "hitsterCount !== 888" music-editor.js
@@ -48,7 +52,7 @@ jobs:
         run: node site-smoke-check.js
       - name: Enforce TRA Games quality gate
         run: node tra-games-quality-check.js
-      - name: Enforce HITSTER production quality gate
+      - name: Enforce legacy HITSTER catalog quality gate
         run: node hitster-quality-check.js
       - name: Enforce HITSTER 11,111 catalog capacity gate
         run: node hitster-catalog-11111-check.js
