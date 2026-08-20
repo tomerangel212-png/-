@@ -28,19 +28,22 @@ jobs:
           node --check games.js
           node --check games-hub.js
           node --check hitster-kfar-bloom-2026-demo.js
+          node --check hitster-4549-check.js
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
           node --check tra-games-quality-check.js
-      - name: Build HITSTER 888 Hebrew A-list deck
+      - name: Enforce HITSTER 4,549 internal library
+        run: node hitster-4549-check.js
+      - name: Build Music Editor 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
-      - name: Enforce HITSTER 888 = 222×4
+      - name: Enforce Music Editor 888 = 222×4
         run: node hitster-888-check.js
       - name: Run full-site smoke check
         run: node site-smoke-check.js
       - name: Enforce TRA Games quality gate
         run: node tra-games-quality-check.js
-      - name: Enforce HITSTER production quality gate
+      - name: Enforce legacy HITSTER production quality gate
         run: node hitster-quality-check.js
       - name: Enforce HITSTER catalog capacity gate
         run: node hitster-catalog-11111-check.js
@@ -78,9 +81,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Build HITSTER 888 deck for artifact
+      - name: Build verified 888 deck for Music Editor artifact
         run: node build-hitster-hebrew-alist.js
-      - name: Verify generated deck exists
+      - name: Verify generated Music Editor deck exists
         run: |
           test -s hitster-hebrew-alist-888.json
           node hitster-888-check.js
@@ -114,4 +117,4 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/games.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
           check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
-          check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
+          check_url "https://tomerangel212-png.github.io/-/hitster.html" "4,549"
