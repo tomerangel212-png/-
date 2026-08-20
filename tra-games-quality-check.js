@@ -131,6 +131,9 @@ const checks = [
       gamesJs.includes("צריח (R)") &&
       gamesJs.includes("רץ (B)") &&
       gamesJs.includes("סוס (N)") &&
+      gamesJs.includes("promotionChoiceRequired") &&
+      gamesJs.includes('piece.color==="w"&&to[1]==="8"') &&
+      gamesJs.includes('piece.color==="b"&&to[1]==="1"') &&
       gamesJs.includes('מלכה:"q"') &&
       gamesJs.includes('צריח:"r"') &&
       gamesJs.includes('רץ:"b"') &&

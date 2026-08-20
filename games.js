@@ -98,12 +98,17 @@ function render(){
   undoButton.disabled=chess.history().length===0 || botThinking;
   renderClock();
 }
+function promotionChoiceRequired(piece,to){
+  if(piece?.type!=="p"||!to)return false;
+  return (piece.color==="w"&&to[1]==="8")||(piece.color==="b"&&to[1]==="1");
+}
 function promote(move){
-  if(!move.promotion)return move;
+  const piece=chess.get(move.from);
+  if(!promotionChoiceRequired(piece,move.to))return {from:move.from,to:move.to};
   const raw=window.prompt("קידום רגלי: בחרו מלכה (Q), צריח (R), רץ (B) או סוס (N).", "Q");
   const value=String(raw||"q").trim().toLocaleLowerCase("he");
   const aliases={q:"q",מלכה:"q",r:"r",צריח:"r",b:"b",רץ:"b",n:"n",סוס:"n"};
-  return {...move,promotion:aliases[value]||"q"};
+  return {from:move.from,to:move.to,promotion:aliases[value]||"q"};
 }
 function finishGameIfNeeded(){const result=resultState();if(!result.over)return false;started=false;if(interval){clearInterval(interval);interval=null;}if(botTimer){clearTimeout(botTimer);botTimer=null;}botThinking=false;track("chess_game_finished",{reason:result.reason,winner:result.winner?colorName(result.winner):"draw",loser:result.loser?colorName(result.loser):null,bot:isBotMode()?activeBot().name:"none"});return true;}
 
@@ -310,6 +315,7 @@ function regressionCheck(){
   addMove("castle through check blocked","r3k2r/8/8/8/8/5r2/8/R3K2R w KQkq - 0 1","e1","g1",false);
   addMove("en passant available immediately","4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 1","e5","d6",true);
   addMove("en passant expires after the immediate reply","4k3/8/8/3pP3/8/8/8/4K3 w - - 0 1","e5","d6",false);
+  addState("promotion chooser appears only at the final pawn rank","k7/4P3/8/8/8/8/4p3/4K3 w - - 0 1",t=>promotionChoiceRequired(t.get("e7"),"e8")&&!promotionChoiceRequired(t.get("e7"),"e6")&&promotionChoiceRequired(t.get("e2"),"e1")&&!promotionChoiceRequired(t.get("e2"),"e3"));
   addState("promotion exposes queen rook bishop knight","k7/4P3/8/8/8/8/8/4K3 w - - 0 1",t=>["q","r","b","n"].every(piece=>t.moves({square:"e7",verbose:true}).some(m=>m.to==="e8"&&m.promotion===piece)));
   addState("checkmate means loss","7k/6Q1/5K2/8/8/8/8/8 b - - 0 1",t=>t.isCheck()&&t.isCheckmate()&&t.moves().length===0);
   addState("stalemate remains a draw","7k/5Q2/6K1/8/8/8/8/8 b - - 0 1",t=>!t.isCheck()&&t.isStalemate()&&t.moves().length===0);

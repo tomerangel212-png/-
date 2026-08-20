@@ -14,6 +14,7 @@ Current release across the TRA system.
 ### TRA 9.9 reference set
 
 - Casino Angel: inspired by the product patterns of leading social poker apps such as Zynga Poker — clear stakes, fast table entry, progression, tournaments, readable table state and virtual-chip safety.
+- Casino Angel now plays a complete Texas Hold’em hand: two private cards for every player, blinds and pre-flop betting, flop (3), turn (4), river (5), hand reveal, and every main or side pot awarded to its winning hand.
 - TRA Chess: inspired by Chess.com/Lichess patterns — distinct bots, strict rules, review/analysis affordances, training orientation and clear game state.
 - HITSTER TRA: inspired by HITSTER and modern music apps — immediate playback, simple draw/reveal flow, resilient audio fallback, clear library state and offline resilience.
 

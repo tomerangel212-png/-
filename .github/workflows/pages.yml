@@ -28,6 +28,7 @@ jobs:
           node --check games.js
           node --input-type=module --check < games-loader.js
           node --check games-hub.js
+          node --check casino-angel-quality-check.js
           node --check hitster-kfar-bloom-2026-demo.js
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
@@ -45,6 +46,8 @@ jobs:
         run: node site-smoke-check.js
       - name: Enforce TRA Games quality gate
         run: node tra-games-quality-check.js
+      - name: Enforce Casino Angel Hold'em quality gate
+        run: node casino-angel-quality-check.js
       - name: Enforce HITSTER production quality gate
         run: node hitster-quality-check.js
       - name: Enforce HITSTER catalog capacity gate

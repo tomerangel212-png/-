@@ -1,7 +1,8 @@
 {
   "product": "THE TRA",
   "version": "9.9",
-  "quality_target": "999/1000",
+  "quality_target": "10/10",
+  "excellence_target": "999/1000",
   "released": "2026-08-20",
   "principles": [
     "Version updates never erase previous versions; always respect the source.",
@@ -18,7 +19,7 @@
     "Music Editor": {"version":"9.9","quality":"999/1000"},
     "Music Drive": {"version":"9.9","quality":"999/1000"},
     "Connect Talk": {"version":"9.9","quality":"999/1000"},
-    "Casino Angel": {"version":"9.9","quality":"999/1000","reference_patterns":["Zynga Poker"]},
+    "Casino Angel": {"version":"9.9","quality":"999/1000","reference_patterns":["Zynga Poker"],"rules":["two private cards per player","blinds and pre-flop betting","flop-turn-river betting rounds","showdown awards every pot to its winning hand"]},
     "TRA Dashboard": {"version":"9.9","quality":"999/1000"},
     "Tomer Links": {"version":"9.9","quality":"999/1000"}
   }
