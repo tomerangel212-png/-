@@ -1,7 +1,7 @@
 {
   "product": "THE TRA",
   "version": "9.9",
-  "quality_target": "10/10",
+  "quality_target": "999/1000",
   "released": "2026-08-20",
   "principles": [
     "Version updates never erase previous versions; always respect the source.",
@@ -10,16 +10,16 @@
   ],
   "previous_version": "8.5",
   "components": {
-    "TRA Core": {"version":"9.9","quality":"10/10"},
-    "KFAR BLOOM 2026": {"version":"9.9","quality":"10/10"},
-    "TRA Games": {"version":"9.9","quality":"10/10"},
-    "TRA Chess": {"version":"9.9","quality":"10/10","reference_patterns":["Chess.com","Lichess"]},
-    "HITSTER TRA": {"version":"9.9","quality":"10/10","reference_patterns":["HITSTER","Apple Music","YouTube","Deezer","SoundCloud"]},
-    "Music Editor": {"version":"9.9","quality":"10/10"},
-    "Music Drive": {"version":"9.9","quality":"10/10"},
-    "Connect Talk": {"version":"9.9","quality":"10/10"},
-    "Casino Angel": {"version":"9.9","quality":"10/10","reference_patterns":["Zynga Poker"]},
-    "TRA Dashboard": {"version":"9.9","quality":"10/10"},
-    "Tomer Links": {"version":"9.9","quality":"10/10"}
+    "TRA Core": {"version":"9.9","quality":"999/1000"},
+    "KFAR BLOOM 2026": {"version":"9.9","quality":"999/1000"},
+    "TRA Games": {"version":"9.9","quality":"999/1000"},
+    "TRA Chess": {"version":"9.9","quality":"999/1000","reference_patterns":["Chess.com","Lichess"]},
+    "HITSTER TRA": {"version":"9.9","quality":"999/1000","reference_patterns":["HITSTER","Apple Music","YouTube","Deezer","SoundCloud"]},
+    "Music Editor": {"version":"9.9","quality":"999/1000"},
+    "Music Drive": {"version":"9.9","quality":"999/1000"},
+    "Connect Talk": {"version":"9.9","quality":"999/1000"},
+    "Casino Angel": {"version":"9.9","quality":"999/1000","reference_patterns":["Zynga Poker"]},
+    "TRA Dashboard": {"version":"9.9","quality":"999/1000"},
+    "Tomer Links": {"version":"9.9","quality":"999/1000"}
   }
 }
