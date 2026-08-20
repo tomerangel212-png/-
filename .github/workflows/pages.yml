@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   tra-quality:
-    name: TRA · Games + HITSTER quality
+    name: TRA · 9.9 · 10/10 release gate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,12 +26,15 @@ jobs:
         run: |
           node --check app.js
           node --check games.js
+          node --input-type=module --check < games-loader.js
           node --check games-hub.js
           node --check hitster-kfar-bloom-2026-demo.js
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
           node --check tra-games-quality-check.js
+          node --check tra-99-quality-check.js
+          node --check tra-quality.js
       - name: Build HITSTER 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
       - name: Enforce HITSTER 888 = 222×4
@@ -44,6 +47,8 @@ jobs:
         run: node hitster-quality-check.js
       - name: Enforce HITSTER catalog capacity gate
         run: node hitster-catalog-11111-check.js
+      - name: Enforce TRA 9.9 10/10 release gate
+        run: node tra-99-quality-check.js
 
   links-quality:
     name: Tomer Links · publish gate
@@ -69,7 +74,7 @@ jobs:
           grep -q "music-editor.html" games.html
 
   deploy:
-    name: Deploy TRA and verify public site
+    name: Deploy TRA 9.9 and verify public site
     needs: [tra-quality, links-quality]
     environment:
       name: github-pages
@@ -84,6 +89,7 @@ jobs:
         run: |
           test -s hitster-hebrew-alist-888.json
           node hitster-888-check.js
+          node tra-99-quality-check.js
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
@@ -110,8 +116,11 @@ jobs:
             done
             test "$ok" -eq 1
           }
+          check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
           check_url "https://tomerangel212-png.github.io/-/links/" "Tomer Rafael Angel"
           check_url "https://tomerangel212-png.github.io/-/games.html" "מי רוצה להיות עורך מוזיקלי"
+          check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
           check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
           check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
+          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER TRA"
