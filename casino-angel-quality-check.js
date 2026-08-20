@@ -40,6 +40,17 @@ const checks = [
   {
     name: "Exact ties remain split according to standard poker rules",
     pass: source.includes("שוויון אמיתי") && source.includes("const share=Math.floor(amount/winners.length)")
+  },
+  {
+    name: "Every seat uses the same neutral table policy with equal starting chips",
+    pass:
+      source.includes("const NEUTRAL_POKER_POLICY=Object.freeze({skill:.78,aggr:.58})") &&
+      source.includes("const FAIR_STARTING_STACK=10000") &&
+      source.includes("stack:FAIR_STARTING_STACK") &&
+      source.includes("NEUTRAL_POKER_POLICY.skill") &&
+      source.includes("NEUTRAL_POKER_POLICY.aggr") &&
+      !source.includes("player.skill") &&
+      !source.includes("player.aggr")
   }
 ];
 
