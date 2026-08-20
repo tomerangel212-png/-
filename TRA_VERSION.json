@@ -1,0 +1,20 @@
+{
+  "product": "THE TRA",
+  "version": "9.9",
+  "released": "2026-08-20",
+  "principle": "Version updates never erase previous versions; always respect the source.",
+  "previous_version": "8.5",
+  "components": {
+    "TRA Core": "9.9",
+    "KFAR BLOOM 2026": "9.9",
+    "TRA Games": "9.9",
+    "TRA Chess": "9.9",
+    "HITSTER TRA": "9.9",
+    "Music Editor": "9.9",
+    "Music Drive": "9.9",
+    "Connect Talk": "9.9",
+    "Casino Angel": "9.9",
+    "TRA Dashboard": "9.9",
+    "Tomer Links": "9.9"
+  }
+}
