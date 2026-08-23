@@ -1,5 +1,5 @@
 # TRA offline manifest v1
-# cache_revision	a977f395f8782cb4
+# cache_revision	23f585388bebf9a5
 # path	bytes	fnv1a64
 404.html	361	bac841886aae89b9
 HITSTER_TRA_QUALITY.md	2000	5d235c8f8955d276
@@ -21,7 +21,7 @@ games.html	8832	e44166f973adcae6
 games.js	17600	eda8e146f0cbf94e
 hitster-888.html	8395	f8e0a0bcbb62fa18
 hitster-expansion-444.json	5212	fa0aa25aaa20e764
-hitster-hebrew-alist-888.json	267283	fdf90bc81b62b900
+hitster-hebrew-alist-888.json	267271	446dec6e62d7facd
 hitster-kfar-bloom-2026-demo-data.json	14745	bb5d59ab3d60c690
 hitster-kfar-bloom-2026-demo.html	17612	dc139b6529003ce6
 hitster-kfar-bloom-2026-demo.js	15089	e5b66b88f8d8dbb0
@@ -37,8 +37,8 @@ music-drive.html	5347	1e5322fae723b208
 music-editor.html	7477	4208fa54677670f8
 music-editor.js	13104	a627e82b63e97199
 offline-bootstrap.js	1370	bcd477b4952827b4
-offline-catalog.js	4518	1f1ddc13436710e3
-offline-manifest.json	10191	c2f0619a94fa9ab9
+offline-catalog.js	4518	ce483a63435ee774
+offline-manifest.json	10191	19554853c9244a92
 offline.css	2400	3f0b087f3a7da66b
 offline.html	2743	3817653571e53713
 offline.js	2675	634e5d788fedd902

@@ -141,7 +141,7 @@ async function main() {
       aListPolicy: "Only songs ranked in Israeli annual charts; lower annual rank is prioritized",
       yearPolicy: "Year shown is the verified annual-chart year for that song entry",
       blockedArtists: ["אייל גולן", "Michael Jackson"],
-      generatedAt: new Date().toISOString(),
+      sourceVersion: "2026-08-23",
     },
     eras,
     provenance,

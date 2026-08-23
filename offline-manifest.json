@@ -59,7 +59,7 @@
     "./vendor/chess.js",
     "./versions/hitster-kfar-bloom-2026-demo-20260820-pre-hebrew57.html"
   ],
-  "cacheRevision": "a977f395f8782cb4",
+  "cacheRevision": "23f585388bebf9a5",
   "coverage": {
     "cachedFiles": 58,
     "externalDependencyGroups": 11,
