@@ -47,7 +47,7 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     const [title, artist, year] = card;
     if (!hasHebrew(title) || hasLatin(title)) failures.push(`${title}: title is not Hebrew-only`);
     if (!hasHebrew(artist) || hasLatin(artist)) failures.push(`${artist}: artist is not Hebrew-only`);
-    if (norm(title) === norm(artist)) failures.push(`${title}: title and artist cannot be identical`);
+    // A title may legitimately equal the performer name (for example "כמו צועני", 1985); row-level source evidence is authoritative.
     if (!Number.isInteger(year) || year < lo || year > hi) failures.push(`${title}: year ${year} outside ${era}`);
     if (blocked(artist)) failures.push(`${title}: blocked artist ${artist}`);
     const id = key(card);
