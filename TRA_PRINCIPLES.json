@@ -1,0 +1,149 @@
+{
+  "registry_version": "1.0.0",
+  "product": "THE TRA",
+  "status": "active-draft",
+  "target": "9999999999/9999999999",
+  "governance": {
+    "preserve_history": true,
+    "human_approval_required_for": [
+      "merge",
+      "publish"
+    ],
+    "authorized_integrations_only": true,
+    "bypass_permissions_or_security": false
+  },
+  "principles": [
+    {
+      "id": "purpose-relevance-quality",
+      "he": "תכלית, רלוונטיות, איכות — למה? למי? איך?",
+      "source": "TRA charter",
+      "category": "identity"
+    },
+    {
+      "id": "music-culture-society-reality",
+      "he": "מוזיקה = תרבות = חברה = מציאות.",
+      "source": "TRA charter",
+      "category": "identity"
+    },
+    {
+      "id": "mental-health-access",
+      "he": "קידום בריאות נפש ונגישות לטיפול באמצעות מוזיקה וקהילה.",
+      "source": "TRA mission",
+      "category": "mission"
+    },
+    {
+      "id": "healing-therapy",
+      "he": "ריפוי ותרפיה הם עמוד תווך של TRA.",
+      "source": "TRA charter",
+      "category": "mission"
+    },
+    {
+      "id": "reality-no-invention",
+      "he": "עיקרון המציאות: אין להמציא מידע; אמת לפני רושם.",
+      "source": "user directive",
+      "category": "truth"
+    },
+    {
+      "id": "past-behind",
+      "he": "העבר מאחורינו: פועלים בהווה ובונים את העתיד בלי למחוק היסטוריה.",
+      "source": "user directive",
+      "category": "time"
+    },
+    {
+      "id": "preserve-every-version",
+      "he": "עדכון לעולם אינו מוחק גרסה קודמת; מכבדים את המקור.",
+      "source": "repository history",
+      "category": "versioning"
+    },
+    {
+      "id": "source-preserve-improve",
+      "he": "מקור → שימור → שיפור → גרסה חדשה.",
+      "source": "TRA_VERSION_HISTORY.md",
+      "category": "versioning"
+    },
+    {
+      "id": "reference-without-copying",
+      "he": "לומדים מאפליקציות מובילות בלי להעתיק מיתוג, נכסים, טקסט או מימוש קנייני.",
+      "source": "TRA_VERSION_HISTORY.md",
+      "category": "product"
+    },
+    {
+      "id": "measured-not-decorative",
+      "he": "ציון איכות הוא שער שחרור מדיד ולא קישוט.",
+      "source": "TRA_QUALITY.json",
+      "category": "quality"
+    },
+    {
+      "id": "accuracy-before-expansion",
+      "he": "דיוק לפני הרחבה: מתקנים, מאמתים ורק אז מפרסמים.",
+      "source": "HITSTER_TRA_QUALITY.md",
+      "category": "quality"
+    },
+    {
+      "id": "offline-parity",
+      "he": "לכל חוויית אונליין יש מסלול אופליין שימושי ומעודכן.",
+      "source": "TRA offline policy",
+      "category": "resilience"
+    },
+    {
+      "id": "every-device-eligible",
+      "he": "כל מכשיר זכאי: תאימות רחבה, נגישות ו־progressive enhancement.",
+      "source": "TRA device rule",
+      "category": "accessibility"
+    },
+    {
+      "id": "simple-for-every-generation",
+      "he": "פשטות בין־דורית: החוויה צריכה להיות מובנת גם בלי ידע טכני.",
+      "source": "Kfar Blum design rule",
+      "category": "usability"
+    },
+    {
+      "id": "minimum-effort-maximum-result",
+      "he": "מינימום מאמץ, מקסימום תוצאה — עיצוב רגיש לעומס, ברכיים ועייפות.",
+      "source": "user principle",
+      "category": "wellbeing"
+    },
+    {
+      "id": "fair-neutral-systems",
+      "he": "הוגנות: אין הטיה סמויה; אותם כללים והזדמנות הוגנת לכל משתתף.",
+      "source": "Casino Angel fairness rule",
+      "category": "fairness"
+    },
+    {
+      "id": "respectful-disagreement",
+      "he": "עולם טוב יותר דרך אנשים שמסוגלים להיות חלוקים ולכבד.",
+      "source": "TRA credo",
+      "category": "community"
+    },
+    {
+      "id": "privacy-security-consent",
+      "he": "פרטיות, אבטחה והסכמה קודמות לנוחות ולמהירות.",
+      "source": "TRA governance",
+      "category": "trust"
+    },
+    {
+      "id": "publish-only-after-green",
+      "he": "מפרסמים רק אחרי CI ירוק ואימות HTTP חי.",
+      "source": "TRA_MVP_LAUNCH.md",
+      "category": "release"
+    },
+    {
+      "id": "no-empty-experience",
+      "he": "אין משחק ריק: לכל מסלול או תת־נושא יש תוכן מינימלי תקין לפני חשיפה.",
+      "source": "Kfar Blum rule",
+      "category": "content"
+    },
+    {
+      "id": "human-approval-before-release",
+      "he": "אין מיזוג ואין פרסום ללא אישור אנושי מפורש.",
+      "source": "user directive 2026-08-23",
+      "category": "governance"
+    },
+    {
+      "id": "authorized-integrations-only",
+      "he": "משתמשים רק באינטגרציות מורשות; אין עקיפת הרשאות, אבטחה או תנאי שימוש.",
+      "source": "governance guardrail",
+      "category": "trust"
+    }
+  ]
+}\n

@@ -7,7 +7,7 @@
   const page = location.pathname.split("/").filter(Boolean).pop() || "index";
 
   document.documentElement.dataset.traVersion = "9.9";
-  document.documentElement.dataset.traQuality = "10/10";
+  document.documentElement.dataset.traQuality = "10/10";\n  document.documentElement.dataset.traPerfectTarget = "9999999999/9999999999";
 
   const style = document.createElement("style");
   style.textContent = `
@@ -35,7 +35,7 @@
     main.id ||= "main-content"; return main;
   };
   const announce = (message) => { let el=document.querySelector(".tra-network-status");if(!el){el=document.createElement("div");el.className="tra-network-status";el.setAttribute("role","status");el.setAttribute("aria-live","polite");document.body.append(el);}el.textContent=message;el.classList.add("show");clearTimeout(announce.timer);announce.timer=setTimeout(()=>el.classList.remove("show"),2600); };
-  const track = (event, properties = {}) => { try { window.posthog?.capture?.(event, { page, tra_version: "9.9", tra_quality: "10/10", ...properties }); } catch {} };
+  const track = (event, properties = {}) => { try { window.posthog?.capture?.(event, { page, tra_version: "9.9", tra_quality: "10/10", tra_perfect_target: "9999999999/9999999999", ...properties }); } catch {} };
   const mount = () => {
     const main=ensureMain();
     if(main&&!document.querySelector(".tra-skip")){const skip=document.createElement("a");skip.className="tra-skip";skip.href=`#${main.id}`;skip.textContent="דלגו לתוכן";document.body.prepend(skip);}
@@ -45,6 +45,6 @@
   window.addEventListener("online",()=>{announce("✅ החיבור חזר.");track("tra_network_online");});window.addEventListener("offline",()=>{announce("📴 אין חיבור כרגע. עוברים ל־Offline.");track("tra_network_offline");});
   window.addEventListener("error",event=>track("tra_runtime_error",{message:String(event.message||"error").slice(0,180),source:String(event.filename||"").slice(-120)}));window.addEventListener("unhandledrejection",event=>track("tra_unhandled_rejection",{reason:String(event.reason?.message||event.reason||"rejection").slice(0,180)}));
   if("serviceWorker" in navigator&&location.protocol==="https:"){const sw=new URL("sw.js",rootUrl);navigator.serviceWorker.register(sw.href,{scope:rootUrl.pathname}).catch(()=>{});}
-  fetch(new URL("TRA_VERSION.json",rootUrl),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(data=>{if(!data?.version)return;document.documentElement.dataset.traVersion=data.version;const badge=document.querySelector(".tra-quality-badge span");if(badge)badge.textContent=`TRA ${data.version}`;}).catch(()=>{});
+  fetch(new URL("TRA_VERSION.json",rootUrl),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(data=>{if(!data?.version)return;document.documentElement.dataset.traVersion=data.version;if(data.perfect_target)document.documentElement.dataset.traPerfectTarget=data.perfect_target;const badge=document.querySelector(".tra-quality-badge span");if(badge)badge.textContent=`TRA ${data.version}`;}).catch(()=>{});
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mount,{once:true});else mount();
 })();

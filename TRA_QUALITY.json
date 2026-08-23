@@ -3,21 +3,146 @@
   "quality_scale": "0-10",
   "target": 10,
   "status": "enforced-by-quality-gates",
-  "updated": "2026-08-20",
+  "updated": "2026-08-23",
   "principle": "10/10 is a release gate, not a decorative label.",
   "sites": {
-    "TRA Core": {"from": null, "target": 10},
-    "TRA Games": {"from": null, "target": 10},
-    "TRA Chess": {"from": 5.5, "target": 10},
-    "HITSTER TRA": {"from": 8.5, "target": 10},
-    "Casino Angel": {"from": 3.5, "target": 10},
-    "Connect Talk": {"from": null, "target": 10},
-    "Music Drive": {"from": null, "target": 10},
-    "Music Editor": {"from": null, "target": 10},
-    "TRA Dashboard": {"from": null, "target": 10},
-    "Tomer Links": {"from": null, "target": 10},
-    "Songs": {"from": null, "target": 10},
-    "Poetry": {"from": null, "target": 10},
-    "Instrumentals": {"from": null, "target": 10}
-  }
-}
+    "TRA Core": {
+      "from": null,
+      "target": 10
+    },
+    "TRA Games": {
+      "from": null,
+      "target": 10
+    },
+    "TRA Chess": {
+      "from": 5.5,
+      "target": 10
+    },
+    "HITSTER TRA": {
+      "from": 8.5,
+      "target": 10
+    },
+    "Casino Angel": {
+      "from": 3.5,
+      "target": 10
+    },
+    "Connect Talk": {
+      "from": null,
+      "target": 10
+    },
+    "Music Drive": {
+      "from": null,
+      "target": 10
+    },
+    "Music Editor": {
+      "from": null,
+      "target": 10
+    },
+    "TRA Dashboard": {
+      "from": null,
+      "target": 10
+    },
+    "Tomer Links": {
+      "from": null,
+      "target": 10
+    },
+    "Songs": {
+      "from": null,
+      "target": 10
+    },
+    "Poetry": {
+      "from": null,
+      "target": 10
+    },
+    "Instrumentals": {
+      "from": null,
+      "target": 10
+    }
+  },
+  "perfect_scale": {
+    "label": "9999999999/9999999999",
+    "numerator": 9999999999,
+    "denominator": 9999999999,
+    "target": 9999999999,
+    "current_score": null,
+    "achieved": false,
+    "status": "target-defined-evidence-pending",
+    "rule": "The perfect score may be claimed only when every dimension and every hard guardrail has current evidence."
+  },
+  "dimensions": [
+    {
+      "id": "truth_accuracy",
+      "label_he": "אמת ודיוק",
+      "weight": 1500000000,
+      "target": 1500000000,
+      "gate": "zero known false claims or wrong content"
+    },
+    {
+      "id": "accessibility",
+      "label_he": "נגישות ותאימות",
+      "weight": 1250000000,
+      "target": 1250000000,
+      "gate": "keyboard, focus, reduced motion, readable mobile experience"
+    },
+    {
+      "id": "offline_resilience",
+      "label_he": "אופליין ועמידות",
+      "weight": 1250000000,
+      "target": 1250000000,
+      "gate": "critical paths remain useful without connectivity"
+    },
+    {
+      "id": "reliability",
+      "label_he": "אמינות ויציבות",
+      "weight": 1250000000,
+      "target": 1250000000,
+      "gate": "all automated functional and smoke checks pass"
+    },
+    {
+      "id": "security_privacy",
+      "label_he": "אבטחה ופרטיות",
+      "weight": 1000000000,
+      "target": 1000000000,
+      "gate": "no permission bypass, secret exposure or unsafe external action"
+    },
+    {
+      "id": "performance",
+      "label_he": "ביצועים",
+      "weight": 1000000000,
+      "target": 1000000000,
+      "gate": "responsive interaction and bounded asset behavior"
+    },
+    {
+      "id": "usability_simplicity",
+      "label_he": "שימושיות ופשטות",
+      "weight": 1000000000,
+      "target": 1000000000,
+      "gate": "clear flows for technical and non-technical users"
+    },
+    {
+      "id": "cultural_therapeutic_relevance",
+      "label_he": "תרבות, קהילה וריפוי",
+      "weight": 1000000000,
+      "target": 1000000000,
+      "gate": "content supports TRA mission and audience"
+    },
+    {
+      "id": "governance_preservation",
+      "label_he": "ממשל ושימור",
+      "weight": 749999999,
+      "target": 749999999,
+      "gate": "history preserved and human approval enforced"
+    }
+  ],
+  "hard_guardrails": [
+    "No known false or invented information",
+    "No critical accessibility blocker",
+    "No critical offline-path blocker",
+    "No critical security or privacy issue",
+    "No empty exposed game or category",
+    "All CI gates pass on the exact candidate commit",
+    "Live HTTP verification passes after publication",
+    "Human approval exists before merge and publication"
+  ],
+  "principles_registry": "TRA_PRINCIPLES.json"
+}\n
