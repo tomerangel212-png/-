@@ -11,6 +11,8 @@ const version = JSON.parse(read("TRA_VERSION.json"));
 const quality = JSON.parse(read("TRA_QUALITY.json"));
 const history = read("TRA_VERSION_HISTORY.md");
 const sw = read("sw.js");
+const offlineCatalog = read("offline-catalog.js");
+const offlineManifest = JSON.parse(read("offline-manifest.json"));
 const chess = read("games-loader.js");
 const casino = read("casino-angel.html");
 const hitster = read("hitster-kfar-bloom-2026-demo.js");
@@ -38,11 +40,11 @@ for (const site of sites) {
 }
 
 check("Universal TRA quality layer exists", qualityLayer.includes('dataset.traQuality = "10/10"') && qualityLayer.includes("prefers-reduced-motion") && qualityLayer.includes("focus-visible"));
-check("Service worker caches quality layer", sw.includes('"./tra-quality.js"') && sw.includes('"./TRA_VERSION.json"') && sw.includes("injectQuality"));
-check("Service worker injects quality layer into HTML", sw.includes('html.includes("tra-quality.js")') && sw.includes('<script src="./tra-quality.js"></script>'));
+check("Service worker caches quality layer", offlineCatalog.includes('"./tra-quality.js"') && offlineCatalog.includes('"./TRA_VERSION.json"') && sw.includes("injectSharedScripts"));
+check("Service worker injects quality layer into HTML", sw.includes("data-tra-quality") && sw.includes("QUALITY_SRC") && sw.includes("decorateNavigation"));
 
 const gamesJs = read("games.js");
-check("Chess keeps chess.js as legality source", gamesJs.includes("chess.js@1.4.0") && gamesJs.includes("strictLegalMove"));
+check("Chess keeps chess.js as a local legality source", gamesJs.includes('from "./vendor/chess.js"') && exists("vendor/chess.js") && gamesJs.includes("strictLegalMove"));
 check("Chess has Ant/Anti 3000", chess.includes('name:"אנט / אנטי ♛"') && chess.includes("elo:3000") && chess.includes('style:"perfect-counter"'));
 check("Chess has Review API", chess.includes("TRA_CHESS_API") && chess.includes("review:") && chess.includes("suggestHumanMove"));
 check("Chess can export PGN and FEN", chess.includes("copy-pgn") && chess.includes("copy-fen") && chess.includes("chess.pgn()") && chess.includes("chess.fen()"));
@@ -60,7 +62,8 @@ check("HITSTER hub exposes both versions", hitsterHub.includes('href="hitster-88
 check("HITSTER never drops cards for missing preview", !hitster.includes("previewUnavailable") && hitster.includes("הקלף נשאר זמין"));
 check("HITSTER has Apple/YouTube/Deezer/SoundCloud fallback", ["music.apple.com","youtube.com","deezer.com","soundcloud.com"].every(x=>hitster.includes(x)));
 check("HITSTER auto-plays 30 seconds when preview exists", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes('startPreview("draw")'));
-check("Offline cache contains both HITSTER versions", sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"'));
+check("Offline cache contains both HITSTER versions", offlineCatalog.includes('"./hitster-888.html"') && offlineCatalog.includes('"./hitster-kfar-bloom-2026-demo.html"') && offlineManifest.cacheFiles.includes("./hitster-hebrew-alist-888.json"));
+check("Offline hub tracks all current TRA pages", offlineManifest.coverage.trackedPages >= sites.length && offlineManifest.coverage.localReferencesChecked === true);
 
 const score = Math.round(checks.filter(x=>x.pass).length / checks.length * 100);
 for(const item of checks) console.log(`${item.pass?"PASS":"FAIL"} - ${item.name}`);

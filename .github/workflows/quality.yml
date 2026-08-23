@@ -36,8 +36,16 @@ jobs:
           node --check hitster-catalog-11111-check.js
           node --check tra-99-quality-check.js
           node --check tra-quality.js
+          node --check offline.js
+          node --check offline-bootstrap.js
+          node --check sw.js
       - name: Build HITSTER 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
+      - name: Verify generated TRA offline bundle
+        run: |
+          python3 tools/tra_offline_build.py --check
+          g++ -std=c++17 -Wall -Wextra -Werror tools/cpp/tra_offline_verify.cpp -o /tmp/tra-offline-verify
+          /tmp/tra-offline-verify offline-manifest.tsv .
       - name: Enforce HITSTER 888 = 222×4
         run: node hitster-888-check.js
       - name: Verify Music Editor shares HITSTER 888

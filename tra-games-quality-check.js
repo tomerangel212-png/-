@@ -96,7 +96,8 @@ const checks = [
   {
     name: "Chess legality is delegated to chess.js",
     pass:
-      gamesJs.includes("chess.js@1.4.0") &&
+      gamesJs.includes('from "./vendor/chess.js"') &&
+      fs.existsSync("vendor/chess.js") &&
       gamesJs.includes("strictLegalMove") &&
       gamesJs.includes("chess.moves({square")
   },

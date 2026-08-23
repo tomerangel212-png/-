@@ -24,6 +24,14 @@ const requiredFiles = [
   "styles.css",
   "manifest.webmanifest",
   "sw.js",
+  "offline.html",
+  "offline.js",
+  "offline.css",
+  "offline-bootstrap.js",
+  "offline-catalog.js",
+  "offline-manifest.json",
+  "offline-manifest.tsv",
+  "vendor/chess.js",
 ];
 
 const failures = [];
@@ -46,6 +54,17 @@ if (fs.existsSync("index.html")) {
   const home = fs.readFileSync("index.html", "utf8");
   if (!home.includes("כל 16 המשחקים")) failures.push("index.html: homepage must advertise all 16 games");
   if (/כל 15 המשחקים|15 משחקים\./.test(home)) failures.push("index.html: stale 15-game copy remains");
+}
+
+if (fs.existsSync("offline.html")) {
+  const offline = fs.readFileSync("offline.html", "utf8");
+  if (!offline.includes("TRA · Offline Hub")) failures.push("offline.html: offline hub title missing");
+  if (!offline.includes('id="site-list"')) failures.push("offline.html: offline site list missing");
+}
+
+if (fs.existsSync("games.js")) {
+  const gamesJs = fs.readFileSync("games.js", "utf8");
+  if (!gamesJs.includes('from "./vendor/chess.js"')) failures.push("games.js: chess engine must be vendored for offline play");
 }
 
 if (fs.existsSync("hitster.html")) {

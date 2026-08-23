@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#082f49">
+  <meta name="description" content="מרכז TRA אופליין: כל אתרי TRA וקבצי התוכן המקומיים במקום אחד.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/tra-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="offline.css">
+  <title>TRA · Offline Hub</title>
+</head>
+<body>
+  <main class="shell" id="main-content">
+    <section class="hero" aria-labelledby="title">
+      <div class="eyebrow">THE TRA · OFFLINE</div>
+      <h1 id="title">כל TRA, גם בלי קליטה</h1>
+      <p>פתחו את המרכז פעם אחת כשיש אינטרנט. לאחר מכן הדפים והקבצים המקומיים נשמרים במכשיר ומקושרים מכאן.</p>
+      <div class="actions">
+        <a class="button primary" href="./">לאתר הראשי</a>
+        <button class="button" id="refresh-offline" type="button">רענון מטמון אופליין</button>
+      </div>
+      <p id="offline-status" class="status" role="status" aria-live="polite">בודק את מצב המטמון…</p>
+    </section>
+    <section class="grid" aria-label="כיסוי אופליין">
+      <article class="panel"><h2>כיסוי</h2><p id="coverage">טוען את המניפסט המקומי…</p></article>
+      <article class="panel"><h2>מוזיקה</h2><p>קישורי Spotify ו‑Apple Music נשמרים, אך הניגון עצמו נשאר מקוון. מדיה שנמצאת בתיקיית האתר בלבד זמינה אופליין.</p></article>
+      <article class="panel"><h2>אימות</h2><p>פייתון יוצר את מפת הקבצים ו‑C++ בודק שכל קובץ שמור, שלם ותואם למניפסט.</p></article>
+    </section>
+    <section class="panel" aria-labelledby="sites-title">
+      <h2 id="sites-title">אתרי ודפי TRA</h2>
+      <p class="note">הארכיון נשמר בנפרד כדי שגם גרסאות קודמות יהיו נגישות מהמטמון.</p>
+      <div class="sites" id="site-list"></div>
+    </section>
+    <section class="panel">
+      <h2>מה נשאר מקוון</h2>
+      <p class="note">Spotify, Apple Music, Replit וניתוחי GitHub חיים זקוקים לחיבור. המרכז לא מעתיק תכני סטרימינג או נתונים פרטיים; הוא שומר את החלקים של TRA שניתן להחזיק באופן חוקי ומקומי.</p>
+    </section>
+  </main>
+  <script src="offline-catalog.js"></script>
+  <script src="offline.js"></script>
+</body>
+</html>

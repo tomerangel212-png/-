@@ -1,0 +1,344 @@
+{
+  "cacheFiles": [
+    "./",
+    "./404.html",
+    "./HITSTER_TRA_QUALITY.md",
+    "./README.md",
+    "./TRA_MVP_LAUNCH.md",
+    "./TRA_QUALITY.json",
+    "./TRA_RELEASE_VERIFICATION.md",
+    "./TRA_VERSION.json",
+    "./TRA_VERSION_HISTORY.md",
+    "./app.js",
+    "./assets/tra-mark.svg",
+    "./casino-angel.html",
+    "./connect-talk.html",
+    "./conversation-questions.js",
+    "./games-hub.js",
+    "./games-loader.js",
+    "./games.css",
+    "./games.html",
+    "./games.js",
+    "./hitster-888.html",
+    "./hitster-expansion-444.json",
+    "./hitster-hebrew-alist-888.json",
+    "./hitster-kfar-bloom-2026-demo-data.json",
+    "./hitster-kfar-bloom-2026-demo.html",
+    "./hitster-kfar-bloom-2026-demo.js",
+    "./hitster-tra-catalog-1000.js",
+    "./hitster-tra-catalog-11111.js",
+    "./hitster-tra-tokens.html",
+    "./hitster.html",
+    "./index.html",
+    "./instrumentals/",
+    "./instrumentals/index.html",
+    "./links/",
+    "./links/index.html",
+    "./manifest.webmanifest",
+    "./music-drive.html",
+    "./music-editor.html",
+    "./music-editor.js",
+    "./offline-bootstrap.js",
+    "./offline-catalog.js",
+    "./offline-manifest.json",
+    "./offline-manifest.tsv",
+    "./offline.css",
+    "./offline.html",
+    "./offline.js",
+    "./poetry/",
+    "./poetry/at-lo-em-yeladai-100-000.html",
+    "./poetry/index.html",
+    "./songs/",
+    "./songs/index.html",
+    "./styles.css",
+    "./sw.js",
+    "./tra-dashboard/",
+    "./tra-dashboard/index.html",
+    "./tra-quality.js",
+    "./vendor/README.md",
+    "./vendor/chess.js",
+    "./versions/hitster-kfar-bloom-2026-demo-20260820-pre-hebrew57.html"
+  ],
+  "cacheRevision": "a977f395f8782cb4",
+  "coverage": {
+    "cachedFiles": 58,
+    "externalDependencyGroups": 11,
+    "localReferencesChecked": true,
+    "trackedPages": 18
+  },
+  "externalDependencies": [
+    {
+      "examples": [
+        "https://glz.co.il/%D7%92%D7%9C%D7%92%D7%9C%D7%A6/%D7%9B%D7%AA%D7%91%D7%95%D7%AA/%D7%94%D7%9E%D7%A6%D7%A2%D7%93-%D7%94%D7%A9%D7%A0%D7%AA%D7%99-%D7%94%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99-%D7%AA%D7%A9%D7%A4"
+      ],
+      "host": "glz.co.il",
+      "offlineMode": "metadata only; open when online",
+      "references": 20,
+      "service": "External",
+      "sourceFiles": [
+        "hitster-hebrew-alist-888.json"
+      ]
+    },
+    {
+      "examples": [
+        "https://itunes.apple.com/search?term=${term}&entity=song&limit=8&country=IL"
+      ],
+      "host": "itunes.apple.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 2,
+      "service": "Apple Music",
+      "sourceFiles": [
+        "hitster-kfar-bloom-2026-demo.html",
+        "hitster-kfar-bloom-2026-demo.js"
+      ]
+    },
+    {
+      "examples": [
+        "https://kfar-bloom-2026.tomerangel212.chatgpt.site/"
+      ],
+      "host": "kfar-bloom-2026.tomerangel212.chatgpt.site",
+      "offlineMode": "metadata only; open when online",
+      "references": 1,
+      "service": "External",
+      "sourceFiles": [
+        "hitster.html"
+      ]
+    },
+    {
+      "examples": [
+        "https://music.apple.com/il/album/%D7%90%D7%99%D7%9A-%D7%A9%D7%94%D7%99%D7%90-%D7%A8%D7%95%D7%A7%D7%93%D7%AA/6768723548?i=6768723553",
+        "https://music.apple.com/il/album/%D7%90%D7%A4%D7%A1-%D7%9E%D7%90%D7%9E%D7%A5/1573733396?i=1573733721&l=he",
+        "https://music.apple.com/il/album/%D7%91%D7%99%D7%AA-%D7%9E%D7%A9%D7%95%D7%92%D7%A2%D7%99%D7%9D/1554870143?i=1554870147&l=he"
+      ],
+      "host": "music.apple.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 22,
+      "service": "Apple Music",
+      "sourceFiles": [
+        "app.js",
+        "hitster-kfar-bloom-2026-demo.js"
+      ]
+    },
+    {
+      "examples": [
+        "https://open.spotify.com/embed/playlist/6B8kn723bj1UUls0VU2Bfp?utm_source=generator&theme=0",
+        "https://open.spotify.com/playlist/6B8kn723bj1UUls0VU2Bfp"
+      ],
+      "host": "open.spotify.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 4,
+      "service": "Spotify",
+      "sourceFiles": [
+        "hitster-888.html",
+        "versions/hitster-kfar-bloom-2026-demo-20260820-pre-hebrew57.html"
+      ]
+    },
+    {
+      "examples": [
+        "https://pizmonet.co.il/wiki/%D7%AA%D7%A9%22%D7%9D",
+        "https://pizmonet.co.il/wiki/%D7%AA%D7%A9%22%D7%9F",
+        "https://pizmonet.co.il/wiki/%D7%AA%D7%A9%22%D7%A1"
+      ],
+      "host": "pizmonet.co.il",
+      "offlineMode": "metadata only; open when online",
+      "references": 868,
+      "service": "External",
+      "sourceFiles": [
+        "hitster-hebrew-alist-888.json"
+      ]
+    },
+    {
+      "examples": [
+        "https://soundcloud.com/search?q=${q}"
+      ],
+      "host": "soundcloud.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 1,
+      "service": "External",
+      "sourceFiles": [
+        "hitster-kfar-bloom-2026-demo.js"
+      ]
+    },
+    {
+      "examples": [
+        "https://us.i.posthog.com"
+      ],
+      "host": "us.i.posthog.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 1,
+      "service": "PostHog",
+      "sourceFiles": [
+        "links/index.html"
+      ]
+    },
+    {
+      "examples": [
+        "https://www.deezer.com/search/${q}"
+      ],
+      "host": "www.deezer.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 1,
+      "service": "External",
+      "sourceFiles": [
+        "hitster-kfar-bloom-2026-demo.js"
+      ]
+    },
+    {
+      "examples": [
+        "https://www.jsdelivr.com/using-sri-with-dynamic-files"
+      ],
+      "host": "www.jsdelivr.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 1,
+      "service": "CDN",
+      "sourceFiles": [
+        "vendor/chess.js"
+      ]
+    },
+    {
+      "examples": [
+        "https://www.youtube.com/results?search_query=${q}"
+      ],
+      "host": "www.youtube.com",
+      "offlineMode": "metadata only; open when online",
+      "references": 1,
+      "service": "External",
+      "sourceFiles": [
+        "hitster-kfar-bloom-2026-demo.js"
+      ]
+    }
+  ],
+  "integrations": {
+    "Apple Music": {
+      "mode": "online-only catalog links are preserved; audio is not copied"
+    },
+    "Data Analytics": "offline-manifest.json is the source for coverage metrics and quality checks",
+    "GitHub": {
+      "mode": "source and CI",
+      "repository": "https://github.com/tomerangel212-png/-"
+    },
+    "Replit": {
+      "mode": "no TRA app is configured; keep as an optional development mirror"
+    },
+    "Spotify": {
+      "mode": "online-only links and embeds are preserved; audio is not copied"
+    }
+  },
+  "offlineLimits": [
+    "Spotify and Apple Music playback needs their apps or network access.",
+    "Only media files committed to this repository are cached for offline use.",
+    "Open the hub once online to install or refresh the service-worker cache."
+  ],
+  "pages": [
+    {
+      "path": "./versions/hitster-kfar-bloom-2026-demo-20260820-pre-hebrew57.html",
+      "route": "./versions/hitster-kfar-bloom-2026-demo-20260820-pre-hebrew57.html",
+      "section": "archive",
+      "title": "HITSTER TRA · 888 בעברית · A-list"
+    },
+    {
+      "path": "./casino-angel.html",
+      "route": "./casino-angel.html",
+      "section": "site",
+      "title": "Casino Angel · TRA 9.9 · Texas Hold'em"
+    },
+    {
+      "path": "./hitster-888.html",
+      "route": "./hitster-888.html",
+      "section": "site",
+      "title": "HITSTER TRA · 888 בעברית · A-list"
+    },
+    {
+      "path": "./hitster.html",
+      "route": "./hitster.html",
+      "section": "site",
+      "title": "HITSTER TRA — 888 + כפר בלום 57 · בחרו מסלול"
+    },
+    {
+      "path": "./index.html",
+      "route": "./",
+      "section": "site",
+      "title": "KFAR-BLOOM/2026 — THE TRA 9.9"
+    },
+    {
+      "path": "./tra-dashboard/index.html",
+      "route": "./tra-dashboard/",
+      "section": "site",
+      "title": "TRA Command Center"
+    },
+    {
+      "path": "./games.html",
+      "route": "./games.html",
+      "section": "site",
+      "title": "TRA Games — כל 16 המשחקים"
+    },
+    {
+      "path": "./offline.html",
+      "route": "./offline.html",
+      "section": "site",
+      "title": "TRA · Offline Hub"
+    },
+    {
+      "path": "./hitster-tra-tokens.html",
+      "route": "./hitster-tra-tokens.html",
+      "section": "site",
+      "title": "TRA היטסטר — 1,000 כרטיסים"
+    },
+    {
+      "path": "./hitster-kfar-bloom-2026-demo.html",
+      "route": "./hitster-kfar-bloom-2026-demo.html",
+      "section": "site",
+      "title": "TRA היטסטר — 57 כרטיסים בעברית"
+    },
+    {
+      "path": "./poetry/at-lo-em-yeladai-100-000.html",
+      "route": "./poetry/at-lo-em-yeladai-100-000.html",
+      "section": "site",
+      "title": "אַתְּ לֹא אֵם יְלָדַי | תומר אנג׳ל | TRA"
+    },
+    {
+      "path": "./instrumentals/index.html",
+      "route": "./instrumentals/",
+      "section": "site",
+      "title": "אינסתומר | Tomer Rafael Angel"
+    },
+    {
+      "path": "./connect-talk.html",
+      "route": "./connect-talk.html",
+      "section": "site",
+      "title": "חברו • דברו — TRA"
+    },
+    {
+      "path": "./songs/index.html",
+      "route": "./songs/",
+      "section": "site",
+      "title": "מוזיקה מחברת | Tomer Rafael Angel"
+    },
+    {
+      "path": "./music-editor.html",
+      "route": "./music-editor.html",
+      "section": "site",
+      "title": "מי רוצה להיות עורך מוזיקלי? — TRA Games"
+    },
+    {
+      "path": "./music-drive.html",
+      "route": "./music-drive.html",
+      "section": "site",
+      "title": "נסיעה מוזיקלית משפחתית — TRA Games"
+    },
+    {
+      "path": "./poetry/index.html",
+      "route": "./poetry/",
+      "section": "site",
+      "title": "שירתומר | Tomer Rafael Angel"
+    },
+    {
+      "path": "./links/index.html",
+      "route": "./links/",
+      "section": "site",
+      "title": "תומר רפאל אנג׳ל | TRA Links"
+    }
+  ],
+  "project": "TRA",
+  "schemaVersion": 1
+}

@@ -9,6 +9,7 @@ const hub = fs.readFileSync("hitster.html", "utf8");
 const games = fs.readFileSync("games.html", "utf8");
 const js = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
 const sw = fs.readFileSync("sw.js", "utf8");
+const offlineCatalog = fs.readFileSync("offline-catalog.js", "utf8");
 const builder = fs.readFileSync("build-hitster-hebrew-alist.js", "utf8");
 
 const TARGET_PER_ERA = 222;
@@ -65,7 +66,7 @@ if (!hub.includes("888 קלפי שירים") || !hub.includes('href="hitster-888
 if (hub.includes("350 הקלפים") || hub.includes("444 קלפי")) failures.push("HITSTER hub contains stale song-count copy");
 if (!games.includes('href="hitster.html"') || !games.includes("HITSTER TRA · 888")) failures.push("TRA Games does not route HITSTER through the hub");
 if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("888 runtime is not locked to 888 = 222×4 / New Game");
-if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888.html") || !sw.includes("hitster-888")) failures.push("888-card deck/page is not cached with an 888-versioned offline cache");
+if (!offlineCatalog.includes("hitster-hebrew-alist-888.json") || !offlineCatalog.includes("hitster-888.html") || !sw.includes("CATALOG.revision")) failures.push("888-card deck/page is not cached by the generated offline cache");
 if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA = 222") || !builder.includes("GLZ_2020")) failures.push("888 builder is not configured for 222×4 including 2020");
 
 if (failures.length) {

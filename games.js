@@ -1,4 +1,4 @@
-import { Chess } from "https://cdn.jsdelivr.net/npm/chess.js@1.4.0/+esm";
+import { Chess } from "./vendor/chess.js";
 
 const boardEl = document.querySelector("#board");
 const statusEl = document.querySelector("#status");
