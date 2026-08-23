@@ -29,6 +29,32 @@
     });
     byId("coverage").textContent = `${catalog.coverage.trackedPages} אתרים/דפים · ${catalog.coverage.cachedFiles} קבצים מקומיים`;
   };
+  const renderSiteRegistry = () => {
+    const container = byId("sites-registry-list");
+    const sites = catalog?.siteRegistry || [];
+    if (!sites.length) {
+      container.textContent = "לא נמצא רישום Sites מקומי.";
+      return;
+    }
+    sites.forEach((site) => {
+      const card = site.url ? document.createElement("a") : document.createElement("article");
+      card.className = "site";
+      if (site.url) {
+        card.href = site.url;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+      }
+      const title = document.createElement("h3");
+      title.textContent = site.title;
+      const detail = document.createElement("p");
+      detail.textContent = site.publication === "live" ? "פתיחה מקוונת בלבד" : "טיוטה לא־מפורסמת";
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = site.publication === "live" ? "נדרש מיגרציה לאופליין" : "לא פורסם";
+      card.append(title, detail, tag);
+      container.append(card);
+    });
+  };
   const requestStatus = () => navigator.serviceWorker?.controller?.postMessage({ type: "TRA_OFFLINE_STATUS" });
   const register = async () => {
     if (!("serviceWorker" in navigator) || !window.isSecureContext) {
@@ -54,5 +80,6 @@
     navigator.serviceWorker?.controller?.postMessage({ type: "TRA_CACHE_ALL" });
   });
   renderPages();
+  renderSiteRegistry();
   register();
 })();

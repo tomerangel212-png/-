@@ -1,5 +1,5 @@
 # TRA offline manifest v1
-# cache_revision	23f585388bebf9a5
+# cache_revision	c8f0805167e54757
 # path	bytes	fnv1a64
 404.html	361	bac841886aae89b9
 HITSTER_TRA_QUALITY.md	2000	5d235c8f8955d276
@@ -7,6 +7,7 @@ README.md	321	bbb5391f8eed4933
 TRA_MVP_LAUNCH.md	222	eeb054c13a1e9a4a
 TRA_QUALITY.json	841	64a924e5458a1123
 TRA_RELEASE_VERIFICATION.md	594	60cdf86bf64b62e5
+TRA_SITES_REGISTRY.json	3260	541bb58156ada103
 TRA_VERSION.json	1599	77e05859f774c915
 TRA_VERSION_HISTORY.md	1916	b216c9a86dfd44ea
 app.js	35480	2d0958b795f8fa35
@@ -37,11 +38,11 @@ music-drive.html	5347	1e5322fae723b208
 music-editor.html	7477	4208fa54677670f8
 music-editor.js	13104	a627e82b63e97199
 offline-bootstrap.js	1370	bcd477b4952827b4
-offline-catalog.js	4518	ce483a63435ee774
-offline-manifest.json	10191	19554853c9244a92
+offline-catalog.js	7514	a3dd7c05b90557d4
+offline-manifest.json	16580	905aff86527b09c2
 offline.css	2400	3f0b087f3a7da66b
-offline.html	2743	3817653571e53713
-offline.js	2675	634e5d788fedd902
+offline.html	3215	a23154f674e1392f
+offline.js	3791	9905fe00ff338604
 poetry/at-lo-em-yeladai-100-000.html	2399	0a78c51ba13db027
 poetry/index.html	866	15bcd4d6d9094dc1
 songs/index.html	917	665ac8993985e837

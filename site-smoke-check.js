@@ -23,6 +23,7 @@ const requiredFiles = [
   "app.js",
   "styles.css",
   "manifest.webmanifest",
+  "TRA_SITES_REGISTRY.json",
   "sw.js",
   "offline.html",
   "offline.js",
@@ -60,6 +61,7 @@ if (fs.existsSync("offline.html")) {
   const offline = fs.readFileSync("offline.html", "utf8");
   if (!offline.includes("TRA · Offline Hub")) failures.push("offline.html: offline hub title missing");
   if (!offline.includes('id="site-list"')) failures.push("offline.html: offline site list missing");
+  if (!offline.includes('id="sites-registry-list"')) failures.push("offline.html: Sites registry list missing");
 }
 
 if (fs.existsSync("games.js")) {

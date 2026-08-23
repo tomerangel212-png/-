@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "inventoryDate": "2026-08-23",
+  "source": "Sites owner inventory",
+  "sites": [
+    {"slug": "tra-games-simple", "title": "תומר־מוזיקה", "url": "https://tra-games-simple.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 12, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "kfar-bloom-2026", "title": "KFAR-BLOOM/2026", "url": "https://kfar-bloom-2026.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 11, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "music-culture-society", "title": "TRA — תומר רפאל אנג׳ל", "url": "https://music-culture-society.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 5, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "amud-haesh-aderet", "title": "עמוד האש — אדרת", "url": null, "publication": "not-published", "latestVersion": 0, "offlineStatus": "source-not-bundled"},
+    {"slug": "tra-games-arcade", "title": "משחקיית TRA-Games", "url": "https://tra-games-arcade.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 21, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "rebuilding-together", "title": "בונים מחדש", "url": "https://rebuilding-together.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 1, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "twelve-tribes-entry", "title": "12 שבטי ישראל — הכניסה לארץ", "url": "https://twelve-tribes-entry.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 1, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "kfar-blum-tra-arena", "title": "כפר בלום 2026 — זירת התרא", "url": "https://kfar-blum-tra-arena.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 3, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "tra212-kfar-blum-intel", "title": "TRA212 Kfar Blum Intelligence MVP", "url": null, "publication": "not-published", "latestVersion": 0, "offlineStatus": "source-not-bundled"},
+    {"slug": "bass44-kfar-blum-2026", "title": "BASS44+ | כפר בלום 2026", "url": null, "publication": "not-published", "latestVersion": 0, "offlineStatus": "source-not-bundled"},
+    {"slug": "kfar-blum-2026-arena", "title": "כפר בלום 2026 — זירת הקרב", "url": "https://kfar-blum-2026-arena.tomerangel212.chatgpt.site", "publication": "live", "latestVersion": 1, "offlineStatus": "external-site-not-bundled"},
+    {"slug": "tomer-rafael-angel", "title": "תומר רפאל אנג׳ל", "url": null, "publication": "not-published", "latestVersion": 0, "offlineStatus": "source-not-bundled"},
+    {"slug": "tra-diamond-battle", "title": "TRA Diamond Battle", "url": null, "publication": "not-published", "latestVersion": 0, "offlineStatus": "source-not-bundled"},
+    {"slug": "tra-kfar-blum-journey", "title": "תרא — כפר בלום 2026", "url": null, "publication": "not-published", "latestVersion": 0, "offlineStatus": "source-not-bundled"},
+    {"slug": "tra-kfar-blum-2026", "title": "תרא — כפר בלום 2026", "url": null, "publication": "not-published", "latestVersion": 0, "offlineStatus": "source-not-bundled"}
+  ]
+}

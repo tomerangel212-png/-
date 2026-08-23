@@ -221,6 +221,33 @@ def external_dependencies(root: Path, assets: Iterable[Asset]) -> list[dict[str,
     return result
 
 
+def load_site_registry(root: Path) -> list[dict[str, object]]:
+    registry_path = root / "TRA_SITES_REGISTRY.json"
+    if not registry_path.is_file():
+        return []
+    try:
+        payload = json.loads(registry_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(f"TRA_SITES_REGISTRY.json is invalid JSON: {error}") from error
+    sites = payload.get("sites")
+    if not isinstance(sites, list):
+        raise ValueError("TRA_SITES_REGISTRY.json: sites must be an array")
+    normalized: list[dict[str, object]] = []
+    seen: set[str] = set()
+    for item in sites:
+        if not isinstance(item, dict):
+            raise ValueError("TRA_SITES_REGISTRY.json: every site must be an object")
+        slug = item.get("slug")
+        title = item.get("title")
+        if not isinstance(slug, str) or not slug or not isinstance(title, str) or not title:
+            raise ValueError("TRA_SITES_REGISTRY.json: every site needs a slug and title")
+        if slug in seen:
+            raise ValueError(f"TRA_SITES_REGISTRY.json: duplicate slug {slug}")
+        seen.add(slug)
+        normalized.append(item)
+    return normalized
+
+
 def build_outputs(root: Path, github_repository: str) -> dict[PurePosixPath, str]:
     assets = collect_assets(root)
     errors = validate_local_references(root, assets)
@@ -231,6 +258,8 @@ def build_outputs(root: Path, github_repository: str) -> dict[PurePosixPath, str
     files = cache_paths(assets)
     pages = html_pages(root, assets)
     dependencies = external_dependencies(root, assets)
+    site_registry = load_site_registry(root)
+    unbundled_sites = [site for site in site_registry if site.get("offlineStatus") != "bundled"]
     manifest = {
         "schemaVersion": SCHEMA_VERSION,
         "project": "TRA",
@@ -240,10 +269,13 @@ def build_outputs(root: Path, github_repository: str) -> dict[PurePosixPath, str
         "coverage": {
             "cachedFiles": len(files),
             "trackedPages": len(pages),
+            "knownSites": len(site_registry),
+            "sitesNeedingMigration": len(unbundled_sites),
             "localReferencesChecked": True,
             "externalDependencyGroups": len(dependencies),
         },
         "externalDependencies": dependencies,
+        "siteRegistry": site_registry,
         "integrations": {
             "Data Analytics": "offline-manifest.json is the source for coverage metrics and quality checks",
             "GitHub": {"repository": f"https://github.com/{github_repository}", "mode": "source and CI"},
@@ -263,6 +295,7 @@ def build_outputs(root: Path, github_repository: str) -> dict[PurePosixPath, str
         "files": files,
         "pages": pages,
         "coverage": manifest["coverage"],
+        "siteRegistry": site_registry,
         "integrations": manifest["integrations"],
     }
     manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n"

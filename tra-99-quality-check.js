@@ -13,6 +13,7 @@ const history = read("TRA_VERSION_HISTORY.md");
 const sw = read("sw.js");
 const offlineCatalog = read("offline-catalog.js");
 const offlineManifest = JSON.parse(read("offline-manifest.json"));
+const sitesRegistry = JSON.parse(read("TRA_SITES_REGISTRY.json"));
 const chess = read("games-loader.js");
 const casino = read("casino-angel.html");
 const hitster = read("hitster-kfar-bloom-2026-demo.js");
@@ -64,6 +65,7 @@ check("HITSTER has Apple/YouTube/Deezer/SoundCloud fallback", ["music.apple.com"
 check("HITSTER auto-plays 30 seconds when preview exists", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes('startPreview("draw")'));
 check("Offline cache contains both HITSTER versions", offlineCatalog.includes('"./hitster-888.html"') && offlineCatalog.includes('"./hitster-kfar-bloom-2026-demo.html"') && offlineManifest.cacheFiles.includes("./hitster-hebrew-alist-888.json"));
 check("Offline hub tracks all current TRA pages", offlineManifest.coverage.trackedPages >= sites.length && offlineManifest.coverage.localReferencesChecked === true);
+check("Offline hub registers every visible TRA Site", offlineManifest.siteRegistry.length === sitesRegistry.sites.length && offlineManifest.coverage.knownSites === sitesRegistry.sites.length && sitesRegistry.sites.length >= 15);
 
 const score = Math.round(checks.filter(x=>x.pass).length / checks.length * 100);
 for(const item of checks) console.log(`${item.pass?"PASS":"FAIL"} - ${item.name}`);
