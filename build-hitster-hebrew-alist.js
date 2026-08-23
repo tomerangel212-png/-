@@ -97,7 +97,7 @@ function parseAnnualChart(html, year, pageTitle) {
       if (!Number.isInteger(rank) || rank < 1 || rank > 60) continue;
       const title = cells[titleIndex];
       const artist = cells[artistIndex];
-      if (!title || !artist || normalize(title) === normalize(artist)) throw new Error(`${year} rank ${rank}: invalid song/artist pair`);
+      if (!title || !artist) throw new Error(`${year} rank ${rank}: empty song/artist pair`);
       cards.push({
         title, artist, year, sourceRank: rank,
         source: `מצעד שנתי ${year}`,
