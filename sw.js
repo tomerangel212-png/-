@@ -1,4 +1,4 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v21-music-station";
+const CACHE = "tra-kfar-bloom-2026-offline-v22-station-444";
 const HITSTER_OFFLINE = [
   "./hitster.html","./hitster-888.html","./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
   "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_PRINCIPLES.json","./TRA_PERFECT_QUALITY.md"
