@@ -1,11 +1,11 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v20-verified-metadata";
+const CACHE = "tra-kfar-bloom-2026-offline-v21-music-station";
 const HITSTER_OFFLINE = [
   "./hitster.html","./hitster-888.html","./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
   "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_PRINCIPLES.json","./TRA_PERFECT_QUALITY.md"
 ];
 const CORE = [
   "./","./index.html","./links/","./links/index.html","./links.html","./tree.html","./linktree.html","./tomer-links.html","./styles.css","./app.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_PRINCIPLES.json","./TRA_PERFECT_QUALITY.md","./TRA_VERSION_HISTORY.md",
-  "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./hitster.html","./hitster-888.html","./casino-angel.html","./connect-talk.html","./music-drive.html","./music-editor.html",
+  "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./hitster.html","./hitster-888.html","./casino-angel.html","./connect-talk.html","./music-drive.html","./music-editor.html","./tra-music-station.html","./tra-music-station.json",
   "./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
   "./songs/","./songs/index.html","./poetry/","./poetry/index.html","./instrumentals/","./instrumentals/index.html","./tra-dashboard/","./tra-dashboard/index.html"
 ];
@@ -36,6 +36,7 @@ async function networkFirst(request){
     }
     if(request.mode==="navigate"){
       const url=new URL(request.url);
+      if(url.pathname.includes("tra-music-station"))return(await caches.match("./tra-music-station.html"))||(await caches.match("./games.html"))||(await caches.match("./index.html"));
       if(url.pathname.includes("hitster-888"))return(await caches.match("./hitster-888.html"))||(await caches.match("./hitster.html"))||(await caches.match("./index.html"));
       if(url.pathname.includes("hitster-kfar-bloom"))return(await caches.match("./hitster-kfar-bloom-2026-demo.html"))||(await caches.match("./hitster.html"))||(await caches.match("./index.html"));
       if(url.pathname.includes("hitster"))return(await caches.match("./hitster.html"))||(await caches.match("./hitster-888.html"))||(await caches.match("./hitster-kfar-bloom-2026-demo.html"))||(await caches.match("./index.html"));
