@@ -7,7 +7,8 @@
   const page = location.pathname.split("/").filter(Boolean).pop() || "index";
 
   document.documentElement.dataset.traVersion = "9.9";
-  document.documentElement.dataset.traQuality = "10/10";\n  document.documentElement.dataset.traPerfectTarget = "9999999999/9999999999";
+  document.documentElement.dataset.traQuality = "10/10";
+  document.documentElement.dataset.traPerfectTarget = "9999999999/9999999999";
 
   const style = document.createElement("style");
   style.textContent = `
