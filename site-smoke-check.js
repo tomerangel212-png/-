@@ -103,6 +103,11 @@ if (fs.existsSync("links/index.html")) {
   if (!links.includes('href="../music-drive.html"')) failures.push("links/index.html: family musical journey route missing");
   if (!links.includes('href="../music-editor.html"')) failures.push("links/index.html: music editor route missing");
   if (!links.includes('href="../hitster-888.html"')) failures.push("links/index.html: HITSTER 888 route missing");
+  if (!links.includes("מאיזה מכשיר נכנסת?")) failures.push("links/index.html: device selection opening screen missing");
+  if (!links.includes('data-device="mobile"') || !links.includes('data-device="desktop"')) failures.push("links/index.html: mobile/desktop choices missing");
+  if (!links.includes("mode-mobile") || !links.includes("mode-desktop")) failures.push("links/index.html: device-specific layouts missing");
+  if (!links.includes("tra-device-view")) failures.push("links/index.html: persisted device choice missing");
+  if (!links.includes("URLSearchParams") || !links.includes("params.get('view')")) failures.push("links/index.html: shareable ?view mode missing");
   for (const alias of ["links.html","tree.html","linktree.html","tomer-links.html"]) {
     const legacy = fs.readFileSync(alias, "utf8");
     if (!legacy.includes("url=./links/") || !legacy.includes('href="https://tomerangel212-png.github.io/-/links/"')) failures.push(`${alias}: does not redirect to canonical final tree`);
