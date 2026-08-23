@@ -33,6 +33,7 @@ let total = 0;
 if (payload?.meta?.total !== TARGET_TOTAL) failures.push(`meta.total must be ${TARGET_TOTAL}`);
 if (payload?.meta?.perEra !== TARGET_PER_ERA) failures.push(`meta.perEra must be ${TARGET_PER_ERA}`);
 if (!payload?.eras || !payload?.provenance) failures.push("generated A-list payload is missing eras/provenance");
+if (!payload?.meta?.artistTitleIntegrity) failures.push("artist/title integrity policy is missing");
 
 for (const [era, [lo, hi]] of Object.entries(ranges)) {
   const cards = payload?.eras?.[era];
@@ -46,6 +47,7 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     const [title, artist, year] = card;
     if (!hasHebrew(title) || hasLatin(title)) failures.push(`${title}: title is not Hebrew-only`);
     if (!hasHebrew(artist) || hasLatin(artist)) failures.push(`${artist}: artist is not Hebrew-only`);
+    if (norm(title) === norm(artist)) failures.push(`${title}: title and artist cannot be identical`);
     if (!Number.isInteger(year) || year < lo || year > hi) failures.push(`${title}: year ${year} outside ${era}`);
     if (blocked(artist)) failures.push(`${title}: blocked artist ${artist}`);
     const id = key(card);
@@ -54,6 +56,7 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     const source = payload.provenance[id];
     if (!source || !approvedSource(source.source)) failures.push(`${title}: missing approved annual-chart provenance`);
     if (!Number.isInteger(source?.sourceRank) || source.sourceRank < 1 || source.sourceRank > 60) failures.push(`${title}: invalid annual-chart rank`);
+    if (!["same-source-row/header-mapped","official-chart-plus-Apple-Music-cross-check"].includes(source?.pairVerification)) failures.push(`${title}: artist/title pair lacks row-level verification`);
   }
 }
 
@@ -67,6 +70,9 @@ if (!games.includes('href="hitster.html"') || !games.includes("HITSTER TRA · 88
 if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("888 runtime is not locked to 888 = 222×4 / New Game");
 if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888.html") || !sw.includes("hitster-888")) failures.push("888-card deck/page is not cached with an 888-versioned offline cache");
 if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA = 222") || !builder.includes("GLZ_2020")) failures.push("888 builder is not configured for 222×4 including 2020");
+if (!builder.includes('columnIndex(headers') || !builder.includes('"ביצוע", "מבצע", "אמן", "אמנים"')) failures.push("builder does not map artist/title columns by verified headers");
+if (!builder.includes('"ואז את תראי","דולי ופן, דיקלה, עידן רפאל חביב, מארק אליהו"')) failures.push("verified 2020 collaboration credits are incomplete");
+if (!builder.includes('"חביב אלבי","סטטיק ובן אל תבורי, נסרין קדרי"')) failures.push("verified artist names are not canonical");
 
 if (failures.length) {
   console.error("HITSTER 888 HEBREW A-LIST GATE FAILED:\n");
@@ -79,6 +85,7 @@ for (const era of Object.keys(ranges)) console.log(`${era}: ${payload.eras[era].
 console.log(`Total: ${total}/${TARGET_TOTAL} unique cards`);
 console.log("Hebrew-only: PASS");
 console.log("Annual-chart A-list provenance: PASS");
+console.log("Artist/title row-level integrity: PASS");
 console.log("2020 included: PASS");
 console.log("New Game timeline reset: PASS");
 console.log("HITSTER 888 + Kfar Blum 57 separation: PASS");
