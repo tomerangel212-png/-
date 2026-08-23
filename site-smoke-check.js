@@ -19,6 +19,10 @@ const requiredFiles = [
   "music-drive.html",
   "music-editor.html",
   "links/index.html",
+  "links.html",
+  "tree.html",
+  "linktree.html",
+  "tomer-links.html",
   "tra-dashboard/index.html",
   "app.js",
   "styles.css",
@@ -95,7 +99,14 @@ if (fs.existsSync("connect-talk.html")) {
 
 if (fs.existsSync("links/index.html")) {
   const links = fs.readFileSync("links/index.html", "utf8");
+  if (!links.includes('rel="canonical" href="https://tomerangel212-png.github.io/-/links/"')) failures.push("links/index.html: canonical final tree URL missing");
   if (!links.includes('href="../music-drive.html"')) failures.push("links/index.html: family musical journey route missing");
+  if (!links.includes('href="../music-editor.html"')) failures.push("links/index.html: music editor route missing");
+  if (!links.includes('href="../hitster-888.html"')) failures.push("links/index.html: HITSTER 888 route missing");
+  for (const alias of ["links.html","tree.html","linktree.html","tomer-links.html"]) {
+    const legacy = fs.readFileSync(alias, "utf8");
+    if (!legacy.includes("url=./links/") || !legacy.includes('href="https://tomerangel212-png.github.io/-/links/"')) failures.push(`${alias}: does not redirect to canonical final tree`);
+  }
 }
 
 if (failures.length) {

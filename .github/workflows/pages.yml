@@ -79,6 +79,9 @@ jobs:
           grep -q "../poetry/" links/index.html
           grep -q "../instrumentals/" links/index.html
           grep -q "../music-drive.html" links/index.html
+          grep -q "../music-editor.html" links/index.html
+          grep -q "../hitster-888.html" links/index.html
+          grep -q "url=./links/" links.html tree.html linktree.html tomer-links.html
           grep -q "music-editor.html" games.html
 
   deploy:
@@ -128,7 +131,7 @@ jobs:
             test "$ok" -eq 1
           }
           check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
-          check_url "https://tomerangel212-png.github.io/-/links/" "Tomer Rafael Angel"
+          check_url "https://tomerangel212-png.github.io/-/links/" "הקישור הרשמי והסופי"
           check_url "https://tomerangel212-png.github.io/-/games.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
           check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
