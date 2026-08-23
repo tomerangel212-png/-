@@ -37,6 +37,7 @@ jobs:
           node --check hitster-quality-check.js
           node --check hitster-catalog-11111-check.js
           node --check tra-99-quality-check.js
+          node --check tra-perfect-quality-check.js
           node --check tra-quality.js
       - name: Build HITSTER 888 Hebrew A-list deck
         run: node build-hitster-hebrew-alist.js
@@ -54,6 +55,8 @@ jobs:
         run: node hitster-catalog-11111-check.js
       - name: Enforce TRA 9.9 10/10 release gate
         run: node tra-99-quality-check.js
+      - name: Enforce TRA perfect target contract
+        run: node tra-perfect-quality-check.js
 
   links-quality:
     name: Tomer Links · publish gate
@@ -97,6 +100,7 @@ jobs:
           test -s hitster-kfar-bloom-2026-demo.html
           node hitster-888-check.js
           node tra-99-quality-check.js
+          node tra-perfect-quality-check.js
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact

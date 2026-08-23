@@ -54,5 +54,6 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "57 כרטיסים"
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
           check_url "https://tomerangel212-png.github.io/-/TRA_VERSION.json" '"version": "9.9"'
+          check_url "https://tomerangel212-png.github.io/-/TRA_QUALITY.json" '"label": "9999999999/9999999999"'
 
           echo "TRA LIVE HTTP VERIFIED GREEN"

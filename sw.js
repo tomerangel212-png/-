@@ -1,10 +1,10 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v16-casino-neutral-table";
+const CACHE = "tra-kfar-bloom-2026-offline-v17-perfect-target-contract";
 const HITSTER_OFFLINE = [
   "./hitster.html","./hitster-888.html","./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
-  "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json"
+  "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_PRINCIPLES.json","./TRA_PERFECT_QUALITY.md"
 ];
 const CORE = [
-  "./","./index.html","./links/","./links/index.html","./styles.css","./app.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_VERSION_HISTORY.md",
+  "./","./index.html","./links/","./links/index.html","./styles.css","./app.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_PRINCIPLES.json","./TRA_PERFECT_QUALITY.md","./TRA_VERSION_HISTORY.md",
   "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./hitster.html","./hitster-888.html","./casino-angel.html","./connect-talk.html","./music-drive.html","./music-editor.html",
   "./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
   "./songs/","./songs/index.html","./poetry/","./poetry/index.html","./instrumentals/","./instrumentals/index.html","./tra-dashboard/","./tra-dashboard/index.html"

@@ -7,20 +7,83 @@
   "principles": [
     "Version updates never erase previous versions; always respect the source.",
     "Before upgrading a product, inspect strong comparable source apps and draw inspiration from proven product patterns without copying branding, assets, text or proprietary implementation.",
-    "10/10 is a release gate backed by functional checks, not a decorative score."
+    "10/10 is a release gate backed by functional checks, not a decorative score.",
+    "9,999,999,999/9,999,999,999 is a measurable target; it is never claimed without complete evidence."
   ],
   "previous_version": "8.5",
   "components": {
-    "TRA Core": {"version":"9.9","quality":"999/1000"},
-    "KFAR BLOOM 2026": {"version":"9.9","quality":"999/1000"},
-    "TRA Games": {"version":"9.9","quality":"999/1000"},
-    "TRA Chess": {"version":"9.9","quality":"999/1000","reference_patterns":["Chess.com","Lichess"]},
-    "HITSTER TRA": {"version":"9.9","quality":"999/1000","reference_patterns":["HITSTER","Apple Music","YouTube","Deezer","SoundCloud"]},
-    "Music Editor": {"version":"9.9","quality":"999/1000"},
-    "Music Drive": {"version":"9.9","quality":"999/1000"},
-    "Connect Talk": {"version":"9.9","quality":"999/1000"},
-    "Casino Angel": {"version":"9.9","quality":"999/1000","reference_patterns":["Zynga Poker"],"rules":["two private cards per player","equal starting chips and one neutral bot policy for every seat","blinds and pre-flop betting","flop-turn-river betting rounds","showdown awards every pot to its winning hand"]},
-    "TRA Dashboard": {"version":"9.9","quality":"999/1000"},
-    "Tomer Links": {"version":"9.9","quality":"999/1000"}
+    "TRA Core": {
+      "version": "9.9",
+      "quality": "999/1000"
+    },
+    "KFAR BLOOM 2026": {
+      "version": "9.9",
+      "quality": "999/1000"
+    },
+    "TRA Games": {
+      "version": "9.9",
+      "quality": "999/1000"
+    },
+    "TRA Chess": {
+      "version": "9.9",
+      "quality": "999/1000",
+      "reference_patterns": [
+        "Chess.com",
+        "Lichess"
+      ]
+    },
+    "HITSTER TRA": {
+      "version": "9.9",
+      "quality": "999/1000",
+      "reference_patterns": [
+        "HITSTER",
+        "Apple Music",
+        "YouTube",
+        "Deezer",
+        "SoundCloud"
+      ]
+    },
+    "Music Editor": {
+      "version": "9.9",
+      "quality": "999/1000"
+    },
+    "Music Drive": {
+      "version": "9.9",
+      "quality": "999/1000"
+    },
+    "Connect Talk": {
+      "version": "9.9",
+      "quality": "999/1000"
+    },
+    "Casino Angel": {
+      "version": "9.9",
+      "quality": "999/1000",
+      "reference_patterns": [
+        "Zynga Poker"
+      ],
+      "rules": [
+        "two private cards per player",
+        "equal starting chips and one neutral bot policy for every seat",
+        "blinds and pre-flop betting",
+        "flop-turn-river betting rounds",
+        "showdown awards every pot to its winning hand"
+      ]
+    },
+    "TRA Dashboard": {
+      "version": "9.9",
+      "quality": "999/1000"
+    },
+    "Tomer Links": {
+      "version": "9.9",
+      "quality": "999/1000"
+    }
+  },
+  "perfect_target": "9999999999/9999999999",
+  "perfect_target_status": "aspirational-until-evidence-complete",
+  "principles_registry": "TRA_PRINCIPLES.json",
+  "quality_contract": "TRA_QUALITY.json",
+  "release_governance": {
+    "merge_requires_human_approval": true,
+    "publish_requires_human_approval": true
   }
 }

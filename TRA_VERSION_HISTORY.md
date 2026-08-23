@@ -1,5 +1,16 @@
 # TRA Version History
 
+## TRA Perfect Target — Draft program · 2026-08-23
+
+Not released. This program defines the next measurable target: **9,999,999,999/9,999,999,999**.
+
+- The target is not an achieved-score claim.
+- Legacy contracts `10/10` and `999/1000` remain preserved.
+- Every historical TRA principle is registered in `TRA_PRINCIPLES.json`.
+- Quality is divided into weighted, testable dimensions whose weights total exactly 9,999,999,999.
+- Hard guardrails prevent a perfect claim when truth, accessibility, offline resilience, security, content completeness, CI, live verification or human approval is missing.
+- No merge or publication may occur without explicit human approval.
+
 ## TRA 9.9 — 2026-08-20
 
 Current release across the TRA system.
