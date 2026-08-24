@@ -10,6 +10,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  statuses: write
 
 concurrency:
   group: github-pages
@@ -113,6 +114,17 @@ jobs:
           node tra-music-station-check.js
           node tra-99-quality-check.js
           node tra-perfect-quality-check.js
+      - name: Mark Pages deployment pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.sha }}
+        run: |
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
+            -d '{"state":"pending","context":"TRA Pages live","description":"Deploying and verifying public TRA site"}'
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site artifact
@@ -142,10 +154,34 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
           check_url "https://tomerangel212-png.github.io/-/links/" "הקישור הרשמי והסופי"
           check_url "https://tomerangel212-png.github.io/-/games.html" "TRA Station · 444"
-          check_url "https://tomerangel212-png.github.io/-/tra-music-station.html" "444 · חלוקה"
+          check_url "https://tomerangel212-png.github.io/-/tra-music-station.html" "התחנה מנגנת 30 שניות ועוברת לשיר הבא."
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
           check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
           check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
           check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "888 קלפי שירים"
           check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "57 כרטיסים"
+      - name: Mark Pages deployment verified
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.sha }}
+        run: |
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
+            -d '{"state":"success","context":"TRA Pages live","description":"GitHub Pages deployment and public checks passed","target_url":"https://tomerangel212-png.github.io/-/tra-music-station.html"}'
+      - name: Mark Pages deployment failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.sha }}
+        run: |
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
+            -d '{"state":"failure","context":"TRA Pages live","description":"GitHub Pages deployment or public checks failed","target_url":"https://github.com/tomerangel212-png/-/actions"}'
