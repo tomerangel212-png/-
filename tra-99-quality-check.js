@@ -17,7 +17,9 @@ const casino = read("casino-angel.html");
 const hitster = read("hitster-kfar-bloom-2026-demo.js");
 const hitsterHub = read("hitster.html");
 const hitster888 = read("hitster-888.html");
-const hitster57 = read("hitster-kfar-bloom-2026-demo.html");
+const hitsterEnglish = read("hitster-888-en.html");
+const hitsterKfar = read("hitster-kfar-bloom-2026-demo.html");
+const hitsterLegacy = read("hitster-tra-tokens.html");
 const qualityLayer = read("tra-quality.js");
 
 check("TRA release is 9.9", version.version === "9.9");
@@ -26,7 +28,7 @@ check("Previous version is preserved", version.previous_version === "8.5" && his
 check("Reference-app principle is recorded", history.includes("Reference-app principle") && history.includes("Zynga Poker") && history.includes("Chess.com") && history.includes("HITSTER"));
 
 const sites = [
-  "index.html","games.html","hitster.html","hitster-888.html","hitster-kfar-bloom-2026-demo.html","casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",
+  "index.html","games.html","hitster.html","hitster-888.html","hitster-888-en.html","hitster-kfar-bloom-2026-demo.html","hitster-tra-tokens.html","casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",
   "links/index.html","tra-dashboard/index.html","songs/index.html","poetry/index.html","instrumentals/index.html"
 ];
 for (const site of sites) {
@@ -56,12 +58,13 @@ check("Casino includes league/progression pattern", casino.includes("League") &&
 
 check("HITSTER target remains exactly 888", hitster.includes("TARGET_TOTAL = 888") && hitster.includes("TARGET_PER_ERA = 222"));
 check("HITSTER 888 page is dedicated, complete, and hides the year range", hitster888.includes("888 קלפי שירים") && hitster888.includes("מיקום סודי על ציר 80 השנים") && hitster888.includes(".era-grid{display:none}") && hitster888.includes('id="new-game"'));
-check("HITSTER Kfar Blum 57 remains preserved", hitster57.includes("57 כרטיס") && hitster57.includes("WIN_CARDS=18") && hitster57.includes("5 אסימוני HITSTER"));
-check("HITSTER hub exposes both versions", hitsterHub.includes('href="hitster-888.html"') && hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"'));
+check("HITSTER Kfar Blum route resolves to verified 888", hitsterKfar.includes('location.replace("hitster-888.html?entry=kfar-bloom")') && hitsterKfar.includes("HITSTER 888"));
+check("HITSTER English route shares verified 888", hitsterEnglish.includes("888 verified Hebrew A-list song cards") && hitsterEnglish.includes('src="hitster-kfar-bloom-2026-demo.js') && hitsterLegacy.includes('location.replace("hitster-888-en.html?entry=international")'));
+check("HITSTER hub exposes all 888 interfaces", hitsterHub.includes('href="hitster-888.html"') && hitsterHub.includes('href="hitster-888-en.html"') && hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"') && !/57 כרטיס|1,000 כרטיס/.test(hitsterHub));
 check("HITSTER draws only internally playable cards", hitster.includes("function findPlayablePick") && hitster.includes("if (!pick?.preview)") && hitster.includes("state.unplayable.add") && hitster.includes("score >= 9"));
-check("HITSTER requires no third-party app fallback", !["providerUrls(","showFallbacks(","youtube.com","deezer.com","soundcloud.com"].some(x=>hitster.includes(x)) && !hitster888.includes("open.spotify.com") && hitster888.includes("ספרייה פנימית ישראלית") && principles.principles?.some(p=>p.id==="michael-to-grandma-estelle"));
+check("HITSTER requires no third-party app fallback", !["providerUrls(","showFallbacks(","youtube.com","deezer.com","soundcloud.com"].some(x=>hitster.includes(x)) && !hitster888.includes("open.spotify.com") && !hitsterEnglish.includes("open.spotify.com") && hitster888.includes("ספרייה פנימית ישראלית") && principles.principles?.some(p=>p.id==="michael-to-grandma-estelle"));
 check("HITSTER auto-plays 30 seconds when preview exists", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes('startPreview("draw")'));
-check("Offline cache contains both HITSTER versions", sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"'));
+check("Offline cache contains canonical HITSTER 888 and Kfar route", sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"') && sw.includes("hitster-hebrew-alist-888.json"));
 
 const score = Math.round(checks.filter(x=>x.pass).length / checks.length * 100);
 for(const item of checks) console.log(`${item.pass?"PASS":"FAIL"} - ${item.name}`);
