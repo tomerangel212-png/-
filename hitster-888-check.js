@@ -108,7 +108,7 @@ for (const [name, html] of [["Hebrew", html888], ["English", english]]) {
 for (const forbidden of ["providerUrls(", "showFallbacks(", "hitster_audio_provider_opened", "מקור האזנה חלופי"]) {
   if (js.includes(forbidden)) failures.push(`HITSTER runtime exposes third-party fallback flow: ${forbidden}`);
 }
-for (const required of ["AUDIO_CACHE_STORE", "findPlayablePick", "state.unplayable", "state.previewCache", "ההשמעה נשארת בתוך HITSTER", "מחליף אוטומטית לשיר פנימי אחר"]) {
+for (const required of ["AUDIO_CACHE_STORE", "findPlayablePick", "state.unplayable", "state.previewCache", "ההשמעה נשארת בתוך HITSTER", "קטע השמע אינו זמין כרגע", "↻ נסו אודיו"]) {
   if (!js.includes(required)) failures.push(`internal-playback resilience missing: ${required}`);
 }
 if (!english.includes("Internal Israeli playback") || !english.includes("Michael to Grandma Estelle")) failures.push("English interface does not expose the internal-playback principle");
