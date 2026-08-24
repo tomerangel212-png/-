@@ -10,11 +10,16 @@ const TARGET_PER_ERA = 222;
 const TARGET_TOTAL = 888;
 const PREVIEW_SECONDS = 30;
 const BLOCKED_ARTIST_PARTS = ["אייל גולן", "michael jackson", "eyal golan"];
-const TEAMS = [
+const LOCALE = document.documentElement.lang === "en" ? "en" : "he";
+const t = (he, en) => LOCALE === "en" ? en : he;
+const TEAMS = LOCALE === "en" ? [
+  ["green", "Green · Ayelet & Dudi"], ["blue", "Blue · Sharon & Naveh"], ["gold", "Gold · Naama & Raz"],
+  ["orange", "Orange · Maayan & Manuel"], ["silver", "Silver · Irit & Natan"],
+] : [
   ["green", "ירוק · איילת ודודי"], ["blue", "תכלת · שרון ונווה"], ["gold", "זהב · נעמה ורז"],
   ["orange", "כתום · מעיין ומנואל"], ["silver", "כסף · עירית ונתן"],
 ];
-const STORE = "hitster-tra-hebrew-alist-888-v5-tra99";
+const STORE = `hitster-tra-hebrew-alist-888-v6-${LOCALE}`;
 const $ = id => document.getElementById(id);
 const state = {
   data: null,
@@ -92,7 +97,7 @@ function renderTimelines(){
       const a=document.createElement("span");a.textContent=card[1];
       mini.append(y,t,a);cards.append(mini);
     });
-    if(!cards.children.length){const empty=document.createElement("span");empty.className="muted";empty.textContent="עדיין אין קלפים שנחשפו";cards.append(empty);}
+    if(!cards.children.length){const empty=document.createElement("span");empty.className="muted";empty.textContent=t("עדיין אין קלפים שנחשפו","No revealed cards yet");cards.append(empty);}
     box.append(cards);host.append(box);
   });
 }
@@ -117,7 +122,7 @@ function providerUrls(card){
 }
 function showFallbacks(card){
   const host=ensureFallbackHost();host.replaceChildren();host.hidden=false;
-  const label=document.createElement("span");label.className="muted";label.textContent="אין Preview אוטומטי למקור הזה — הקלף נשאר במשחק. בחרו מקור:";host.append(label);
+  const label=document.createElement("span");label.className="muted";label.textContent=t("אין Preview אוטומטי למקור הזה — הקלף נשאר במשחק. בחרו מקור:","No automatic preview is available. The card stays in play — choose a source:");host.append(label);
   for(const [name,url] of providerUrls(card)){
     const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener noreferrer";a.textContent=name;a.className="provider-link";
     a.addEventListener("click",()=>trackAudio("hitster_audio_provider_opened",{provider:name,title:card[0],artist:card[1]}));
@@ -125,7 +130,7 @@ function showFallbacks(card){
   }
 }
 
-function stopAudio(){clearTimeout(state.previewTimer);state.previewTimer=null;const audio=$("audio");audio.pause();try{audio.currentTime=0;}catch{}$("play").textContent=`▶ ${PREVIEW_SECONDS} שניות`;}
+function stopAudio(){clearTimeout(state.previewTimer);state.previewTimer=null;const audio=$("audio");audio.pause();try{audio.currentTime=0;}catch{}$("play").textContent=t(`▶ ${PREVIEW_SECONDS} שניות`,`▶ ${PREVIEW_SECONDS} seconds`);}
 function prepareAudio(previewUrl){const audio=$("audio");if(!previewUrl){audio.removeAttribute("src");audio.load();return;}if(audio.src!==previewUrl){audio.src=previewUrl;audio.preload="metadata";audio.playsInline=true;audio.load();}}
 async function resolvePreview(card){
   const term=encodeURIComponent(`${card[0]} ${card[1]}`);
@@ -150,7 +155,7 @@ async function primeNextPick(){
   if(state.nextPickPromise)return state.nextPickPromise;
   const generation=state.previewGeneration;
   $("draw").disabled=true;
-  if(!state.current)$("status").textContent="🎧 מכין את השיר הבא…";
+  if(!state.current)$("status").textContent=t("🎧 מכין את השיר הבא…","🎧 Preparing the next song…");
   state.nextPickPromise=(async()=>{
     const available=pool();
     if(!available.length)return null;
@@ -163,7 +168,7 @@ async function primeNextPick(){
   const ready=await state.nextPickPromise;
   if(generation!==state.previewGeneration)return null;
   state.nextPickPromise=null;state.nextPick=ready;$("draw").disabled=!ready;
-  if(!state.current)$("status").textContent=ready?(ready.preview?"🎵 מוכן · משכו קלף והאודיו יתחיל מיד":"🎵 מוכן · הקלף זמין, עם מקורות האזנה חלופיים"):"נגמרו הקלפים הזמינים במסלול הזה.";
+  if(!state.current)$("status").textContent=ready?(ready.preview?t("🎵 מוכן · משכו קלף והאודיו יתחיל מיד","🎵 Ready · draw a card and audio starts immediately"):t("🎵 מוכן · הקלף זמין, עם מקורות האזנה חלופיים","🎵 Ready · card available with listening alternatives")):t("נגמרו הקלפים הזמינים במסלול הזה.","No cards remain in this route.");
   return ready;
 }
 
@@ -171,8 +176,8 @@ function handlePreviewFailure(error,source){
   $("play").textContent=`▶ ${PREVIEW_SECONDS} שניות`;$("play").disabled=!state.current?.preview;
   trackAudio("hitster_audio_preview_failed",{source,error_name:error?.name||"Error",error_message:String(error?.message||"").slice(0,160)});
   if(state.current?.card)showFallbacks(state.current.card);
-  if(error?.name==="NotAllowedError")$("status").textContent="Safari חסם Auto‑Play. לחצו על ▶ 30 שניות או בחרו מקור האזנה.";
-  else $("status").textContent="האודיו לא הצליח להתנגן — הקלף נשאר זמין. בחרו מקור האזנה חלופי.";
+  if(error?.name==="NotAllowedError")$("status").textContent=t("Safari חסם Auto‑Play. לחצו על ▶ 30 שניות או בחרו מקור האזנה.","Safari blocked Auto-Play. Tap ▶ 30 seconds or choose a listening source.");
+  else $("status").textContent=t("האודיו לא הצליח להתנגן — הקלף נשאר זמין. בחרו מקור האזנה חלופי.","Audio could not play — the card stays available. Choose a listening source.");
 }
 function startPreview(source="manual"){
   if(!state.current?.preview){if(state.current?.card)showFallbacks(state.current.card);return false;}
@@ -180,37 +185,37 @@ function startPreview(source="manual"){
   $("play").disabled=false;let attempt;
   try{attempt=audio.play();}catch(error){handlePreviewFailure(error,source);return false;}
   Promise.resolve(attempt).then(()=>{
-    hideFallbacks();$("play").textContent="■ עצירה";state.previewTimer=setTimeout(stopAudio,PREVIEW_SECONDS*1000);$("status").textContent=`▶ מנגן ${PREVIEW_SECONDS} שניות`;trackAudio("hitster_audio_preview_started",{source});
+    hideFallbacks();$("play").textContent=t("■ עצירה","■ Stop");state.previewTimer=setTimeout(stopAudio,PREVIEW_SECONDS*1000);$("status").textContent=t(`▶ מנגן ${PREVIEW_SECONDS} שניות`,`▶ Playing ${PREVIEW_SECONDS} seconds`);trackAudio("hitster_audio_preview_started",{source});
   }).catch(error=>handlePreviewFailure(error,source));
   return true;
 }
 
 function draw(){
   stopAudio();hideFallbacks();const pick=state.nextPick;
-  if(!pick){$("status").textContent="🎧 השיר הבא עדיין בהכנה…";void primeNextPick();return;}
+  if(!pick){$("status").textContent=t("🎧 השיר הבא עדיין בהכנה…","🎧 The next song is still preparing…");void primeNextPick();return;}
   state.nextPick=null;state.current=pick;state.used.add(key(pick.card));save();
-  $("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent=`מיקום סודי על ציר 80 השנים · קלף ${state.used.size}/${TARGET_TOTAL}`;$("reveal").disabled=false;
+  $("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent=t(`מיקום סודי על ציר 80 השנים · קלף ${state.used.size}/${TARGET_TOTAL}`,`Secret position on an 80-year timeline · Card ${state.used.size}/${TARGET_TOTAL}`);$("reveal").disabled=false;
   $("play").disabled=!pick.preview;prepareAudio(pick.preview);
   if(pick.preview){startPreview("draw");}
-  else{$("status").textContent="🎵 הקלף נמשך. אין Preview אוטומטי, אבל הקלף נשאר זמין — בחרו מקור האזנה.";showFallbacks(pick.card);trackAudio("hitster_card_without_preview",{title:pick.card[0],artist:pick.card[1]});}
+  else{$("status").textContent=t("🎵 הקלף נמשך. אין Preview אוטומטי, אבל הקלף נשאר זמין — בחרו מקור האזנה.","🎵 Card drawn. No automatic preview, but the card stays available — choose a listening source.");showFallbacks(pick.card);trackAudio("hitster_card_without_preview",{title:pick.card[0],artist:pick.card[1]});}
   $("draw").disabled=true;void primeNextPick();
 }
 function play30(){if(!state.current?.preview){if(state.current?.card)showFallbacks(state.current.card);return;}const audio=$("audio");if(!audio.paused){stopAudio();return;}startPreview("play_button");}
-function reveal(){if(!state.current)return;stopAudio();const[title,artist,year]=state.current.card;$("year").textContent=year;$("title").textContent=title;$("artist").textContent=artist;$("concealed").hidden=true;$("revealed").hidden=false;$("reveal").disabled=true;const team=$("team").value;if(!state.timelines[team].some(c=>key(c)===key(state.current.card)))state.timelines[team].push(state.current.card);save();renderTimelines();$("status").textContent=`נוסף לציר הזמן של ${TEAMS.find(x=>x[0]===team)[1]}.`;}
-function newGame(){if(!confirm("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו."))return;stopAudio();hideFallbacks();prepareAudio(null);state.used.clear();invalidateNextPick();TEAMS.forEach(([id])=>state.timelines[id]=[]);state.current=null;localStorage.removeItem(STORE);$("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent="מיקום סודי על ציר 80 השנים";$("status").textContent="🎮 משחק חדש התחיל · מכין את השיר הראשון…";$("play").disabled=true;$("reveal").disabled=true;renderTimelines();void primeNextPick();}
+function reveal(){if(!state.current)return;stopAudio();const[title,artist,year]=state.current.card;$("year").textContent=year;$("title").textContent=title;$("artist").textContent=artist;$("concealed").hidden=true;$("revealed").hidden=false;$("reveal").disabled=true;const team=$("team").value;if(!state.timelines[team].some(c=>key(c)===key(state.current.card)))state.timelines[team].push(state.current.card);save();renderTimelines();$("status").textContent=t(`נוסף לציר הזמן של ${TEAMS.find(x=>x[0]===team)[1]}.`,`Added to ${TEAMS.find(x=>x[0]===team)[1]}’s timeline.`);}
+function newGame(){if(!confirm(t("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו.","Start a new game? All team timelines and drawn cards will reset.")))return;stopAudio();hideFallbacks();prepareAudio(null);state.used.clear();invalidateNextPick();TEAMS.forEach(([id])=>state.timelines[id]=[]);state.current=null;localStorage.removeItem(STORE);$("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent=t("מיקום סודי על ציר 80 השנים","Secret position on an 80-year timeline");$("status").textContent=t("🎮 משחק חדש התחיל · מכין את השיר הראשון…","🎮 New game started · preparing the first song…");$("play").disabled=true;$("reveal").disabled=true;renderTimelines();void primeNextPick();}
 
 async function init(){
   const offlineReady=await enableOffline();
-  const response=await fetch("./hitster-hebrew-alist-888.json");if(!response.ok)throw new Error("מאגר 888 A-list בעברית לא נטען");
+  const response=await fetch("./hitster-hebrew-alist-888.json");if(!response.ok)throw new Error(t("מאגר 888 A-list בעברית לא נטען","The verified 888-card Hebrew A-list could not load"));
   state.payload=await response.json();state.data=state.payload.eras;const report=validatePayload(state.payload);
   $("m-total").textContent=report.total;$("m-era").textContent=`${report.validEras}/4`;$("m-dupes").textContent=report.duplicates.length;
-  const badge=$("quality-badge");badge.textContent=report.ok?(offlineReady?(navigator.onLine?"✅ TRA 9.9 · 888/888 זמינים · 10/10":"📴 TRA 9.9 · 888/888 זמינים"):"✅ TRA 9.9 · 888/888 זמינים · 10/10"):"⛔ A-list Gate נכשל";
+  const badge=$("quality-badge");badge.textContent=report.ok?(offlineReady?(navigator.onLine?t("✅ TRA 9.9 · 888/888 זמינים · 10/10","✅ TRA 9.9 · 888/888 available · 10/10"):t("📴 TRA 9.9 · 888/888 זמינים","📴 TRA 9.9 · 888/888 available")):t("✅ TRA 9.9 · 888/888 זמינים · 10/10","✅ TRA 9.9 · 888/888 available · 10/10")):t("⛔ A-list Gate נכשל","⛔ A-list gate failed");
   if(!report.ok){$("draw").disabled=true;$("status").textContent=report.errors[0]||"Quality gate failed";return;}
   restore();renderEras();renderTimelines();ensureFallbackHost();$("play").textContent=`▶ ${PREVIEW_SECONDS} שניות`;
   $("draw").onclick=draw;$("play").onclick=play30;$("reveal").onclick=reveal;$("new-game").onclick=newGame;
   $("mode").addEventListener("change",()=>{invalidateNextPick();void primeNextPick();});
-  window.addEventListener("offline",()=>{if(report.ok)badge.textContent="📴 TRA 9.9 · 888/888 זמינים";});
-  window.addEventListener("online",()=>{if(report.ok){badge.textContent="✅ TRA 9.9 · 888/888 זמינים · 10/10";invalidateNextPick();void primeNextPick();}});
+  window.addEventListener("offline",()=>{if(report.ok)badge.textContent=t("📴 TRA 9.9 · 888/888 זמינים","📴 TRA 9.9 · 888/888 available");});
+  window.addEventListener("online",()=>{if(report.ok){badge.textContent=t("✅ TRA 9.9 · 888/888 זמינים · 10/10","✅ TRA 9.9 · 888/888 available · 10/10");invalidateNextPick();void primeNextPick();}});
   void primeNextPick();
 }
 
