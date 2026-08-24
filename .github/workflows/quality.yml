@@ -49,7 +49,7 @@ jobs:
           grep -q "music-editor.js" music-editor.html
           grep -q "data-era=\"1960\"" music-editor.html
           grep -q "data-era=\"2026\"" music-editor.html
-      - name: Verify TRA Music Station catalog
+      - name: Verify TRA Music Station 999 unique catalog
         run: node tra-music-station-check.js
       - name: Run full-site smoke check
         run: node site-smoke-check.js
