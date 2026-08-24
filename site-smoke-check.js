@@ -63,7 +63,9 @@ if (fs.existsSync("hitster.html")) {
 
 if (fs.existsSync("hitster-888.html")) {
   const full = fs.readFileSync("hitster-888.html", "utf8");
-  if (!full.includes("888 קלפי שירים") || !full.includes("222 קלפים בכל תקופה")) failures.push("hitster-888.html: 888 / 222×4 copy missing");
+  if (!full.includes("888 קלפי שירים") || !full.includes("מיקום סודי על ציר 80 השנים")) failures.push("hitster-888.html: 888-card hidden-range copy missing");
+  if (!full.includes(".era-grid{display:none}") || !full.includes('id="mode" aria-label="מצב בחירה" autocomplete="off" hidden')) failures.push("hitster-888.html: year-range controls must be hidden");
+  if (full.includes("שנות ה־80 · שנות ה־90") || full.includes("2010–2020.</p>")) failures.push("hitster-888.html: playable year range leaked before reveal");
   if (!/id=["']audio["'][^>]*preload=["']metadata["']/i.test(full)) failures.push("hitster-888: audio should preload metadata for mobile playback");
   if (!/id=["']audio["'][^>]*playsinline/i.test(full)) failures.push("hitster-888: audio should use playsinline for iOS compatibility");
   if (!full.includes('id="new-game"')) failures.push("hitster-888: New Game control missing");

@@ -54,7 +54,7 @@ check("Casino is virtual-only", casino.includes("ז׳טונים וירטואלי
 check("Casino includes league/progression pattern", casino.includes("League") && casino.includes("בונוס יומי"));
 
 check("HITSTER target remains exactly 888", hitster.includes("TARGET_TOTAL = 888") && hitster.includes("TARGET_PER_ERA = 222"));
-check("HITSTER 888 page is dedicated and complete", hitster888.includes("888 קלפי שירים") && hitster888.includes("222 קלפים בכל תקופה") && hitster888.includes('id="new-game"'));
+check("HITSTER 888 page is dedicated, complete, and hides the year range", hitster888.includes("888 קלפי שירים") && hitster888.includes("מיקום סודי על ציר 80 השנים") && hitster888.includes(".era-grid{display:none}") && hitster888.includes('id="new-game"'));
 check("HITSTER Kfar Blum 57 remains preserved", hitster57.includes("57 כרטיס") && hitster57.includes("WIN_CARDS=18") && hitster57.includes("5 אסימוני HITSTER"));
 check("HITSTER hub exposes both versions", hitsterHub.includes('href="hitster-888.html"') && hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"'));
 check("HITSTER never drops cards for missing preview", !hitster.includes("previewUnavailable") && hitster.includes("הקלף נשאר זמין"));
