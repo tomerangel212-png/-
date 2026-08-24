@@ -72,7 +72,7 @@ if (fs.existsSync("hitster-kfar-bloom-2026-demo.js")) {
   const fullJs = read("hitster-kfar-bloom-2026-demo.js");
   if (!fullJs.includes("prepareAudio(state.current.preview)")) failures.push("hitster-888 runtime: preview audio is not prepared before play tap");
   if (!/error\?\.name\s*===\s*["']NotAllowedError["']/.test(fullJs)) failures.push("hitster-888 runtime: blocked-playback recovery missing");
-  if (!fullJs.includes("findPlayablePick") || !fullJs.includes("מחליף אוטומטית לשיר פנימי אחר")) failures.push("hitster-888 runtime: internal replacement flow missing");
+  if (!fullJs.includes("findPlayablePick") || !fullJs.includes("קטע השמע אינו זמין כרגע") || !fullJs.includes("↻ נסו אודיו")) failures.push("hitster-888 runtime: internal audio recovery missing");
   if (/providerUrls\(|showFallbacks\(|hitster_audio_provider_opened/.test(fullJs)) failures.push("hitster-888 runtime: external provider fallback reintroduced");
 }
 
