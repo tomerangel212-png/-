@@ -208,6 +208,7 @@ async function main() {
       languagePolicy: "Hebrew title and artist text only; no Latin letters",
       aListPolicy: "Only songs ranked in Israeli annual charts; lower annual rank is prioritized",
       artistTitleIntegrity: "Title and performing artist are extracted from explicitly mapped columns in the same verified chart row; selected 2020 collaborations are cross-checked against Apple Music.",
+      secondaryVerificationPolicy: "Apple Music evidence is attached only to the two explicitly cross-checked 2020 collaborations; no other card receives that claim.",
       yearPolicy: "Year shown is the verified annual-chart year for that song entry",
       blockedArtists: ["אייל גולן", "Michael Jackson"],
       generatedAt: new Date().toISOString(),
