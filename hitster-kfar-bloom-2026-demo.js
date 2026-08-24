@@ -31,6 +31,8 @@ const state = {
   previewCache: new Map(),
   previewTimer: null,
   timelines: {},
+  startRequested: false,
+  bootstrapError: null,
 };
 TEAMS.forEach(([id]) => state.timelines[id] = []);
 
@@ -98,8 +100,15 @@ function trackAudio(event, properties = {}) {
 }
 function allCards() { return Object.entries(state.data).flatMap(([era, cards]) => cards.map(card => ({ era, card }))); }
 function pool() {
+  if (!state.data) return [];
   const source = $("mode").value === "all" ? allCards() : (state.data[state.era] || []).map(card => ({ era: state.era, card }));
-  return source.filter(({ card }) => !state.used.has(key(card)) && !state.unplayable.has(key(card)));
+  return source.filter(({ card }) => !state.used.has(key(card)));
+}
+function nextRandomPick() {
+  const available = pool();
+  if (!available.length) return null;
+  const { era, card } = available[Math.floor(Math.random() * available.length)];
+  return { era, card, preview: state.previewCache.get(key(card)) || null };
 }
 function invalidateNextPick() {
   state.previewGeneration += 1;
@@ -208,7 +217,7 @@ async function resolvePreview(card, { force = false } = {}) {
   return url;
 }
 async function findPlayablePick() {
-  const available = pool();
+  const available = pool().filter(({ card }) => !state.unplayable.has(key(card)));
   if (!available.length) return null;
   const shuffled = [...available].sort(() => Math.random() - 0.5);
   let transientFailures = 0;
@@ -232,14 +241,14 @@ async function primeNextPick() {
   if (state.nextPick) return state.nextPick;
   if (state.nextPickPromise) return state.nextPickPromise;
   const generation = state.previewGeneration;
-  $("draw").disabled = true;
+  $("draw").disabled = !pool().length;
   if (!state.current) $("status").textContent = "🎧 מכין שיר מהספרייה הישראלית הפנימית…";
   state.nextPickPromise = findPlayablePick();
   const ready = await state.nextPickPromise;
   if (generation !== state.previewGeneration) return null;
   state.nextPickPromise = null;
   state.nextPick = ready;
-  $("draw").disabled = !ready;
+  $("draw").disabled = !pool().length;
   if (!state.current) {
     $("status").textContent = ready
       ? "🎵 מוכן · ההשמעה נשארת בתוך HITSTER"
@@ -248,22 +257,8 @@ async function primeNextPick() {
   return ready;
 }
 
-function rollbackFailedCurrent() {
-  const failed = state.current;
-  if (!failed) return;
-  state.used.delete(key(failed.card));
-  state.unplayable.add(key(failed.card));
-  state.previewCache.delete(key(failed.card));
-  persistAudioCache();
-  save();
-  state.current = null;
-  state.nextPick = null;
-  $("reveal").disabled = true;
-  $("play").disabled = true;
-  prepareAudio(null);
-}
 function handlePreviewFailure(error, source) {
-  $("play").textContent = `▶ ${PREVIEW_SECONDS} שניות`;
+  $("play").textContent = "↻ נסו אודיו";
   trackAudio("hitster_audio_preview_failed", {
     source,
     error_name: error?.name || "Error",
@@ -271,12 +266,36 @@ function handlePreviewFailure(error, source) {
   });
   if (error?.name === "NotAllowedError") {
     $("play").disabled = false;
+    $("play").textContent = `▶ ${PREVIEW_SECONDS} שניות`;
     $("status").textContent = "Safari חסם הפעלה אוטומטית. לחצו על ▶ 30 שניות — ההשמעה נשארת בתוך HITSTER.";
     return;
   }
-  rollbackFailedCurrent();
-  $("status").textContent = "🎧 ההשמעה נכשלה — מחליף אוטומטית לשיר פנימי אחר…";
-  void primeNextPick().then(ready => { if (ready && !state.current) draw(); });
+  if (!state.current) return;
+  const id = key(state.current.card);
+  state.current.preview = null;
+  state.unplayable.add(id);
+  state.previewCache.delete(id);
+  persistAudioCache();
+  prepareAudio(null);
+  $("play").disabled = false;
+  $("status").textContent = "🎧 הקלף כבר התחיל. קטע השמע אינו זמין כרגע — אפשר לחשוף את השנה ולמשוך את הקלף הבא.";
+  void primeNextPick();
+}
+function fetchPreviewForCurrent(source, { force = false } = {}) {
+  const current = state.current;
+  if (!current) return;
+  $("play").disabled = true;
+  $("play").textContent = "🎧 טוען…";
+  void resolvePreview(current.card, { force }).then(preview => {
+    if (!preview) throw new Error("preview unavailable");
+    if (state.current !== current) return;
+    current.preview = preview;
+    prepareAudio(preview);
+    $("play").disabled = false;
+    startPreview(source);
+  }).catch(error => {
+    if (state.current === current) handlePreviewFailure(error, source);
+  });
 }
 function startPreview(source = "manual") {
   if (!state.current?.preview) return false;
@@ -298,10 +317,11 @@ function startPreview(source = "manual") {
 
 function draw() {
   stopAudio();
-  const pick = state.nextPick;
-  if (!pick?.preview) {
-    $("status").textContent = "🎧 מכין שיר פנימי שניתן לנגן…";
-    void primeNextPick();
+  const pick = state.nextPick || nextRandomPick();
+  if (!pick) {
+    $("status").textContent = state.data
+      ? "אין עוד קלפים זמינים במשחק הזה."
+      : "טוען את המשחק…";
     return;
   }
   state.nextPick = null;
@@ -312,16 +332,21 @@ function draw() {
   $("concealed").hidden = false;
   $("card-meta").textContent = `מיקום סודי על ציר 80 השנים · קלף ${state.used.size}/${TARGET_TOTAL}`;
   $("reveal").disabled = false;
-  $("play").disabled = false;
-  prepareAudio(pick.preview);
-  startPreview("draw");
-  $("draw").disabled = true;
+  prepareAudio(pick.preview || null);
+  $("play").disabled = !pick.preview;
+  $("draw").disabled = !pool().length;
+  if (pick.preview) startPreview("draw");
+  else {
+    $("status").textContent = "🎮 הקלף התחיל · מכין את 30 השניות הראשונות…";
+    fetchPreviewForCurrent("draw_lookup");
+  }
   void primeNextPick();
 }
 function play30() {
-  if (!state.current?.preview) {
+  if (!state.current) return;
+  if (!state.current.preview) {
     $("status").textContent = "🎧 מכין מחדש את ההשמעה הפנימית…";
-    void primeNextPick();
+    fetchPreviewForCurrent("play_button", { force: true });
     return;
   }
   const audio = $("audio");
@@ -339,17 +364,40 @@ function reveal() {
   save(); renderTimelines();
   $("status").textContent = `נוסף לציר הזמן של ${TEAMS.find(row => row[0] === team)[1]}.`;
 }
-function newGame() {
-  if (!confirm("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו.")) return;
-  stopAudio(); prepareAudio(null);
-  state.used.clear(); state.unplayable.clear(); invalidateNextPick();
+function newGame({ skipConfirm = false } = {}) {
+  if (!state.data) {
+    if (state.bootstrapError) {
+      window.location.reload();
+      return;
+    }
+    state.startRequested = true;
+    $("new-game").disabled = true;
+    $("new-game").textContent = "⏳ טוען משחק…";
+    $("status").textContent = "טוען את 888 הקלפים…";
+    return;
+  }
+  const hasProgress = Boolean(state.current || state.used.size || Object.values(state.timelines).some(cards => cards.length));
+  if (hasProgress && !skipConfirm && !confirm("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו.")) return;
+  stopAudio();
+  prepareAudio(null);
+  state.used.clear();
+  state.unplayable.clear();
+  invalidateNextPick();
   TEAMS.forEach(([id]) => state.timelines[id] = []);
-  state.current = null; localStorage.removeItem(STORE);
-  $("revealed").hidden = true; $("concealed").hidden = false;
+  state.current = null;
+  localStorage.removeItem(STORE);
+  $("revealed").hidden = true;
+  $("concealed").hidden = false;
   $("card-meta").textContent = "מיקום סודי על ציר 80 השנים";
-  $("status").textContent = "🎮 משחק חדש התחיל · מכין שיר מהספרייה הישראלית הפנימית…";
-  $("play").disabled = true; $("reveal").disabled = true;
-  renderTimelines(); void primeNextPick();
+  $("status").textContent = "🎮 המשחק התחיל · מושך קלף…";
+  $("play").textContent = `▶ ${PREVIEW_SECONDS} שניות`;
+  $("play").disabled = true;
+  $("reveal").disabled = true;
+  $("draw").disabled = false;
+  $("new-game").disabled = false;
+  $("new-game").textContent = "↻ משחק חדש";
+  renderTimelines();
+  draw();
 }
 
 async function init() {
@@ -372,7 +420,9 @@ async function init() {
   renderEras();
   renderTimelines();
   $("play").textContent = `▶ ${PREVIEW_SECONDS} שניות`;
-  $("draw").onclick = draw; $("play").onclick = play30; $("reveal").onclick = reveal; $("new-game").onclick = newGame;
+  $("draw").onclick = draw; $("play").onclick = play30; $("reveal").onclick = reveal; $("new-game").onclick = () => newGame();
+  $("new-game").disabled = false;
+  $("new-game").textContent = "▶ שחק עכשיו";
   $("mode").addEventListener("change", () => { invalidateNextPick(); void primeNextPick(); });
   window.addEventListener("offline", () => { if (report.ok) badge.textContent = "📴 TRA 9.9 · 888/888 זמינים"; });
   window.addEventListener("online", () => {
@@ -382,11 +432,21 @@ async function init() {
       void primeNextPick();
     }
   });
-  void primeNextPick();
+  if (state.startRequested) {
+    state.startRequested = false;
+    newGame({ skipConfirm: true });
+  } else {
+    $("draw").disabled = true;
+    $("status").textContent = "לחצו על ▶ שחק עכשיו כדי להתחיל.";
+  }
 }
 
+$("new-game").onclick = () => newGame();
 init().catch(error => {
+  state.bootstrapError = error;
   $("quality-badge").textContent = "⛔ המשחק לא נטען";
   $("status").textContent = String(error.message || error);
   $("draw").disabled = true;
+  $("new-game").disabled = false;
+  $("new-game").textContent = "↻ נסו שוב";
 });
