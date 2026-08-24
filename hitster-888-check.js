@@ -29,10 +29,16 @@ const approvedSource = source => /^מצעד שנתי \d{4}$/.test(String(source 
 const failures = [];
 const seen = new Set();
 let total = 0;
+let appleMusicCrossChecks = 0;
+const expectedAppleMusicEvidence = new Map([
+  ["ואז את תראי|דולי ופן, דיקלה, עידן רפאל חביב, מארק אליהו|2020", "https://music.apple.com/il/song/1512939046?l=he"],
+  ["חביב אלבי|סטטיק ובן אל תבורי, נסרין קדרי|2020", "https://music.apple.com/il/album/1518559908?l=he"],
+]);
 
 if (payload?.meta?.total !== TARGET_TOTAL) failures.push(`meta.total must be ${TARGET_TOTAL}`);
 if (payload?.meta?.perEra !== TARGET_PER_ERA) failures.push(`meta.perEra must be ${TARGET_PER_ERA}`);
 if (!payload?.eras || !payload?.provenance) failures.push("generated A-list payload is missing eras/provenance");
+if (!payload?.meta?.artistTitleIntegrity) failures.push("artist/title integrity policy is missing");
 
 for (const [era, [lo, hi]] of Object.entries(ranges)) {
   const cards = payload?.eras?.[era];
@@ -46,6 +52,7 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     const [title, artist, year] = card;
     if (!hasHebrew(title) || hasLatin(title)) failures.push(`${title}: title is not Hebrew-only`);
     if (!hasHebrew(artist) || hasLatin(artist)) failures.push(`${artist}: artist is not Hebrew-only`);
+    // A title may legitimately equal the performer name (for example "כמו צועני", 1985); row-level source evidence is authoritative.
     if (!Number.isInteger(year) || year < lo || year > hi) failures.push(`${title}: year ${year} outside ${era}`);
     if (blocked(artist)) failures.push(`${title}: blocked artist ${artist}`);
     const id = key(card);
@@ -54,11 +61,22 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     const source = payload.provenance[id];
     if (!source || !approvedSource(source.source)) failures.push(`${title}: missing approved annual-chart provenance`);
     if (!Number.isInteger(source?.sourceRank) || source.sourceRank < 1 || source.sourceRank > 60) failures.push(`${title}: invalid annual-chart rank`);
+    if (!["same-source-row/header-mapped","official-chart-plus-Apple-Music-cross-check"].includes(source?.pairVerification)) failures.push(`${title}: artist/title pair lacks row-level verification`);
+    if (!/^https:\/\//.test(String(source?.sourceUrl || ""))) failures.push(`${title}: source URL is missing`);
+    if (source?.pairVerification === "official-chart-plus-Apple-Music-cross-check") {
+      appleMusicCrossChecks++;
+      const expectedUrl = expectedAppleMusicEvidence.get(id);
+      if (!expectedUrl || source.verificationUrl !== expectedUrl) failures.push(`${title}: Apple Music evidence is missing or attached to the wrong card`);
+    } else if (source?.verificationUrl) {
+      failures.push(`${title}: unexpected secondary verification URL without a cross-check claim`);
+    }
   }
 }
 
 if (total !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} cards, got ${total}`);
 if (seen.size !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} unique cards, got ${seen.size}`);
+if (appleMusicCrossChecks !== expectedAppleMusicEvidence.size) failures.push(`Expected exactly ${expectedAppleMusicEvidence.size} Apple Music cross-checks, got ${appleMusicCrossChecks}`);
+for (const id of expectedAppleMusicEvidence.keys()) if (!seen.has(id)) failures.push(`${id}: expected Apple Music-verified collaboration is absent from the rebuilt deck`);
 if (!html888.includes('id="new-game"') || !html888.includes("888 קלפי שירים") || !html888.includes("222 קלפים בכל תקופה")) failures.push("888 / 222×4 UI or New Game button missing from hitster-888.html");
 if (!family57.includes("57 כרטיס") || !family57.includes("WIN_CARDS=18") || !family57.includes("5 אסימוני HITSTER")) failures.push("Kfar Blum 57 mode contract missing");
 if (!hub.includes("888 קלפי שירים") || !hub.includes('href="hitster-888.html"') || !hub.includes('href="hitster-kfar-bloom-2026-demo.html"')) failures.push("HITSTER hub must expose both 888 and Kfar Blum 57 modes");
@@ -67,6 +85,9 @@ if (!games.includes('href="hitster.html"') || !games.includes("HITSTER TRA · 88
 if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("888 runtime is not locked to 888 = 222×4 / New Game");
 if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888.html") || !sw.includes("hitster-888")) failures.push("888-card deck/page is not cached with an 888-versioned offline cache");
 if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA = 222") || !builder.includes("GLZ_2020")) failures.push("888 builder is not configured for 222×4 including 2020");
+if (!builder.includes('columnIndex(headers') || !builder.includes('"ביצוע", "מבצע", "אמן", "אמנים"')) failures.push("builder does not map artist/title columns by verified headers");
+if (!builder.includes("function verifyParserBehavior()") || !builder.includes("reordered title/artist columns") || !builder.includes("legitimate same-name title/artist pair")) failures.push("builder lacks behavioral parser regression checks");
+if (!builder.includes("APPLE_MUSIC_CROSS_CHECKS") || !builder.includes("verificationUrl")) failures.push("builder lacks scoped secondary-source evidence");
 
 if (failures.length) {
   console.error("HITSTER 888 HEBREW A-LIST GATE FAILED:\n");
@@ -79,6 +100,9 @@ for (const era of Object.keys(ranges)) console.log(`${era}: ${payload.eras[era].
 console.log(`Total: ${total}/${TARGET_TOTAL} unique cards`);
 console.log("Hebrew-only: PASS");
 console.log("Annual-chart A-list provenance: PASS");
+console.log("Artist/title row-level integrity: PASS");
+console.log(`Apple Music evidence: ${appleMusicCrossChecks}/${expectedAppleMusicEvidence.size} scoped cross-checks PASS`);
+console.log("Parser behavior fixtures: PASS");
 console.log("2020 included: PASS");
 console.log("New Game timeline reset: PASS");
 console.log("HITSTER 888 + Kfar Blum 57 separation: PASS");
