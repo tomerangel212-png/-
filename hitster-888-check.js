@@ -80,7 +80,7 @@ if (seen.size !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} unique c
 if (appleMusicCrossChecks !== expectedAppleMusicEvidence.size) failures.push(`Expected exactly ${expectedAppleMusicEvidence.size} Apple Music cross-checks, got ${appleMusicCrossChecks}`);
 for (const id of expectedAppleMusicEvidence.keys()) if (!seen.has(id)) failures.push(`${id}: expected Apple Music-verified collaboration is absent from the rebuilt deck`);
 
-if (!html888.includes('id="new-game"') || !html888.includes("888 קלפי שירים") || !html888.includes("מיקום סודי על ציר 80 השנים")) failures.push("888-card UI, hidden-range instruction, or New Game button missing from hitster-888.html");
+if (!html888.includes('id="new-game"') || !html888.includes("▶ שחק עכשיו") || !html888.includes("888 קלפי שירים") || !html888.includes("מיקום סודי על ציר 80 השנים")) failures.push("888-card UI, hidden-range instruction, or Start Game button missing from hitster-888.html");
 if (!html888.includes('id="mode"') || !html888.includes('id="mode" aria-label="מצב בחירה" autocomplete="off" hidden') || !html888.includes(".era-grid{display:none}")) failures.push("year-range and era controls must stay hidden on the main game screen");
 if (html888.includes("שנות ה־80 · שנות ה־90") || html888.includes("2010–2020.</p>")) failures.push("main game screen leaks the playable year range before reveal");
 if (!js.includes("מיקום סודי על ציר 80 השנים") || js.includes('${pick.era} · קלף')) failures.push("draw flow leaks the current card era before reveal");
@@ -91,7 +91,7 @@ if (!english.includes('<html lang="en" dir="ltr">') || !english.includes("888 ve
 if (!hub.includes("888 קלפי שירים") || !hub.includes('href="hitster-888.html"') || !hub.includes('href="hitster-888-en.html"') || !hub.includes('href="hitster-kfar-bloom-2026-demo.html"')) failures.push("HITSTER hub must expose every verified 888 interface");
 if (hub.includes("350 הקלפים") || hub.includes("444 קלפי") || hub.includes("57 כרטיס") || hub.includes("1,000 כרטיס")) failures.push("HITSTER hub contains stale non-888 count copy");
 if (!games.includes('href="hitster.html"') || !games.includes("HITSTER TRA · 888")) failures.push("TRA Games does not route HITSTER through the hub");
-if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("888 runtime is not locked to 888 = 222×4 / New Game");
+if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame({ skipConfirm = false } = {})") || !js.includes("function nextRandomPick()") || !js.includes("fetchPreviewForCurrent") || !js.includes("🎮 הקלף התחיל")) failures.push("888 runtime is not locked to immediate Start Game / 888 = 222×4");
 if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888.html") || !sw.includes("hitster-888")) failures.push("canonical 888 deck/page is not cached offline");
 if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA = 222") || !builder.includes("GLZ_2020")) failures.push("888 builder is not configured for 222×4 including 2020");
 if (!builder.includes('columnIndex(headers') || !builder.includes('"ביצוע", "מבצע", "אמן", "אמנים"')) failures.push("builder does not map artist/title columns by verified headers");
