@@ -7,6 +7,10 @@ const TARGET_TOTAL = 888;
 const OUTPUT = "hitster-hebrew-alist-888.json";
 const PIZMONET_BASE = "https://pizmonet.co.il/wiki/";
 const GLZ_2020_URL = "https://glz.co.il/%D7%92%D7%9C%D7%92%D7%9C%D7%A6/%D7%9B%D7%AA%D7%91%D7%95%D7%AA/%D7%94%D7%9E%D7%A6%D7%A2%D7%93-%D7%94%D7%A9%D7%A0%D7%AA%D7%99-%D7%94%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99-%D7%AA%D7%A9%D7%A4";
+const APPLE_MUSIC_CROSS_CHECKS = new Map([
+  ["ואז את תראי|דולי ופן, דיקלה, עידן רפאל חביב, מארק אליהו", "https://music.apple.com/il/song/1512939046?l=he"],
+  ["חביב אלבי|סטטיק ובן אל תבורי, נסרין קדרי", "https://music.apple.com/il/album/1518559908?l=he"],
+]);
 
 // Four user-requested blocks: three full decades plus 2010s with 2020 included explicitly.
 const ERA_RANGES = [
@@ -39,7 +43,16 @@ const GLZ_2020 = [
   [29,"מה עבר עליי","עדן חסון"],[30,"איפה את","אליעד"],[31,"אני רוצה","עידן עמדי"],[32,"תל אביב זה אני ואת","אמיר ובן, ג'יין בורדו"],
   [33,"קחי את הפחדים","בניה ברבי"],[34,"סדר עבודה","ישי ריבו"],[35,"עוד יום","פול טראנק"],[36,"במקום הכי רחוק","בניה ברבי"],
   [37,"חזרי אליי","נתן גושן"],[38,"לקחת את המפתחות","איתי לוי"],[39,"מסיבה","יסמין מועלם, שקל"],[40,"מים שקופים","עומר אדם"]
-].map(([sourceRank,title,artist]) => ({ title, artist, year: 2020, sourceRank, source: "גלגלצ מצעד שנתי 2020", sourceUrl: GLZ_2020_URL, pairVerification: "official-chart-plus-Apple-Music-cross-check" }));
+].map(([sourceRank, title, artist]) => {
+  const verificationUrl = APPLE_MUSIC_CROSS_CHECKS.get(`${title}|${artist}`);
+  return {
+    title, artist, year: 2020, sourceRank,
+    source: "גלגלצ מצעד שנתי 2020",
+    sourceUrl: GLZ_2020_URL,
+    pairVerification: verificationUrl ? "official-chart-plus-Apple-Music-cross-check" : "same-source-row/header-mapped",
+    ...(verificationUrl ? { verificationUrl } : {}),
+  };
+});
 
 const BLOCKED_ARTIST_PARTS = ["אייל גולן", "michael jackson", "eyal golan"];
 
@@ -109,6 +122,32 @@ function parseAnnualChart(html, year, pageTitle) {
   return cards;
 }
 
+function verifyParserBehavior() {
+  const reorderedColumns = `
+    <table>
+      <tr><th>ביצוע</th><th>דירוג</th><th>שם השיר</th></tr>
+      <tr><td>מבצע לדוגמה</td><td>7</td><td>שיר לדוגמה</td></tr>
+      <tr><td>כמו צועני</td><td>8</td><td>כמו צועני</td></tr>
+    </table>`;
+  const parsed = parseAnnualChart(reorderedColumns, 1985, 'תשמ"ה');
+  if (parsed.length !== 2 || parsed[0].title !== "שיר לדוגמה" || parsed[0].artist !== "מבצע לדוגמה") {
+    throw new Error("Parser regression: reordered title/artist columns were not mapped by header");
+  }
+  if (parsed[1].title !== "כמו צועני" || parsed[1].artist !== "כמו צועני") {
+    throw new Error("Parser regression: legitimate same-name title/artist pair was not preserved");
+  }
+
+  const emptyArtist = `
+    <table>
+      <tr><th>מקום</th><th>שיר</th><th>מבצע</th></tr>
+      <tr><td>1</td><td>שיר</td><td></td></tr>
+    </table>`;
+  let rejectedEmptyPair = false;
+  try { parseAnnualChart(emptyArtist, 1985, 'תשמ"ה'); }
+  catch { rejectedEmptyPair = true; }
+  if (!rejectedEmptyPair) throw new Error("Parser regression: empty title/artist pair was accepted");
+}
+
 async function fetchText(url) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 30000);
@@ -120,6 +159,7 @@ async function fetchText(url) {
 }
 
 async function main() {
+  verifyParserBehavior();
   const candidates = [...GLZ_2020];
   for (const [year, pageTitle] of YEAR_PAGES) {
     const url = `${PIZMONET_BASE}${encodeURIComponent(pageTitle)}`;
@@ -147,7 +187,13 @@ async function main() {
     }
     if (selected.length !== TARGET_PER_ERA) throw new Error(`${era}: need ${TARGET_PER_ERA} Hebrew A-list songs, found ${selected.length}`);
     eras[era] = selected.map(card => [card.title, card.artist, card.year]);
-    for (const card of selected) provenance[identity(card)] = { source: card.source, sourceRank: card.sourceRank, sourceUrl: card.sourceUrl, pairVerification: card.pairVerification };
+    for (const card of selected) provenance[identity(card)] = {
+      source: card.source,
+      sourceRank: card.sourceRank,
+      sourceUrl: card.sourceUrl,
+      pairVerification: card.pairVerification,
+      ...(card.verificationUrl ? { verificationUrl: card.verificationUrl } : {}),
+    };
   }
 
   const total = Object.values(eras).reduce((sum, cards) => sum + cards.length, 0);
