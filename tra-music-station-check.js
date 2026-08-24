@@ -30,7 +30,9 @@ const ids=data.preverifiedAppleMusicIds||{};
 for(const [pair,id] of Object.entries(ids)){if(!/^\d+$/.test(String(id)))throw new Error(`invalid Apple Music id for ${pair}`);}
 if(!fs.existsSync("tra-music-station.html"))throw new Error("station HTML missing");
 const html=fs.readFileSync("tra-music-station.html","utf8");
-for(const needle of ["444 שירים","148","resolveApple","scoreCandidate","itunes.apple.com/search","התאמה לא בטוחה נדחית"]){if(!html.includes(needle))throw new Error(`station HTML missing ${needle}`);}
+for(const needle of ["444 שירים","148","resolveApple","scoreCandidate","itunes.apple.com/search","itunes.apple.com/lookup","התאמה לא בטוחה נדחית","selectPlayable","stationRunning","advanceAfterPlayback","30000","previewUrl","בלי להציג מועמדים שנפסלו"]){if(!html.includes(needle))throw new Error(`station HTML missing ${needle}`);}
+if(html.includes("return draw("))throw new Error("station must not recursively flash rejected candidates");
+if(!html.includes('addEventListener("ended"'))throw new Error("station must advance when preview ends");
 const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(m=>m[1]);
 if(!scripts.length)throw new Error("station inline runtime missing");
 for(const script of scripts)new Function(script);
@@ -38,4 +40,4 @@ const games=fs.readFileSync("games.html","utf8");
 if(!games.includes("TRA Station · 444")||!games.includes('href="tra-music-station.html"'))throw new Error("TRA Games does not advertise Station 444");
 const sw=fs.readFileSync("sw.js","utf8");
 if(!sw.includes("tra-music-station.html")||!sw.includes("tra-music-station.json")||!sw.includes("station-444"))throw new Error("PWA cache not refreshed for Station 444");
-console.log(`TRA Station 444 OK: ${tracks.length} unique songs · IL 148 · US 148 · UK 148 · Apple exact-match runtime guard enabled.`);
+console.log(`TRA Station 444 OK: ${tracks.length} unique songs · IL 148 · US 148 · UK 148 · 30s sequential preview flow enabled.`);
