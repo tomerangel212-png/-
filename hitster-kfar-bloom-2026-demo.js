@@ -189,7 +189,7 @@ function draw(){
   stopAudio();hideFallbacks();const pick=state.nextPick;
   if(!pick){$("status").textContent="🎧 השיר הבא עדיין בהכנה…";void primeNextPick();return;}
   state.nextPick=null;state.current=pick;state.used.add(key(pick.card));save();
-  $("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent=`${pick.era} · קלף ${state.used.size}/${TARGET_TOTAL}`;$("reveal").disabled=false;
+  $("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent=`מיקום סודי על ציר 80 השנים · קלף ${state.used.size}/${TARGET_TOTAL}`;$("reveal").disabled=false;
   $("play").disabled=!pick.preview;prepareAudio(pick.preview);
   if(pick.preview){startPreview("draw");}
   else{$("status").textContent="🎵 הקלף נמשך. אין Preview אוטומטי, אבל הקלף נשאר זמין — בחרו מקור האזנה.";showFallbacks(pick.card);trackAudio("hitster_card_without_preview",{title:pick.card[0],artist:pick.card[1]});}
@@ -197,7 +197,7 @@ function draw(){
 }
 function play30(){if(!state.current?.preview){if(state.current?.card)showFallbacks(state.current.card);return;}const audio=$("audio");if(!audio.paused){stopAudio();return;}startPreview("play_button");}
 function reveal(){if(!state.current)return;stopAudio();const[title,artist,year]=state.current.card;$("year").textContent=year;$("title").textContent=title;$("artist").textContent=artist;$("concealed").hidden=true;$("revealed").hidden=false;$("reveal").disabled=true;const team=$("team").value;if(!state.timelines[team].some(c=>key(c)===key(state.current.card)))state.timelines[team].push(state.current.card);save();renderTimelines();$("status").textContent=`נוסף לציר הזמן של ${TEAMS.find(x=>x[0]===team)[1]}.`;}
-function newGame(){if(!confirm("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו."))return;stopAudio();hideFallbacks();prepareAudio(null);state.used.clear();invalidateNextPick();TEAMS.forEach(([id])=>state.timelines[id]=[]);state.current=null;localStorage.removeItem(STORE);$("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent=`נבחר ${state.era} · ${(state.data[state.era]||[]).length} קלפים`;$("status").textContent="🎮 משחק חדש התחיל · מכין את השיר הראשון…";$("play").disabled=true;$("reveal").disabled=true;renderTimelines();void primeNextPick();}
+function newGame(){if(!confirm("להתחיל משחק חדש? כל צירי הזמן והקלפים שנמשכו יתאפסו."))return;stopAudio();hideFallbacks();prepareAudio(null);state.used.clear();invalidateNextPick();TEAMS.forEach(([id])=>state.timelines[id]=[]);state.current=null;localStorage.removeItem(STORE);$("revealed").hidden=true;$("concealed").hidden=false;$("card-meta").textContent="מיקום סודי על ציר 80 השנים";$("status").textContent="🎮 משחק חדש התחיל · מכין את השיר הראשון…";$("play").disabled=true;$("reveal").disabled=true;renderTimelines();void primeNextPick();}
 
 async function init(){
   const offlineReady=await enableOffline();
