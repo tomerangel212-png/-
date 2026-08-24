@@ -10,6 +10,7 @@ const check = (name, pass) => { checks.push({name,pass:Boolean(pass)}); if(!pass
 const version = JSON.parse(read("TRA_VERSION.json"));
 const quality = JSON.parse(read("TRA_QUALITY.json"));
 const history = read("TRA_VERSION_HISTORY.md");
+const principles = JSON.parse(read("TRA_PRINCIPLES.json"));
 const sw = read("sw.js");
 const chess = read("games-loader.js");
 const casino = read("casino-angel.html");
@@ -57,8 +58,8 @@ check("HITSTER target remains exactly 888", hitster.includes("TARGET_TOTAL = 888
 check("HITSTER 888 page is dedicated, complete, and hides the year range", hitster888.includes("888 קלפי שירים") && hitster888.includes("מיקום סודי על ציר 80 השנים") && hitster888.includes(".era-grid{display:none}") && hitster888.includes('id="new-game"'));
 check("HITSTER Kfar Blum 57 remains preserved", hitster57.includes("57 כרטיס") && hitster57.includes("WIN_CARDS=18") && hitster57.includes("5 אסימוני HITSTER"));
 check("HITSTER hub exposes both versions", hitsterHub.includes('href="hitster-888.html"') && hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"'));
-check("HITSTER never drops cards for missing preview", !hitster.includes("previewUnavailable") && hitster.includes("הקלף נשאר זמין"));
-check("HITSTER has Apple/YouTube/Deezer/SoundCloud fallback", ["music.apple.com","youtube.com","deezer.com","soundcloud.com"].every(x=>hitster.includes(x)));
+check("HITSTER draws only internally playable cards", hitster.includes("function findPlayablePick") && hitster.includes("if (!pick?.preview)") && hitster.includes("state.unplayable.add") && hitster.includes("score >= 9"));
+check("HITSTER requires no third-party app fallback", !["providerUrls(","showFallbacks(","youtube.com","deezer.com","soundcloud.com"].some(x=>hitster.includes(x)) && !hitster888.includes("open.spotify.com") && hitster888.includes("ספרייה פנימית ישראלית") && principles.principles?.some(p=>p.id==="michael-to-grandma-estelle"));
 check("HITSTER auto-plays 30 seconds when preview exists", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes('startPreview("draw")'));
 check("Offline cache contains both HITSTER versions", sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"'));
 
