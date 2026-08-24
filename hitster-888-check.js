@@ -10,6 +10,7 @@ const games = fs.readFileSync("games.html", "utf8");
 const js = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
 const sw = fs.readFileSync("sw.js", "utf8");
 const builder = fs.readFileSync("build-hitster-hebrew-alist.js", "utf8");
+const principles = JSON.parse(fs.readFileSync("TRA_PRINCIPLES.json", "utf8"));
 
 const TARGET_PER_ERA = 222;
 const TARGET_TOTAL = 888;
@@ -52,7 +53,6 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     const [title, artist, year] = card;
     if (!hasHebrew(title) || hasLatin(title)) failures.push(`${title}: title is not Hebrew-only`);
     if (!hasHebrew(artist) || hasLatin(artist)) failures.push(`${artist}: artist is not Hebrew-only`);
-    // A title may legitimately equal the performer name (for example "כמו צועני", 1985); row-level source evidence is authoritative.
     if (!Number.isInteger(year) || year < lo || year > hi) failures.push(`${title}: year ${year} outside ${era}`);
     if (blocked(artist)) failures.push(`${title}: blocked artist ${artist}`);
     const id = key(card);
@@ -61,7 +61,7 @@ for (const [era, [lo, hi]] of Object.entries(ranges)) {
     const source = payload.provenance[id];
     if (!source || !approvedSource(source.source)) failures.push(`${title}: missing approved annual-chart provenance`);
     if (!Number.isInteger(source?.sourceRank) || source.sourceRank < 1 || source.sourceRank > 60) failures.push(`${title}: invalid annual-chart rank`);
-    if (!["same-source-row/header-mapped","official-chart-plus-Apple-Music-cross-check"].includes(source?.pairVerification)) failures.push(`${title}: artist/title pair lacks row-level verification`);
+    if (!["same-source-row/header-mapped", "official-chart-plus-Apple-Music-cross-check"].includes(source?.pairVerification)) failures.push(`${title}: artist/title pair lacks row-level verification`);
     if (!/^https:\/\//.test(String(source?.sourceUrl || ""))) failures.push(`${title}: source URL is missing`);
     if (source?.pairVerification === "official-chart-plus-Apple-Music-cross-check") {
       appleMusicCrossChecks++;
@@ -77,6 +77,7 @@ if (total !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} cards, got $
 if (seen.size !== TARGET_TOTAL) failures.push(`Expected ${TARGET_TOTAL} unique cards, got ${seen.size}`);
 if (appleMusicCrossChecks !== expectedAppleMusicEvidence.size) failures.push(`Expected exactly ${expectedAppleMusicEvidence.size} Apple Music cross-checks, got ${appleMusicCrossChecks}`);
 for (const id of expectedAppleMusicEvidence.keys()) if (!seen.has(id)) failures.push(`${id}: expected Apple Music-verified collaboration is absent from the rebuilt deck`);
+
 if (!html888.includes('id="new-game"') || !html888.includes("888 קלפי שירים") || !html888.includes("מיקום סודי על ציר 80 השנים")) failures.push("888-card UI, hidden-range instruction, or New Game button missing from hitster-888.html");
 if (!html888.includes('id="mode"') || !html888.includes('id="mode" aria-label="מצב בחירה" autocomplete="off" hidden') || !html888.includes(".era-grid{display:none}")) failures.push("year-range and era controls must stay hidden on the main game screen");
 if (html888.includes("שנות ה־80 · שנות ה־90") || html888.includes("2010–2020.</p>")) failures.push("main game screen leaks the playable year range before reveal");
@@ -91,6 +92,22 @@ if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA
 if (!builder.includes('columnIndex(headers') || !builder.includes('"ביצוע", "מבצע", "אמן", "אמנים"')) failures.push("builder does not map artist/title columns by verified headers");
 if (!builder.includes("function verifyParserBehavior()") || !builder.includes("reordered title/artist columns") || !builder.includes("legitimate same-name title/artist pair")) failures.push("builder lacks behavioral parser regression checks");
 if (!builder.includes("APPLE_MUSIC_CROSS_CHECKS") || !builder.includes("verificationUrl")) failures.push("builder lacks scoped secondary-source evidence");
+
+// Internal-playback contract: the core game must never force a third-party app.
+// Apple/iTunes may be used behind the scenes only to obtain a 30-second preview URL that plays in the <audio> element.
+if (!html888.includes("ספרייה פנימית ישראלית") || !html888.includes("ממיכאל ועד סבתא אסתל")) failures.push("internal Israeli library / intergenerational principle copy is missing");
+for (const forbidden of ["open.spotify.com", "youtube.com", "spotify-frame", "פתחו ב‑Spotify"]) {
+  if (html888.toLowerCase().includes(forbidden.toLowerCase())) failures.push(`HITSTER core UI still contains external-app dependency: ${forbidden}`);
+}
+for (const forbidden of ["providerUrls(", "showFallbacks(", "hitster_audio_provider_opened", "מקור האזנה חלופי"]) {
+  if (js.includes(forbidden)) failures.push(`HITSTER runtime still exposes third-party fallback flow: ${forbidden}`);
+}
+for (const required of ["AUDIO_CACHE_STORE", "findPlayablePick", "state.unplayable", "state.previewCache", "ההשמעה נשארת בתוך HITSTER", "מחליף אוטומטית לשיר פנימי אחר"]) {
+  if (!js.includes(required)) failures.push(`internal-playback resilience missing: ${required}`);
+}
+if (!Array.isArray(principles?.principles) || !principles.principles.some(p => p?.id === "michael-to-grandma-estelle" && String(p.he || "").includes("ממיכאל ועד סבתא אסתל"))) {
+  failures.push("TRA principle michael-to-grandma-estelle is missing");
+}
 
 if (failures.length) {
   console.error("HITSTER 888 HEBREW A-LIST GATE FAILED:\n");
@@ -110,4 +127,6 @@ console.log("2020 included: PASS");
 console.log("Year range hidden until reveal: PASS");
 console.log("New Game timeline reset: PASS");
 console.log("HITSTER 888 + Kfar Blum 57 separation: PASS");
+console.log("Internal Israeli playback / no required third-party app: PASS");
+console.log("Michael-to-Grandma-Estelle principle: PASS");
 console.log("Offline deck cache: PASS");
