@@ -4,7 +4,9 @@ const fs = require("fs");
 
 const payload = JSON.parse(fs.readFileSync("hitster-hebrew-alist-888.json", "utf8"));
 const html888 = fs.readFileSync("hitster-888.html", "utf8");
-const family57 = fs.readFileSync("hitster-kfar-bloom-2026-demo.html", "utf8");
+const kfarRoute = fs.readFileSync("hitster-kfar-bloom-2026-demo.html", "utf8");
+const legacyRoute = fs.readFileSync("hitster-tra-tokens.html", "utf8");
+const english = fs.readFileSync("hitster-888-en.html", "utf8");
 const hub = fs.readFileSync("hitster.html", "utf8");
 const games = fs.readFileSync("games.html", "utf8");
 const js = fs.readFileSync("hitster-kfar-bloom-2026-demo.js", "utf8");
@@ -82,32 +84,35 @@ if (!html888.includes('id="new-game"') || !html888.includes("888 קלפי שיר
 if (!html888.includes('id="mode"') || !html888.includes('id="mode" aria-label="מצב בחירה" autocomplete="off" hidden') || !html888.includes(".era-grid{display:none}")) failures.push("year-range and era controls must stay hidden on the main game screen");
 if (html888.includes("שנות ה־80 · שנות ה־90") || html888.includes("2010–2020.</p>")) failures.push("main game screen leaks the playable year range before reveal");
 if (!js.includes("מיקום סודי על ציר 80 השנים") || js.includes('${pick.era} · קלף')) failures.push("draw flow leaks the current card era before reveal");
-if (!family57.includes("57 כרטיס") || !family57.includes("WIN_CARDS=18") || !family57.includes("5 אסימוני HITSTER")) failures.push("Kfar Blum 57 mode contract missing");
-if (!hub.includes("888 קלפי שירים") || !hub.includes('href="hitster-888.html"') || !hub.includes('href="hitster-kfar-bloom-2026-demo.html"')) failures.push("HITSTER hub must expose both 888 and Kfar Blum 57 modes");
-if (hub.includes("350 הקלפים") || hub.includes("444 קלפי")) failures.push("HITSTER hub contains stale song-count copy");
+
+if (!kfarRoute.includes('location.replace("hitster-888.html?entry=kfar-bloom")') || !kfarRoute.includes("HITSTER 888")) failures.push("Kfar Blum route is not unified with canonical 888");
+if (!legacyRoute.includes('location.replace("hitster-888-en.html?entry=international")') || !legacyRoute.includes("888 cards, exactly")) failures.push("legacy international route is not unified with English 888");
+if (!english.includes('<html lang="en" dir="ltr">') || !english.includes("888 verified Hebrew A-list song cards") || !english.includes('src="hitster-kfar-bloom-2026-demo.js')) failures.push("English interface is not wired to the verified 888 deck");
+if (!hub.includes("888 קלפי שירים") || !hub.includes('href="hitster-888.html"') || !hub.includes('href="hitster-888-en.html"') || !hub.includes('href="hitster-kfar-bloom-2026-demo.html"')) failures.push("HITSTER hub must expose every verified 888 interface");
+if (hub.includes("350 הקלפים") || hub.includes("444 קלפי") || hub.includes("57 כרטיס") || hub.includes("1,000 כרטיס")) failures.push("HITSTER hub contains stale non-888 count copy");
 if (!games.includes('href="hitster.html"') || !games.includes("HITSTER TRA · 888")) failures.push("TRA Games does not route HITSTER through the hub");
 if (!js.includes('fetch("./hitster-hebrew-alist-888.json")') || !js.includes("TARGET_TOTAL = 888") || !js.includes("TARGET_PER_ERA = 222") || !js.includes("function newGame()")) failures.push("888 runtime is not locked to 888 = 222×4 / New Game");
-if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888.html") || !sw.includes("hitster-888")) failures.push("888-card deck/page is not cached with an 888-versioned offline cache");
+if (!sw.includes("hitster-hebrew-alist-888.json") || !sw.includes("hitster-888.html") || !sw.includes("hitster-888")) failures.push("canonical 888 deck/page is not cached offline");
 if (!builder.includes("TARGET_TOTAL = 888") || !builder.includes("TARGET_PER_ERA = 222") || !builder.includes("GLZ_2020")) failures.push("888 builder is not configured for 222×4 including 2020");
 if (!builder.includes('columnIndex(headers') || !builder.includes('"ביצוע", "מבצע", "אמן", "אמנים"')) failures.push("builder does not map artist/title columns by verified headers");
 if (!builder.includes("function verifyParserBehavior()") || !builder.includes("reordered title/artist columns") || !builder.includes("legitimate same-name title/artist pair")) failures.push("builder lacks behavioral parser regression checks");
 if (!builder.includes("APPLE_MUSIC_CROSS_CHECKS") || !builder.includes("verificationUrl")) failures.push("builder lacks scoped secondary-source evidence");
 
-// Internal-playback contract: the core game must never force a third-party app.
-// Apple/iTunes may be used behind the scenes only to obtain a 30-second preview URL that plays in the <audio> element.
+// Internal-playback contract: no HITSTER core interface may force a third-party app.
 if (!html888.includes("ספרייה פנימית ישראלית") || !html888.includes("ממיכאל ועד סבתא אסתל")) failures.push("internal Israeli library / intergenerational principle copy is missing");
-for (const forbidden of ["open.spotify.com", "youtube.com", "spotify-frame", "פתחו ב‑Spotify"]) {
-  if (html888.toLowerCase().includes(forbidden.toLowerCase())) failures.push(`HITSTER core UI still contains external-app dependency: ${forbidden}`);
+for (const [name, html] of [["Hebrew", html888], ["English", english]]) {
+  for (const forbidden of ["open.spotify.com", "youtube.com", "spotify-frame", "פתחו ב‑Spotify"]) {
+    if (html.toLowerCase().includes(forbidden.toLowerCase())) failures.push(`${name} HITSTER UI contains external-app dependency: ${forbidden}`);
+  }
 }
 for (const forbidden of ["providerUrls(", "showFallbacks(", "hitster_audio_provider_opened", "מקור האזנה חלופי"]) {
-  if (js.includes(forbidden)) failures.push(`HITSTER runtime still exposes third-party fallback flow: ${forbidden}`);
+  if (js.includes(forbidden)) failures.push(`HITSTER runtime exposes third-party fallback flow: ${forbidden}`);
 }
 for (const required of ["AUDIO_CACHE_STORE", "findPlayablePick", "state.unplayable", "state.previewCache", "ההשמעה נשארת בתוך HITSTER", "מחליף אוטומטית לשיר פנימי אחר"]) {
   if (!js.includes(required)) failures.push(`internal-playback resilience missing: ${required}`);
 }
-if (!Array.isArray(principles?.principles) || !principles.principles.some(p => p?.id === "michael-to-grandma-estelle" && String(p.he || "").includes("ממיכאל ועד סבתא אסתל"))) {
-  failures.push("TRA principle michael-to-grandma-estelle is missing");
-}
+if (!english.includes("Internal Israeli playback") || !english.includes("Michael to Grandma Estelle")) failures.push("English interface does not expose the internal-playback principle");
+if (!Array.isArray(principles?.principles) || !principles.principles.some(p => p?.id === "michael-to-grandma-estelle" && String(p.he || "").includes("ממיכאל ועד סבתא אסתל"))) failures.push("TRA principle michael-to-grandma-estelle is missing");
 
 if (failures.length) {
   console.error("HITSTER 888 HEBREW A-LIST GATE FAILED:\n");
@@ -126,7 +131,7 @@ console.log("Parser behavior fixtures: PASS");
 console.log("2020 included: PASS");
 console.log("Year range hidden until reveal: PASS");
 console.log("New Game timeline reset: PASS");
-console.log("HITSTER 888 + Kfar Blum 57 separation: PASS");
+console.log("Every HITSTER route is unified to the verified 888-card deck: PASS");
 console.log("Internal Israeli playback / no required third-party app: PASS");
 console.log("Michael-to-Grandma-Estelle principle: PASS");
-console.log("Offline deck cache: PASS");
+console.log("Canonical offline deck cache: PASS");
