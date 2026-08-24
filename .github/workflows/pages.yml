@@ -79,6 +79,7 @@ jobs:
           test -s tra-music-station.html
           test -s tra-music-station.json
           test -s tra-music-station-extra-555.json
+          test -s tra-music-station-corrections-5.json
           grep -q "posthog.init" links/index.html
           grep -q "tomer_links_page_loaded" links/index.html
           grep -q "tomer_links_card_clicked" links/index.html
@@ -112,6 +113,7 @@ jobs:
           test -s tra-music-station.html
           test -s tra-music-station.json
           test -s tra-music-station-extra-555.json
+          test -s tra-music-station-corrections-5.json
           node hitster-888-check.js
           node tra-music-station-check.js
           node tra-99-quality-check.js
@@ -158,6 +160,7 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/games.html" "TRA Station · 999"
           check_url "https://tomerangel212-png.github.io/-/tra-music-station.html" "999 שירים בדיוק."
           check_url "https://tomerangel212-png.github.io/-/tra-music-station-extra-555.json" "\"target\":555"
+          check_url "https://tomerangel212-png.github.io/-/tra-music-station-corrections-5.json" "\"target\":5"
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
           check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
           check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
