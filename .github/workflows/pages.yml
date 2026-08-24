@@ -109,7 +109,9 @@ jobs:
         run: |
           test -s hitster-hebrew-alist-888.json
           test -s hitster-888.html
+          test -s hitster-888-en.html
           test -s hitster-kfar-bloom-2026-demo.html
+          test -s hitster-tra-tokens.html
           test -s tra-music-station.html
           test -s tra-music-station.json
           test -s tra-music-station-extra-555.json
@@ -166,7 +168,9 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
           check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "888 קלפי שירים"
-          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "57 כרטיסים"
+          check_url "https://tomerangel212-png.github.io/-/hitster-888-en.html" "888 verified Hebrew A-list song cards"
+          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER 888"
+          check_url "https://tomerangel212-png.github.io/-/hitster-tra-tokens.html" "888 cards, exactly"
       - name: Mark Pages deployment verified
         if: success()
         env:
@@ -178,7 +182,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
-            -d '{"state":"success","context":"TRA Pages live","description":"GitHub Pages deployment and public checks passed","target_url":"https://tomerangel212-png.github.io/-/tra-music-station.html"}'
+            -d '{"state":"success","context":"TRA Pages live","description":"GitHub Pages deployment and public checks passed","target_url":"https://tomerangel212-png.github.io/-/hitster.html"}'
       - name: Mark Pages deployment failed
         if: failure()
         env:
