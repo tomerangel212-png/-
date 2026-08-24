@@ -11,7 +11,9 @@ const mainHtml = read("index.html");
 const linksHtml = read("links/index.html");
 const hitsterHub = read("hitster.html");
 const hitster888 = read("hitster-888.html");
-const hitster57 = read("hitster-kfar-bloom-2026-demo.html");
+const hitsterKfar = read("hitster-kfar-bloom-2026-demo.html");
+const hitsterEnglish = read("hitster-888-en.html");
+const hitsterLegacy = read("hitster-tra-tokens.html");
 const musicEditor = read("music-editor.html");
 
 const gameNumbers = [...gamesHtml.matchAll(/data-game-number="(\d+)"/g)].map((match) => Number(match[1]));
@@ -31,16 +33,21 @@ const checks = [
       gamesHtml.includes("מי רוצה להיות עורך מוזיקלי?")
   },
   {
-    name: "HITSTER hub preserves both 888 and Kfar Blum 57",
+    name: "Every HITSTER entry point uses exactly 888 cards",
     pass:
       gamesHtml.includes('href="hitster.html"') &&
       hitsterHub.includes("888 קלפי שירים") &&
       hitsterHub.includes('href="hitster-888.html"') &&
+      hitsterHub.includes('href="hitster-888-en.html"') &&
       hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"') &&
       !hitsterHub.includes("350 הקלפים") &&
       !hitsterHub.includes("444 קלפי") &&
+      !hitsterHub.includes("57 כרטיס") &&
+      !hitsterHub.includes("1,000 כרטיס") &&
       hitster888.includes("888 קלפי שירים") &&
-      hitster57.includes("57 כרטיס")
+      hitsterEnglish.includes("888 verified Hebrew A-list song cards") &&
+      hitsterKfar.includes('location.replace("hitster-888.html?entry=kfar-bloom")') &&
+      hitsterLegacy.includes('location.replace("hitster-888-en.html?entry=international")')
   },
   {
     name: "Every game card has a play control",
