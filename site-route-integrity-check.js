@@ -34,7 +34,7 @@ function isExternal(value) {
 }
 
 function normalizeSitePath(value) {
-  const normalized = path.posix.normalize(value).replace(/^\.\//, "");
+  const normalized = path.posix.normalize(value).replace(/^\.\//, "").replace(/\/+$/, "");
   return normalized === "." ? "" : normalized;
 }
 
