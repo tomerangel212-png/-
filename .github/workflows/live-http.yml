@@ -53,6 +53,17 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "888 קלפי שירים"
           check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER 888"
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
+          check_url "https://tomerangel212-png.github.io/-/connect-talk.html" "חברו • דברו"
+          check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
+          check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
+          check_url "https://tomerangel212-png.github.io/-/tra-music-station.html" "999 שירים בדיוק."
+          check_url "https://tomerangel212-png.github.io/-/links/" "הקישור הרשמי והסופי"
+          check_url "https://tomerangel212-png.github.io/-/poetry/" "שירתומר"
+          check_url "https://tomerangel212-png.github.io/-/poetry/at-lo-em-yeladai-100-000.html" "אַתְּ לֹא אֵם יְלָדַי"
+          check_url "https://tomerangel212-png.github.io/-/songs/" "מוזיקה מחברת"
+          check_url "https://tomerangel212-png.github.io/-/instrumentals/" "אינסתומר"
+          check_url "https://tomerangel212-png.github.io/-/tra-dashboard/" "TRA Command Center"
+          check_url "https://tomerangel212-png.github.io/-/versions/hitster-kfar-bloom-2026-demo-20260820-pre-hebrew57.html" "HITSTER TRA"
           check_url "https://tomerangel212-png.github.io/-/TRA_VERSION.json" '"version": "9.9"'
           check_url "https://tomerangel212-png.github.io/-/TRA_QUALITY.json" '"label": "9999999999/9999999999"'
 
