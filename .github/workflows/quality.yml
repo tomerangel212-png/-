@@ -31,6 +31,7 @@ jobs:
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
+          node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
           node --check hitster-quality-check.js
           node --check hitster-catalog-11111-check.js
@@ -53,6 +54,8 @@ jobs:
         run: node tra-music-station-check.js
       - name: Run full-site smoke check
         run: node site-smoke-check.js
+      - name: Verify all site routes and historical pages
+        run: node site-route-integrity-check.js
       - name: Enforce TRA Games quality gate
         run: node tra-games-quality-check.js
       - name: Enforce Casino Angel Hold'em quality gate
