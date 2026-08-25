@@ -41,9 +41,10 @@ for(const data of [base,extra,fix]){
 }
 if(!fs.existsSync("tra-music-station.html"))throw new Error("station HTML missing");
 const html=fs.readFileSync("tra-music-station.html","utf8");
-for(const needle of ["999 שירים","333","tra-music-station-extra-555.json","tra-music-station-corrections-5.json","resolveApple","scoreCandidate","itunes.apple.com/search","itunes.apple.com/lookup","selectPlayable","stationRunning","advanceAfterPlayback","30000","previewUrl","בלי להציג מועמדים שנפסלו"]){if(!html.includes(needle))throw new Error(`station HTML missing ${needle}`);}
+for(const needle of ["999 שירים","333","tra-music-station-extra-555.json","tra-music-station-corrections-5.json","resolveApple","scoreCandidate","itunes.apple.com/search","itunes.apple.com/lookup","selectPlayable","stationRunning","advanceAfterPlayback","PREVIEW_SECONDS","PREVIEW_SECONDS*1000","previewElapsedSeconds","previewUrl","בלי להציג מועמדים שנפסלו"]){if(!html.includes(needle))throw new Error(`station HTML missing ${needle}`);}
 if(html.includes("return draw("))throw new Error("station must not recursively flash rejected candidates");
-if(!html.includes('addEventListener("ended"'))throw new Error("station must advance when preview ends");
+if(!html.includes('addEventListener("ended"'))throw new Error("station must handle preview completion");
+if(html.includes('if(stationRunning)advanceAfterPlayback();'))throw new Error("station must not skip to the next song when a short preview ends early");
 const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/gi)].map(m=>m[1]);
 if(!scripts.length)throw new Error("station inline runtime missing");
 for(const script of scripts)new Function(script);

@@ -71,6 +71,7 @@ if (fs.existsSync("hitster-tra-tokens.html")) {
 if (fs.existsSync("hitster-kfar-bloom-2026-demo.js")) {
   const fullJs = read("hitster-kfar-bloom-2026-demo.js");
   if (!fullJs.includes("prepareAudio(state.current.preview)")) failures.push("hitster-888 runtime: preview audio is not prepared before play tap");
+  if (!fullJs.includes("function verifyPreview") || !fullJs.includes("resolvePlayablePreview") || !fullJs.includes("const pick = state.nextPick;") || fullJs.includes("state.nextPick || nextRandomPick()") || !fullJs.includes("handleAudioEnded")) failures.push("hitster-888 runtime: a card may not be drawn before its internal audio is verified");
   if (!/error\?\.name\s*===\s*["']NotAllowedError["']/.test(fullJs)) failures.push("hitster-888 runtime: blocked-playback recovery missing");
   if (!fullJs.includes("findPlayablePick") || !fullJs.includes("קטע השמע אינו זמין כרגע") || !fullJs.includes("↻ נסו אודיו")) failures.push("hitster-888 runtime: internal audio recovery missing");
   if (/providerUrls\(|showFallbacks\(|hitster_audio_provider_opened/.test(fullJs)) failures.push("hitster-888 runtime: external provider fallback reintroduced");

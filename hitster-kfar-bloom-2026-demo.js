@@ -9,6 +9,7 @@ const ERA_RANGES = {
 const TARGET_PER_ERA = 222;
 const TARGET_TOTAL = 888;
 const PREVIEW_SECONDS = 30;
+const AUDIO_PROBE_TIMEOUT_MS = 8_000;
 const AUDIO_CACHE_STORE = "hitster-tra-internal-israeli-audio-v1";
 const MAX_INTERNAL_LOOKUPS = 24;
 const BLOCKED_ARTIST_PARTS = ["אייל גולן", "michael jackson", "eyal golan"];
@@ -104,12 +105,6 @@ function pool() {
   const source = $("mode").value === "all" ? allCards() : (state.data[state.era] || []).map(card => ({ era: state.era, card }));
   return source.filter(({ card }) => !state.used.has(key(card)));
 }
-function nextRandomPick() {
-  const available = pool();
-  if (!available.length) return null;
-  const { era, card } = available[Math.floor(Math.random() * available.length)];
-  return { era, card, preview: state.previewCache.get(key(card)) || null };
-}
 function invalidateNextPick() {
   state.previewGeneration += 1;
   state.nextPick = null;
@@ -168,6 +163,37 @@ function prepareAudio(previewUrl) {
     audio.load();
   }
 }
+function verifyPreview(previewUrl) {
+  return new Promise(resolve => {
+    if (!previewUrl) { resolve(false); return; }
+    const probe = new Audio();
+    let settled = false;
+    let timer = null;
+    const finish = ok => {
+      if (settled) return;
+      settled = true;
+      if (timer) window.clearTimeout(timer);
+      probe.removeEventListener("canplay", onCanPlay);
+      probe.removeEventListener("error", onError);
+      probe.pause();
+      probe.removeAttribute("src");
+      try { probe.load(); } catch {}
+      resolve(ok);
+    };
+    const onCanPlay = () => {
+      const duration = Number(probe.duration);
+      finish(!Number.isFinite(duration) || duration >= PREVIEW_SECONDS - 1);
+    };
+    const onError = () => finish(false);
+    probe.preload = "metadata";
+    probe.playsInline = true;
+    probe.addEventListener("canplay", onCanPlay, { once: true });
+    probe.addEventListener("error", onError, { once: true });
+    timer = window.setTimeout(() => finish(false), AUDIO_PROBE_TIMEOUT_MS);
+    probe.src = previewUrl;
+    probe.load();
+  });
+}
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 function clean(value) {
   return String(value || "").normalize("NFKC").toLowerCase().replace(/[^a-z0-9א-ת]+/g, " ").trim();
@@ -216,6 +242,19 @@ async function resolvePreview(card, { force = false } = {}) {
   }
   return url;
 }
+async function resolvePlayablePreview(card, { force = false } = {}) {
+  const id = key(card);
+  let preview = await resolvePreview(card, { force });
+  if (preview && await verifyPreview(preview)) return preview;
+  state.previewCache.delete(id);
+  persistAudioCache();
+  if (force) return null;
+  preview = await resolvePreview(card, { force: true });
+  if (preview && await verifyPreview(preview)) return preview;
+  state.previewCache.delete(id);
+  persistAudioCache();
+  return null;
+}
 async function findPlayablePick() {
   const available = pool().filter(({ card }) => !state.unplayable.has(key(card)));
   if (!available.length) return null;
@@ -223,10 +262,10 @@ async function findPlayablePick() {
   let transientFailures = 0;
   for (const pick of shuffled.slice(0, Math.min(MAX_INTERNAL_LOOKUPS, shuffled.length))) {
     try {
-      const preview = await resolvePreview(pick.card);
+      const preview = await resolvePlayablePreview(pick.card);
       if (preview) return { era: pick.era, card: pick.card, preview };
       state.unplayable.add(key(pick.card));
-      trackAudio("hitster_internal_candidate_skipped", { title: pick.card[0], artist: pick.card[1], reason: "no_verified_preview" });
+      trackAudio("hitster_internal_candidate_skipped", { title: pick.card[0], artist: pick.card[1], reason: "preview_not_playable" });
     } catch (error) {
       transientFailures++;
       trackAudio("hitster_audio_lookup_failed", { error_name: error?.name || "Error", error_message: String(error?.message || "").slice(0, 160) });
@@ -241,14 +280,18 @@ async function primeNextPick() {
   if (state.nextPick) return state.nextPick;
   if (state.nextPickPromise) return state.nextPickPromise;
   const generation = state.previewGeneration;
-  $("draw").disabled = !pool().length;
+  $("draw").disabled = true;
   if (!state.current) $("status").textContent = "🎧 מכין שיר מהספרייה הישראלית הפנימית…";
-  state.nextPickPromise = findPlayablePick();
-  const ready = await state.nextPickPromise;
-  if (generation !== state.previewGeneration) return null;
-  state.nextPickPromise = null;
+  const request = findPlayablePick();
+  state.nextPickPromise = request;
+  const ready = await request;
+  if (state.nextPickPromise === request) state.nextPickPromise = null;
+  if (generation !== state.previewGeneration) {
+    return null;
+  }
   state.nextPick = ready;
-  $("draw").disabled = !pool().length;
+  $("draw").disabled = !ready;
+  if (ready && !state.current) prepareAudio(ready.preview);
   if (!state.current) {
     $("status").textContent = ready
       ? "🎵 מוכן · ההשמעה נשארת בתוך HITSTER"
@@ -278,6 +321,7 @@ function handlePreviewFailure(error, source) {
   persistAudioCache();
   prepareAudio(null);
   $("play").disabled = false;
+  $("draw").disabled = !state.nextPick;
   $("status").textContent = "🎧 הקלף כבר התחיל. קטע השמע אינו זמין כרגע — אפשר לחשוף את השנה ולמשוך את הקלף הבא.";
   void primeNextPick();
 }
@@ -286,7 +330,7 @@ function fetchPreviewForCurrent(source, { force = false } = {}) {
   if (!current) return;
   $("play").disabled = true;
   $("play").textContent = "🎧 טוען…";
-  void resolvePreview(current.card, { force }).then(preview => {
+  void resolvePlayablePreview(current.card, { force }).then(preview => {
     if (!preview) throw new Error("preview unavailable");
     if (state.current !== current) return;
     current.preview = preview;
@@ -296,6 +340,13 @@ function fetchPreviewForCurrent(source, { force = false } = {}) {
   }).catch(error => {
     if (state.current === current) handlePreviewFailure(error, source);
   });
+}
+function handleAudioEnded() {
+  if (!state.previewTimer) return;
+  window.clearTimeout(state.previewTimer);
+  state.previewTimer = null;
+  $("play").textContent = `▶ ${PREVIEW_SECONDS} שניות`;
+  $("status").textContent = "קטע השמע הסתיים. אפשר לחשוף את השנה או למשוך את הקלף המוכן הבא.";
 }
 function startPreview(source = "manual") {
   if (!state.current?.preview) return false;
@@ -317,11 +368,13 @@ function startPreview(source = "manual") {
 
 function draw() {
   stopAudio();
-  const pick = state.nextPick || nextRandomPick();
+  const pick = state.nextPick;
   if (!pick) {
+    $("draw").disabled = true;
     $("status").textContent = state.data
-      ? "אין עוד קלפים זמינים במשחק הזה."
+      ? "🎧 מכין שיר פנימי שנבדק להשמעה…"
       : "טוען את המשחק…";
+    void primeNextPick();
     return;
   }
   state.nextPick = null;
@@ -334,12 +387,8 @@ function draw() {
   $("reveal").disabled = false;
   prepareAudio(pick.preview || null);
   $("play").disabled = !pick.preview;
-  $("draw").disabled = !pool().length;
-  if (pick.preview) startPreview("draw");
-  else {
-    $("status").textContent = "🎮 הקלף התחיל · מכין את 30 השניות הראשונות…";
-    fetchPreviewForCurrent("draw_lookup");
-  }
+  $("draw").disabled = true;
+  startPreview("draw");
   void primeNextPick();
 }
 function play30() {
@@ -382,22 +431,33 @@ function newGame({ skipConfirm = false } = {}) {
   prepareAudio(null);
   state.used.clear();
   state.unplayable.clear();
-  invalidateNextPick();
+  state.previewGeneration += 1;
+  state.nextPickPromise = null;
   TEAMS.forEach(([id]) => state.timelines[id] = []);
   state.current = null;
   localStorage.removeItem(STORE);
   $("revealed").hidden = true;
   $("concealed").hidden = false;
   $("card-meta").textContent = "מיקום סודי על ציר 80 השנים";
-  $("status").textContent = "🎮 המשחק התחיל · מושך קלף…";
+  $("status").textContent = "🎮 המשחק התחיל · מושך קלף עם אודיו מוכן…";
   $("play").textContent = `▶ ${PREVIEW_SECONDS} שניות`;
   $("play").disabled = true;
   $("reveal").disabled = true;
-  $("draw").disabled = false;
+  $("draw").disabled = true;
   $("new-game").disabled = false;
   $("new-game").textContent = "↻ משחק חדש";
   renderTimelines();
-  draw();
+  if (state.nextPick) {
+    draw();
+    return;
+  }
+  $("new-game").disabled = true;
+  $("new-game").textContent = "⏳ מכין אודיו…";
+  void primeNextPick().then(ready => {
+    if (state.current) return;
+    $("new-game").disabled = false;
+    $("new-game").textContent = ready ? "▶ שחק עכשיו" : "↻ נסו אודיו";
+  });
 }
 
 async function init() {
@@ -421,8 +481,9 @@ async function init() {
   renderTimelines();
   $("play").textContent = `▶ ${PREVIEW_SECONDS} שניות`;
   $("draw").onclick = draw; $("play").onclick = play30; $("reveal").onclick = reveal; $("new-game").onclick = () => newGame();
-  $("new-game").disabled = false;
-  $("new-game").textContent = "▶ שחק עכשיו";
+  $("audio").addEventListener("ended", handleAudioEnded);
+  $("new-game").disabled = true;
+  $("new-game").textContent = "🎧 מכין אודיו…";
   $("mode").addEventListener("change", () => { invalidateNextPick(); void primeNextPick(); });
   window.addEventListener("offline", () => { if (report.ok) badge.textContent = "📴 TRA 9.9 · 888/888 זמינים"; });
   window.addEventListener("online", () => {
@@ -437,7 +498,12 @@ async function init() {
     newGame({ skipConfirm: true });
   } else {
     $("draw").disabled = true;
-    $("status").textContent = "לחצו על ▶ שחק עכשיו כדי להתחיל.";
+    $("status").textContent = "🎧 מכין שיר פנימי שנבדק להשמעה…";
+    void primeNextPick().then(ready => {
+      if (state.current) return;
+      $("new-game").disabled = false;
+      $("new-game").textContent = ready ? "▶ שחק עכשיו" : "↻ נסו אודיו";
+    });
   }
 }
 

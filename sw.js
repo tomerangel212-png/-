@@ -1,11 +1,11 @@
-const CACHE = "tra-kfar-bloom-2026-offline-v25-station-999-hitster-internal-israeli-audio";
+const CACHE = "tra-kfar-bloom-2026-offline-v26-station-999-hitster-audio-ready";
 const HITSTER_OFFLINE = [
-  "./hitster.html","./hitster-888.html","./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
+  "./hitster.html","./hitster-888.html","./hitster-888-en.html","./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
   "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_PRINCIPLES.json","./TRA_PERFECT_QUALITY.md"
 ];
 const CORE = [
   "./","./index.html","./links/","./links/index.html","./links.html","./tree.html","./linktree.html","./tomer-links.html","./styles.css","./app.js","./manifest.webmanifest","./assets/tra-mark.svg","./tra-quality.js","./TRA_VERSION.json","./TRA_QUALITY.json","./TRA_PRINCIPLES.json","./TRA_PERFECT_QUALITY.md","./TRA_VERSION_HISTORY.md",
-  "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./hitster.html","./hitster-888.html","./casino-angel.html","./connect-talk.html","./music-drive.html","./music-editor.html","./tra-music-station.html","./tra-music-station.json","./tra-music-station-extra-555.json","./tra-music-station-corrections-5.json",
+  "./games.html","./games.css","./games.js","./games-loader.js","./games-hub.js","./hitster.html","./hitster-888.html","./hitster-888-en.html","./casino-angel.html","./connect-talk.html","./music-drive.html","./music-editor.html","./tra-music-station.html","./tra-music-station.json","./tra-music-station-extra-555.json","./tra-music-station-corrections-5.json",
   "./hitster-kfar-bloom-2026-demo.html","./hitster-kfar-bloom-2026-demo.js","./hitster-hebrew-alist-888.json",
   "./songs/","./songs/index.html","./poetry/","./poetry/index.html","./instrumentals/","./instrumentals/index.html","./tra-dashboard/","./tra-dashboard/index.html"
 ];
@@ -28,7 +28,7 @@ async function networkFirst(request){
     }
     return response;
   }catch(error){
-    const cached=await caches.match(request,{ignoreSearch:false});
+    const cached=await caches.match(request,{ignoreSearch:true});
     if(cached){
       const type=cached.headers.get("content-type")||"";
       if(request.mode==="navigate"&&type.includes("text/html")){const text=injectQuality(await cached.clone().text());return new Response(text,{status:cached.status,statusText:cached.statusText,headers:cached.headers});}
