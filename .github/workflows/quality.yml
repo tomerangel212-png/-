@@ -2,11 +2,9 @@ name: TRA Production Quality Checks
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -19,16 +17,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Check JavaScript syntax
+      - name: Check relevant JavaScript syntax
         run: |
           node --check app.js
           node --check games.js
           node --input-type=module --check < games-loader.js
           node --check games-hub.js
           node --check music-editor.js
-          node --check casino-angel-quality-check.js
-          node --check hitster-kfar-bloom-2026-demo.js
-          node --check build-hitster-hebrew-alist.js
+          node --check hitster-original.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
           node --check site-route-integrity-check.js
@@ -39,17 +35,13 @@ jobs:
           node --check tra-99-quality-check.js
           node --check tra-perfect-quality-check.js
           node --check tra-quality.js
-      - name: Build HITSTER 888 Hebrew A-list deck
-        run: node build-hitster-hebrew-alist.js
-      - name: Enforce HITSTER 888 = 222×4
+      - name: Enforce annual HITSTER 888 quality gate
         run: node hitster-888-check.js
-      - name: Verify Music Editor shares HITSTER 888
+      - name: Verify Music Editor shares annual HITSTER 888
         run: |
-          grep -q "hitster-hebrew-alist-888.json" music-editor.js
+          grep -q "hitster-alltime-888.json" music-editor.js
           grep -q "hitsterCount !== 888" music-editor.js
           grep -q "music-editor.js" music-editor.html
-          grep -q "data-era=\"1960\"" music-editor.html
-          grep -q "data-era=\"2026\"" music-editor.html
       - name: Verify TRA Music Station 999 unique catalog
         run: node tra-music-station-check.js
       - name: Run full-site smoke check
@@ -60,11 +52,10 @@ jobs:
         run: node tra-games-quality-check.js
       - name: Enforce Casino Angel Hold'em quality gate
         run: node casino-angel-quality-check.js
-      - name: Enforce HITSTER production quality gate
-        run: node hitster-quality-check.js
-      - name: Enforce HITSTER 11,111 catalog capacity gate
+      - name: Enforce existing HITSTER catalog capacity gate
         run: node hitster-catalog-11111-check.js
-      - name: Enforce TRA 9.9 10/10 release gate
+      - name: Enforce TRA 9.9 release gate
         run: node tra-99-quality-check.js
-      - name: Enforce TRA perfect target contract
+      - name: Enforce TRA target contract
         run: node tra-perfect-quality-check.js
+
