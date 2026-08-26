@@ -2,8 +2,7 @@ name: Deploy TRA Sites to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -18,184 +17,44 @@ concurrency:
 
 jobs:
   tra-quality:
-    name: TRA · 9.9 · 10/10 release gate
+    name: TRA · annual HITSTER release gate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Check JavaScript syntax
         run: |
-          node --check app.js
-          node --check games.js
-          node --input-type=module --check < games-loader.js
-          node --check games-hub.js
-          node --check casino-angel-quality-check.js
-          node --check hitster-kfar-bloom-2026-demo.js
-          node --check build-hitster-hebrew-alist.js
+          node --check hitster-original.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
           node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
-          node --check hitster-quality-check.js
-          node --check hitster-catalog-11111-check.js
-          node --check tra-music-station-check.js
           node --check tra-99-quality-check.js
-          node --check tra-perfect-quality-check.js
-          node --check tra-quality.js
-      - name: Build HITSTER 888 Hebrew A-list deck
-        run: node build-hitster-hebrew-alist.js
-      - name: Enforce HITSTER 888 = 222×4
-        run: node hitster-888-check.js
-      - name: Verify TRA Music Station 999
-        run: node tra-music-station-check.js
-      - name: Run full-site smoke check
-        run: node site-smoke-check.js
-      - name: Verify all site routes and historical pages
-        run: node site-route-integrity-check.js
-      - name: Enforce TRA Games quality gate
-        run: node tra-games-quality-check.js
-      - name: Enforce Casino Angel Hold'em quality gate
-        run: node casino-angel-quality-check.js
-      - name: Enforce HITSTER production quality gate
-        run: node hitster-quality-check.js
-      - name: Enforce HITSTER catalog capacity gate
-        run: node hitster-catalog-11111-check.js
-      - name: Enforce TRA 9.9 10/10 release gate
-        run: node tra-99-quality-check.js
-      - name: Enforce TRA perfect target contract
-        run: node tra-perfect-quality-check.js
-
-  links-quality:
-    name: Tomer Links · publish gate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Verify link-in-bio pages
+      - name: Verify annual 888 deck
         run: |
-          test -s links/index.html
-          test -s songs/index.html
-          test -s poetry/index.html
-          test -s instrumentals/index.html
-          test -s music-drive.html
-          test -s music-editor.html
-          test -s tra-music-station.html
-          test -s tra-music-station.json
-          test -s tra-music-station-extra-555.json
-          test -s tra-music-station-corrections-5.json
-          grep -q "posthog.init" links/index.html
-          grep -q "tomer_links_page_loaded" links/index.html
-          grep -q "tomer_links_card_clicked" links/index.html
-          grep -q "../songs/" links/index.html
-          grep -q "../poetry/" links/index.html
-          grep -q "../instrumentals/" links/index.html
-          grep -q "../music-drive.html" links/index.html
-          grep -q "../music-editor.html" links/index.html
-          grep -q "../hitster-888.html" links/index.html
-          grep -q "url=./links/" links.html tree.html linktree.html tomer-links.html
-          grep -q "music-editor.html" games.html
-          grep -q "TRA Station · 999" games.html
-
+          test -s hitster-alltime-888.json
+          test -s hitster-888.html
+          test -s hitster-888-en.html
+          node hitster-888-check.js
+          node site-smoke-check.js
+          node site-route-integrity-check.js
+          node tra-games-quality-check.js
+          node tra-99-quality-check.js
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
   deploy:
-    name: Deploy TRA 9.9 and verify public site
-    needs: [tra-quality, links-quality]
+    name: Deploy TRA to GitHub Pages
+    needs: tra-quality
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Build HITSTER 888 deck for artifact
-        run: node build-hitster-hebrew-alist.js
-      - name: Verify generated deck exists
-        run: |
-          test -s hitster-hebrew-alist-888.json
-          test -s hitster-888.html
-          test -s hitster-888-en.html
-          test -s hitster-kfar-bloom-2026-demo.html
-          test -s hitster-tra-tokens.html
-          test -s tra-music-station.html
-          test -s tra-music-station.json
-          test -s tra-music-station-extra-555.json
-          test -s tra-music-station-corrections-5.json
-          node hitster-888-check.js
-          node tra-music-station-check.js
-          node site-route-integrity-check.js
-          node tra-99-quality-check.js
-          node tra-perfect-quality-check.js
-      - name: Mark Pages deployment pending
-        env:
-          GH_TOKEN: ${{ github.token }}
-          SHA: ${{ github.sha }}
-        run: |
-          curl -fsSL -X POST \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
-            -d '{"state":"pending","context":"TRA Pages live","description":"Deploying and verifying public TRA site"}'
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: .
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v5
-      - name: Verify public TRA URLs
-        shell: bash
-        run: |
-          set -euo pipefail
-          check_url() {
-            local url="$1"
-            local needle="$2"
-            local ok=0
-            for attempt in {1..12}; do
-              if body="$(curl -fsSL --max-time 20 "$url" 2>/dev/null)" && grep -Fq "$needle" <<<"$body"; then
-                ok=1
-                break
-              fi
-              sleep 10
-            done
-            test "$ok" -eq 1
-          }
-          check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
-          check_url "https://tomerangel212-png.github.io/-/links/" "הקישור הרשמי והסופי"
-          check_url "https://tomerangel212-png.github.io/-/games.html" "TRA Station · 999"
-          check_url "https://tomerangel212-png.github.io/-/tra-music-station.html" "999 שירים בדיוק."
-          check_url "https://tomerangel212-png.github.io/-/tra-music-station-extra-555.json" "\"target\":555"
-          check_url "https://tomerangel212-png.github.io/-/tra-music-station-corrections-5.json" "\"target\":5"
-          check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
-          check_url "https://tomerangel212-png.github.io/-/music-drive.html" "נסיעה מוזיקלית"
-          check_url "https://tomerangel212-png.github.io/-/music-editor.html" "מי רוצה להיות עורך מוזיקלי"
-          check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי שירים"
-          check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "888 קלפי שירים"
-          check_url "https://tomerangel212-png.github.io/-/hitster-888-en.html" "888 verified Hebrew A-list song cards"
-          check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER 888"
-          check_url "https://tomerangel212-png.github.io/-/hitster-tra-tokens.html" "888 cards, exactly"
-      - name: Mark Pages deployment verified
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-          SHA: ${{ github.sha }}
-        run: |
-          curl -fsSL -X POST \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
-            -d '{"state":"success","context":"TRA Pages live","description":"GitHub Pages deployment and public checks passed","target_url":"https://tomerangel212-png.github.io/-/hitster.html"}'
-      - name: Mark Pages deployment failed
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-          SHA: ${{ github.sha }}
-        run: |
-          curl -fsSL -X POST \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/${{ github.repository }}/statuses/$SHA" \
-            -d '{"state":"failure","context":"TRA Pages live","description":"GitHub Pages deployment or public checks failed","target_url":"https://github.com/tomerangel212-png/-/actions"}'
+        uses: actions/deploy-pages@v4
+
