@@ -28,7 +28,7 @@ const ratingLabels = {shaked:"שקד · 1000",tomer:"תומר · 1500",matan:"מ
 const botSelect = document.querySelector("#bot-select");
 for (const [id,label] of Object.entries(ratingLabels)) { const option=botSelect?.querySelector(`option[value="${id}"]`); if(option) option.textContent=label; }
 const chessCard=document.querySelector('[data-game-number="7"] p');
-if(chessCard)chessCard.textContent="שחמט 10/10 מול שקד 1000, תומר 1500, מתן 2000, שיקי 2500 ואנט/אנטי 3000 — עם Review ורמזים.";
+if(chessCard)chessCard.textContent="שחמט 10/10 מול שקד 1000, תומר 1500, מתן 2000, שיקי 2500 ואנט/אנטי 3000 — חוקיות מלאה, לחיצה או גרירה, Review ורמזים.";
 
 const blobUrl = URL.createObjectURL(new Blob([source], { type: "text/javascript" }));
 try { await import(blobUrl); } finally { URL.revokeObjectURL(blobUrl); }
@@ -46,4 +46,33 @@ if(shell){
   panel.querySelector("#copy-pgn").onclick=async()=>{const text=api()?.pgn?.()||"";try{await navigator.clipboard.writeText(text);reviewText.textContent="PGN הועתק.";}catch{reviewText.textContent=text||"אין PGN עדיין.";}};
   panel.querySelector("#copy-fen").onclick=async()=>{const text=api()?.fen?.()||"";try{await navigator.clipboard.writeText(text);reviewText.textContent="FEN הועתק.";}catch{reviewText.textContent=text;}};
   const observer=new MutationObserver(refresh);observer.observe(document.querySelector("#status"),{childList:true,subtree:true,characterData:true});refresh();
+}
+
+// Chess.com-style move interaction: keep click-to-move and also allow desktop drag-and-drop.
+const board=document.querySelector("#board");
+if(board){
+  let dragFrom=null;
+  const markDraggable=()=>board.querySelectorAll(".square .piece").forEach(piece=>{piece.draggable=true;piece.setAttribute("aria-grabbed","false");});
+  markDraggable();
+  new MutationObserver(markDraggable).observe(board,{childList:true,subtree:true});
+  board.addEventListener("dragstart",event=>{
+    const square=event.target.closest?.(".square");
+    if(!square?.dataset.square){event.preventDefault();return;}
+    dragFrom=square.dataset.square;
+    event.target.setAttribute?.("aria-grabbed","true");
+    try{event.dataTransfer.setData("text/plain",dragFrom);event.dataTransfer.effectAllowed="move";}catch{}
+  });
+  board.addEventListener("dragover",event=>{if(event.target.closest?.(".square"))event.preventDefault();});
+  board.addEventListener("drop",event=>{
+    const target=event.target.closest?.(".square");
+    if(!target?.dataset.square||!dragFrom)return;
+    event.preventDefault();
+    const source=board.querySelector(`.square[data-square="${dragFrom}"]`);
+    const destination=board.querySelector(`.square[data-square="${target.dataset.square}"]`);
+    dragFrom=null;
+    source?.click();
+    destination?.click();
+    window.posthog?.capture?.("chess_drag_move_attempted",{interaction:"drag_drop",reference:"chess.com"});
+  });
+  board.addEventListener("dragend",event=>{dragFrom=null;event.target.setAttribute?.("aria-grabbed","false");});
 }
