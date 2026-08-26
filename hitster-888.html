@@ -46,7 +46,8 @@
 <script>
 (function(){
   const params=new URLSearchParams(location.search);
-  if(params.get('autoplay')!=='1') return;
+  const autoAudio=params.get('autoplay')==='1'||params.get('entry')==='kfar-bloom';
+  if(!autoAudio) return;
   let drew=false;
   let ticks=0;
   const timer=setInterval(function(){
