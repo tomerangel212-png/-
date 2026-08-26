@@ -14,7 +14,8 @@ const principles = JSON.parse(read("TRA_PRINCIPLES.json"));
 const sw = read("sw.js");
 const chess = read("games-loader.js");
 const casino = read("casino-angel.html");
-const hitster = read("hitster-kfar-bloom-2026-demo.js");
+const hitster = read("hitster-original.js");
+const hitsterDeck = JSON.parse(read("hitster-alltime-888.json"));
 const hitsterHub = read("hitster.html");
 const hitster888 = read("hitster-888.html");
 const hitsterEnglish = read("hitster-888-en.html");
@@ -56,18 +57,19 @@ check("Casino has blinds/stakes", casino.includes("postBlinds") && casino.includ
 check("Casino is virtual-only", casino.includes("ז׳טונים וירטואליים בלבד") && !casino.includes("purchase") && !casino.includes("credit card"));
 check("Casino includes league/progression pattern", casino.includes("League") && casino.includes("בונוס יומי"));
 
-check("HITSTER target remains exactly 888", hitster.includes("TARGET_TOTAL = 888") && hitster.includes("TARGET_PER_ERA = 222"));
-check("HITSTER 888 page is dedicated, complete, and hides the year range", hitster888.includes("888 קלפי שירים") && hitster888.includes("מיקום סודי על ציר 80 השנים") && hitster888.includes(".era-grid{display:none}") && hitster888.includes('id="new-game"'));
+check("HITSTER target remains exactly 888", hitsterDeck.total === 888 && hitsterDeck.cards.length === 888 && hitsterDeck.yearBasis === "chart-year");
+check("HITSTER 888 page is dedicated, complete, and hides the year range", hitster888.includes("A-list עולמי") && !hitster888.includes("1950–2023") && hitster888.includes('id="new-game"') && hitster888.includes('src="hitster-original.js'));
 check("HITSTER Kfar Blum route resolves to verified 888", hitsterKfar.includes('location.replace("hitster-888.html?entry=kfar-bloom")') && hitsterKfar.includes("HITSTER 888"));
-check("HITSTER English route shares verified 888", hitsterEnglish.includes("888 verified Hebrew A-list song cards") && hitsterEnglish.includes('src="hitster-kfar-bloom-2026-demo.js') && hitsterLegacy.includes('location.replace("hitster-888-en.html?entry=international")'));
-check("HITSTER hub exposes all 888 interfaces", hitsterHub.includes('href="hitster-888.html"') && hitsterHub.includes('href="hitster-888-en.html"') && hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"') && !/57 כרטיס|1,000 כרטיס/.test(hitsterHub));
-check("HITSTER only draws cards with a verified internal preview", hitster.includes("function findPlayablePick") && hitster.includes("function verifyPreview") && hitster.includes("resolvePlayablePreview") && hitster.includes("const pick = state.nextPick;") && !hitster.includes("state.nextPick || nextRandomPick()") && hitster.includes("state.unplayable.add") && hitster.includes("score >= 9"));
-check("HITSTER requires no third-party app fallback", !["providerUrls(","showFallbacks(","youtube.com","deezer.com","soundcloud.com"].some(x=>hitster.includes(x)) && !hitster888.includes("open.spotify.com") && !hitsterEnglish.includes("open.spotify.com") && hitster888.includes("ספרייה פנימית ישראלית") && principles.principles?.some(p=>p.id==="michael-to-grandma-estelle"));
-check("HITSTER auto-plays 30 seconds when preview exists", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes('startPreview("draw")'));
-check("Offline cache contains canonical HITSTER Hebrew, English, and Kfar routes", sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-888-en.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"') && sw.includes("hitster-hebrew-alist-888.json"));
+check("HITSTER English route shares verified 888", hitsterEnglish.includes('<html lang="en" dir="ltr">') && hitsterEnglish.includes('src="hitster-original.js') && hitsterLegacy.includes('location.replace("hitster-888-en.html?entry=international")'));
+check("HITSTER hub exposes all 888 interfaces", hitsterHub.includes('href="hitster-888.html"') && hitsterHub.includes('href="hitster-888-en.html"') && hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"') && hitsterHub.includes("שנת מצעד"));
+check("HITSTER plays lawful previews inside the game", hitster.includes("function lookupPreview") && hitster.includes("function cachedPreview") && hitster.includes("function cacheRemotePreview") && hitster.includes("PREVIEW_SECONDS = 30"));
+check("HITSTER requires no third-party app fallback", !["open.spotify.com","youtube.com","deezer.com","soundcloud.com"].some(x=>hitster.includes(x)) && !hitster888.includes("open.spotify.com") && !hitsterEnglish.includes("open.spotify.com") && principles.principles?.some(p=>p.id==="michael-to-grandma-estelle"));
+check("HITSTER plays up to 30 seconds when requested", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes("audio.currentTime >= PREVIEW_SECONDS"));
+check("Offline cache contains canonical HITSTER Hebrew, English, Kfar routes and annual deck", sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-888-en.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"') && sw.includes("hitster-alltime-888.json") && sw.includes("AUDIO_CACHE"));
 
 const score = Math.round(checks.filter(x=>x.pass).length / checks.length * 100);
 for(const item of checks) console.log(`${item.pass?"PASS":"FAIL"} - ${item.name}`);
 console.log(`\nTRA 9.9 release quality: ${score}/100 (${checks.filter(x=>x.pass).length}/${checks.length})`);
 if(failures.length){console.error("\nTRA 9.9 RELEASE BLOCKED:\n- "+failures.join("\n- "));process.exit(1);}
 console.log("TRA 9.9 quality gate PASSED: 10/10 release criteria enforced.");
+

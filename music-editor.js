@@ -78,12 +78,12 @@ function uniqueSongs(list) {
 }
 
 async function loadCatalog() {
-  const response = await fetch("./hitster-hebrew-alist-888.json", { cache:"no-store" });
+  const response = await fetch("./hitster-alltime-888.json", { cache:"no-store" });
   if (!response.ok) throw new Error(`HITSTER 888 לא נטען (${response.status})`);
   const payload = await response.json();
-  const hitster = Object.values(payload.eras || {}).flatMap(cards => cards.map(([title,artist,year]) => ({
-    title, artist, year:Number(year), market:"IL", source:SOURCES.hitster, rank:null, hitster:true
-  })));
+  const hitster = (payload.cards || []).map(card => ({
+    title:card.title, artist:card.artist, year:Number(card.chartYear), market:"INTL", source:card.source || SOURCES.hitster, rank:card.chartRank || null, hitster:true
+  }));
   hitsterCount = hitster.length;
   if (hitsterCount !== 888) throw new Error(`ציפינו ל־888 שירי HITSTER, התקבלו ${hitsterCount}`);
   catalog = uniqueSongs([...hitster, ...CHART_EXTENSION]);
@@ -101,7 +101,7 @@ function yearDistractors(song) {
   const d = decade(song.year);
   const candidates = selectedEra === "2026" || d === 2026
     ? [2023,2024,2025,2026]
-    : [song.year - 3, song.year - 1, song.year + 1, song.year + 3].filter(y => y > 1959 && y <= 2026);
+    : [song.year - 3, song.year - 1, song.year + 1, song.year + 3].filter(y => y >= 1950 && y <= 2023);
   return shuffle([...new Set(candidates.filter(y => y !== song.year))]).slice(0,3);
 }
 
@@ -239,3 +239,4 @@ async function init() {
 }
 
 init();
+

@@ -21,13 +21,13 @@ const checks = [
   {name:"HITSTER is flagship, not the only destination",pass:gamesHtml.includes("⭐ משחק הדגל")&&gamesHtml.includes("HITSTER TRA · 888")&&gamesHtml.includes('data-game-number="16"')&&gamesHtml.includes("מי רוצה להיות עורך מוזיקלי?")},
   {name:"HITSTER hub exposes one verified 888 deck through Hebrew, English and Kfar Blum routes",pass:
     gamesHtml.includes('href="hitster.html"')&&
-    hitsterHub.includes("888 קלפי שירים")&&
+    hitsterHub.includes("888 קלפי A-list")&&
     hitsterHub.includes('href="hitster-888.html"')&&
     hitsterHub.includes('href="hitster-888-en.html"')&&
     hitsterHub.includes('href="hitster-kfar-bloom-2026-demo.html"')&&
     !/57 כרטיס|1,000 כרטיס|350 הקלפים|444 קלפי/.test(hitsterHub)&&
-    hitster888.includes("888 קלפי שירים")&&
-    hitsterEnglish.includes("888 verified Hebrew A-list song cards")&&
+    hitster888.includes("A-list עולמי")&&
+    hitsterEnglish.includes("global A-list") && hitsterEnglish.includes('src="hitster-original.js')&&
     hitsterKfar.includes('location.replace("hitster-888.html?entry=kfar-bloom")')},
   {name:"Every game card has a play control",pass:(gamesHtml.match(/class="launch(?: [^"]*)?"/g)||[]).length>=16},
   {name:"Quick Play is wired for games without standalone pages",pass:gamesHtml.includes("games-hub.js")&&gamesHubJs.includes("tra_games_hub_opened")&&gamesHubJs.includes("openQuickGame")&&gamesHubJs.includes("quick-play")},
@@ -53,3 +53,4 @@ for(const check of checks)console.log(`${check.pass?"PASS":"FAIL"} - ${check.nam
 console.log(`\nTRA Games quality score: ${score}/100 (${checks.length-failed.length}/${checks.length})`);
 if(failed.length){console.error("\nTRA Games quality gate FAILED.");process.exit(1);}
 console.log("TRA Games quality gate PASSED: 100/100.");
+
