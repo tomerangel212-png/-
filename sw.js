@@ -10,6 +10,10 @@ const STATIC_ASSETS = [
   "./hitster-original.js",
   "./hitster-alltime-888.json",
   "./manifest.webmanifest",
+  "./tra-quality.js",
+  "./TRA_VERSION.json",
+  "./TRA_QUALITY.json",
+  "./TRA_PRINCIPLES.json",
   "./tra-music-station.html",
   "./tra-music-station.json",
   "./tra-music-station-extra-555.json",
@@ -21,6 +25,11 @@ async function cacheStatic() {
   await Promise.all(STATIC_ASSETS.map(async function (asset) {
     try { await cache.add(asset); } catch (error) {}
   }));
+}
+
+function injectQuality(html) {
+  if (html.includes("tra-quality.js")) return html;
+  return html.replace(/<\/body>/i, '<script src="./tra-quality.js"></script></body>');
 }
 
 self.addEventListener("install", function (event) {
@@ -47,14 +56,23 @@ self.addEventListener("fetch", function (event) {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
   if (event.request.mode === "navigate") {
-    event.respondWith(fetch(event.request).then(function (response) {
-      const copy = response.clone();
+    event.respondWith(fetch(event.request).then(async function (response) {
+      const type = response.headers.get("content-type") || "";
+      let transformed = response;
+      if (type.includes("text/html")) {
+        const text = injectQuality(await response.clone().text());
+        transformed = new Response(text, { status: response.status, statusText: response.statusText, headers: response.headers });
+      }
+      const copy = transformed.clone();
       caches.open(STATIC_CACHE).then(function (cache) { return cache.put(event.request, copy); });
-      return response;
-    }).catch(function () {
-      return caches.match(event.request).then(function (cached) {
-        return cached || caches.match("./hitster-888.html");
-      });
+      return transformed;
+    }).catch(async function () {
+      const cached = await caches.match(event.request) || await caches.match("./hitster-888.html");
+      if (!cached) return cached;
+      const type = cached.headers.get("content-type") || "";
+      if (!type.includes("text/html")) return cached;
+      const text = injectQuality(await cached.clone().text());
+      return new Response(text, { status: cached.status, statusText: cached.statusText, headers: cached.headers });
     }));
     return;
   }
