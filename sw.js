@@ -1,4 +1,4 @@
-const STATIC_CACHE = "hitster-tra-static-annual-v1";
+const STATIC_CACHE = "tra-station-999-hitster-annual-v2";
 const AUDIO_CACHE = "hitster-tra-preview-audio-v1";
 const STATIC_ASSETS = [
   "./",
@@ -9,7 +9,11 @@ const STATIC_ASSETS = [
   "./hitster-tra-tokens.html",
   "./hitster-original.js",
   "./hitster-alltime-888.json",
-  "./manifest.webmanifest"
+  "./manifest.webmanifest",
+  "./tra-music-station.html",
+  "./tra-music-station.json",
+  "./tra-music-station-extra-555.json",
+  "./tra-music-station-corrections-5.json"
 ];
 
 async function cacheStatic() {
