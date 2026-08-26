@@ -30,6 +30,7 @@ jobs:
           node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
           node --check tra-99-quality-check.js
+          node --check tra-perfect-quality-check.js
       - name: Verify annual 888 deck
         run: |
           test -s hitster-alltime-888.json
@@ -40,6 +41,7 @@ jobs:
           node site-route-integrity-check.js
           node tra-games-quality-check.js
           node tra-99-quality-check.js
+          node tra-perfect-quality-check.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
