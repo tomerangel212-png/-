@@ -36,12 +36,35 @@
 <div id="revealed" hidden><div class="year" id="year"></div><div class="song-title" id="title"></div><div class="artist" id="artist"></div></div>
 <div class="placement"><label for="placement">איפה הקלף שייך בציר?</label><select id="placement" disabled></select></div>
 <div class="actions"><button class="action primary" id="draw" disabled>משכו קלף</button><button class="action gold" id="play" disabled>▶ 30 שניות</button><button class="action" id="name-credit" disabled>זיהינו שיר + אמן · +🪙</button><button class="action" id="skip-token" disabled>החליפו שיר · −🪙</button><button class="action" id="reveal" disabled>חשפו ובדקו מיקום</button></div>
-<div class="status" id="status"></div><audio id="audio" preload="metadata" playsinline></audio>
+<div class="status" id="status"></div><audio id="audio" preload="auto" playsinline></audio>
 </div></section>
 
 <section class="panel"><h2>צירי הזמן</h2><div class="timeline-grid" id="timelines"></div></section>
-<section class="panel rules"><strong>אודיו:</strong> Preview מורשה של עד 30 שניות מתנגן בתוך TRA. אם Safari חוסם autoplay, לחיצה על כפתור ההשמעה מפעילה אותו ידנית. המשחק אינו פותח אפליקציית מוזיקה חיצונית כדי להשלים תור.</section>
+<section class="panel rules"><strong>אודיו:</strong> Preview מורשה של עד 30 שניות מתנגן בתוך TRA. קישור עם מצב אודיו מושך קלף ומנסה להתחיל לנגן מיד. אם iPhone/Safari חוסם autoplay, נגיעה אחת על ▶ 30 שניות מפעילה את אותו קטע בתוך HITSTER — בלי לפתוח אפליקציה חיצונית.</section>
 </main>
-<script type="module" src="hitster-original.js?v=20260826-original-rules"></script>
+<script type="module" src="hitster-original.js?v=20260826-auto-audio"></script>
+<script>
+(function(){
+  const params=new URLSearchParams(location.search);
+  if(params.get('autoplay')!=='1') return;
+  let drew=false;
+  let ticks=0;
+  const timer=setInterval(function(){
+    ticks+=1;
+    const draw=document.getElementById('draw');
+    const play=document.getElementById('play');
+    const status=document.getElementById('status');
+    if(!drew && draw && !draw.disabled && typeof draw.onclick==='function'){
+      drew=true;
+      if(status) status.textContent='🔊 פותח קלף ומנסה להפעיל אודיו מיד…';
+      draw.click();
+    }
+    if(drew && play && !play.disabled){
+      clearInterval(timer);
+    }
+    if(ticks>=120) clearInterval(timer);
+  },250);
+})();
+</script>
 </body>
 </html>
