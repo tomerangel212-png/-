@@ -1,0 +1,75 @@
+name: Publish TRA Mobile Audio Branch
+
+on:
+  push:
+    branches:
+      - fix/mobile-audio-entry
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Verify TRA mobile audio release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+      - name: Check JavaScript syntax
+        run: |
+          node --check hitster-original.js
+          node --check hitster-kfar-bloom-2026-demo.js
+          node --check hitster-888-check.js
+          node --check site-smoke-check.js
+      - name: Build and verify HITSTER 888
+        run: |
+          node build-hitster-hebrew-alist.js
+          node hitster-888-check.js
+          node site-smoke-check.js
+          test -s hitster-mobile.html
+          grep -q 'autoplay=1' hitster-mobile.html
+          grep -q 'preload="metadata"' hitster-888.html
+          grep -q 'playsinline' hitster-888.html
+
+  deploy:
+    name: Publish branch to GitHub Pages
+    needs: verify
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v6
+      - name: Rebuild HITSTER 888 deck
+        run: node build-hitster-hebrew-alist.js
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload branch artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+      - name: Verify single mobile audio URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://tomerangel212-png.github.io/-/hitster-mobile.html"
+          ok=0
+          for attempt in {1..12}; do
+            if body="$(curl -fsSL --max-time 20 "$url" 2>/dev/null)" && grep -Fq "TRA · MOBILE AUDIO · 888" <<<"$body"; then
+              ok=1
+              break
+            fi
+            sleep 10
+          done
+          test "$ok" -eq 1
