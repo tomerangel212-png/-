@@ -14,6 +14,7 @@ const STATIC_ASSETS = [
   "./TRA_VERSION.json",
   "./TRA_QUALITY.json",
   "./TRA_PRINCIPLES.json",
+  "./TRA_PERFECT_QUALITY.md",
   "./tra-music-station.html",
   "./tra-music-station.json",
   "./tra-music-station-extra-555.json",
