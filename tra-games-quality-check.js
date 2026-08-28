@@ -13,12 +13,16 @@ const hitster888 = read("hitster-888.html");
 const hitsterEnglish = read("hitster-888-en.html");
 const hitsterKfar = read("hitster-kfar-bloom-2026-demo.html");
 const musicEditor = read("music-editor.html");
+const whatCountry = read("what-country.html");
 
 const gameNumbers = [...gamesHtml.matchAll(/data-game-number="(\d+)"/g)].map(match => Number(match[1]));
-const expectedNumbers = Array.from({length:16},(_,index)=>index+1);
+const expectedNumbers = Array.from({length:17},(_,index)=>index+1);
+const countryCodes = [...whatCountry.matchAll(/"code":"([A-Z]{2})"/g)].map(match=>match[1]);
+const countryNames = [...whatCountry.matchAll(/"name":"([^"]+)"/g)].map(match=>match[1]);
 const checks = [
-  {name:"TRA Games is a 16-game hub",pass:gameNumbers.length===16&&expectedNumbers.every(n=>gameNumbers.includes(n))&&gamesHtml.includes('id="all-games"')},
+  {name:"TRA Games is a 17-game hub",pass:gameNumbers.length===17&&expectedNumbers.every(n=>gameNumbers.includes(n))&&gamesHtml.includes('id="all-games"')},
   {name:"HITSTER is flagship, not the only destination",pass:gamesHtml.includes("⭐ משחק הדגל")&&gamesHtml.includes("HITSTER TRA · 888")&&gamesHtml.includes('data-game-number="16"')&&gamesHtml.includes("מי רוצה להיות עורך מוזיקלי?")},
+  {name:"What Country is game 17 with all 195 unique countries",pass:gamesHtml.includes('data-game-number="17"')&&gamesHtml.includes('href="what-country.html"')&&gamesHtml.includes("מה המדינה?")&&countryCodes.length===195&&new Set(countryCodes).size===195&&countryNames.length===195&&new Set(countryNames).size===195&&whatCountry.includes("choicesFor")&&whatCountry.includes("deck=shuffle(COUNTRIES)")},
   {name:"HITSTER hub exposes one verified 888 deck through Hebrew, English and Kfar Blum routes",pass:
     gamesHtml.includes('href="hitster.html"')&&
     hitsterHub.includes("888 קלפי A-list")&&
@@ -29,8 +33,8 @@ const checks = [
     hitster888.includes("A-list עולמי")&&
     hitsterEnglish.includes("global A-list") && hitsterEnglish.includes('src="hitster-original.js')&&
     hitsterKfar.includes('location.replace("hitster-888.html?entry=kfar-bloom")')},
-  {name:"Every game card has a play control",pass:(gamesHtml.match(/class="launch(?: [^"]*)?"/g)||[]).length>=16},
-  {name:"Quick Play is wired for games without standalone pages",pass:gamesHtml.includes("games-hub.js")&&gamesHubJs.includes("tra_games_hub_opened")&&gamesHubJs.includes("openQuickGame")&&gamesHubJs.includes("quick-play")},
+  {name:"Every game card has a play control",pass:(gamesHtml.match(/class="launch(?: [^"]*)?"/g)||[]).length>=17},
+  {name:"Quick Play is wired for games without standalone pages",pass:gamesHtml.includes("games-hub.js")&&gamesHubJs.includes("tra_games_hub_opened")&&gamesHubJs.includes("openQuickGame")&&gamesHubJs.includes("quick-play")&&gamesHubJs.includes("game_count: 17")},
   {name:"Music Editor game is standalone and has 15 stages",pass:gamesHtml.includes('href="music-editor.html"')&&musicEditor.includes("מי רוצה להיות עורך מוזיקלי?")&&musicEditor.includes("15 החלטות מקצועיות")&&musicEditor.includes("1000000")&&musicEditor.includes("50:50")},
   {name:"Family Musical Journey is exposed in main links",pass:linksHtml.includes("נסיעה מוזיקלית משפחתית")&&linksHtml.includes('href="../music-drive.html"')},
   {name:"TRA Chess entry point exists",pass:gamesHtml.includes('id="chess"')&&gamesHtml.includes("TRA Chess")&&gamesCss.includes(".board")},
@@ -43,7 +47,7 @@ const checks = [
   {name:"Special chess rules are regression-tested",pass:gamesJs.includes("en passant available immediately")&&gamesJs.includes("en passant expires after the immediate reply")&&gamesJs.includes("promotion exposes queen rook bishop knight")&&gamesJs.includes("fifty move rule remains a draw")},
   {name:"Promotion offers all four legal pieces",pass:gamesJs.includes("מלכה (Q)")&&gamesJs.includes("צריח (R)")&&gamesJs.includes("רץ (B)")&&gamesJs.includes("סוס (N)")&&gamesJs.includes("promotionChoiceRequired")&&gamesJs.includes('piece.color==="w"&&to[1]==="8"')&&gamesJs.includes('piece.color==="b"&&to[1]==="1"')&&gamesJs.includes('מלכה:"q"')&&gamesJs.includes('צריח:"r"')&&gamesJs.includes('רץ:"b"')&&gamesJs.includes('סוס:"n"')},
   {name:"Bot move engine and telemetry are wired",pass:gamesJs.includes("scheduleBotMove")&&gamesJs.includes("chooseBotMove")&&gamesJs.includes('track("chess_bot_move"')&&gamesJs.includes('track("chess_bot_selected"')},
-  {name:"Main TRA page exposes games and chess",pass:mainHtml.includes('./games.html#chess')&&mainHtml.includes("TRA Chess")},
+  {name:"Main TRA page exposes games and chess",pass:mainHtml.includes('./games.html#chess')&&mainHtml.includes("TRA Chess")&&mainHtml.includes("כל 17 המשחקים")},
   {name:"TRA Links sends Games to the hub, not HITSTER",pass:linksHtml.includes('<div class="title">TRA Games</div>')&&linksHtml.includes('href="../games.html"')&&linksHtml.includes('href="../games.html#chess"')}
 ];
 
@@ -53,4 +57,3 @@ for(const check of checks)console.log(`${check.pass?"PASS":"FAIL"} - ${check.nam
 console.log(`\nTRA Games quality score: ${score}/100 (${checks.length-failed.length}/${checks.length})`);
 if(failed.length){console.error("\nTRA Games quality gate FAILED.");process.exit(1);}
 console.log("TRA Games quality gate PASSED: 100/100.");
-
