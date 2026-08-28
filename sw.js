@@ -18,7 +18,8 @@ const STATIC_ASSETS = [
   "./tra-music-station.html",
   "./tra-music-station.json",
   "./tra-music-station-extra-555.json",
-  "./tra-music-station-corrections-5.json"
+  "./tra-music-station-corrections-5.json",
+  "./what-country.html"
 ];
 
 async function cacheStatic() {
@@ -88,4 +89,3 @@ self.addEventListener("fetch", function (event) {
     });
   }));
 });
-

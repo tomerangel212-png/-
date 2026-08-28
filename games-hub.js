@@ -174,4 +174,4 @@ quickNext?.addEventListener("click", renderChallenge);
 quickClose?.addEventListener("click", closeQuickGame);
 quickDone?.addEventListener("click", closeQuickGame);
 
-track("tra_games_hub_opened", { game_count: 16, flagship: "HITSTER TRA" });
+track("tra_games_hub_opened", { game_count: 17, flagship: "HITSTER TRA" });
