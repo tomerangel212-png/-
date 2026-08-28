@@ -3,7 +3,7 @@
 const fs = require("fs");
 const requiredFiles = [
   "index.html","games.html","games.js","games-hub.js",
-  "hitster.html","hitster-888.html","hitster-888-en.html","hitster-kfar-bloom-2026-demo.html","hitster-tra-tokens.html",
+  "hitster.html","hitster-mobile.html","hitster-888.html","hitster-888-en.html","hitster-kfar-bloom-2026-demo.html","hitster-tra-tokens.html",
   "hitster-original.js","hitster-alltime-888.json","hitster-888-check.js",
   "casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",
   "links/index.html","links.html","tree.html","linktree.html","tomer-links.html",
@@ -24,8 +24,13 @@ for (const file of requiredFiles.filter(file => file.endsWith(".html") && fs.exi
 }
 if (fs.existsSync("hitster.html")) {
   const hub = read("hitster.html");
-  for (const route of ['href="hitster-888.html"','href="hitster-888-en.html"','href="hitster-kfar-bloom-2026-demo.html"']) if (!hub.includes(route)) failures.push(`hitster.html: missing route ${route}`);
+  for (const route of ['href="hitster-mobile.html"','href="hitster-mobile.html?lang=en"','href="hitster-mobile.html?entry=kfar-bloom"']) if (!hub.includes(route)) failures.push(`hitster.html: missing mobile route ${route}`);
   if (!hub.includes("888 קלפי A-list") || !hub.includes("שנת מצעד")) failures.push("hitster.html: annual 888 copy missing");
+}
+if (fs.existsSync("hitster-mobile.html")) {
+  const mobile = read("hitster-mobile.html");
+  if (!mobile.includes('allow="autoplay"') || !mobile.includes('getElementById("next-card")') || !mobile.includes('getElementById("play-clip")')) failures.push("hitster-mobile.html: mobile audio bootstrap incomplete");
+  if (!mobile.includes('"hitster-888.html"') || !mobile.includes('"hitster-888-en.html"')) failures.push("hitster-mobile.html: annual game routes missing");
 }
 if (fs.existsSync("hitster-888.html")) {
   const page = read("hitster-888.html");
@@ -37,11 +42,11 @@ if (fs.existsSync("hitster-888-en.html") && !read("hitster-888-en.html").include
 if (fs.existsSync("sw.js")) {
   const sw = read("sw.js");
   if (!sw.includes("hitster-alltime-888.json") || sw.includes("hitster-hebrew-alist-888.json")) failures.push("sw.js: offline deck configuration is stale");
+  if (!sw.includes('"./hitster-mobile.html"')) failures.push("sw.js: mobile HITSTER route is not cached");
 }
 if (fs.existsSync("games.html") && !read("games.html").includes('href="hitster.html"')) failures.push("games.html: HITSTER hub route missing");
 if (failures.length) {
   console.error("SITE SMOKE CHECK FAILED:\n" + failures.map(item => `- ${item}`).join("\n"));
   process.exit(1);
 }
-console.log("SITE SMOKE CHECK PASSED: annual HITSTER assets and routes are present.");
-
+console.log("SITE SMOKE CHECK PASSED: annual HITSTER assets, mobile audio entry, and routes are present.");

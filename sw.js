@@ -1,8 +1,9 @@
-const STATIC_CACHE = "tra-station-999-hitster-annual-v2";
+const STATIC_CACHE = "tra-station-999-hitster-annual-v3-mobile-audio";
 const AUDIO_CACHE = "hitster-tra-preview-audio-v1";
 const STATIC_ASSETS = [
   "./",
   "./hitster.html",
+  "./hitster-mobile.html",
   "./hitster-888.html",
   "./hitster-888-en.html",
   "./hitster-kfar-bloom-2026-demo.html",

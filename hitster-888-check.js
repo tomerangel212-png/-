@@ -12,6 +12,7 @@ const english = read("hitster-888-en.html");
 const engine = read("hitster-original.js");
 const serviceWorker = read("sw.js");
 const hub = read("hitster.html");
+const mobile = read("hitster-mobile.html");
 const kfar = read("hitster-kfar-bloom-2026-demo.html");
 const legacy = read("hitster-tra-tokens.html");
 
@@ -39,14 +40,15 @@ check("engine loads new deck", engine.includes('DATA_URL = "./hitster-alltime-88
 check("engine has separate stars", engine.includes("START_STARS = 5") && engine.includes("MAX_STARS = 12") && engine.includes("exact_song_and_artist"));
 check("engine caches previews when possible", engine.includes("AUDIO_CACHE_NAME") && engine.includes("cachedPreview") && engine.includes("cacheRemotePreview") && engine.includes("navigator.onLine"));
 check("engine has no external app fallback", !/open\.spotify\.com|youtube\.com|deezer\.com|soundcloud\.com/i.test(engine));
-check("service worker caches annual deck", serviceWorker.includes('"./hitster-alltime-888.json"') && serviceWorker.includes("AUDIO_CACHE") && serviceWorker.includes('"./hitster-888-en.html"'));
-check("hub explains truthful audio caching", hub.includes("קטעי שמע נשמרים אחרי השמעה") && hub.includes('href="hitster-888.html"') && hub.includes('href="hitster-888-en.html"'));
-check("Kfar route resolves to Hebrew annual game", kfar.includes('location.replace("hitster-888.html?entry=kfar-bloom")') && kfar.includes("888"));
+check("service worker caches annual deck and mobile entry", serviceWorker.includes('"./hitster-alltime-888.json"') && serviceWorker.includes("AUDIO_CACHE") && serviceWorker.includes('"./hitster-888-en.html"') && serviceWorker.includes('"./hitster-mobile.html"'));
+check("hub explains truthful audio behavior", hub.includes("קטעי שמע נשמרים אחרי השמעה") && hub.includes('href="hitster-mobile.html"') && hub.includes('href="hitster-mobile.html?lang=en"'));
+check("mobile entry uses current annual games", mobile.includes('id="game"') && mobile.includes('allow="autoplay"') && mobile.includes('"hitster-888.html"') && mobile.includes('"hitster-888-en.html"'));
+check("mobile entry attempts draw and in-page playback", mobile.includes('getElementById("next-card")') && mobile.includes('getElementById("play-clip")') && mobile.includes("next.click()") && mobile.includes("play.click()"));
+check("Kfar route resolves to mobile annual game", kfar.includes('location.replace("hitster-mobile.html?entry=kfar-bloom")') && kfar.includes("888"));
 check("legacy route resolves to English annual game", legacy.includes('location.replace("hitster-888-en.html?entry=international")') && legacy.includes("888"));
 
 if (failures.length) {
   console.error("HITSTER annual 888 quality gate FAILED:\n" + failures.map(item => `- ${item}`).join("\n"));
   process.exit(1);
 }
-console.log("HITSTER annual 888 quality gate PASSED: 74 chart years × 12 cards; stars and 30-second cached previews verified.");
-
+console.log("HITSTER annual 888 quality gate PASSED: 74 chart years × 12 cards; stars, mobile entry, and 30-second cached previews verified.");
