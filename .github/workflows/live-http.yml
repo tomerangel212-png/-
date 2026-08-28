@@ -50,6 +50,7 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
           check_url "https://tomerangel212-png.github.io/-/games.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי A-list עולמיים"
+          check_url "https://tomerangel212-png.github.io/-/hitster-mobile.html" "TRA · MOBILE AUDIO · 888"
           check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "HITSTER TRA · 888"
           check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER 888"
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
