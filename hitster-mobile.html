@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#081922">
+<meta name="description" content="TRA HITSTER Mobile Audio — כניסה לנייד שמושכת קלף ומנסה להתחיל שמע בתוך HITSTER.">
+<title>TRA HITSTER Mobile Audio</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#07131d;color:#fff;font-family:Arial,"Noto Sans Hebrew",system-ui,sans-serif}body{overflow:hidden}#game{border:0;width:100%;height:100%;display:block;background:#07131d}.boot{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none;background:#07131d;z-index:2;transition:opacity .2s}.boot.hidden{opacity:0}.boot div{text-align:center;padding:24px}.badge{color:#72e1c3;font-weight:900}.muted{color:#acc2d0;line-height:1.6}
+</style>
+</head>
+<body>
+<div id="boot" class="boot"><div><p class="badge">TRA · MOBILE AUDIO · 888</p><h1>🎵 HITSTER</h1><p class="muted">טוען את המשחק ומנסה להתחיל אודיו בתוך האתר…</p></div></div>
+<iframe id="game" title="HITSTER TRA 888" allow="autoplay"></iframe>
+<script>
+(function(){
+  var params=new URLSearchParams(location.search);
+  var language=params.get("lang")==="en"?"en":"he";
+  document.documentElement.lang=language;
+  document.documentElement.dir=language==="en"?"ltr":"rtl";
+  var frame=document.getElementById("game");
+  var boot=document.getElementById("boot");
+  frame.src=language==="en"?"hitster-888-en.html":"hitster-888.html";
+  frame.addEventListener("load",function(){
+    boot.classList.add("hidden");
+    var attempts=0;
+    var drew=false;
+    var played=false;
+    var timer=setInterval(function(){
+      attempts+=1;
+      try{
+        var doc=frame.contentDocument;
+        if(!doc) return;
+        var next=doc.getElementById("next-card");
+        var play=doc.getElementById("play-clip");
+        var currentTitle=doc.getElementById("card-title");
+        var hasCurrent=currentTitle&&currentTitle.textContent&&currentTitle.textContent!=="הפתרון מוסתר"&&currentTitle.textContent!=="Answer hidden";
+        if(!drew&&next&&!next.disabled&&!hasCurrent){next.click();drew=true;}
+        if(play&&!play.disabled&&!played){play.click();played=true;}
+        if(played||attempts>=100) clearInterval(timer);
+      }catch(error){if(attempts>=100) clearInterval(timer);}
+    },200);
+  });
+})();
+</script>
+</body>
+</html>
