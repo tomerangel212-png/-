@@ -53,6 +53,7 @@ let catalog = [...CHART_EXTENSION];
 let hitsterCount = 0;
 let selectedEra = "all";
 let level = 0;
+let lives = 3;
 let locked = false;
 let current = null;
 let used = new Set();
@@ -147,6 +148,10 @@ function renderLadder() {
   });
 }
 
+function livesDisplay() {
+  return `${"❤️".repeat(lives)}${"🖤".repeat(3 - lives)}`;
+}
+
 function renderQuestion() {
   if (level >= SCORE.length) return finish(true);
   locked = false;
@@ -154,10 +159,11 @@ function renderQuestion() {
   const data = buildQuestion(song);
   current = { song, ...data };
   $("level").textContent = `שלב ${level+1}/15`;
-  $("score").textContent = `${SCORE[level].toLocaleString("he-IL")} נקודות`;
+  $("score").textContent = `${SCORE[level].toLocaleString("he-IL")} נקודות · ${livesDisplay()}`;
+  $("score").setAttribute("aria-label", `${SCORE[level].toLocaleString("he-IL")} נקודות, ${lives} חיים מתוך 3`);
   $("source").textContent = `${song.source}${song.rank ? ` · #${song.rank}` : ""}`;
   $("question").textContent = data.q;
-  $("feedback").innerHTML = `בחרו תשובה. <strong>${selectedEra === "all" ? "כל התקופות" : selectedEra}</strong> פעיל.`;
+  $("feedback").innerHTML = `בחרו תשובה. <strong>${selectedEra === "all" ? "כל התקופות" : selectedEra}</strong> פעיל. · חיים: <strong>${lives}/3</strong>`;
   $("next").disabled = true;
   const host = $("answers"); host.replaceChildren();
   data.options.slice(0,4).forEach(value => {
@@ -178,11 +184,17 @@ function answer(button, value) {
     if (norm(b.textContent) === norm(current.answer)) b.classList.add("correct");
   });
   if (!correct) button.classList.add("wrong");
+
+  if (!correct) lives = Math.max(0, lives - 1);
+  $("score").textContent = `${SCORE[level].toLocaleString("he-IL")} נקודות · ${livesDisplay()}`;
+  $("score").setAttribute("aria-label", `${SCORE[level].toLocaleString("he-IL")} נקודות, ${lives} חיים מתוך 3`);
+
   $("feedback").innerHTML = correct
-    ? `<strong>נכון.</strong> ${current.song.title} · ${current.song.artist} · ${current.song.year}. עורך טוב יודע גם את ההקשר, לא רק את השם.`
-    : `<strong>לא נכון.</strong> התשובה: ${current.answer}. ${current.song.title} · ${current.song.artist} · ${current.song.year}.`;
-  track("music_editor_answer", { correct, level:level+1, title:current.song.title, artist:current.song.artist, year:current.song.year, source:current.song.source });
-  if (!correct) return finish(false);
+    ? `<strong>נכון.</strong> ${current.song.title} · ${current.song.artist} · ${current.song.year}. עורך טוב יודע גם את ההקשר, לא רק את השם. · חיים: <strong>${lives}/3</strong>`
+    : `<strong>לא נכון.</strong> התשובה: ${current.answer}. ${current.song.title} · ${current.song.artist} · ${current.song.year}. · נשארו <strong>${lives}/3 חיים</strong>.`;
+  track("music_editor_answer", { correct, level:level+1, lives_remaining:lives, title:current.song.title, artist:current.song.artist, year:current.song.year, source:current.song.source });
+
+  if (!correct && lives === 0) return finish(false);
   $("next").disabled = false;
 }
 
@@ -190,8 +202,8 @@ function finish(won) {
   const card = $("game-card");
   const safeScore = level <= 4 ? 0 : level <= 9 ? SCORE[4] : SCORE[9];
   const score = won ? SCORE[14] : safeScore;
-  card.innerHTML = `<div class="finish"><h2>${won ? "🏆 כיסא העורך שלך" : "🎚️ המשמרת הסתיימה"}</h2><p>${won ? "הגעת ל־1,000,000 נקודות עריכה." : `נשארת עם ${score.toLocaleString("he-IL")} נקודות בטוחות.`}</p><p>המאגר הפעיל: ${hitsterCount}/888 שירי HITSTER + להיטי מצעדים ישראליים ובינלאומיים.</p><button class="restart" type="button" onclick="location.reload()">משחק חדש</button></div>`;
-  track("music_editor_finished", { won, level:level+1, score });
+  card.innerHTML = `<div class="finish"><h2>${won ? "🏆 כיסא העורך שלך" : "🎚️ נגמרו החיים"}</h2><p>${won ? "הגעת ל־1,000,000 נקודות עריכה." : `שלוש טעויות סיימו את המשחק. נשארת עם ${score.toLocaleString("he-IL")} נקודות בטוחות.`}</p><p>המאגר הפעיל: ${hitsterCount}/888 שירי HITSTER + להיטי מצעדים ישראליים ובינלאומיים.</p><button class="restart" type="button" onclick="location.reload()">משחק חדש · 3 חיים</button></div>`;
+  track("music_editor_finished", { won, level:level+1, score, lives_remaining:lives });
 }
 
 function setupEraButtons() {
@@ -229,7 +241,7 @@ async function init() {
   try {
     await loadCatalog();
     renderQuestion();
-    track("music_editor_opened", { hitster_target:888, requested_eras:ERA_OPTIONS.join(",") });
+    track("music_editor_opened", { hitster_target:888, requested_eras:ERA_OPTIONS.join(","), starting_lives:3 });
   } catch (error) {
     $("catalog-count").textContent = "⛔ מאגר HITSTER 888 לא נטען";
     $("catalog-note").textContent = String(error.message || error);
@@ -239,4 +251,3 @@ async function init() {
 }
 
 init();
-
