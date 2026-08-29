@@ -8,6 +8,7 @@ const quickNext = document.querySelector("#quick-next");
 const quickClose = document.querySelector("#quick-close");
 const quickDone = document.querySelector("#quick-done");
 let activeQuickGame = null;
+let activeQuickEntry = null;
 
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
 const lastChallengeByGame = {};
@@ -102,13 +103,20 @@ const games = {
   },
   alchemy: {
     title: "⚗️ אלכימאי קטן — תומרון",
-    rules: "נסו לנחש מה נוצר מחיבור שני היסודות. המציאו גם שילוב חדש משלכם.",
+    rules: "נסו לנחש מה נוצר מחיבור שני היסודות, ואז לחצו על ״הצג תשובה״ כדי לחשוף את התוצאה.",
     challenges: [
-      "מים + קור = ?",
-      "אש + עץ = ?",
-      "מוזיקה + קהילה = ?",
-      "אור + צמח = ?",
-      "סיפור + משחק = ?"
+      { prompt: "מים + אדמה", answer: "בוץ" },
+      { prompt: "מים + קור", answer: "קרח" },
+      { prompt: "אש + מים", answer: "אדים" },
+      { prompt: "אש + עץ", answer: "מדורה" },
+      { prompt: "אדמה + אש", answer: "לבה" },
+      { prompt: "אדמה + אוויר", answer: "אבק" },
+      { prompt: "אוויר + מים", answer: "ענן" },
+      { prompt: "ענן + מים", answer: "גשם" },
+      { prompt: "גשם + אדמה", answer: "צמח" },
+      { prompt: "צמח + זמן", answer: "עץ" },
+      { prompt: "אש + אבן", answer: "מתכת" },
+      { prompt: "חול + אש", answer: "זכוכית" }
     ]
   },
   knoke: {
@@ -136,7 +144,20 @@ function renderChallenge() {
   if (!activeQuickGame) return;
   const game = games[activeQuickGame];
   const entry = pickDifferent(activeQuickGame, game.challenges);
-  quickChallenge.textContent = typeof entry === "function" ? entry() : entry;
+  activeQuickEntry = entry;
+
+  if (typeof entry === "function") {
+    quickChallenge.textContent = entry();
+  } else if (entry && typeof entry === "object" && "prompt" in entry) {
+    quickChallenge.textContent = `${entry.prompt} = ?`;
+  } else {
+    quickChallenge.textContent = entry;
+  }
+
+  if (quickDone) {
+    quickDone.textContent = activeQuickGame === "alchemy" ? "הצג תשובה" : "סיימנו";
+  }
+
   track("tra_quick_game_challenge", {
     game: activeQuickGame,
     pool_size: game.challenges.length
@@ -147,6 +168,7 @@ function openQuickGame(id) {
   const game = games[id];
   if (!game || !quickPanel) return;
   activeQuickGame = id;
+  activeQuickEntry = null;
   quickTitle.textContent = game.title;
   quickRules.textContent = game.rules;
   quickPanel.hidden = false;
@@ -159,6 +181,8 @@ function closeQuickGame() {
   if (!quickPanel) return;
   quickPanel.hidden = true;
   activeQuickGame = null;
+  activeQuickEntry = null;
+  if (quickDone) quickDone.textContent = "סיימנו";
   document.querySelector("#all-games")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -172,6 +196,13 @@ document.querySelectorAll("a.launch").forEach((link) => {
 
 quickNext?.addEventListener("click", renderChallenge);
 quickClose?.addEventListener("click", closeQuickGame);
-quickDone?.addEventListener("click", closeQuickGame);
+quickDone?.addEventListener("click", () => {
+  if (activeQuickGame === "alchemy" && activeQuickEntry?.answer) {
+    quickChallenge.textContent = `${activeQuickEntry.prompt} = ${activeQuickEntry.answer}`;
+    track("tra_alchemy_answer_revealed", { combination: activeQuickEntry.prompt, answer: activeQuickEntry.answer });
+    return;
+  }
+  closeQuickGame();
+});
 
 track("tra_games_hub_opened", { game_count: 17, flagship: "HITSTER TRA" });
