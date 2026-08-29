@@ -27,6 +27,8 @@ jobs:
           node --check games-hub.js
           node --check music-editor.js
           node --check casino-angel-quality-check.js
+          node --check hitster-original.js
+          node --check hitster-original-check.js
           node --check hitster-kfar-bloom-2026-demo.js
           node --check build-hitster-hebrew-alist.js
           node --check hitster-888-check.js
@@ -43,6 +45,8 @@ jobs:
         run: node build-hitster-hebrew-alist.js
       - name: Enforce HITSTER 888 = 222×4
         run: node hitster-888-check.js
+      - name: Enforce HITSTER Original rules
+        run: node hitster-original-check.js
       - name: Verify Music Editor shares HITSTER 888
         run: |
           grep -q "hitster-hebrew-alist-888.json" music-editor.js

@@ -10,7 +10,7 @@ const TARGET_PER_ERA = 222;
 const TARGET_TOTAL = 888;
 const PREVIEW_SECONDS = 30;
 const AUDIO_PROBE_TIMEOUT_MS = 8_000;
-const AUDIO_CACHE_STORE = "hitster-tra-internal-israeli-audio-v1";
+const AUDIO_CACHE_STORE = "hitster-tra-catalog-preview-audio-v2";
 const MAX_INTERNAL_LOOKUPS = 24;
 const BLOCKED_ARTIST_PARTS = ["אייל גולן", "michael jackson", "eyal golan"];
 const TEAMS = [
@@ -74,7 +74,7 @@ function blockedArtist(artist) { const a = norm(artist); return BLOCKED_ARTIST_P
 function approvedSource(source) { return /^מצעד שנתי \d{4}$/.test(String(source || "")) || source === "גלגלצ מצעד שנתי 2020"; }
 function validatePayload(payload) {
   const errors = [], duplicates = [], seen = new Set(); let total = 0, validEras = 0;
-  if (!payload || typeof payload !== "object" || !payload.eras || !payload.provenance) return { ok: false, total: 0, validEras: 0, duplicates: [], errors: ["קובץ A-list חסר או לא תקין"] };
+  if (!payload || typeof payload !== "object" || !payload.eras || !payload.provenance) return { ok: false, total: 0, validEras: 0, duplicates: [], errors: ["קובץ 888 חסר או לא תקין"] };
   for (const [era, [lo, hi]] of Object.entries(ERA_RANGES)) {
     const cards = payload.eras[era];
     if (!Array.isArray(cards) || cards.length !== TARGET_PER_ERA) { errors.push(`${era}: expected ${TARGET_PER_ERA}`); continue; }
@@ -265,7 +265,7 @@ async function findPlayablePick() {
       const preview = await resolvePlayablePreview(pick.card);
       if (preview) return { era: pick.era, card: pick.card, preview };
       state.unplayable.add(key(pick.card));
-      trackAudio("hitster_internal_candidate_skipped", { title: pick.card[0], artist: pick.card[1], reason: "preview_not_playable" });
+      trackAudio("hitster_catalog_candidate_skipped", { title: pick.card[0], artist: pick.card[1], reason: "preview_not_playable" });
     } catch (error) {
       transientFailures++;
       trackAudio("hitster_audio_lookup_failed", { error_name: error?.name || "Error", error_message: String(error?.message || "").slice(0, 160) });
@@ -281,7 +281,7 @@ async function primeNextPick() {
   if (state.nextPickPromise) return state.nextPickPromise;
   const generation = state.previewGeneration;
   $("draw").disabled = true;
-  if (!state.current) $("status").textContent = "🎧 מכין שיר מהספרייה הישראלית הפנימית…";
+  if (!state.current) $("status").textContent = "🎧 מכין קלף עם Preview זמין…";
   const request = findPlayablePick();
   state.nextPickPromise = request;
   const ready = await request;
@@ -295,7 +295,7 @@ async function primeNextPick() {
   if (!state.current) {
     $("status").textContent = ready
       ? "🎵 מוכן · ההשמעה נשארת בתוך HITSTER"
-      : (navigator.onLine ? "לא נמצא כרגע שיר פנימי מוכן. נסו שוב בעוד רגע." : "📴 אין כרגע שיר חדש שמור להשמעה. התחברו לרשת כדי להכין שירים נוספים.");
+      : (navigator.onLine ? "לא נמצא כרגע קלף עם Preview מוכן. נסו שוב בעוד רגע." : "📴 אין כרגע Preview שמור להשמעה. התחברו לרשת כדי להכין קלפים נוספים.");
   }
   return ready;
 }
@@ -361,7 +361,7 @@ function startPreview(source = "manual") {
     $("play").textContent = "■ עצירה";
     state.previewTimer = setTimeout(stopAudio, PREVIEW_SECONDS * 1000);
     $("status").textContent = `▶ מנגן ${PREVIEW_SECONDS} שניות בתוך HITSTER`;
-    trackAudio("hitster_audio_preview_started", { source, library: "internal-israeli" });
+    trackAudio("hitster_audio_preview_started", { source, library: "catalog-preview" });
   }).catch(error => handlePreviewFailure(error, source));
   return true;
 }
@@ -372,7 +372,7 @@ function draw() {
   if (!pick) {
     $("draw").disabled = true;
     $("status").textContent = state.data
-      ? "🎧 מכין שיר פנימי שנבדק להשמעה…"
+      ? "🎧 מכין קלף עם Preview שנבדק להשמעה…"
       : "טוען את המשחק…";
     void primeNextPick();
     return;
@@ -394,7 +394,7 @@ function draw() {
 function play30() {
   if (!state.current) return;
   if (!state.current.preview) {
-    $("status").textContent = "🎧 מכין מחדש את ההשמעה הפנימית…";
+    $("status").textContent = "🎧 מכין מחדש את ה־Preview…";
     fetchPreviewForCurrent("play_button", { force: true });
     return;
   }
@@ -463,15 +463,15 @@ function newGame({ skipConfirm = false } = {}) {
 async function init() {
   const offlineReady = await enableOffline();
   const response = await fetch("./hitster-hebrew-alist-888.json");
-  if (!response.ok) throw new Error("מאגר 888 A-list בעברית לא נטען");
+  if (!response.ok) throw new Error("מאגר 888 בעברית לא נטען");
   state.payload = await response.json();
   state.data = state.payload.eras;
   const report = validatePayload(state.payload);
   $("m-total").textContent = report.total; $("m-era").textContent = `${report.validEras}/4`; $("m-dupes").textContent = report.duplicates.length;
   const badge = $("quality-badge");
   badge.textContent = report.ok
-    ? (offlineReady ? (navigator.onLine ? "✅ TRA 9.9 · 888/888 זמינים · 10/10" : "📴 TRA 9.9 · 888/888 זמינים") : "✅ TRA 9.9 · 888/888 זמינים · 10/10")
-    : "⛔ A-list Gate נכשל";
+    ? (offlineReady ? (navigator.onLine ? "🟡 888 קלפים נטענו · Preview נבדק לפני משיכה" : "📴 888 קלפים נטענו · נדרשת רשת ל־Preview חדש") : "🟡 888 קלפים נטענו · Preview נבדק לפני משיכה")
+    : "⛔ בדיקת מאגר HITSTER נכשלה";
   if (!report.ok) {
     $("draw").disabled = true; $("status").textContent = report.errors[0] || "Quality gate failed"; return;
   }
@@ -485,10 +485,10 @@ async function init() {
   $("new-game").disabled = true;
   $("new-game").textContent = "🎧 מכין אודיו…";
   $("mode").addEventListener("change", () => { invalidateNextPick(); void primeNextPick(); });
-  window.addEventListener("offline", () => { if (report.ok) badge.textContent = "📴 TRA 9.9 · 888/888 זמינים"; });
+  window.addEventListener("offline", () => { if (report.ok) badge.textContent = "📴 888 קלפים נטענו · נדרשת רשת ל־Preview חדש"; });
   window.addEventListener("online", () => {
     if (report.ok) {
-      badge.textContent = "✅ TRA 9.9 · 888/888 זמינים · 10/10";
+      badge.textContent = "🟡 888 קלפים נטענו · Preview נבדק לפני משיכה";
       invalidateNextPick();
       void primeNextPick();
     }
@@ -498,7 +498,7 @@ async function init() {
     newGame({ skipConfirm: true });
   } else {
     $("draw").disabled = true;
-    $("status").textContent = "🎧 מכין שיר פנימי שנבדק להשמעה…";
+    $("status").textContent = "🎧 מכין קלף עם Preview שנבדק להשמעה…";
     void primeNextPick().then(ready => {
       if (state.current) return;
       $("new-game").disabled = false;

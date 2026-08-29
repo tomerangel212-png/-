@@ -158,14 +158,26 @@ async function fetchText(url) {
   } finally { clearTimeout(timeout); }
 }
 
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+async function fetchAnnualChart(year, pageTitle) {
+  const url = `${PIZMONET_BASE}${encodeURIComponent(pageTitle)}`;
+  let lastCount = 0;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const html = await fetchText(url);
+    const parsed = parseAnnualChart(html, year, pageTitle);
+    if (parsed.length >= 15) return parsed;
+    lastCount = parsed.length;
+    if (attempt < 3) await delay(500 * attempt);
+  }
+  throw new Error(`${year}: only ${lastCount} annual-chart songs parsed after 3 attempts; refusing to publish.`);
+}
+
 async function main() {
   verifyParserBehavior();
   const candidates = [...GLZ_2020];
   for (const [year, pageTitle] of YEAR_PAGES) {
-    const url = `${PIZMONET_BASE}${encodeURIComponent(pageTitle)}`;
-    const html = await fetchText(url);
-    const parsed = parseAnnualChart(html, year, pageTitle);
-    if (parsed.length < 15) throw new Error(`${year}: only ${parsed.length} annual-chart songs parsed; refusing to publish.`);
+    const parsed = await fetchAnnualChart(year, pageTitle);
     candidates.push(...parsed);
   }
 

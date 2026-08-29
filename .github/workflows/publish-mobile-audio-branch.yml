@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - fix/mobile-audio-entry
+      - preview/hitster-stars-truthful
   workflow_dispatch:
 
 permissions:
@@ -25,6 +26,7 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check hitster-original.js
+          node --check hitster-original-check.js
           node --check hitster-kfar-bloom-2026-demo.js
           node --check hitster-888-check.js
           node --check site-smoke-check.js
@@ -32,6 +34,7 @@ jobs:
         run: |
           node build-hitster-hebrew-alist.js
           node hitster-888-check.js
+          node hitster-original-check.js
           node site-smoke-check.js
           test -s hitster-mobile.html
           grep -q 'autoplay=1' hitster-mobile.html

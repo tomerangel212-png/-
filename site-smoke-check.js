@@ -5,7 +5,7 @@ const failures = [];
 const requiredFiles = [
   "index.html","games.html","games.js","games-hub.js","conversation-questions.js",
   "hitster.html","hitster-888.html","hitster-888-en.html","hitster-kfar-bloom-2026-demo.html","hitster-tra-tokens.html",
-  "hitster-kfar-bloom-2026-demo.js","hitster-hebrew-alist-888.json","hitster-888-check.js",
+  "hitster-original.js","hitster-kfar-bloom-2026-demo.js","hitster-hebrew-alist-888.json","hitster-888-check.js","hitster-original-check.js",
   "casino-angel.html","connect-talk.html","music-drive.html","music-editor.html","links/index.html",
   "links.html","tree.html","linktree.html","tomer-links.html","tra-dashboard/index.html","app.js","styles.css","manifest.webmanifest","sw.js",
 ];
@@ -42,19 +42,19 @@ if (fs.existsSync("hitster.html")) {
 
 if (fs.existsSync("hitster-888.html")) {
   const full = read("hitster-888.html");
-  if (!full.includes("888 קלפי שירים") || !full.includes("מיקום סודי על ציר 80 השנים")) failures.push("hitster-888.html: 888-card hidden-range copy missing");
+  if (!full.includes("888 קלפי שירים") || !full.includes("מיקום סודי על ציר הזמן")) failures.push("hitster-888.html: 888-card hidden-range copy missing");
   if (!full.includes(".era-grid{display:none}") || !full.includes('id="mode" aria-label="מצב בחירה" autocomplete="off" hidden')) failures.push("hitster-888.html: year-range controls must be hidden");
   if (full.includes("שנות ה־80 · שנות ה־90") || full.includes("2010–2020.</p>")) failures.push("hitster-888.html: playable year range leaked before reveal");
   if (!/id=["']audio["'][^>]*preload=["']metadata["']/i.test(full)) failures.push("hitster-888: audio should preload metadata for mobile playback");
   if (!/id=["']audio["'][^>]*playsinline/i.test(full)) failures.push("hitster-888: audio should use playsinline for iOS compatibility");
-  if (!full.includes('id="new-game"')) failures.push("hitster-888: New Game control missing");
+  if (!full.includes('id="continue-game"') || !full.includes('id="reset-game"') || !full.includes("action danger")) failures.push("hitster-888: continue/reset controls missing");
 }
 
 if (fs.existsSync("hitster-888-en.html")) {
   const english = read("hitster-888-en.html");
   if (!english.includes('<html lang="en" dir="ltr">')) failures.push("hitster English: language/direction missing");
-  if (!english.includes("888 verified Hebrew A-list song cards")) failures.push("hitster English: verified 888 identity missing");
-  if (!english.includes('src="hitster-kfar-bloom-2026-demo.js')) failures.push("hitster English: shared 888 runtime missing");
+  if (!english.includes("888 chart-sourced Hebrew song cards")) failures.push("hitster English: chart-sourced 888 identity missing");
+  if (!english.includes('src="hitster-original.js')) failures.push("hitster English: shared Kfar Blum runtime missing");
   if (!/id=["']audio["'][^>]*preload=["']metadata["']/i.test(english) || !/id=["']audio["'][^>]*playsinline/i.test(english)) failures.push("hitster English: mobile audio element incomplete");
   if (/open\.spotify\.com|youtube\.com|spotify-frame/i.test(english)) failures.push("hitster English: external-app dependency reintroduced");
 }
@@ -68,13 +68,12 @@ if (fs.existsSync("hitster-tra-tokens.html")) {
   if (!legacy.includes('location.replace("hitster-888-en.html?entry=international")') || !legacy.includes("888 cards, exactly")) failures.push("legacy international HITSTER: route must resolve to English 888");
 }
 
-if (fs.existsSync("hitster-kfar-bloom-2026-demo.js")) {
-  const fullJs = read("hitster-kfar-bloom-2026-demo.js");
-  if (!fullJs.includes("prepareAudio(state.current.preview)")) failures.push("hitster-888 runtime: preview audio is not prepared before play tap");
-  if (!fullJs.includes("function verifyPreview") || !fullJs.includes("resolvePlayablePreview") || !fullJs.includes("const pick = state.nextPick;") || fullJs.includes("state.nextPick || nextRandomPick()") || !fullJs.includes("handleAudioEnded")) failures.push("hitster-888 runtime: a card may not be drawn before its internal audio is verified");
-  if (!/error\?\.name\s*===\s*["']NotAllowedError["']/.test(fullJs)) failures.push("hitster-888 runtime: blocked-playback recovery missing");
-  if (!fullJs.includes("findPlayablePick") || !fullJs.includes("קטע השמע אינו זמין כרגע") || !fullJs.includes("↻ נסו אודיו")) failures.push("hitster-888 runtime: internal audio recovery missing");
-  if (/providerUrls\(|showFallbacks\(|hitster_audio_provider_opened/.test(fullJs)) failures.push("hitster-888 runtime: external provider fallback reintroduced");
+if (fs.existsSync("hitster-original.js")) {
+  const fullJs = read("hitster-original.js");
+  if (!fullJs.includes("function verifyPreview") || !fullJs.includes("function findPlayable") || !fullJs.includes("await verifyPreview(preview)") || !fullJs.includes('void playCurrent("draw")')) failures.push("hitster 9.9 runtime: a card may not be drawn before its internal audio is verified");
+  if (!/error\?\.name\s*===\s*["']NotAllowedError["']/.test(fullJs)) failures.push("hitster 9.9 runtime: blocked-playback recovery missing");
+  if (!fullJs.includes("MAX_LOOKUPS") || !fullJs.includes("קטע השמע לא זמין כרגע") || !fullJs.includes("state.audioCache")) failures.push("hitster 9.9 runtime: internal audio recovery missing");
+  if (/providerUrls\(|showFallbacks\(|hitster_audio_provider_opened/.test(fullJs)) failures.push("hitster 9.9 runtime: external provider fallback reintroduced");
 }
 
 if (fs.existsSync("games.html")) {
@@ -113,5 +112,5 @@ if (failures.length) {
 console.log(`TRA production smoke check PASSED: ${requiredFiles.length}/${requiredFiles.length} required files present and non-empty.`);
 console.log(`HTML baseline PASSED: ${htmlFiles.length}/${htmlFiles.length} pages have html/title/viewport.`);
 console.log("TRA Games canonical release: 16 games · shared conversation bank · PASS");
-console.log("HITSTER release: one verified 888 deck · Hebrew + English + Kfar Blum routes · internal playback · PASS");
+console.log("HITSTER release: one 888-card catalog · Hebrew + English + Kfar Blum routes · in-browser previews · PASS");
 console.log("TRA Station 999 route present · PASS");

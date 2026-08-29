@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#173c33">
-  <meta name="description" content="HITSTER TRA — מאגר אחד, מאומת, של בדיוק 888 קלפי שירים; ממשק עברית, English interface וכפר בלום.">
+  <meta name="description" content="HITSTER TRA — 888 קלפי שירים מבוססי מצעדים, כולם בחוויית כפר בלום 2026: חמישה צוותים, צירים שמורים וכוכבים.">
   <link rel="manifest" href="manifest.webmanifest">
   <title>HITSTER TRA — 888 · בחרו ממשק</title>
   <style>
@@ -17,40 +17,40 @@
   <section class="hero">
     <div class="eyebrow">משחק הדגל של TRA</div>
     <h1>🎵 HITSTER TRA</h1>
-    <p><strong>כל מסלול HITSTER פועל על אותו מאגר מאומת של בדיוק 888 קלפי שירים.</strong> בוחרים ממשק — עברית, English interface או כפר בלום — בלי חפיסות 57/1,000 נפרדות ובלי קלפים משוכפלים.</p>
+    <p><strong>כל מסלול HITSTER פועל באותו מודל כפר־בלום 2026: חמישה צוותים, ציר נפרד לכל קבוצה, תור אוטומטי, כוכבים ושמירה להמשך.</strong> בוחרים ממשק — עברית, English interface או כפר בלום — על אותו מאגר של 888 קלפי שירים מבוססי מצעדים.</p>
   </section>
 
-  <section class="offline" aria-label="מצב אופליין">
+  <section class="offline" aria-label="שמירה במטמון">
     <div class="offline-row">
-      <div><strong>📴 HITSTER Offline · 888</strong><p>שומר במכשיר את ממשקי HITSTER, המאגר, צירי הזמן והקבצים הדרושים למשחק ללא אינטרנט.</p></div>
-      <button id="offline-save" type="button">שמור 888 לאופליין</button>
+      <div><strong>📴 HITSTER Cache · 888</strong><p>שומר במכשיר את ממשקי HITSTER והמאגר. למשיכת Preview חדש נדרש חיבור; קטע שכבר נשמר בדפדפן עשוי להמשיך לעבוד.</p></div>
+      <button id="offline-save" type="button">שמור ממשק ומאגר</button>
     </div>
-    <div class="offline-status" id="offline-status">צריך לבצע שמירה פעם אחת בזמן שיש אינטרנט.</div>
+    <div class="offline-status" id="offline-status">צריך לבצע שמירה פעם אחת בזמן שיש אינטרנט; Preview חדש עדיין דורש חיבור.</div>
   </section>
 
   <section class="grid" aria-label="בחירת ממשק HITSTER">
     <article class="card">
       <span class="badge">🇮🇱 עברית · 888</span>
       <h2>HITSTER ישראלי מלא</h2>
-      <p>888 קלפי שירים בעברית, A-list, 222 בכל אחת מארבע התקופות, צירי זמן ו־30 שניות אודיו בתוך HITSTER.</p>
+      <p>888 קלפי שירים בעברית מבוססי מצעדים, עם חמישה צוותים, צירי זמן שמורים ו־Preview של עד 30 שניות בתוך HITSTER.</p>
       <a class="play" href="hitster-888.html?autoplay=1">פתחו HITSTER 888 + אודיו</a>
-      <a class="offline-play" href="hitster-888.html">📴 גרסת Offline 888</a>
+      <a class="offline-play" href="hitster-888.html">📴 פתחו מהמטמון</a>
     </article>
 
     <article class="card english" dir="ltr" lang="en">
       <span class="badge">English interface · 888</span>
       <h2>HITSTER TRA</h2>
-      <p>English controls for the exact same verified 888-card Hebrew A-list deck. Playback stays inside HITSTER.</p>
+      <p>English controls for the same 888-card Hebrew chart-sourced catalog, with the Kfar Blum five-team rules and saved timelines.</p>
       <a class="play" href="hitster-888-en.html?autoplay=1">Open HITSTER 888 + audio</a>
-      <a class="offline-play" href="hitster-888-en.html">📴 Offline 888</a>
+      <a class="offline-play" href="hitster-888-en.html">📴 Open cached interface</a>
     </article>
 
     <article class="card family">
       <span class="badge">🌿 כפר בלום · 888</span>
       <h2>HITSTER כפר בלום</h2>
-      <p>אותו משחק מלא של 888 קלפים עבור חמש הקבוצות וצירי הזמן — מסלול כפר בלום כבר לא מחזיק מאגר מקוצר.</p>
+      <p>הגרסה שמכתיבה את הרמה לכולם: חמש קבוצות, 18 קלפים לניצחון, כוכבים 0–12, המשך מאותו מצב ואיפוס מלא.</p>
       <a class="play" href="hitster-kfar-bloom-2026-demo.html?autoplay=1">פתחו HITSTER כפר בלום 888 + אודיו</a>
-      <a class="offline-play" href="hitster-kfar-bloom-2026-demo.html">📴 Offline 888</a>
+      <a class="offline-play" href="hitster-kfar-bloom-2026-demo.html">📴 פתחו מהמטמון</a>
     </article>
   </section>
   <a class="back" href="games.html#all-games">← חזרה לכל 16 משחקי TRA</a>
@@ -72,7 +72,7 @@
     navigator.serviceWorker.addEventListener('message',event=>{
       if(event.data?.type!=='HITSTER_OFFLINE_READY') return;
       if(event.data.ok){
-        status.textContent=`✅ Offline מוכן · ${event.data.cached}/${event.data.total} קבצים נשמרו במכשיר · 888 קלפים זמינים`;
+        status.textContent=`✅ ממשק ומאגר נשמרו · ${event.data.cached}/${event.data.total} קבצים במכשיר · Preview חדש דורש חיבור`;
         button.textContent='נשמר ✓';
         button.disabled=true;
         localStorage.setItem('hitster-offline-ready-888','1');
@@ -82,19 +82,19 @@
       }
     });
     if(localStorage.getItem('hitster-offline-ready-888')==='1'){
-      status.textContent=navigator.onLine?'✅ HITSTER 888 כבר מוכן ל-Offline':'📴 HITSTER 888 פועל כרגע במצב Offline';
+      status.textContent=navigator.onLine?'✅ ממשק HITSTER והמאגר שמורים במטמון':'📴 ממשק HITSTER והמאגר זמינים מהמטמון; Preview חדש דורש חיבור';
       button.textContent='נשמר ✓';
     }
     button.addEventListener('click',async()=>{
       button.disabled=true;
       button.textContent='שומר…';
-      status.textContent='מוריד את HITSTER 888 למכשיר…';
+      status.textContent='שומר את ממשק HITSTER והמאגר במכשיר…';
       const worker=reg.active||reg.waiting||reg.installing||navigator.serviceWorker.controller;
       if(worker) worker.postMessage({type:'CACHE_HITSTER_OFFLINE'});
-      else { status.textContent='ה-Service Worker עדיין לא פעיל. רעננו ונסו שוב.'; button.disabled=false; button.textContent='שמור 888 לאופליין'; }
+      else { status.textContent='ה-Service Worker עדיין לא פעיל. רעננו ונסו שוב.'; button.disabled=false; button.textContent='שמור ממשק ומאגר'; }
     });
-    window.addEventListener('offline',()=>{status.textContent='📴 אין אינטרנט · HITSTER 888 המקומי זמין מהמטמון';});
-    window.addEventListener('online',()=>{if(localStorage.getItem('hitster-offline-ready-888')==='1')status.textContent='✅ חזר החיבור · Offline 888 עדיין שמור';});
+    window.addEventListener('offline',()=>{status.textContent='📴 אין אינטרנט · הממשק והמאגר זמינים מהמטמון; אין Preview חדש';});
+    window.addEventListener('online',()=>{if(localStorage.getItem('hitster-offline-ready-888')==='1')status.textContent='✅ חזר החיבור · הממשק והמאגר עדיין שמורים במטמון';});
   }catch{
     button.disabled=true;
     status.textContent='לא ניתן להפעיל Offline בדפדפן הזה כרגע.';
