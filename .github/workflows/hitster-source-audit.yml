@@ -1,0 +1,27 @@
+name: HITSTER 888 Source Audit
+
+on:
+  push:
+    branches: [tra-yellow-to-green]
+    paths:
+      - hitster-alltime-888.json
+      - hitster-source-audit.js
+      - .github/workflows/hitster-source-audit.yml
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * 5'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Verify 888 declared chart sources
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Syntax
+        run: node --check hitster-source-audit.js
+      - name: Audit every card against its declared source page
+        run: node hitster-source-audit.js

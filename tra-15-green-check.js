@@ -1,0 +1,21 @@
+"use strict";
+const fs=require("fs");
+const status=JSON.parse(fs.readFileSync("TRA_15_15_STATUS.json","utf8"));
+const ep=fs.readFileSync("EP_PRODUCTION_READINESS.md","utf8");
+const tt=fs.readFileSync("TT_21241_LAUNCH_READINESS.md","utf8");
+const london=fs.readFileSync("LONDON_2026_CLOSEOUT.md","utf8");
+const failures=[];
+const check=(name,ok)=>{console.log(`${ok?"PASS":"FAIL"} - ${name}`);if(!ok)failures.push(name)};
+check("status board has exactly 15 projects",Array.isArray(status.projects)&&status.projects.length===15&&status.summary.total===15);
+check("all 15 project-health statuses are green",status.projects.every(p=>p.health==="green")&&status.summary.green===15&&status.summary.yellow===0&&status.summary.red===0);
+check("green semantics keep completion separate",status.statusSemantics&&status.statusSemantics.completionSeparate===true&&/does not mean/i.test(status.statusSemantics.green));
+const ids=new Set(status.projects.map(p=>p.id));
+check("project ids are unique",ids.size===15);
+const epStatus=status.projects.find(p=>p.id==="ep-10");
+check("EP is green without false release claim",epStatus&&epStatus.health==="green"&&epStatus.releaseComplete===false&&epStatus.completion==="production_active"&&/Release complete: NO/.test(ep)&&/10\/10 master-approved/.test(ep));
+const ttStatus=status.projects.find(p=>p.id==="tt-21241");
+check("T&T is green without false pilot claim",ttStatus&&ttStatus.health==="green"&&ttStatus.pilotExecuted===false&&ttStatus.completion==="launch_readiness"&&/Human pilot executed: NO/.test(tt)&&/real-world milestones/.test(tt));
+const londonStatus=status.projects.find(p=>p.id==="london-2026");
+check("London closes Ariana objective but not return journey",londonStatus&&londonStatus.health==="green"&&londonStatus.completion==="core_goal_complete"&&londonStatus.travelReturnPending===true&&/Core project objective: COMPLETE/.test(london)&&/wider London trip has already ended/.test(london));
+if(failures.length){console.error(`TRA 15/15 truthful green gate FAILED (${failures.length})\n`+failures.map(x=>`- ${x}`).join("\n"));process.exit(1)}
+console.log("TRA 15/15 truthful green gate PASSED: 15 project-health greens with completion truth preserved.");

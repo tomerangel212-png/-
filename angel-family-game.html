@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TRA Angel Family — מסורת מול מודרנה</title>
+<style>
+:root{--bg:#07130f;--panel:#10231c;--line:#295443;--ink:#f4fff9;--muted:#a8cabc;--accent:#d8ff73;--good:#73e39a;--warn:#ffd56a;--bad:#ff8b8b}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,#173e31,var(--bg) 45%);color:var(--ink)}
+main{width:min(1040px,94vw);margin:auto;padding:24px 0 80px}header{text-align:center;padding:42px 0 22px}h1{font-size:clamp(2.4rem,7vw,5rem);margin:.1em 0}.sub{color:var(--muted);max-width:700px;margin:auto;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px}.resource{display:flex;justify-content:space-between;align-items:center}.light{width:14px;height:14px;border-radius:50%}.green{background:var(--good)}.yellow{background:var(--warn)}.red{background:var(--bad)}button{font:inherit;border:0;border-radius:14px;padding:13px 16px;font-weight:800;cursor:pointer;background:var(--accent);color:#0b1713}button.alt{background:#1c3a2f;color:var(--ink);border:1px solid var(--line)}button.danger{background:#562626;color:white}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.log{min-height:150px;white-space:pre-wrap;color:var(--muted);line-height:1.55}.project.done{border-color:var(--good)}.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.82rem}.topline{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.score{font-size:1.2rem;font-weight:900}.winner{border:1px solid var(--good);background:#123824;padding:18px;border-radius:18px;margin:16px 0}footer{text-align:center;color:var(--muted);padding-top:32px;font-size:.88rem}
+</style>
+</head>
+<body>
+<main>
+<header><span class="badge">TRA FAMILY · VERSION 1.0</span><h1>מסורת מול מודרנה</h1><p class="sub">משחק משפחתי שיתופי: אוספים משאבים, מתמודדים עם אירועים ומשלימים שלושה פרויקטים לפני סוף סבב 12. המשחק נשמר אוטומטית במכשיר.</p></header>
+<section class="card"><div class="topline"><div><strong id="round">סבב 1/12</strong><div class="score" id="score">ציון משפחתי: 0</div></div><div id="overall" class="badge">מצב: צהוב</div></div><div id="winner" hidden class="winner"></div></section>
+<h2>משאבים</h2><section id="resources" class="grid"></section>
+<div class="actions"><button id="collect">🏠 פעולה במקום</button><button id="event">🎴 אירוע</button><button id="project">🤝 נסו פרויקט</button><button id="next" class="alt">סיום סבב</button><button id="reset" class="danger">איפוס</button></div>
+<section class="grid"><article class="card"><h2>יומן המשחק</h2><div id="log" class="log">המשחק מוכן.</div></article><article class="card"><h2>פרויקטים</h2><div id="projects"></div></article></section>
+<h2>דמויות</h2><section id="characters" class="grid"></section>
+<footer>© 2026 Tomer Rafael Angel · All Rights Reserved</footer>
+</main>
+<script>
+(()=>{
+const KEY='tra-angel-family-v1';
+const defs={
+ resources:['מוזיקה','אמון','מסורת','חדשנות','קהילה','זמן'],
+ initial:{'מוזיקה':4,'אמון':5,'מסורת':5,'חדשנות':3,'קהילה':4,'זמן':4},
+ locations:[['הבית','אמון'],['גלגלצ','מוזיקה'],['מרכז המוזיקה','מוזיקה'],['כפר הנוער עיינות','קהילה'],['שבט להבות','מסורת'],['האוניברסיטה','חדשנות'],['מגרש הכדורסל','זמן'],['חמ״ל TRA','אמון']],
+ events:[['תמונה ישנה','נמצאה תמונה משפחתית שמחברת בין הדורות.',{'מסורת':2,'אמון':1}],['סעודת שבת','המשפחה נפגשת סביב שולחן אחד.',{'מסורת':2,'קהילה':1}],['שיר חדש','יצירה חדשה מחברת בין אישי לחברתי.',{'מוזיקה':2,'חדשנות':1}],['עומס','יותר מדי משימות ופחות מדי זמן.',{'זמן':-2,'אמון':-1}],['אי־הבנה','נדרש דיוק, הקשבה ותיקון.',{'אמון':-2}],['פרויקט משותף','כל אחד מביא יכולת אחרת.',{'קהילה':2,'אמון':2}]],
+ projects:[{name:'יום הנישואין',desc:'בניית מתנה משפחתית משותפת.',cost:{'מסורת':2,'מוזיקה':1,'זמן':2},reward:{'אמון':4,'קהילה':3}},{name:'מסורת מול מודרנה',desc:'יצירת גשר בין מורשת המשפחה לבין הדור הבא.',cost:{'מסורת':3,'חדשנות':3,'אמון':2},reward:{'קהילה':4,'מוזיקה':2}},{name:'60 שנות חיים',desc:'ציון דרך של דור ההורים והסיפור שנבנה.',cost:{'זמן':2,'מסורת':3,'קהילה':2},reward:{'אמון':5,'חדשנות':1}}],
+ characters:[['דוד ארז אנג׳ל','הבונה','מוסיף אמון בפרויקט משותף.'],['איילת ששר אנג׳ל','הלב','מחזקת מצב צהוב.'],['שרון אנג׳ל כהנא','הבכורה','מחזקת קהילה ומשפחה.'],['נווה כהנא','השותף','מפחית עומס זמן.'],['נעמה אנג׳ל תמיר','המחברת','מאזנת מסורת וחדשנות.'],['רז תמיר','המתאם','מעביר משאבים בין צרכים.'],['תומר רפאל אנג׳ל','המפיק והמחבר','מחבר מוזיקה, תרבות וחברה.'],['קדם','דור ההמשך','מוסיף צמיחה לאירוע חיובי.'],['נורי','התחלה חדשה','מוסיף תקווה ואמון.']]
+};
+const fresh=()=>({round:1,score:0,resources:{...defs.initial},done:[false,false,false],ended:false,log:['המשחק מוכן.']});let state=fresh();try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved&&saved.resources)state=saved}catch(e){}
+const pick=a=>a[Math.floor(Math.random()*a.length)],light=v=>v>=5?'green':v>=2?'yellow':'red',label=v=>v>=5?'ירוק':v>=2?'צהוב':'אדום';
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}function addLog(text){state.log.unshift(text);state.log=state.log.slice(0,8)}function apply(effect){Object.entries(effect).forEach(([k,v])=>state.resources[k]=Math.max(0,state.resources[k]+v))}
+function render(){document.querySelector('#round').textContent=`סבב ${Math.min(state.round,12)}/12`;document.querySelector('#score').textContent=`ציון משפחתי: ${state.score}`;const avg=defs.resources.reduce((s,k)=>s+state.resources[k],0)/defs.resources.length;document.querySelector('#overall').textContent=`מצב: ${label(avg)}`;document.querySelector('#resources').innerHTML=defs.resources.map(k=>`<article class="card resource"><span><i class="light ${light(state.resources[k])}"></i> ${k}</span><strong>${state.resources[k]}</strong></article>`).join('');document.querySelector('#projects').innerHTML=defs.projects.map((p,i)=>`<div class="project ${state.done[i]?'done':''}"><p><strong>${state.done[i]?'✅ ':''}${p.name}</strong><br><small>${p.desc}</small></p></div>`).join('');document.querySelector('#characters').innerHTML=defs.characters.map(c=>`<article class="card"><strong>${c[0]}</strong><div class="badge">${c[1]}</div><p>${c[2]}</p></article>`).join('');document.querySelector('#log').textContent=state.log.join('\n\n');const all=state.done.every(Boolean),w=document.querySelector('#winner');if(all){w.hidden=false;w.textContent='🏆 ירוק: כל שלושת פרויקטי הליבה הושלמו. מסורת ומודרנה חוברו למערכת אחת.';state.ended=true}else if(state.round>12){w.hidden=false;w.textContent=`הסתיימו 12 סבבים. הושלמו ${state.done.filter(Boolean).length}/3 פרויקטים.`;state.ended=true}else w.hidden=true;['collect','event','project'].forEach(id=>document.querySelector('#'+id).disabled=state.ended);save()}
+function collect(){const [place,res]=pick(defs.locations);state.resources[res]+=1;addLog(`📍 ${place}: +1 ${res}.`);render()}function event(){const [name,desc,effect]=pick(defs.events);apply(effect);addLog(`🎴 ${name}: ${desc}`);render()}function tryProject(){const candidates=defs.projects.map((p,i)=>({p,i})).filter(x=>!state.done[x.i]);if(!candidates.length)return;const {p,i}=pick(candidates),ok=Object.entries(p.cost).every(([k,v])=>state.resources[k]>=v);if(!ok){addLog(`⏳ עדיין אין מספיק משאבים ל־${p.name}.`);render();return}Object.entries(p.cost).forEach(([k,v])=>state.resources[k]-=v);apply(p.reward);state.done[i]=true;state.score+=10;addLog(`✅ הושלם: ${p.name}. +10 נקודות.`);render()}function next(){if(state.ended)return;state.round+=1;addLog(`— מעבר לסבב ${state.round} —`);render()}
+document.querySelector('#collect').onclick=collect;document.querySelector('#event').onclick=event;document.querySelector('#project').onclick=tryProject;document.querySelector('#next').onclick=next;document.querySelector('#reset').onclick=()=>{if(confirm('לאפס את כל המשחק?')){localStorage.removeItem(KEY);state=fresh();render()}};render();
+})();
+</script>
+</body></html>
