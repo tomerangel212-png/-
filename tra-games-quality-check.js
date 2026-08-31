@@ -32,10 +32,14 @@ const checks = [
     hitsterHub.includes('href="hitster-mobile.html?entry=kfar-bloom"')&&
     !/57 כרטיס|1,000 כרטיס|350 הקלפים|444 קלפי/.test(hitsterHub)&&
     hitsterMobile.includes('allow="autoplay"')&&
-    hitsterMobile.includes('getElementById("next-card")')&&
-    hitsterMobile.includes('getElementById("play-clip")')&&
-    hitster888.includes("A-list עולמי")&&
-    hitsterEnglish.includes("global A-list") && hitsterEnglish.includes('src="hitster-original.js')&&
+    hitsterMobile.includes('id="game"')&&
+    hitsterMobile.includes('params.get("entry")')&&
+    !hitsterMobile.includes("next.click()")&&
+    !hitsterMobile.includes("play.click()")&&
+    hitster888.includes("חוקי כפר בלום")&&
+    hitster888.includes('id="continue-game"')&&
+    hitster888.includes("18 קלפים")&&
+    hitsterEnglish.includes("KFAR BLUM RULES")&&hitsterEnglish.includes('src="hitster-original.js')&&
     hitsterKfar.includes('location.replace("hitster-mobile.html?entry=kfar-bloom")')},
   {name:"Every game card has a play control",pass:(gamesHtml.match(/class="launch(?: [^"]*)?"/g)||[]).length>=17},
   {name:"Quick Play is wired for games without standalone pages",pass:gamesHtml.includes("games-hub.js")&&gamesHubJs.includes("tra_games_hub_opened")&&gamesHubJs.includes("openQuickGame")&&gamesHubJs.includes("quick-play")&&gamesHubJs.includes("game_count: 17")},
