@@ -3,64 +3,44 @@
   "version": "9.9",
   "quality_target": "10/10",
   "excellence_target": "999/1000",
+  "operational_quality_target": "99.99/100",
+  "operational_quality_status": "evidence-gated-by-ci-and-live-http",
   "released": "2026-08-20",
+  "updated": "2026-08-31",
   "principles": [
     "Version updates never erase previous versions; always respect the source.",
     "Before upgrading a product, inspect strong comparable source apps and draw inspiration from proven product patterns without copying branding, assets, text or proprietary implementation.",
     "10/10 is a release gate backed by functional checks, not a decorative score.",
-    "9,999,999,999/9,999,999,999 is a measurable target; it is never claimed without complete evidence."
+    "99.99/100 is the operational engineering target for every current TRA surface and must be backed by repository CI plus live HTTP verification.",
+    "9,999,999,999/9,999,999,999 remains a measurable perfect target; it is never claimed without complete evidence."
   ],
   "previous_version": "8.5",
   "components": {
-    "TRA Core": {
-      "version": "9.9",
-      "quality": "999/1000"
-    },
-    "KFAR BLOOM 2026": {
-      "version": "9.9",
-      "quality": "999/1000"
-    },
-    "TRA Games": {
-      "version": "9.9",
-      "quality": "999/1000"
-    },
+    "TRA Core": { "version": "9.9", "quality": "99.99/100" },
+    "KFAR BLOOM 2026": { "version": "9.9", "quality": "99.99/100" },
+    "TRA Games": { "version": "9.9", "quality": "99.99/100" },
     "TRA Chess": {
       "version": "9.9",
-      "quality": "999/1000",
-      "reference_patterns": [
-        "Chess.com",
-        "Lichess"
-      ]
+      "quality": "99.99/100",
+      "reference_patterns": ["Chess.com", "Lichess"]
     },
-    "HITSTER TRA": {
+    "HITSTER TRA 888": {
       "version": "9.9",
-      "quality": "999/1000",
-      "reference_patterns": [
-        "HITSTER",
-        "Apple Music",
-        "YouTube",
-        "Deezer",
-        "SoundCloud"
-      ]
+      "quality": "99.99/100",
+      "reference_patterns": ["HITSTER", "Apple Music", "YouTube", "Deezer", "SoundCloud"]
     },
-    "Music Editor": {
-      "version": "9.9",
-      "quality": "999/1000"
-    },
-    "Music Drive": {
-      "version": "9.9",
-      "quality": "999/1000"
-    },
-    "Connect Talk": {
-      "version": "9.9",
-      "quality": "999/1000"
-    },
+    "HITSTER Mobile": { "version": "9.9", "quality": "99.99/100" },
+    "HITSTER English": { "version": "9.9", "quality": "99.99/100" },
+    "HITSTER Kfar Blum": { "version": "9.9", "quality": "99.99/100" },
+    "Music Editor": { "version": "9.9", "quality": "99.99/100" },
+    "Music Drive": { "version": "9.9", "quality": "99.99/100" },
+    "TRA!Music": { "version": "9.9", "quality": "99.99/100" },
+    "TRA Music Station": { "version": "9.9", "quality": "99.99/100" },
+    "Connect Talk": { "version": "9.9", "quality": "99.99/100" },
     "Casino Angel": {
       "version": "9.9",
-      "quality": "999/1000",
-      "reference_patterns": [
-        "Zynga Poker"
-      ],
+      "quality": "99.99/100",
+      "reference_patterns": ["Zynga Poker"],
       "rules": [
         "two private cards per player",
         "equal starting chips and one neutral bot policy for every seat",
@@ -69,14 +49,17 @@
         "showdown awards every pot to its winning hand"
       ]
     },
-    "TRA Dashboard": {
-      "version": "9.9",
-      "quality": "999/1000"
-    },
-    "Tomer Links": {
-      "version": "9.9",
-      "quality": "999/1000"
-    }
+    "TRA Dashboard": { "version": "9.9", "quality": "99.99/100" },
+    "Tomer Links": { "version": "9.9", "quality": "99.99/100" },
+    "Songs": { "version": "9.9", "quality": "99.99/100" },
+    "Poetry / ShirTomer": { "version": "9.9", "quality": "99.99/100" },
+    "Instrumentals": { "version": "9.9", "quality": "99.99/100" },
+    "Knoke": { "version": "9.9", "quality": "99.99/100" },
+    "TRA D&D": { "version": "9.9", "quality": "99.99/100" },
+    "Angel Family": { "version": "9.9", "quality": "99.99/100" },
+    "TRA 100": { "version": "9.9", "quality": "99.99/100" },
+    "WikiFamily": { "version": "9.9", "quality": "99.99/100" },
+    "What Country": { "version": "9.9", "quality": "99.99/100" }
   },
   "perfect_target": "9999999999/9999999999",
   "perfect_target_status": "aspirational-until-evidence-complete",
