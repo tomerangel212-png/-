@@ -44,7 +44,7 @@ for (const site of sites) {
 
 check("Universal TRA quality layer exists", qualityLayer.includes('dataset.traQuality = "10/10"') && qualityLayer.includes("prefers-reduced-motion") && qualityLayer.includes("focus-visible"));
 check("Service worker caches quality layer", sw.includes('"./tra-quality.js"') && sw.includes('"./TRA_VERSION.json"') && sw.includes("injectQuality"));
-check("Service worker injects quality layer into HTML", sw.includes('html.includes("tra-quality.js")') && sw.includes('<script src="./tra-quality.js"></script>'));
+check("Service worker injects quality layer into HTML", sw.includes('html.includes("tra-quality.js")') && sw.includes('new URL("tra-quality.js", self.registration.scope).href') && sw.includes("html.replace(/<\\/body>/i"));
 
 const gamesJs = read("games.js");
 check("Chess keeps chess.js as legality source", gamesJs.includes("chess.js@1.4.0") && gamesJs.includes("strictLegalMove"));
