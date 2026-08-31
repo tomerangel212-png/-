@@ -3,61 +3,31 @@
   "quality_scale": "0-10",
   "target": 10,
   "status": "enforced-by-quality-gates",
-  "updated": "2026-08-23",
+  "updated": "2026-08-31",
   "principle": "10/10 is a release gate, not a decorative label.",
+  "operational_quality": {
+    "scale": "0-100",
+    "target": 99.99,
+    "label": "99.99/100",
+    "status": "enforced-by-tra-9999-quality-check-ci-and-live-http",
+    "scope": "all current TRA production surfaces represented by TRA_VERSION.json",
+    "meaning": "engineering release quality backed by automated repository checks, runtime telemetry hooks, offline behavior and live HTTP verification",
+    "does_not_claim": "absolute perfection, permanent third-party uptime, or replacement for future human usability testing"
+  },
   "sites": {
-    "TRA Core": {
-      "from": null,
-      "target": 10
-    },
-    "TRA Games": {
-      "from": null,
-      "target": 10
-    },
-    "TRA Chess": {
-      "from": 5.5,
-      "target": 10
-    },
-    "HITSTER TRA": {
-      "from": 8.5,
-      "target": 10
-    },
-    "Casino Angel": {
-      "from": 3.5,
-      "target": 10
-    },
-    "Connect Talk": {
-      "from": null,
-      "target": 10
-    },
-    "Music Drive": {
-      "from": null,
-      "target": 10
-    },
-    "Music Editor": {
-      "from": null,
-      "target": 10
-    },
-    "TRA Dashboard": {
-      "from": null,
-      "target": 10
-    },
-    "Tomer Links": {
-      "from": null,
-      "target": 10
-    },
-    "Songs": {
-      "from": null,
-      "target": 10
-    },
-    "Poetry": {
-      "from": null,
-      "target": 10
-    },
-    "Instrumentals": {
-      "from": null,
-      "target": 10
-    }
+    "TRA Core": { "from": null, "target": 10, "operational_target": 99.99 },
+    "TRA Games": { "from": null, "target": 10, "operational_target": 99.99 },
+    "TRA Chess": { "from": 5.5, "target": 10, "operational_target": 99.99 },
+    "HITSTER TRA": { "from": 8.5, "target": 10, "operational_target": 99.99 },
+    "Casino Angel": { "from": 3.5, "target": 10, "operational_target": 99.99 },
+    "Connect Talk": { "from": null, "target": 10, "operational_target": 99.99 },
+    "Music Drive": { "from": null, "target": 10, "operational_target": 99.99 },
+    "Music Editor": { "from": null, "target": 10, "operational_target": 99.99 },
+    "TRA Dashboard": { "from": null, "target": 10, "operational_target": 99.99 },
+    "Tomer Links": { "from": null, "target": 10, "operational_target": 99.99 },
+    "Songs": { "from": null, "target": 10, "operational_target": 99.99 },
+    "Poetry": { "from": null, "target": 10, "operational_target": 99.99 },
+    "Instrumentals": { "from": null, "target": 10, "operational_target": 99.99 }
   },
   "perfect_scale": {
     "label": "9999999999/9999999999",
@@ -82,42 +52,42 @@
       "label_he": "נגישות ותאימות",
       "weight": 1250000000,
       "target": 1250000000,
-      "gate": "keyboard, focus, reduced motion, readable mobile experience"
+      "gate": "keyboard, focus, reduced motion, forced-colors support, touch targets and readable mobile experience"
     },
     {
       "id": "offline_resilience",
       "label_he": "אופליין ועמידות",
       "weight": 1250000000,
       "target": 1250000000,
-      "gate": "critical paths remain useful without connectivity"
+      "gate": "critical paths remain useful without connectivity and unknown offline routes never masquerade as another product"
     },
     {
       "id": "reliability",
       "label_he": "אמינות ויציבות",
       "weight": 1250000000,
       "target": 1250000000,
-      "gate": "all automated functional and smoke checks pass"
+      "gate": "all automated functional, route, smoke and live HTTP checks pass"
     },
     {
       "id": "security_privacy",
       "label_he": "אבטחה ופרטיות",
       "weight": 1000000000,
       "target": 1000000000,
-      "gate": "no permission bypass, secret exposure or unsafe external action"
+      "gate": "no permission bypass, secret exposure, unsafe external action or opener leak from new-tab links"
     },
     {
       "id": "performance",
       "label_he": "ביצועים",
       "weight": 1000000000,
       "target": 1000000000,
-      "gate": "responsive interaction and bounded asset behavior"
+      "gate": "responsive interaction, fresh network-first assets, bounded media behavior and Web Vitals evidence hooks"
     },
     {
       "id": "usability_simplicity",
       "label_he": "שימושיות ופשטות",
       "weight": 1000000000,
       "target": 1000000000,
-      "gate": "clear flows for technical and non-technical users"
+      "gate": "clear flows for technical and non-technical users, skip navigation and neutral recovery states"
     },
     {
       "id": "cultural_therapeutic_relevance",
