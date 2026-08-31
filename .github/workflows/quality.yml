@@ -28,6 +28,7 @@ jobs:
           node --check hitster-888-check.js
           node --check hitster-source-audit.js
           node --check yellow-to-green-check.js
+          node --check tra-15-green-check.js
           node --check site-smoke-check.js
           node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
@@ -41,6 +42,8 @@ jobs:
         run: node hitster-888-check.js
       - name: Enforce yellow-to-green digital gate
         run: node yellow-to-green-check.js
+      - name: Enforce truthful TRA 15/15 green health gate
+        run: node tra-15-green-check.js
       - name: Verify Music Editor shares annual HITSTER 888
         run: |
           grep -q "hitster-alltime-888.json" music-editor.js
