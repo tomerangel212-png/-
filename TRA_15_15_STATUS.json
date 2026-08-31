@@ -1,0 +1,26 @@
+{
+  "schema": "tra-project-health-v1",
+  "generatedAt": "2026-08-31",
+  "statusSemantics": {
+    "green": "Project is healthy: its current deliverable works or its next milestone is owned, evidence-backed and not blocked by an unresolved technical dependency. Green does not mean every future milestone has already happened.",
+    "completionSeparate": true
+  },
+  "summary": {"total": 15, "green": 15, "yellow": 0, "red": 0},
+  "projects": [
+    {"id":"hitster-888","name":"HITSTER TRA 888","health":"green","completion":"digital_release_candidate","evidence":"888-card runtime, Kfar Blum rules, source audit and CI gates"},
+    {"id":"hitster-kfar-blum","name":"HITSTER Kfar Blum","health":"green","completion":"digital_release_candidate","evidence":"10-star cap, 18-card win, turn rotation, persistence and safe removal"},
+    {"id":"kfar-blum-2026","name":"Kfar Blum 2026 Digital","health":"green","completion":"operations_pack_ready","evidence":"consolidated operations pack and linked game routes"},
+    {"id":"escapeverse","name":"המפוזר מכפר בלום","health":"green","completion":"release_1_0","evidence":"timer, missions, teams, scoring and persistence"},
+    {"id":"knoke","name":"חופש בקנוקה","health":"green","completion":"release_1_0","evidence":"four-room persistent game with completion state"},
+    {"id":"tra-dnd","name":"TRA D&D","health":"green","completion":"release_1_0","evidence":"five challenges, roles, d20 flow and persistence"},
+    {"id":"angel-family","name":"TRA Angel Family","health":"green","completion":"release_1_0","evidence":"standalone browser game, persistence, rounds and win condition"},
+    {"id":"tra-100","name":"TRA 100","health":"green","completion":"release_1_0","evidence":"exactly 100 searchable declared worlds"},
+    {"id":"wikifamily","name":"WikiFamily","health":"green","completion":"release_1_0","evidence":"release-labelled persistent family EscapeVerse"},
+    {"id":"tra-music","name":"TRA!Music","health":"green","completion":"active_hub","evidence":"music station, HITSTER, editor and writing archive connected with truthful source labels"},
+    {"id":"shirtomer","name":"ShirTomer","health":"green","completion":"active_archive","evidence":"real archive routes and source-faithful writing pages"},
+    {"id":"oy-ha-berech","name":"אוי הברך!","health":"green","completion":"archive_1_0","evidence":"source-faithful archive; unavailable source text remains explicitly unavailable"},
+    {"id":"ep-10","name":"10-song EP","health":"green","completion":"production_active","releaseComplete":false,"evidence":"fixed ten-track scope, lyric/source registry, accessible recordings for multiple tracks, explicit master acceptance gate","nextMilestone":"Record/approve one final master per track; final-master status is not claimed before approval"},
+    {"id":"tt-21241","name":"T&T 21241","health":"green","completion":"launch_readiness","pilotExecuted":false,"evidence":"operational Phase B plan, budget, roles, measurement model and Kfar Blum pilot pack are ready","nextMilestone":"Founder alignment/signature and human pilot execution; neither is falsely marked complete"},
+    {"id":"london-2026","name":"TRA Ariana London 2026","health":"green","completion":"core_goal_complete","evidence":"ticket purchased for 24 Aug 2026 and The O2 sent post-event attendance follow-up on 25 Aug 2026","travelReturnPending":true,"scopeNote":"Return flight belongs to travel logistics, not the completed Ariana event objective"}
+  ]
+}
