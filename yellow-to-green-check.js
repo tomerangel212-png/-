@@ -4,10 +4,10 @@ function check(name,ok){console.log(`${ok?"PASS":"FAIL"} - ${name}`);if(!ok)fail
 const hit=read("hitster-original.js"), hcheck=read("hitster-888-check.js"), source=read("hitster-source-audit.js");
 const family=read("angel-family-game.html"), dnd=read("tra-dnd.html"), worlds=read("tra-100.html"), wiki=read("wikifamily.html");
 const poetry=read("poetry/index.html"), book=read("poetry/oy-ha-berech.html");
-check("HITSTER current Kfar Blum rules are locked",hit.includes("MAX_STARS = 10")&&hit.includes("WIN_CARDS = 18")&&hit.includes("removeConfirm")&&hit.includes("continue-game")&&hit.includes("reset-game")&&hit.includes("state.used.push(card.id)"));
-check("HITSTER 888 structural gate matches current rules",hcheck.includes("Kfar Blum star rules are 5 start / 10 cap")&&hcheck.includes("win condition is 18 timeline cards"));
+check("HITSTER current Kfar Blum rules are locked",hit.includes("MAX_STARS = 10")&&hit.includes("WIN_CARDS = 18")&&hit.includes("removeConfirm")&&hit.includes("continue-game")&&hit.includes("reset-from-start")&&hit.includes("state.used.push(card.id)"));
+check("HITSTER 888 structural gate matches current rules",hcheck.includes("Kfar Blum star rules")&&hcheck.includes("Kfar Blum win rule"));
 check("HITSTER has independent provenance audit",source.includes("888 cards found on their declared chart-year source pages")&&source.includes("Promise.all"));
-check("Angel Family is standalone, persistent and winnable",family.includes("tra-angel-family-v1")&&family.includes("כל שלושת פרויקטי הליבה הושלמו")&&family.includes("סבב 12/12"));
+check("Angel Family is standalone, persistent and winnable",family.includes("tra-angel-family-v1")&&family.includes("כל שלושת פרויקטי הליבה הושלמו")&&family.includes("state.round>12"));
 check("TRA D&D is standalone, persistent and has five challenges",dnd.includes("tra-dnd-v1")&&dnd.includes("אתגר 1/5")&&dnd.includes("גלגלו ק20")&&dnd.includes("המשימה הושלמה"));
 const worldRows=(worlds.match(/\["(?:0[1-9]|[1-9][0-9]|100)",/g)||[]).length;
 check("TRA 100 contains exactly 100 declared worlds",worldRows===100&&worlds.includes('id="search"')&&worlds.includes('["100","השפעה","עתיד TRA"'));

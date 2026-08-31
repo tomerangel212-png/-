@@ -29,7 +29,8 @@ if (fs.existsSync("hitster.html")) {
 }
 if (fs.existsSync("hitster-mobile.html")) {
   const mobile = read("hitster-mobile.html");
-  if (!mobile.includes('allow="autoplay"') || !mobile.includes('getElementById("next-card")') || !mobile.includes('getElementById("play-clip")')) failures.push("hitster-mobile.html: mobile audio bootstrap incomplete");
+  if (!mobile.includes('allow="autoplay"') || !mobile.includes('id="game"') || !mobile.includes('params.get("entry")') || !mobile.includes('frame.addEventListener("load"')) failures.push("hitster-mobile.html: mobile frame/bootstrap incomplete");
+  if (mobile.includes("next.click()") || mobile.includes("play.click()")) failures.push("hitster-mobile.html: mobile wrapper bypasses Continue/Reset flow");
   if (!mobile.includes('"hitster-888.html"') || !mobile.includes('"hitster-888-en.html"')) failures.push("hitster-mobile.html: annual game routes missing");
 }
 if (fs.existsSync("hitster-888.html")) {
@@ -49,4 +50,4 @@ if (failures.length) {
   console.error("SITE SMOKE CHECK FAILED:\n" + failures.map(item => `- ${item}`).join("\n"));
   process.exit(1);
 }
-console.log("SITE SMOKE CHECK PASSED: annual HITSTER assets, mobile audio entry, and routes are present.");
+console.log("SITE SMOKE CHECK PASSED: annual HITSTER assets, Kfar Blum mobile start flow, audio entry, and routes are present.");
