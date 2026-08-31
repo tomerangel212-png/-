@@ -30,17 +30,22 @@ jobs:
           node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
           node --check tra-99-quality-check.js
+          node --check tra-9999-quality-check.js
           node --check tra-perfect-quality-check.js
-      - name: Verify annual 888 deck
+          node --check tra-quality.js
+          node --check sw.js
+      - name: Verify annual 888 deck and TRA quality gates
         run: |
           test -s hitster-alltime-888.json
           test -s hitster-888.html
           test -s hitster-888-en.html
+          test -s offline.html
           node hitster-888-check.js
           node site-smoke-check.js
           node site-route-integrity-check.js
           node tra-games-quality-check.js
           node tra-99-quality-check.js
+          node tra-9999-quality-check.js
           node tra-perfect-quality-check.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
