@@ -2,7 +2,7 @@ name: Deploy TRA Sites to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, preview/hitster-audio-30]
   workflow_dispatch:
 
 permissions:
@@ -26,6 +26,7 @@ jobs:
         run: |
           node --check hitster-original.js
           node --check hitster-888-check.js
+          node --check hitster-audio-check.js
           node --check site-smoke-check.js
           node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
@@ -41,6 +42,7 @@ jobs:
           test -s hitster-888-en.html
           test -s offline.html
           node hitster-888-check.js
+          node hitster-audio-check.js
           node site-smoke-check.js
           node site-route-integrity-check.js
           node tra-games-quality-check.js
@@ -67,4 +69,3 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
-

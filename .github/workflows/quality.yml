@@ -2,7 +2,7 @@ name: TRA Production Quality Checks
 
 on:
   push:
-    branches: [main, tra-yellow-to-green, tra-99-99]
+    branches: [main, tra-yellow-to-green, tra-99-99, preview/hitster-audio-30]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -26,6 +26,7 @@ jobs:
           node --check music-editor.js
           node --check hitster-original.js
           node --check hitster-888-check.js
+          node --check hitster-audio-check.js
           node --check hitster-source-audit.js
           node --check yellow-to-green-check.js
           node --check tra-15-green-check.js
@@ -42,6 +43,8 @@ jobs:
           node --check sw.js
       - name: Enforce annual HITSTER 888 quality gate
         run: node hitster-888-check.js
+      - name: Enforce HITSTER 30-second audio gate
+        run: node hitster-audio-check.js
       - name: Enforce yellow-to-green digital gate
         run: node yellow-to-green-check.js
       - name: Enforce truthful TRA 15/15 green health gate
