@@ -27,6 +27,7 @@ jobs:
           node --check hitster-original.js
           node --check hitster-888-check.js
           node --check hitster-audio-check.js
+          node --check hitster-flagship-check.js
           node --check hitster-source-audit.js
           node --check yellow-to-green-check.js
           node --check tra-15-green-check.js
@@ -45,6 +46,8 @@ jobs:
         run: node hitster-888-check.js
       - name: Enforce HITSTER 30-second audio gate
         run: node hitster-audio-check.js
+      - name: Enforce Kfar Blum flagship parity
+        run: node hitster-flagship-check.js
       - name: Enforce yellow-to-green digital gate
         run: node yellow-to-green-check.js
       - name: Enforce truthful TRA 15/15 green health gate
