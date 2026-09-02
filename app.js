@@ -260,6 +260,9 @@ function setupArcade() {
   let chessTurn = "w";
   let chessSelected = null;
   let chessBoard = [];
+  let formalChess = null;
+  let formalChessError = null;
+  const chessFiles = "abcdefgh";
 
   const initialChessBoard = () => [
     ["br", "bn", "bb", "bq", "bk", "bb", "bn", "br"],
@@ -274,42 +277,21 @@ function setupArcade() {
   const inBounds = (row, column) => row >= 0 && row < 8 && column >= 0 && column < 8;
   const pieceColor = (piece) => piece ? piece[0] : "";
   const pieceType = (piece) => piece ? piece[1] : "";
-  const clearPath = (rowA, columnA, rowB, columnB) => {
-    const rowStep = Math.sign(rowB - rowA);
-    const columnStep = Math.sign(columnB - columnA);
-    let row = rowA + rowStep;
-    let column = columnA + columnStep;
-    while (row !== rowB || column !== columnB) {
-      if (chessBoard[row][column]) return false;
-      row += rowStep;
-      column += columnStep;
-    }
-    return true;
+  const squareName = (row, column) => `${chessFiles[column]}${8 - row}`;
+  const syncChessBoard = () => {
+    if (!formalChess) return;
+    chessBoard = Array.from({ length: 8 }, (_, row) => Array.from({ length: 8 }, (_, column) => {
+      const piece = formalChess.get(squareName(row, column));
+      return piece ? `${piece.color}${piece.type}` : "";
+    }));
+    chessTurn = formalChess.turn();
   };
 
   const isLegalMove = (rowA, columnA, rowB, columnB) => {
-    if (!inBounds(rowB, columnB) || (rowA === rowB && columnA === columnB)) return false;
-    const piece = chessBoard[rowA][columnA];
-    const destination = chessBoard[rowB][columnB];
-    if (!piece || pieceColor(piece) !== chessTurn || pieceColor(destination) === chessTurn) return false;
-    const type = pieceType(piece);
-    const rowDelta = rowB - rowA;
-    const columnDelta = columnB - columnA;
-    const rowDistance = Math.abs(rowDelta);
-    const columnDistance = Math.abs(columnDelta);
-    if (type === "n") return (rowDistance === 2 && columnDistance === 1) || (rowDistance === 1 && columnDistance === 2);
-    if (type === "k") return rowDistance <= 1 && columnDistance <= 1;
-    if (type === "r") return (rowDelta === 0 || columnDelta === 0) && clearPath(rowA, columnA, rowB, columnB);
-    if (type === "b") return rowDistance === columnDistance && clearPath(rowA, columnA, rowB, columnB);
-    if (type === "q") return ((rowDelta === 0 || columnDelta === 0) || rowDistance === columnDistance) && clearPath(rowA, columnA, rowB, columnB);
-    if (type === "p") {
-      const direction = pieceColor(piece) === "w" ? -1 : 1;
-      const startRow = pieceColor(piece) === "w" ? 6 : 1;
-      if (columnDelta === 0 && !destination && rowDelta === direction) return true;
-      if (columnDelta === 0 && !destination && rowA === startRow && rowDelta === 2 * direction && !chessBoard[rowA + direction][columnA]) return true;
-      if (columnDistance === 1 && rowDelta === direction && destination && pieceColor(destination) !== chessTurn) return true;
-    }
-    return false;
+    if (!formalChess || !inBounds(rowA, columnA) || !inBounds(rowB, columnB) || (rowA === rowB && columnA === columnB)) return false;
+    const from = squareName(rowA, columnA);
+    const to = squareName(rowB, columnB);
+    return formalChess.moves({ square: from, verbose: true }).some((move) => move.to === to);
   };
 
   const movesFrom = (row, column) => {
@@ -322,14 +304,56 @@ function setupArcade() {
     return moves;
   };
 
+  const choosePromotion = (moves) => {
+    if (!moves.some((move) => move.promotion)) return null;
+    const raw = window.prompt("קידום רגלי: בחרו מלכה (Q), צריח (R), רץ (B) או סוס (N).", "Q");
+    if (raw === null) return undefined;
+    const aliases = { q: "q", מלכה: "q", r: "r", צריח: "r", b: "b", רץ: "b", n: "n", סוס: "n" };
+    return aliases[String(raw).trim().toLocaleLowerCase("he")] || "q";
+  };
+
+  const chessStatus = () => {
+    if (!formalChess) return formalChessError || "טוען מנוע חוקי שחמט…";
+    if (formalChess.isCheckmate()) return `מט! ${chessTurn === "w" ? "השחור" : "הלבן"} ניצח.`;
+    if (formalChess.isStalemate()) return "פט — תיקו לפי חוקי השחמט.";
+    if (formalChess.isInsufficientMaterial()) return "תיקו — אין מספיק חומר למט.";
+    if (formalChess.isThreefoldRepetition()) return "תיקו — חזרה משולשת על העמדה.";
+    if (formalChess.isDrawByFiftyMoves?.()) return "תיקו — 50 מסעים לכל צד ללא מהלך רגלי או הכאה.";
+    if (formalChess.isCheck()) return `שח על ${chessTurn === "w" ? "הלבן" : "השחור"} — רק מהלך חוקי שמחלץ את המלך מותר.`;
+    return `תור ${chessTurn === "w" ? "הלבן" : "השחור"}`;
+  };
+
   const clickChessSquare = (row, column) => {
+    if (!formalChess) {
+      renderChessBoard();
+      return;
+    }
+    if (formalChess.isGameOver()) {
+      chessSelected = null;
+      renderChessBoard();
+      return;
+    }
     const piece = chessBoard[row][column];
     if (chessSelected) {
       const [selectedRow, selectedColumn] = chessSelected;
-      if (isLegalMove(selectedRow, selectedColumn, row, column)) {
-        chessBoard[row][column] = chessBoard[selectedRow][selectedColumn];
-        chessBoard[selectedRow][selectedColumn] = "";
-        chessTurn = chessTurn === "w" ? "b" : "w";
+      const from = squareName(selectedRow, selectedColumn);
+      const to = squareName(row, column);
+      const candidates = formalChess.moves({ square: from, verbose: true }).filter((move) => move.to === to);
+      if (candidates.length) {
+        const promotion = choosePromotion(candidates);
+        if (promotion === undefined) {
+          chessSelected = null;
+          renderChessBoard("קידום הרגלי בוטל.");
+          return;
+        }
+        const move = candidates.find((candidate) => !candidate.promotion || candidate.promotion === promotion);
+        if (!move) {
+          chessSelected = null;
+          renderChessBoard("מהלך לא חוקי נחסם.");
+          return;
+        }
+        formalChess.move(move.promotion ? { from: move.from, to: move.to, promotion: move.promotion } : { from: move.from, to: move.to });
+        syncChessBoard();
         chessSelected = null;
         renderChessBoard();
         return;
@@ -340,12 +364,12 @@ function setupArcade() {
     renderChessBoard();
   };
 
-  function renderChessBoard() {
+  function renderChessBoard(statusMessage = null) {
     if (!chessBoard.length) chessBoard = initialChessBoard();
     const board = byId("chess-board");
     if (!board) return;
     board.replaceChildren();
-    const possibleMoves = chessSelected ? movesFrom(...chessSelected) : new Set();
+    const possibleMoves = formalChess && chessSelected ? movesFrom(...chessSelected) : new Set();
     for (let row = 0; row < 8; row += 1) {
       for (let column = 0; column < 8; column += 1) {
         const square = document.createElement("button");
@@ -360,21 +384,40 @@ function setupArcade() {
         } else {
           square.setAttribute("aria-label", `משבצת ריקה, שורה ${row + 1}, טור ${column + 1}`);
         }
+        square.disabled = !formalChess || formalChess.isGameOver();
         square.addEventListener("click", () => clickChessSquare(row, column));
         board.append(square);
       }
     }
-    byId("chess-status").textContent = `תור ${chessTurn === "w" ? "הלבן" : "השחור"}`;
+    const status = byId("chess-status");
+    if (status) status.textContent = statusMessage || chessStatus();
   }
 
   const resetChess = () => {
-    chessBoard = initialChessBoard();
-    chessTurn = "w";
+    if (formalChess) {
+      formalChess.reset();
+      syncChessBoard();
+    } else {
+      chessBoard = initialChessBoard();
+      chessTurn = "w";
+    }
     chessSelected = null;
     renderChessBoard();
   };
-  byId("reset-chess").addEventListener("click", resetChess);
+  byId("reset-chess")?.addEventListener("click", resetChess);
   resetChess();
+  if (byId("chess-board")) {
+    import("https://cdn.jsdelivr.net/npm/chess.js@1.4.0/+esm")
+      .then(({ Chess }) => {
+        formalChess = new Chess();
+        formalChessError = null;
+        resetChess();
+      })
+      .catch(() => {
+        formalChessError = "מנוע חוקי השחמט לא נטען. אי אפשר לשחק עד שהוא זמין — כדי למנוע מהלכים לא חוקיים.";
+        renderChessBoard();
+      });
+  }
 
   const speedQuestions = [
     "איזה שיר תמיד מעלה לך חיוך?",
