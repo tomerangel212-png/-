@@ -47,7 +47,12 @@ check("Service worker caches quality layer", sw.includes('"./tra-quality.js"') &
 check("Service worker injects quality layer into HTML", sw.includes('html.includes("tra-quality.js")') && sw.includes('new URL("tra-quality.js", self.registration.scope).href') && sw.includes("html.replace(/<\\/body>/i"));
 
 const gamesJs = read("games.js");
-check("Chess keeps chess.js as legality source", gamesJs.includes("chess.js@1.4.0") && gamesJs.includes("strictLegalMove"));
+const legacyApp = read("app.js");
+check("Chess keeps chess.js as legality source", gamesJs.includes("chess.js@1.4.0") && gamesJs.includes("strictLegalMove") && gamesJs.includes("commitStrictLegalMove"));
+check("Chess blocks a king from a bishop-protected queen", gamesJs.includes("king cannot capture queen protected by bishop") && gamesJs.includes("pinned defender still protects king destination"));
+check("Chess enforces discovered-check restrictions", gamesJs.includes("en passant cannot expose own king") && gamesJs.includes("pinned piece cannot expose king"));
+check("Chess follows formal draw claims and automatic draw limits", gamesJs.includes("fifty move rule is claimable") && gamesJs.includes("seventy five move rule is automatic") && gamesJs.includes("threefold repetition is claimable") && gamesJs.includes("fivefold repetition is automatic") && gamesJs.includes("claimDraw"));
+check("Legacy chess view delegates legality to the same formal engine", legacyApp.includes('import("https://cdn.jsdelivr.net/npm/chess.js@1.4.0/+esm")') && legacyApp.includes("formalChess.moves({ square: from, verbose: true })") && !legacyApp.includes("const clearPath"));
 check("Chess has Ant/Anti 3000", chess.includes('name:"אנט / אנטי ♛"') && chess.includes("elo:3000") && chess.includes('style:"perfect-counter"'));
 check("Chess has Review API", chess.includes("TRA_CHESS_API") && chess.includes("review:") && chess.includes("suggestHumanMove"));
 check("Chess can export PGN and FEN", chess.includes("copy-pgn") && chess.includes("copy-fen") && chess.includes("chess.pgn()") && chess.includes("chess.fen()"));
