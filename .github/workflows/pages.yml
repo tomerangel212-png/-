@@ -26,6 +26,7 @@ jobs:
         run: |
           node --check hitster-original.js
           node --check hitster-888-check.js
+          node --check chess-formal-regression.mjs
           node --check site-smoke-check.js
           node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
@@ -40,6 +41,7 @@ jobs:
           test -s hitster-888.html
           test -s hitster-888-en.html
           test -s offline.html
+          node chess-formal-regression.mjs
           node hitster-888-check.js
           node site-smoke-check.js
           node site-route-integrity-check.js
