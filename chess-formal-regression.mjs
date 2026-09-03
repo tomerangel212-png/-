@@ -18,13 +18,14 @@ try {
 const loader = fs.readFileSync("games-loader.js", "utf8");
 const games = fs.readFileSync("games.js", "utf8");
 
-function positionKey(game){return game.fen().split(" ").slice(0,4).join(" ");}
+function positionKeyFromFen(fen){return fen.split(" ").slice(0,4).join(" ");}
+function positionKey(game){return positionKeyFromFen(game.fen());}
 function repetitionCount(game){
-  const replay=new Chess();
-  const counts=new Map([[positionKey(replay),1]]);
-  for(const move of game.history({verbose:true})){
-    replay.move(move.promotion?{from:move.from,to:move.to,promotion:move.promotion}:{from:move.from,to:move.to});
-    const key=positionKey(replay);
+  const history=game.history({verbose:true});
+  if(!history.length)return 1;
+  const counts=new Map([[positionKeyFromFen(history[0].before),1]]);
+  for(const move of history){
+    const key=positionKeyFromFen(move.after);
     counts.set(key,(counts.get(key)||0)+1);
   }
   return counts.get(positionKey(game))||1;
