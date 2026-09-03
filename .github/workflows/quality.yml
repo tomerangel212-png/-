@@ -22,6 +22,7 @@ jobs:
           node --check app.js
           node --check games.js
           node --input-type=module --check < games-loader.js
+          node --check chess-formal-regression.mjs
           node --check games-hub.js
           node --check music-editor.js
           node --check hitster-original.js
@@ -40,6 +41,8 @@ jobs:
           node --check tra-perfect-quality-check.js
           node --check tra-quality.js
           node --check sw.js
+      - name: Run executable FIDE chess regression
+        run: node chess-formal-regression.mjs
       - name: Enforce annual HITSTER 888 quality gate
         run: node hitster-888-check.js
       - name: Enforce yellow-to-green digital gate
