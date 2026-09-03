@@ -23,7 +23,7 @@ html,body{margin:0;width:100%;height:100%;background:#07131d;color:#fff;font-fam
   var frame=document.getElementById("game");
   var boot=document.getElementById("boot");
   var target=language==="en"?"hitster-888-en.html":"hitster-888.html";
-  frame.src=target+"?entry="+encodeURIComponent(entry);
+  frame.src=target+"?entry="+encodeURIComponent(entry)+"&build=kfar-blum-internal-audio-v4";
   frame.addEventListener("load",function(){boot.classList.add("hidden");});
 })();
 </script>

@@ -3,7 +3,7 @@
 (function () {
   var DATA_URL = "./hitster-alltime-888.json";
   var STORAGE_KEY = "hitster-tra-annual-888-v1";
-  var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v1";
+  var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v2";
   var PREVIEW_SECONDS = 30;
   var PREVIEW_PROBE_TIMEOUT_MS = 12000;
   var MAX_PREVIEW_CANDIDATES = 48;
@@ -28,7 +28,7 @@
       cardReady: "הקלף מוכן. בחרו מיקום בציר, נגנו/זהו, ואז חשפו את השנה.",
       cached: "הקטע נשמר גם לאופליין במכשיר הזה.",
       onlineOnly: "הקטע מתנגן דרך האינטרנט; הדפדפן לא אפשר לשמור אותו לאופליין.",
-      preparing: "🎧 מכין קלף עם קטע שמע תקין…",
+      preparing: "🎧 מכין את הנגן הפנימי לקלף הבא…",
       audioReady: "🎵 הקלף הבא מוכן — לחצו על „קלף חדש + נגן” ל־30 שניות.",
       retrying: "🎧 מכין מחדש קטע שמע תקין לאותו קלף…",
       retryReady: "🎵 קטע השמע מוכן מחדש. לחצו על „נגנו 30 שניות”.",
@@ -74,7 +74,8 @@
       removeConfirm: "האם אתה בטוח שאתה רוצה להסיר שיר זה מהציר?",
       resetTimelineConfirm: "לאפס את הציר של הקבוצה הזאת? השירים שכבר נוגנו לא יחזרו לחפיסה.",
       resetAllConfirm: "לאפס את כל המשחק? כל הצירים, הכוכבים והיסטוריית 888 הקלפים יימחקו.",
-      noSaved: "אין משחק שמור עדיין. התחילו משחק חדש."
+      noSaved: "אין משחק שמור עדיין. התחילו משחק חדש.",
+      startNew: "התחילו משחק חדש"
     },
     en: {
       loading: "Loading the 888-card deck…",
@@ -86,7 +87,7 @@
       cardReady: "Card ready. Choose a timeline slot, play/identify it, then reveal the year.",
       cached: "This preview is also saved for offline play on this device.",
       onlineOnly: "This preview is playing online; the browser did not allow offline storage.",
-      preparing: "🎧 Preparing a verified playable preview…",
+      preparing: "🎧 Preparing the internal player for the next card…",
       audioReady: "🎵 The next card is ready — press “New card + play” for 30 seconds.",
       retrying: "🎧 Preparing a fresh playable preview for this card…",
       retryReady: "🎵 The preview is ready again. Press “Play 30 seconds”.",
@@ -132,7 +133,8 @@
       removeConfirm: "Are you sure you want to remove this song from the timeline?",
       resetTimelineConfirm: "Reset this team's timeline? Already-played songs will not return to the deck.",
       resetAllConfirm: "Reset the entire game? All timelines, stars and the 888-card play history will be erased.",
-      noSaved: "There is no saved game yet. Start a new game."
+      noSaved: "There is no saved game yet. Start a new game.",
+      startNew: "Start a new game"
     }
   };
 
@@ -143,6 +145,16 @@
   var state = null;
   var previewMemo = Object.create(null);
   var audio = document.getElementById("audio");
+  if (audio) {
+    audio.controls = true;
+    audio.preload = "auto";
+    audio.playsInline = true;
+    audio.muted = false;
+    audio.volume = 1;
+    audio.classList.add("internal-audio");
+    audio.style.width = "min(460px, 100%)";
+    audio.style.marginTop = "12px";
+  }
   var previewObjectUrl = null;
   var preparedCardId = null;
   var preparing = false;
@@ -411,8 +423,22 @@
     var screen = el("start-screen");
     if (!screen) return;
     var continueButton = el("continue-game");
+    var startButton = el("start-new-game");
+    var resetButton = el("reset-from-start");
+    if (!startButton && continueButton && continueButton.parentNode) {
+      startButton = document.createElement("button");
+      startButton.id = "start-new-game";
+      startButton.className = "continue";
+      startButton.type = "button";
+      startButton.textContent = t.startNew;
+      startButton.addEventListener("click", startNewGame);
+      continueButton.parentNode.insertBefore(startButton, continueButton);
+    }
     var saved = hasProgress(state);
     continueButton.disabled = !saved;
+    continueButton.hidden = !saved;
+    if (startButton) startButton.hidden = saved;
+    if (resetButton) resetButton.hidden = !saved;
     if (el("start-note")) el("start-note").textContent = saved ? t.resume : t.noSaved;
   }
   function render() {
@@ -575,12 +601,11 @@
     if (!navigator.onLine) return null;
     var countries = ["US", "GB", "IL"];
     for (var pass = 0; pass < 2; pass += 1) {
-      for (var index = 0; index < countries.length; index += 1) {
-        try {
-          var found = await lookupPreviewInCountry(card, countries[index]);
-          if (found) { previewMemo[card.id] = found; return found; }
-        } catch (error) {}
-      }
+      var results = await Promise.all(countries.map(function (country) {
+        return lookupPreviewInCountry(card, country).catch(function () { return null; });
+      }));
+      var found = results.find(Boolean);
+      if (found) { previewMemo[card.id] = found; return found; }
       if (pass === 0) await wait(350);
     }
     return null;
@@ -634,20 +659,15 @@
     var force = Boolean(options && options.force);
     if (!force) {
       var local = await cachedPreview(card);
-      if (local) {
-        if (await verifyPreviewSource(local.src)) return local;
-        releasePreview(local);
-        await deleteCachedPreview(card);
-      }
+      if (local) return local;
     }
     var remote = await lookupPreview(card, { force: force });
     if (!remote) return null;
-    var preview = await cacheRemotePreview(card, remote);
-    if (await verifyPreviewSource(preview.src)) return preview;
-    releasePreview(preview);
-    delete previewMemo[card.id];
-    await deleteCachedPreview(card);
-    return force ? null : resolvePlayablePreview(card, { force: true });
+    // Safari is more reliable when the actual <audio> element receives the
+    // original preview URL directly. Caching is best-effort only and never
+    // blocks a card from loading in the internal player.
+    void cacheRemotePreview(card, remote).then(function (cached) { releasePreview(cached); });
+    return { src: remote, cached: false };
   }
   function loadPreviewIntoPlayer(card, preview) {
     return new Promise(function (resolve, reject) {
@@ -675,6 +695,9 @@
       previewObjectUrl = preview.cached && preview.src.indexOf("blob:") === 0 ? preview.src : null;
       audio.preload = "auto";
       audio.playsInline = true;
+      audio.controls = true;
+      audio.muted = false;
+      audio.volume = 1;
       audio.addEventListener("canplay", onCanPlay, { once: true });
       audio.addEventListener("error", onError, { once: true });
       timer = setTimeout(function () { finish(new Error("audio preparation timed out")); }, PREVIEW_PROBE_TIMEOUT_MS);
@@ -947,6 +970,10 @@
     if (!resetGame(false)) return;
     hideStartScreen();
   }
+  function startNewGame() {
+    resetGame(true);
+    hideStartScreen();
+  }
 
   el("team-select").addEventListener("change", function (event) {
     if (!canChooseStartingTeam()) { event.target.value = state.activeTeamId; return; }
@@ -972,6 +999,7 @@
   el("reset-timeline").addEventListener("click", resetTimeline);
   el("continue-game").addEventListener("click", continueGame);
   el("reset-from-start").addEventListener("click", resetFromStart);
+  if (el("start-new-game")) el("start-new-game").addEventListener("click", startNewGame);
   audio.addEventListener("error", function () {
     var card = currentCard();
     if (card && preparedCardId === card.id) { recoverCurrentPreview(card, new Error("audio element error")); return; }

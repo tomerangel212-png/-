@@ -27,6 +27,7 @@ jobs:
           node --check hitster-original.js
           node --check hitster-888-check.js
           node --check hitster-audio-check.js
+          node --check hitster-flagship-check.js
           node --check site-smoke-check.js
           node --check site-route-integrity-check.js
           node --check tra-games-quality-check.js
@@ -43,6 +44,7 @@ jobs:
           test -s offline.html
           node hitster-888-check.js
           node hitster-audio-check.js
+          node hitster-flagship-check.js
           node site-smoke-check.js
           node site-route-integrity-check.js
           node tra-games-quality-check.js
