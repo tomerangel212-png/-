@@ -1,11 +1,19 @@
 import fs from "node:fs";
+import { writeFile, unlink } from "node:fs/promises";
+import { pathToFileURL } from "node:url";
 
 const ENGINE_URL = "https://cdn.jsdelivr.net/npm/chess.js@1.4.0/+esm";
 const engineResponse = await fetch(ENGINE_URL, { cache: "no-store" });
 if (!engineResponse.ok) throw new Error(`Cannot load chess.js 1.4.0: HTTP ${engineResponse.status}`);
 const engineSource = await engineResponse.text();
-const engineModuleUrl = `data:text/javascript;base64,${Buffer.from(engineSource).toString("base64")}`;
-const { Chess } = await import(engineModuleUrl);
+const enginePath = ".chess-js-ci.mjs";
+await writeFile(enginePath, engineSource, "utf8");
+let Chess;
+try {
+  ({ Chess } = await import(`${pathToFileURL(enginePath).href}?run=${Date.now()}`));
+} finally {
+  await unlink(enginePath).catch(()=>{});
+}
 
 const loader = fs.readFileSync("games-loader.js", "utf8");
 const games = fs.readFileSync("games.js", "utf8");
