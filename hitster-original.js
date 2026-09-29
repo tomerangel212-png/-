@@ -6,7 +6,11 @@
   var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v2";
   var PREVIEW_SECONDS = 30;
   var PREVIEW_PROBE_TIMEOUT_MS = 12000;
-  var MAX_PREVIEW_CANDIDATES = 48;
+  var MAX_PREVIEW_CANDIDATES = 8;
+  var PREPARATION_BUDGET_MS = 25000;
+  var previewManifest = Object.create(null);
+  var pendingMediaActivation = null;
+  var preparationToken = 0;
   var START_STARS = 5;
   var MAX_STARS = 10;
   var WIN_CARDS = 18;
@@ -177,7 +181,7 @@
   }
   function track(eventName, properties) {
     try {
-      if (window.posthog && typeof window.posthog.capture === "function") window.posthog.capture(eventName, properties || {});
+      window.TRAAudio.capture(eventName, properties || {});
     } catch (error) {}
   }
   function createInitialState() {
@@ -267,6 +271,7 @@
     if (!audio) return;
     audio.pause();
     try { audio.currentTime = 0; } catch (error) {}
+    pendingMediaActivation = null;
     audio.removeAttribute("src");
     try { audio.load(); } catch (error) {}
     preparedCardId = null;
@@ -280,6 +285,8 @@
     if (!options || !options.keepSource) clearPlayerSource();
   }
   function clearNextReady() {
+    preparationToken += 1;
+    preparing = false;
     previewGeneration += 1;
     playerLoadGeneration += 1;
     if (nextReady) releasePreview(nextReady.preview);
@@ -401,9 +408,9 @@
     el("card-source").textContent = solutionRevealed ? "Billboard year-end chart · #" + card.chartRank : "";
     el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? text(t.winner, { team: teamName(state.winnerTeamId) }) : t.noCard);
     el("play-clip").hidden = !hasCard;
-    el("play-clip").disabled = !hasCard || preparing;
+    el("play-clip").disabled = !hasCard || (preparing && !pendingMediaActivation);
     el("play-clip").textContent = preparing ? t.preparingLabel : t.playLabel;
-    el("next-card").textContent = !hasCard && preparing
+    el("next-card").textContent = pendingMediaActivation ? (language === "he" ? "הפעל שמע" : "Activate audio") : !hasCard && preparing
       ? (language === "he" ? "מכין שמע…" : "Preparing audio…")
       : (language === "he" ? "קלף חדש + נגן" : "New card + play");
     el("reveal-year").disabled = !hasCard || yearRevealed;
@@ -412,7 +419,7 @@
     el("answer-open").textContent = state.currentAnswerChecked ? t.answerClosed : t.answerOpen;
     el("skip-card").disabled = !hasCard || yearRevealed || solutionRevealed;
     el("free-card").disabled = !hasCard || yearRevealed || solutionRevealed;
-    el("next-card").disabled = hasCard || isGameLocked() || !nextReady || Boolean(nextReadyPromise);
+    el("next-card").disabled = hasCard || isGameLocked() || (preparing && !pendingMediaActivation);
     el("team-select").disabled = !canChooseStartingTeam();
     el("add-to-timeline").hidden = !(hasCard && yearRevealed && state.currentPlacementCorrect === true);
     el("finish-turn").hidden = !(hasCard && yearRevealed && state.currentPlacementCorrect === false);
@@ -471,9 +478,8 @@
   }
   async function loadDeck() {
     setStatus(t.loading);
-    var response = await fetch(DATA_URL, { cache: "no-store" });
-    if (!response.ok) throw new Error("Deck request failed with " + response.status);
-    var payload = await response.json();
+    var payload = await window.TRAAudio.json(DATA_URL, { cache: "no-store" }, 10000);
+    try { previewManifest = (await window.TRAAudio.json("./hitster-preview-manifest.json", { cache: "no-store" }, 3000)).previews || Object.create(null); } catch (error) {}
     validateDeck(payload);
     deck = payload.cards;
     deck.forEach(function (card) { deckById[card.id] = card; });
@@ -497,6 +503,7 @@
   }
   function drawCard() {
     if (state.current || isGameLocked()) return;
+    if (pendingMediaActivation) { activatePendingAudio(); return; }
     var ready = nextReady;
     if (!ready) {
       setStatus(t.preparing);
@@ -556,13 +563,16 @@
     if (!("caches" in window)) return null;
     try {
       var cache = await caches.open(AUDIO_CACHE_NAME), response = await cache.match(cardCacheKey(card));
+      if (!response) response = await (await caches.open("hitster-tra-preview-audio-v1")).match(cardCacheKey(card));
       if (!response) return null;
       return { src: URL.createObjectURL(await response.blob()), cached: true };
     } catch (error) { return null; }
   }
   async function deleteCachedPreview(card) {
     if (!("caches" in window)) return;
-    try { await (await caches.open(AUDIO_CACHE_NAME)).delete(cardCacheKey(card)); } catch (error) {}
+    await Promise.all([AUDIO_CACHE_NAME, "hitster-tra-preview-audio-v1"].map(async function (name) {
+      try { await window.TRAAudio.bounded(async function () { await (await caches.open(name)).delete(cardCacheKey(card)); }, 3000); } catch (error) {}
+    }));
   }
   function overlapScore(left, right) {
     var leftWords = normalize(left).split(" ").filter(Boolean), rightWords = normalize(right).split(" ").filter(Boolean);
@@ -571,25 +581,16 @@
     rightWords.forEach(function (word) { rightSet[word] = true; });
     return leftWords.filter(function (word) { return rightSet[word]; }).length / Math.max(leftWords.length, rightWords.length);
   }
-  async function fetchWithTimeout(url, options, timeout) {
-    var controller = typeof AbortController === "function" ? new AbortController() : null;
-    var timer = controller ? setTimeout(function () { controller.abort(); }, timeout) : null;
-    try {
-      var requestOptions = Object.assign({}, options || {});
-      if (controller) requestOptions.signal = controller.signal;
-      return await fetch(url, requestOptions);
-    } finally {
-      if (timer) clearTimeout(timer);
-    }
+  function fetchWithTimeout(url, options, timeout, consume) {
+    return window.TRAAudio.request(url, options, timeout, consume);
   }
   async function lookupPreviewInCountry(card, country) {
     var url = "https://itunes.apple.com/search?media=music&entity=song&limit=50&country=" + encodeURIComponent(country) + "&term=" + encodeURIComponent(card.title + " " + card.artist);
-    var response = await fetchWithTimeout(url, { cache: "no-store" }, 8000);
-    if (!response.ok) return null;
+    var payload = await window.TRAAudio.json(url, { cache: "no-store" }, 4000);
     var expectedTitle = normalize(card.title), expectedArtist = normalize(card.artist), best = null, bestScore = 0;
-    var payload = await response.json(), candidates = Array.isArray(payload.results) ? payload.results : [];
+    var candidates = Array.isArray(payload.results) ? payload.results : [];
     candidates.forEach(function (candidate) {
-      if (!candidate || !candidate.previewUrl || !candidate.trackName || !candidate.artistName) return;
+      if (!candidate || !candidate.previewUrl || !candidate.trackName || !candidate.artistName || /karaoke|tribute/i.test(candidate.artistName + " " + candidate.collectionName)) return;
       var titleMatch = normalize(candidate.trackName) === expectedTitle ? 1 : overlapScore(candidate.trackName, expectedTitle);
       var artistMatch = normalize(candidate.artistName) === expectedArtist ? 1 : overlapScore(candidate.artistName, expectedArtist);
       var score = titleMatch * 72 + artistMatch * 28;
@@ -603,10 +604,11 @@
     if (force) delete previewMemo[card.id];
     if (!force && typeof previewMemo[card.id] === "string") return previewMemo[card.id];
     if (!navigator.onLine) return null;
+    if (!force && previewManifest[card.id]) return previewManifest[card.id].url;
     var countries = ["US", "GB", "IL"];
     for (var pass = 0; pass < 2; pass += 1) {
       var results = await Promise.all(countries.map(function (country) {
-        return lookupPreviewInCountry(card, country).catch(function () { return null; });
+        return lookupPreviewInCountry(card, country).catch(function (error) { track("song_preview_lookup_failed", { card_id: card.id, country: country, error_name: error.name }); return null; });
       }));
       var found = results.find(Boolean);
       if (found) { previewMemo[card.id] = found; return found; }
@@ -616,57 +618,32 @@
   }
   async function cacheRemotePreview(card, previewUrl) {
     try {
-      var response = await fetchWithTimeout(previewUrl, { mode: "cors", cache: "force-cache" }, PREVIEW_PROBE_TIMEOUT_MS);
-      if (!response.ok || response.type === "opaque") return { src: previewUrl, cached: false };
-      var copy = response.clone();
+      var result = await fetchWithTimeout(previewUrl, { mode: "cors", cache: "force-cache" }, PREVIEW_PROBE_TIMEOUT_MS, async function (response) {
+        var blob = await response.blob();
+        if (!blob.size || !/audio|octet-stream/i.test(blob.type)) throw new Error("invalid audio body");
+        return { response: new Response(blob, { headers: { "Content-Type": blob.type } }), blob: blob };
+      });
       try {
-        if ("caches" in window) { var cache = await caches.open(AUDIO_CACHE_NAME); await cache.put(cardCacheKey(card), copy); }
+        if ("caches" in window) { var cache = await caches.open(AUDIO_CACHE_NAME); await window.TRAAudio.bounded(function () { return cache.put(cardCacheKey(card), result.response); }, 4000); }
       } catch (error) { return { src: previewUrl, cached: false }; }
-      return { src: URL.createObjectURL(await response.blob()), cached: true };
+      return { src: URL.createObjectURL(result.blob), cached: true };
     } catch (error) {
+      track("song_preview_cache_fallback", { card_id: card.id, error_name: error.name });
       return { src: previewUrl, cached: false };
     }
   }
   function hasThirtySecondDuration(media) {
     var duration = Number(media && media.duration);
-    return !Number.isFinite(duration) || duration >= PREVIEW_SECONDS - 1;
-  }
-  function verifyPreviewSource(source) {
-    return new Promise(function (resolve) {
-      if (!source) { resolve(false); return; }
-      var probe = new Audio();
-      var settled = false;
-      var timer = null;
-      function finish(ok) {
-        if (settled) return;
-        settled = true;
-        if (timer) clearTimeout(timer);
-        probe.removeEventListener("canplay", onCanPlay);
-        probe.removeEventListener("error", onError);
-        probe.pause();
-        probe.removeAttribute("src");
-        try { probe.load(); } catch (error) {}
-        resolve(ok);
-      }
-      function onCanPlay() { finish(hasThirtySecondDuration(probe)); }
-      function onError() { finish(false); }
-      probe.preload = "metadata";
-      probe.playsInline = true;
-      probe.addEventListener("canplay", onCanPlay, { once: true });
-      probe.addEventListener("error", onError, { once: true });
-      timer = setTimeout(function () { finish(false); }, PREVIEW_PROBE_TIMEOUT_MS);
-      probe.src = source;
-      probe.load();
-    });
+    return Number.isFinite(duration) && duration >= PREVIEW_SECONDS - 1;
   }
   async function resolvePlayablePreview(card, options) {
     var force = Boolean(options && options.force);
     if (!force) {
-      var local = await cachedPreview(card);
+      var local = await window.TRAAudio.bounded(function () { return cachedPreview(card); }, 3000).catch(function () { return null; });
       if (local) return local;
     }
     var remote = await lookupPreview(card, { force: force });
-    if (!remote) return null;
+    if (!remote) { track("song_preview_prepare_failed", { card_id: card.id, reason: "no_playable_preview" }); return null; }
     // Safari is more reliable when the actual <audio> element receives the
     // original preview URL directly. Caching is best-effort only and never
     // blocks a card from loading in the internal player.
@@ -683,12 +660,15 @@
         if (settled) return;
         settled = true;
         if (timer) clearTimeout(timer);
-        audio.removeEventListener("canplay", onCanPlay);
+        audio.removeEventListener("loadedmetadata", onCanPlay);
+        audio.removeEventListener("durationchange", onCanPlay);
         audio.removeEventListener("error", onError);
+        if (token === playerLoadGeneration) pendingMediaActivation = null;
         if (error) reject(error); else resolve(true);
       }
       function onCanPlay() {
         if (token !== playerLoadGeneration) { finish(new Error("stale audio preparation")); return; }
+        if (!Number.isFinite(Number(audio.duration))) return;
         if (!hasThirtySecondDuration(audio)) { finish(new Error("preview is shorter than 30 seconds")); return; }
         preparedCardId = card.id;
         finish(null);
@@ -702,33 +682,40 @@
       audio.controls = true;
       audio.muted = false;
       audio.volume = 1;
-      audio.addEventListener("canplay", onCanPlay, { once: true });
+      audio.addEventListener("loadedmetadata", onCanPlay);
+      audio.addEventListener("durationchange", onCanPlay);
       audio.addEventListener("error", onError, { once: true });
+      pendingMediaActivation = { card: card, source: preview.src };
       timer = setTimeout(function () { finish(new Error("audio preparation timed out")); }, PREVIEW_PROBE_TIMEOUT_MS);
       audio.src = preview.src;
+      render();
       audio.load();
-      if (audio.readyState >= 3) onCanPlay();
+      if (audio.readyState >= 1) onCanPlay();
     });
   }
   function forgetPreview(card) {
     if (!card) return;
     delete previewMemo[card.id];
+    delete previewManifest[card.id];
     void deleteCachedPreview(card);
   }
   async function findAndLoadNextCard(generation) {
-    var candidates = shuffle(unusedCards()).slice(0, MAX_PREVIEW_CANDIDATES);
+    var available = shuffle(unusedCards());
+    var candidates = available.filter(function (card) { return previewManifest[card.id]; }).concat(available.filter(function (card) { return !previewManifest[card.id]; })).slice(0, MAX_PREVIEW_CANDIDATES);
     for (var index = 0; index < candidates.length; index += 1) {
       if (generation !== previewGeneration || state.current || isGameLocked()) return null;
       var card = candidates[index];
       var preview = null;
       try {
         preview = await resolvePlayablePreview(card);
+        if (generation !== previewGeneration || state.current || isGameLocked()) { releasePreview(preview); return null; }
         if (!preview) { track("hitster_preview_candidate_skipped", { card_id: card.id, reason: "no_preview" }); continue; }
         await loadPreviewIntoPlayer(card, preview);
         if (generation !== previewGeneration || state.current || isGameLocked()) { releasePreview(preview); return null; }
         return { card: card, preview: preview };
       } catch (error) {
         releasePreview(preview);
+        if (generation !== previewGeneration) return null;
         forgetPreview(card);
         track("hitster_preview_candidate_skipped", { card_id: card.id, reason: "load_failed", error_name: error && error.name || "Error" });
       }
@@ -741,10 +728,14 @@
     if (nextReadyPromise) return nextReadyPromise;
     if (!unusedCards().length) { setStatus(t.noMore); return null; }
     var generation = previewGeneration;
+    var operationToken = ++preparationToken;
     preparing = true;
     render();
     setStatus(t.preparing);
-    var request = findAndLoadNextCard(generation);
+    var request = window.TRAAudio.bounded(function () { return findAndLoadNextCard(generation); }, PREPARATION_BUDGET_MS, function () {
+      if (operationToken !== preparationToken) return;
+      previewGeneration += 1; playerLoadGeneration += 1; clearPlayerSource();
+    });
     nextReadyPromise = request;
     try {
       var pick = await request;
@@ -755,10 +746,14 @@
       nextReady = pick;
       setStatus(pick ? t.audioReady : t.noPreview);
       return pick;
+    } catch (error) {
+      if (operationToken !== preparationToken) return null;
+      track("song_preview_prepare_failed", { reason: "preparation_budget", error_name: error.name });
+      setStatus(language === "he" ? "השמע לא נטען בזמן. לחצו על קלף חדש כדי לנסות שוב." : "Audio timed out. Press New card to retry.");
+      return null;
     } finally {
       if (nextReadyPromise === request) nextReadyPromise = null;
-      preparing = false;
-      render();
+      if (operationToken === preparationToken) { preparing = false; render(); }
     }
   }
   function armClipTimer() {
@@ -775,23 +770,31 @@
   async function prepareCurrentPreview(card, options) {
     if (!card || preparing) return false;
     var force = Boolean(options && options.force);
+    var operationToken = ++preparationToken;
+    var expired = false;
     preparing = true;
     render();
     setStatus(force ? t.retrying : t.preparing);
     try {
-      var preview = await resolvePlayablePreview(card, { force: force });
-      if (!preview || !state || state.current !== card.id) { if (preview) releasePreview(preview); setStatus(t.noPreview); return false; }
-      await loadPreviewIntoPlayer(card, preview);
-      if (!state || state.current !== card.id) { releasePreview(preview); return false; }
+      var loaded = await window.TRAAudio.bounded(async function () {
+        var preview = await resolvePlayablePreview(card, { force: force });
+        if (expired || operationToken !== preparationToken || !preview || !state || state.current !== card.id) { releasePreview(preview); return false; }
+        await loadPreviewIntoPlayer(card, preview);
+        if (expired || operationToken !== preparationToken || !state || state.current !== card.id) { releasePreview(preview); return false; }
+        return true;
+      }, PREPARATION_BUDGET_MS, function () { expired = true; if (operationToken === preparationToken) { playerLoadGeneration += 1; clearPlayerSource(); } });
+      if (operationToken !== preparationToken) return false;
+      if (!loaded) { setStatus(t.noPreview); return false; }
       setStatus(force ? t.retryReady : t.audioReady);
       return true;
     } catch (error) {
+      if (operationToken !== preparationToken) return false;
       forgetPreview(card);
+      track("song_preview_prepare_failed", { card_id: card.id, reason: "current_preparation", error_name: error.name });
       setStatus(navigator.onLine ? t.noPreview : t.offline);
       return false;
     } finally {
-      preparing = false;
-      render();
+      if (operationToken === preparationToken) { preparing = false; render(); }
     }
   }
   function recoverCurrentPreview(card, error) {
@@ -804,8 +807,20 @@
     stopAudio();
     void prepareCurrentPreview(card, { force: true }).finally(function () { recoveringCardId = null; });
   }
+  function activatePendingAudio() {
+    if (!pendingMediaActivation || !audio.src) return;
+    // Real user gesture on the persistent player; do not consume a card yet.
+    var attempt, activationToken = playerLoadGeneration;
+    try { audio.load(); attempt = audio.play(); }
+    catch (error) { track("hitster_audio_activation_failed", { error_name: error.name }); return; }
+    Promise.resolve(attempt).then(function () {
+      if (activationToken !== playerLoadGeneration) return;
+      if (!currentCard()) { audio.pause(); try { audio.currentTime = 0; } catch (error) {} }
+    }).catch(function (error) { track("hitster_audio_activation_failed", { error_name: error.name }); });
+  }
   function playClip(fromDraw) {
     var card = currentCard();
+    if (pendingMediaActivation) { activatePendingAudio(); return; }
     if (!card || preparing) return;
     if (preparedCardId !== card.id || !audio.getAttribute("src")) {
       void prepareCurrentPreview(card);
@@ -817,7 +832,7 @@
       if (el("play-clip")) el("play-clip").textContent = t.playLabel;
       return;
     }
-    var attempt;
+    var attempt, playbackToken = playerLoadGeneration;
     try {
       clearClipTimer();
       audio.currentTime = 0;
@@ -827,7 +842,7 @@
       return;
     }
     Promise.resolve(attempt).then(function () {
-      if (!state || state.current !== card.id) return;
+      if (playbackToken !== playerLoadGeneration || !state || state.current !== card.id) return;
       armClipTimer();
       if (el("play-clip")) el("play-clip").textContent = language === "he" ? "■ עצרו" : "■ Stop";
       setStatus(t.played);
@@ -1006,7 +1021,7 @@
   if (el("start-new-game")) el("start-new-game").addEventListener("click", startNewGame);
   audio.addEventListener("error", function () {
     var card = currentCard();
-    if (card && preparedCardId === card.id) { recoverCurrentPreview(card, new Error("audio element error")); return; }
+    if (!preparing && card && preparedCardId === card.id) { recoverCurrentPreview(card, new Error("audio element error")); return; }
     if (nextReady && preparedCardId === nextReady.card.id) {
       var failed = nextReady;
       nextReady = null;

@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-29T23:26:21.652284+00:00",
+  "source": "iTunes Search API",
+  "cardsChecked": 888,
+  "previews": {
+    "chart-1950-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/7d/9a/bd/7d9abdad-351d-48e2-8617-74c46a7290b4/mzaf_5777051173166689943.plus.aac.p.m4a",
+      "trackId": 768663166,
+      "title": "Goodnight Irene",
+      "artist": "Gordon Jenkins & The Weavers",
+      "storefront": "US"
+    },
+    "chart-1952-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a7/20/74/a7207442-3314-84f7-d98e-24fc3a932ce5/mzaf_7182993995691278652.plus.aac.p.m4a",
+      "trackId": 1443809910,
+      "title": "Blue Tango",
+      "artist": "Leroy Anderson",
+      "storefront": "US"
+    },
+    "chart-1955-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/01/8d/15018ddf-92ee-b2f8-c719-73943273e334/mzaf_14601337290785887050.plus.aac.p.m4a",
+      "trackId": 1793366300,
+      "title": "cherry pink and apple blossom white",
+      "artist": "Perez Prado",
+      "storefront": "US"
+    },
+    "chart-1956-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/29/48/54/294854a7-c268-ef20-1d01-fdc80b23f0eb/mzaf_12849498679262522244.plus.aac.p.m4a",
+      "trackId": 388127857,
+      "title": "Heartbreak Hotel",
+      "artist": "Elvis Presley",
+      "storefront": "US"
+    },
+    "chart-1957-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a5/d3/21/a5d3213d-891a-5248-7928-361df3847ac2/mzaf_15321081129957491811.plus.aac.p.m4a",
+      "trackId": 674507896,
+      "title": "All Shook Up",
+      "artist": "Elvis Presley",
+      "storefront": "US"
+    },
+    "chart-1958-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/0c/5a/49/0c5a49b2-b721-c9e2-e49e-5f501dadec06/mzaf_258699557886011837.plus.aac.p.m4a",
+      "trackId": 1687594391,
+      "title": "Nel Blu Dipinto Di Blu (Volaré)",
+      "artist": "Domenico Modugno",
+      "storefront": "US"
+    },
+    "chart-1959-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c1/6b/89/c16b896c-ae44-b52a-c9d3-768108803a39/mzaf_8205291179145029695.plus.aac.p.m4a",
+      "trackId": 651305643,
+      "title": "The Battle of New Orleans",
+      "artist": "Johnny Horton",
+      "storefront": "US"
+    },
+    "chart-1960-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/e5/06/2d/e5062d44-a312-2b43-e0f3-ef9b1a35800c/mzaf_11167473104331963113.plus.aac.p.m4a",
+      "trackId": 1198836889,
+      "title": "Theme from \"A Summer Place\"",
+      "artist": "Percy Faith",
+      "storefront": "US"
+    },
+    "chart-1961-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a9/46/31/a9463186-1f17-4843-436c-cf9cb7701239/mzaf_8061446037283120321.plus.aac.p.m4a",
+      "trackId": 1471088614,
+      "title": "Tossin' and Turnin'",
+      "artist": "Bobby Lewis",
+      "storefront": "US"
+    },
+    "chart-1962-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bb/18/bd/bb18bdb3-0e61-98cb-a38d-94e69a34df12/mzaf_1219326630302880837.plus.aac.p.m4a",
+      "trackId": 351068896,
+      "title": "Stranger On the Shore",
+      "artist": "Acker Bilk",
+      "storefront": "US"
+    },
+    "chart-1963-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7a/52/3c/7a523c91-952d-e847-c8b6-9a2645b4583e/mzaf_15248344319460929349.plus.aac.p.m4a",
+      "trackId": 725823658,
+      "title": "Surfin' U.S.A.",
+      "artist": "The Beach Boys",
+      "storefront": "US"
+    },
+    "chart-1964-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/23/39/04/233904f8-fcb8-06cf-cbe8-1381da0e7688/mzaf_5151378790459346359.plus.aac.p.m4a",
+      "trackId": 1468023761,
+      "title": "I Want to Hold Your Hand",
+      "artist": "The Beatles",
+      "storefront": "US"
+    },
+    "chart-1965-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f6/21/91/f6219198-98d3-183b-2da0-879acf90793f/mzaf_5073770387921831324.plus.aac.p.m4a",
+      "trackId": 1444137692,
+      "title": "Wooly Bully",
+      "artist": "Sam the Sham & The Pharaohs",
+      "storefront": "US"
+    },
+    "chart-1966-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/c0/3b/1bc03bb5-34d8-8ee7-664b-4e5acc2d914a/mzaf_3664770059599165690.plus.aac.p.m4a",
+      "trackId": 1425259894,
+      "title": "California Dreamin'",
+      "artist": "The Mamas & The Papas",
+      "storefront": "US"
+    },
+    "chart-1967-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d5/85/32/d5853231-54b9-bc56-728a-a8228c4c47a8/mzaf_75109207421490627.plus.aac.p.m4a",
+      "trackId": 313382209,
+      "title": "To Sir With Love",
+      "artist": "Lulu",
+      "storefront": "US"
+    },
+    "chart-1968-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3d/08/f5/3d08f5d7-1e0a-99d9-1085-d50ecc972bb9/mzaf_1689604474306790314.plus.aac.p.m4a",
+      "trackId": 1441133277,
+      "title": "Hey Jude",
+      "artist": "The Beatles",
+      "storefront": "US"
+    },
+    "chart-1969-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a6/c0/24/a6c024fd-bd8a-ff9d-4eba-73767609ad90/mzaf_16484569894417758736.plus.aac.p.m4a",
+      "trackId": 214805381,
+      "title": "Sugar, Sugar",
+      "artist": "The Archies",
+      "storefront": "US"
+    },
+    "chart-1970-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e7/9b/60/e79b60c4-4971-aed9-92aa-db57d453cd42/mzaf_12057489393656620288.plus.aac.p.m4a",
+      "trackId": 324127934,
+      "title": "Bridge Over Troubled Water",
+      "artist": "Simon & Garfunkel",
+      "storefront": "US"
+    },
+    "chart-1971-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e9/38/0e/e9380e4a-7a37-2842-075c-903eec7938ea/mzaf_7888687545118179226.plus.aac.p.m4a",
+      "trackId": 1440744535,
+      "title": "Joy to the World",
+      "artist": "Three Dog Night",
+      "storefront": "US"
+    },
+    "chart-1972-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/13/71/ce/1371ce55-52b6-01c4-fe0a-015c34bc5147/mzaf_16671962022956980545.plus.aac.p.m4a",
+      "trackId": 355178117,
+      "title": "The First Time Ever I Saw Your Face",
+      "artist": "Roberta Flack",
+      "storefront": "US"
+    },
+    "chart-1974-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/68/61/1e/68611ec9-1dd5-cdfe-6cdf-b249f67701d9/mzaf_8471848861989189940.plus.aac.p.m4a",
+      "trackId": 193022060,
+      "title": "The Way We Were",
+      "artist": "Barbra Streisand",
+      "storefront": "US"
+    },
+    "chart-1975-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d0/55/da/d055da8d-0cb5-a57b-0467-ceeefc42f603/mzaf_13277792148035335251.plus.aac.p.m4a",
+      "trackId": 1442300589,
+      "title": "Love Will Keep Us Together",
+      "artist": "Captain & Tennille",
+      "storefront": "US"
+    },
+    "chart-1976-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a3/cb/47/a3cb4730-8920-3415-3f82-f8e153a25972/mzaf_3440749485822900176.plus.aac.p.m4a",
+      "trackId": 1440943745,
+      "title": "Silly Love Songs",
+      "artist": "Wings",
+      "storefront": "US"
+    },
+    "chart-1977-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d5/46/50/d54650e5-934a-2410-b76c-e0f29ecf00d6/mzaf_14214229246236620172.plus.aac.p.m4a",
+      "trackId": 269186717,
+      "title": "Tonight's the Night (Gonna Be Alright)",
+      "artist": "Rod Stewart",
+      "storefront": "US"
+    },
+    "chart-1978-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f5/68/7e/f5687e90-15f2-5998-ab57-8f05ee38e057/mzaf_13425259342939072842.plus.aac.p.m4a",
+      "trackId": 1442254272,
+      "title": "Shadow Dancing",
+      "artist": "Andy Gibb",
+      "storefront": "US"
+    },
+    "chart-1979-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bf/7e/72/bf7e7202-35f4-e081-4219-f802450dd60a/mzaf_15190309208679198585.plus.aac.p.m4a",
+      "trackId": 716268684,
+      "title": "My Sharona",
+      "artist": "The Knack",
+      "storefront": "US"
+    },
+    "chart-1980-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b1/13/b5/b113b569-8639-b071-9199-3c8f8fb0d3a9/mzaf_2541938402474802623.plus.aac.p.m4a",
+      "trackId": 716231650,
+      "title": "Call Me",
+      "artist": "Blondie",
+      "storefront": "US"
+    },
+    "chart-1981-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e6/9c/95/e69c956a-8c85-d4ce-227c-d08bae9206e2/mzaf_12787969426259005125.plus.aac.p.m4a",
+      "trackId": 714976249,
+      "title": "Bette Davis Eyes",
+      "artist": "Kim Carnes",
+      "storefront": "US"
+    },
+    "chart-1983-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6c/b4/79/6cb47947-0860-8788-95b1-a2b0a908f342/mzaf_4654925634744235278.plus.aac.p.m4a",
+      "trackId": 1440882897,
+      "title": "Every Breath You Take",
+      "artist": "The Police",
+      "storefront": "US"
+    },
+    "chart-1984-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/51/fc/f051fcce-eb4f-f9d5-d7ea-eb137750d9a8/mzaf_15769385331104997195.plus.aac.p.m4a",
+      "trackId": 212972932,
+      "title": "When Doves Cry",
+      "artist": "Prince",
+      "storefront": "US"
+    },
+    "chart-1985-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7c/bb/d8/7cbbd80c-29a1-6142-d0f3-de33e8569a0e/mzaf_12978360432335063808.plus.aac.p.m4a",
+      "trackId": 429945616,
+      "title": "Careless Whisper",
+      "artist": "George Michael",
+      "storefront": "US"
+    },
+    "chart-1986-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/03/de/22/03de22c5-acdf-560d-eb73-72fb0c5810a2/mzaf_8396971016374521884.plus.aac.p.m4a",
+      "trackId": 1652669462,
+      "title": "That's What Friends Are For",
+      "artist": "Dionne Warwick, Elton John, Gladys Knight & Stevie Wonder",
+      "storefront": "US"
+    },
+    "chart-1987-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/32/4d/fb/324dfb53-81c0-6ce9-7b20-c2bb6dcb214d/mzaf_10262086732057853737.plus.aac.p.m4a",
+      "trackId": 200008030,
+      "title": "Walk Like an Egyptian",
+      "artist": "The Bangles",
+      "storefront": "US"
+    },
+    "chart-1988-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a5/a0/b9/a5a0b9b5-25c0-eea4-aff5-e653eb2144a5/mzaf_12972342335011969375.plus.aac.p.m4a",
+      "trackId": 282658468,
+      "title": "Faith",
+      "artist": "George Michael",
+      "storefront": "US"
+    },
+    "chart-1989-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/65/bb/88/65bb8856-b20f-d424-0afe-95c937a4f0f9/mzaf_12111138653073465887.plus.aac.p.m4a",
+      "trackId": 28458050,
+      "title": "Look Away",
+      "artist": "Chicago",
+      "storefront": "US"
+    },
+    "chart-1990-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d7/2f/60/d72f604f-bc19-2c5d-686e-2ce2876b6ae1/mzaf_6171953782431728191.plus.aac.p.m4a",
+      "trackId": 723895262,
+      "title": "Hold On",
+      "artist": "Wilson Phillips",
+      "storefront": "US"
+    },
+    "chart-1991-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b6/1b/ef/b61befa0-78e2-302e-6e11-61b9b1ccfb4a/mzaf_6549192166299634383.plus.aac.p.m4a",
+      "trackId": 1440756952,
+      "title": "(Everything I Do) I Do It for You",
+      "artist": "Bryan Adams",
+      "storefront": "US"
+    },
+    "chart-1993-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/03/d2/1a/03d21aca-c69e-09af-03ef-118004e68ab5/mzaf_17408932698913708736.plus.aac.p.m4a",
+      "trackId": 388151901,
+      "title": "I Will Always Love You",
+      "artist": "Whitney Houston",
+      "storefront": "US"
+    },
+    "chart-1994-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d1/19/b9/d119b93d-68df-38a5-dca1-0c331da912e1/mzaf_3053126459974434770.plus.aac.p.m4a",
+      "trackId": 512526590,
+      "title": "The Sign",
+      "artist": "Ace of Base",
+      "storefront": "US"
+    },
+    "chart-1999-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9c/52/d8/9c52d83d-242e-abc4-68fc-273eeb8f0358/mzaf_10714034642820090237.plus.aac.p.m4a",
+      "trackId": 73273491,
+      "title": "Believe",
+      "artist": "Cher",
+      "storefront": "US"
+    },
+    "chart-2000-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1c/3d/e1/1c3de12f-bffb-a854-5db6-f7793920ca09/mzaf_15487578874960967185.plus.aac.p.m4a",
+      "trackId": 321981540,
+      "title": "Breathe",
+      "artist": "Faith Hill",
+      "storefront": "US"
+    },
+    "chart-2002-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/72/41/33/72413329-4f11-13af-ffa2-70c3280d56df/mzaf_6227722515418295262.plus.aac.p.m4a",
+      "trackId": 214475478,
+      "title": "How You Remind Me",
+      "artist": "Nickelback",
+      "storefront": "US"
+    },
+    "chart-2003-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6e/6a/04/6e6a0436-3bd4-1f71-02df-6bcffe76e636/mzaf_3291234595362168142.plus.aac.p.m4a",
+      "trackId": 1440907550,
+      "title": "In da Club",
+      "artist": "50 Cent",
+      "storefront": "US"
+    },
+    "chart-2005-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ec/a2/03/eca20372-e62e-a279-2fe9-118f19f03157/mzaf_3519549200001384487.plus.aac.p.m4a",
+      "trackId": 1476731889,
+      "title": "We Belong Together",
+      "artist": "Mariah Carey",
+      "storefront": "US"
+    },
+    "chart-2006-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e4/ae/91/e4ae912a-0685-a7c6-b10c-b7290a7fb16f/mzaf_16493963156495176302.plus.aac.p.m4a",
+      "trackId": 63816165,
+      "title": "Bad Day",
+      "artist": "Daniel Powter",
+      "storefront": "US"
+    },
+    "chart-2016-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b6/fc/58/b6fc5860-ee45-7966-3e22-d6445acc933e/mzaf_1716189482689106429.plus.aac.p.m4a",
+      "trackId": 1440829613,
+      "title": "Love Yourself",
+      "artist": "Justin Bieber",
+      "storefront": "US"
+    },
+    "chart-2018-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c6/4a/be/c64abe74-adb4-cff5-005d-0fab3d72a806/mzaf_10276154697254415719.plus.aac.p.m4a",
+      "trackId": 1406109863,
+      "title": "God's Plan",
+      "artist": "Drake",
+      "storefront": "US"
+    },
+    "chart-1950-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ae/7a/6f/ae7a6f9d-986b-b066-c068-331d7713de7b/mzaf_12957501597312216255.plus.aac.p.m4a",
+      "trackId": 1443716433,
+      "title": "Music! Music! Music!",
+      "artist": "Teresa Brewer",
+      "storefront": "US"
+    },
+    "chart-2011-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/56/70/01/567001be-26a3-6c61-cfe2-8184800dc347/mzaf_12349500431513219850.plus.aac.p.m4a",
+      "trackId": 576655094,
+      "title": "Grenade",
+      "artist": "Bruno Mars",
+      "storefront": "US"
+    },
+    "chart-2013-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6b/86/81/6b868187-1d8c-a6c1-51ca-f1f0fbd4a7ac/mzaf_4398730586437868651.plus.aac.p.m4a",
+      "trackId": 573962555,
+      "title": "When I Was Your Man",
+      "artist": "Bruno Mars",
+      "storefront": "US"
+    }
+  }
+}

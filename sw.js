@@ -1,4 +1,4 @@
-const STATIC_CACHE = "tra-99-99-station-999-static-v2";
+const STATIC_CACHE = "tra-99-99-station-999-audio-bounded-v3";
 const AUDIO_CACHE = "hitster-tra-preview-audio-v2";
 const STATIC_ASSETS = [
   "./",
@@ -39,6 +39,8 @@ const STATIC_ASSETS = [
   "./hitster-kfar-bloom-2026-demo.html",
   "./hitster-tra-tokens.html",
   "./hitster-original.js",
+  "./tra-audio-runtime.js",
+  "./hitster-preview-manifest.json",
   "./hitster-alltime-888.json",
   "./app.js",
   "./styles.css",
@@ -85,7 +87,7 @@ self.addEventListener("install", function (event) {
 self.addEventListener("activate", function (event) {
   event.waitUntil(caches.keys().then(function (keys) {
     return Promise.all(keys.filter(function (key) {
-      const belongsToTra = key.startsWith("tra-") || key.startsWith("hitster-tra-");
+      const belongsToTra = key.startsWith("tra-");
       return belongsToTra && key !== STATIC_CACHE && key !== AUDIO_CACHE;
     }).map(function (key) { return caches.delete(key); }));
   }).then(function () { return self.clients.claim(); }));
@@ -98,6 +100,18 @@ self.addEventListener("message", function (event) {
   }));
 });
 
+async function matchStatic(request) {
+  const cache = await caches.open(STATIC_CACHE);
+  const exact = await cache.match(request);
+  if (exact) return exact;
+  const url = new URL(request.url);
+  const path = url.pathname.split("/").pop();
+  if (/^(hitster-(888|888-en|mobile)\.html|hitster-original\.js|tra-audio-runtime\.js)$/.test(path)) {
+    url.search = "";
+    return cache.match(url.href);
+  }
+  return null;
+}
 self.addEventListener("fetch", function (event) {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
@@ -115,7 +129,7 @@ self.addEventListener("fetch", function (event) {
         }
         return transformed;
       } catch (error) {
-        const cached = await caches.match(event.request);
+        const cached = await matchStatic(event.request);
         if (cached) return asQualityHtml(cached);
         const offline = await caches.match("./offline.html");
         if (offline) return asQualityHtml(offline);
@@ -134,7 +148,7 @@ self.addEventListener("fetch", function (event) {
       }
       return response;
     } catch (error) {
-      return await caches.match(event.request) || Response.error();
+      return await matchStatic(event.request) || Response.error();
     }
   })());
 });

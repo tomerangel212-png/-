@@ -27,6 +27,8 @@ jobs:
           node --check games-core-check.js
           node --check music-editor.js
           node --check hitster-original.js
+          node --check tra-audio-runtime.js
+          node --check audio-behavior-check.js
           node --check hitster-888-check.js
           node --check hitster-audio-check.js
           node --check hitster-flagship-check.js
@@ -47,7 +49,9 @@ jobs:
       - name: Enforce annual HITSTER 888 quality gate
         run: node hitster-888-check.js
       - name: Enforce HITSTER 30-second audio gate
-        run: node hitster-audio-check.js
+        run: |
+          node hitster-audio-check.js
+          node audio-behavior-check.js
       - name: Enforce Kfar Blum flagship parity
         run: node hitster-flagship-check.js
       - name: Enforce yellow-to-green digital gate

@@ -37,10 +37,10 @@ check("Universal layer captures Web Vitals evidence", layer.includes("Performanc
 check("Runtime failures and service-worker failures are observable", layer.includes('track("tra_runtime_error"') && layer.includes('track("tra_unhandled_rejection"') && layer.includes('track("tra_service_worker_error"'));
 check("Quality telemetry avoids direct cookie/query/local-storage collection", !layer.includes("document.cookie") && !layer.includes("location.search") && !layer.includes("localStorage"));
 
-check("Service worker uses a dedicated 99.99 Station-compatible cache generation", sw.includes('const STATIC_CACHE = "tra-99-99-station-999-static-v2"'));
+check("Service worker uses a dedicated 99.99 Station-compatible cache generation", /const STATIC_CACHE = "tra-99-99-station-999-[^"]+"/.test(sw));
 check("Service worker injects quality layer from registration scope", sw.includes('new URL("tra-quality.js", self.registration.scope).href') && !sw.includes('<script src="./tra-quality.js"></script></body>'));
-check("Service worker cleans both historical TRA cache namespaces", sw.includes('key.startsWith("tra-")') && sw.includes('key.startsWith("hitster-tra-")'));
-check("Service worker is network-first for freshness with cache fallback", sw.includes("const response = await fetch(event.request)") && sw.includes("return await caches.match(event.request) || Response.error()"));
+check("Service worker removes obsolete static generations and preserves downloaded audio", sw.includes('key.startsWith("tra-")') && !sw.includes('key.startsWith("hitster-tra-")'));
+check("Service worker is network-first for freshness with version-aware cache fallback", sw.includes("const response = await fetch(event.request)") && sw.includes("return await matchStatic(event.request) || Response.error()"));
 check("Service worker avoids partial-range response caching", sw.includes('event.request.headers.has("range")'));
 check("Unknown offline navigation uses neutral offline page", sw.includes('caches.match("./offline.html")') && !sw.includes('caches.match("./hitster-888.html")'));
 check("Neutral offline page does not masquerade as a product", offline.includes("TRA · מצב Offline") && offline.includes("לא החליף את העמוד שביקשת במשחק אחר") && !offline.includes("HITSTER"));
