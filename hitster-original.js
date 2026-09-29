@@ -400,8 +400,12 @@
     el("card-year").textContent = yearRevealed ? t.source + ": " + card.chartYear : t.yearHidden;
     el("card-source").textContent = solutionRevealed ? "Billboard year-end chart · #" + card.chartRank : "";
     el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? text(t.winner, { team: teamName(state.winnerTeamId) }) : t.noCard);
+    el("play-clip").hidden = !hasCard;
     el("play-clip").disabled = !hasCard || preparing;
     el("play-clip").textContent = preparing ? t.preparingLabel : t.playLabel;
+    el("next-card").textContent = !hasCard && preparing
+      ? (language === "he" ? "מכין שמע…" : "Preparing audio…")
+      : (language === "he" ? "קלף חדש + נגן" : "New card + play");
     el("reveal-year").disabled = !hasCard || yearRevealed;
     el("reveal-solution").disabled = !hasCard || solutionRevealed;
     el("answer-open").disabled = !hasCard || solutionRevealed || state.currentAnswerChecked;
