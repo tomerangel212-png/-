@@ -7,6 +7,7 @@ const STATIC_ASSETS = [
   "./games.html",
   "./games.js",
   "./games-hub.js",
+  "./games-core.js",
   "./games-loader.js",
   "./games.css",
   "./casino-angel.html",

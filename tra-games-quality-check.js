@@ -1,6 +1,7 @@
 "use strict";
 
 const fs = require("fs");
+const gameCore = require("./games-core.js");
 const read = path => fs.readFileSync(path, "utf8");
 const gamesHtml = read("games.html");
 const gamesJs = read("games.js");
@@ -43,6 +44,8 @@ const checks = [
     hitsterKfar.includes('location.replace("hitster-mobile.html?entry=kfar-bloom")')},
   {name:"Every game card has a play control",pass:(gamesHtml.match(/class="launch(?: [^"]*)?"/g)||[]).length>=17},
   {name:"Quick Play is wired for games without standalone pages",pass:gamesHtml.includes("games-hub.js")&&gamesHubJs.includes("tra_games_hub_opened")&&gamesHubJs.includes("openQuickGame")&&gamesHubJs.includes("quick-play")&&gamesHubJs.includes("game_count: 17")},
+  {name:"Dobble uses a verified 57-card, eight-symbol projective-plane deck",pass:gamesHtml.includes('src="games-core.js"')&&gamesHubJs.includes("renderDouble()")&&gamesHubJs.includes("tra_dobble_match")&&gameCore.validateDobbleDeck(gameCore.createDobbleDeck())&&gameCore.SYMBOLS.length===57&&new Set(gameCore.SYMBOLS).size===57},
+  {name:"Alchemy saves discoveries safely and supports the discovery book, export and reset",pass:gamesHubJs.includes('tra-alchemy-v1')&&gamesHubJs.includes("loadAlchemyState")&&gamesHubJs.includes("saveAlchemyState")&&gamesHubJs.includes("renderAlchemyBook")&&gamesHubJs.includes("exportAlchemy")&&gamesHubJs.includes("resetAlchemy")&&gamesHubJs.includes("tra_alchemy_answer_guessed")},
   {name:"Music Editor game is standalone and has 15 stages",pass:gamesHtml.includes('href="music-editor.html"')&&musicEditor.includes("מי רוצה להיות עורך מוזיקלי?")&&musicEditor.includes("15 החלטות מקצועיות")&&musicEditor.includes("1000000")&&musicEditor.includes("50:50")},
   {name:"Family Musical Journey is exposed in main links",pass:linksHtml.includes("נסיעה מוזיקלית משפחתית")&&linksHtml.includes('href="../music-drive.html"')},
   {name:"TRA Chess entry point exists",pass:gamesHtml.includes('id="chess"')&&gamesHtml.includes("TRA Chess")&&gamesCss.includes(".board")},

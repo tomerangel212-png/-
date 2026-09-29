@@ -23,6 +23,8 @@ jobs:
           node --check games.js
           node --input-type=module --check < games-loader.js
           node --check games-hub.js
+          node --check games-core.js
+          node --check games-core-check.js
           node --check music-editor.js
           node --check hitster-original.js
           node --check hitster-888-check.js
@@ -65,6 +67,8 @@ jobs:
         run: node site-route-integrity-check.js
       - name: Enforce TRA Games quality gate
         run: node tra-games-quality-check.js
+      - name: Verify exact Dobble rules and robust Alchemy saves
+        run: node games-core-check.js
       - name: Enforce Casino Angel Hold'em quality gate
         run: node casino-angel-quality-check.js
       - name: Enforce existing HITSTER catalog capacity gate

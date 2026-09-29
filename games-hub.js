@@ -7,8 +7,12 @@ const quickChallenge = document.querySelector("#quick-challenge");
 const quickNext = document.querySelector("#quick-next");
 const quickClose = document.querySelector("#quick-close");
 const quickDone = document.querySelector("#quick-done");
+const quickControls = document.querySelector("#quick-controls");
+const gameCore = window.TRA_GAMES_CORE;
 let activeQuickGame = null;
 let activeQuickEntry = null;
+let doubleState = { deck: [], round: 0, score: 0, feedback: "" };
+const ALCHEMY_KEY = "tra-alchemy-v1";
 
 const pick = (items) => items[Math.floor(Math.random() * items.length)];
 const lastChallengeByGame = {};
@@ -94,12 +98,8 @@ const games = {
   },
   double: {
     title: "👀 דאבל TRA",
-    rules: "מצאו במהירות את הסמל היחיד שמופיע בשתי השורות.",
-    challenges: [
-      "שורה א: ♟️ 🎵 ⭐ 🌿 🏀 | שורה ב: 🎭 🌊 🎵 🔑 🐉",
-      "שורה א: 🍎 🎹 🧩 🚗 ☀️ | שורה ב: 🌙 ♟️ 🚪 🍎 🎤",
-      "שורה א: 🐉 🎲 🎨 🏆 🌳 | שורה ב: 🎧 🏆 🕯️ 📚 ⚽"
-    ]
+    rules: "בשני הקלפים יש סמל משותף אחד. לחצו עליו באחד הקלפים. בחפיסה יש 57 קלפים ו־8 סמלים בכל קלף.",
+    challenges: []
   },
   alchemy: {
     title: "⚗️ אלכימאי קטן — תומרון",
@@ -116,7 +116,11 @@ const games = {
       { prompt: "גשם + אדמה", answer: "צמח" },
       { prompt: "צמח + זמן", answer: "עץ" },
       { prompt: "אש + אבן", answer: "מתכת" },
-      { prompt: "חול + אש", answer: "זכוכית" }
+      { prompt: "חול + אש", answer: "זכוכית" },
+      { prompt: "מים + אור", answer: "קשת" },
+      { prompt: "אדמה + זרע", answer: "צמח" },
+      { prompt: "שלג + חום", answer: "מים" },
+      { prompt: "אוויר + תוף", answer: "מוזיקה" }
     ]
   },
   knoke: {
@@ -140,9 +144,231 @@ const games = {
   }
 };
 
+const normalizeAlchemy = value => String(value || "").normalize("NFKC").toLocaleLowerCase("he").replace(/[\u0591-\u05C7]/g, "").replace(/[־–—-]/g, " ").replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
+let alchemyStorage;
+try { alchemyStorage = window.localStorage; } catch (error) { alchemyStorage = { getItem: () => null, setItem: () => { throw error; } }; }
+let alchemyState = gameCore
+  ? gameCore.loadAlchemyState(alchemyStorage, ALCHEMY_KEY, games.alchemy.challenges.length)
+  : { version: 1, score: 0, guesses: 0, currentIndex: 0, discoveries: {} };
+
+function saveAlchemy() {
+  if (gameCore) gameCore.saveAlchemyState(alchemyStorage, ALCHEMY_KEY, alchemyState, games.alchemy.challenges.length);
+}
+
+function clearQuickControls() {
+  if (!quickControls) return;
+  while (quickControls.firstChild) quickControls.removeChild(quickControls.firstChild);
+}
+
+function appendButton(label, className, action) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.textContent = label;
+  if (className) button.className = className;
+  button.addEventListener("click", action);
+  return button;
+}
+
+function shuffled(items) {
+  const result = items.slice();
+  for (let i = result.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function renderDouble() {
+  if (!gameCore || !quickControls) return;
+  if (!doubleState.deck.length) doubleState = { deck: shuffled(gameCore.createDobbleDeck()), round: 0, score: 0, feedback: "", displayRound: -1, displayCards: [] };
+  const first = doubleState.deck[doubleState.round % 57];
+  const second = doubleState.deck[(doubleState.round + 1) % 57];
+  const common = first.find(symbol => second.includes(symbol));
+  if (doubleState.displayRound !== doubleState.round) {
+    doubleState.displayRound = doubleState.round;
+    doubleState.displayCards = [shuffled(first), shuffled(second)];
+  }
+  while (quickChallenge.firstChild) quickChallenge.removeChild(quickChallenge.firstChild);
+  const cards = document.createElement("div");
+  cards.className = "double-cards";
+  doubleState.displayCards.forEach((card, index) => {
+    const face = document.createElement("section");
+    face.className = "double-card";
+    face.setAttribute("aria-label", index === 0 ? "קלף א" : "קלף ב");
+    card.forEach(symbolId => {
+      const symbol = document.createElement("button");
+      symbol.type = "button";
+      symbol.className = "double-symbol";
+      symbol.textContent = gameCore.SYMBOLS[symbolId];
+      symbol.setAttribute("aria-label", `בחרו סמל ${gameCore.SYMBOLS[symbolId]}`);
+      symbol.addEventListener("click", () => {
+        if (symbolId === common) {
+          doubleState.score += 1;
+          doubleState.round += 1;
+          doubleState.feedback = `✅ נכון! ${gameCore.SYMBOLS[common]} הוא הסמל המשותף.`;
+          track("tra_dobble_match", { score: doubleState.score, round: doubleState.round });
+          renderDouble();
+        } else {
+          doubleState.feedback = "לא זה. חפשו את הסמל שמופיע בשני הקלפים.";
+          renderDouble();
+        }
+      });
+      face.append(symbol);
+    });
+    cards.append(face);
+  });
+  quickChallenge.append(cards);
+  clearQuickControls();
+  const score = document.createElement("p");
+  score.className = "quick-feedback";
+  score.setAttribute("role", "status");
+  score.textContent = `ניקוד: ${doubleState.score} · סבב ${doubleState.round + 1}/57${doubleState.feedback ? ` · ${doubleState.feedback}` : ""}`;
+  quickControls.append(score);
+}
+
+function currentAlchemyIndex() {
+  const count = games.alchemy.challenges.length;
+  return findAlchemyIndex(alchemyState.currentIndex);
+}
+
+function findAlchemyIndex(start) {
+  const count = games.alchemy.challenges.length;
+  for (let offset = 0; offset < count; offset += 1) {
+    const index = (start + offset) % count;
+    if (!alchemyState.discoveries[String(index)]) return index;
+  }
+  return -1;
+}
+
+function renderAlchemyBook() {
+  const details = document.createElement("details");
+  details.className = "alchemy-book";
+  const summary = document.createElement("summary");
+  summary.textContent = `ספר התגליות · ${Object.keys(alchemyState.discoveries).length}/${games.alchemy.challenges.length}`;
+  details.append(summary);
+  const list = document.createElement("ul");
+  games.alchemy.challenges.forEach((entry, index) => {
+    const found = alchemyState.discoveries[String(index)];
+    if (!found) return;
+    const item = document.createElement("li");
+    item.textContent = `${found.prompt} = ${found.answer}${found.method === "guess" ? " · ניחוש נכון" : " · נחשף"}`;
+    list.append(item);
+  });
+  if (!list.childElementCount) {
+    const item = document.createElement("li");
+    item.textContent = "עדיין לא התגלו שילובים.";
+    list.append(item);
+  }
+  details.append(list);
+  return details;
+}
+
+function renderAlchemy() {
+  const index = currentAlchemyIndex();
+  if (index < 0) {
+    activeQuickEntry = null;
+    quickChallenge.textContent = "כל השילובים התגלו! אפשר לייצא את הספר או לאפס ולהתחיל מחדש.";
+    if (quickDone) quickDone.hidden = true;
+  } else {
+    alchemyState.currentIndex = index;
+    activeQuickEntry = games.alchemy.challenges[index];
+    quickChallenge.textContent = `${activeQuickEntry.prompt} = ?`;
+    if (quickDone) { quickDone.hidden = false; quickDone.textContent = "חשפו תשובה"; }
+  }
+  saveAlchemy();
+  clearQuickControls();
+  const summary = document.createElement("p");
+  summary.className = "quick-feedback";
+  summary.textContent = `ניקוד: ${alchemyState.score} · ניסיונות: ${alchemyState.guesses} · התקדמות נשמרת במכשיר`;
+  quickControls.append(summary);
+  if (activeQuickEntry) {
+    const form = document.createElement("form");
+    form.className = "alchemy-guess";
+    const input = document.createElement("input");
+    input.type = "text";
+    input.autocomplete = "off";
+    input.placeholder = "מה נוצר?";
+    input.setAttribute("aria-label", "ניחוש התוצאה");
+    const result = document.createElement("span");
+    result.className = "quick-feedback";
+    result.setAttribute("role", "status");
+    const found = alchemyState.discoveries[String(alchemyState.currentIndex)];
+    if (found) {
+      result.textContent = `✅ ${found.prompt} = ${found.answer}`;
+      input.disabled = true;
+    }
+    form.append(input, appendButton("בדקו ניחוש", "primary", () => {}));
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      if (!activeQuickEntry || alchemyState.discoveries[String(alchemyState.currentIndex)]) return;
+      alchemyState.guesses += 1;
+      if (normalizeAlchemy(input.value) === normalizeAlchemy(activeQuickEntry.answer)) {
+        const solvedIndex = alchemyState.currentIndex;
+        alchemyState.score += 1;
+        alchemyState.discoveries[String(solvedIndex)] = { prompt: activeQuickEntry.prompt, answer: activeQuickEntry.answer, method: "guess" };
+        result.textContent = `✅ נכון! ${activeQuickEntry.prompt} = ${activeQuickEntry.answer}`;
+        input.disabled = true;
+        track("tra_alchemy_answer_guessed", { combination: activeQuickEntry.prompt, score: alchemyState.score });
+      } else result.textContent = "עוד לא. נסו שוב, או חשפו את התשובה.";
+      saveAlchemy();
+      renderAlchemyProgress(summary);
+      renderAlchemyBookInto(book);
+    });
+    form.querySelector("button").type = "submit";
+    quickControls.append(form, result);
+  }
+  const book = renderAlchemyBook();
+  quickControls.append(book);
+  quickControls.append(
+    appendButton("ייצאו ספר תגליות", "", exportAlchemy),
+    appendButton("איפוס התקדמות", "", resetAlchemy)
+  );
+}
+
+function renderAlchemyProgress(target) {
+  target.textContent = `ניקוד: ${alchemyState.score} · ניסיונות: ${alchemyState.guesses} · התקדמות נשמרת במכשיר`;
+}
+
+function renderAlchemyBookInto(target) {
+  const fresh = renderAlchemyBook();
+  target.replaceWith(fresh);
+}
+
+function exportAlchemy() {
+  const content = JSON.stringify({ title: "TRA Alchemy discoveries", exportedAt: new Date().toISOString(), score: alchemyState.score, guesses: alchemyState.guesses, discoveries: alchemyState.discoveries }, null, 2);
+  const url = URL.createObjectURL(new Blob([content], { type: "application/json" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "tra-alchemy-discoveries.json";
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function resetAlchemy() {
+  if (!window.confirm("לאפס את הניקוד ואת ספר התגליות של אלכימאי קטן?")) return;
+  alchemyState = gameCore ? gameCore.createAlchemyState() : { version: 1, score: 0, guesses: 0, currentIndex: 0, discoveries: {} };
+  saveAlchemy();
+  renderChallenge();
+}
+
 function renderChallenge() {
   if (!activeQuickGame) return;
   const game = games[activeQuickGame];
+  if (activeQuickGame === "double") {
+    quickRules.textContent = game.rules;
+    if (quickDone) { quickDone.hidden = false; quickDone.textContent = "סיימנו"; }
+    renderDouble();
+    return;
+  }
+  if (activeQuickGame === "alchemy") {
+    quickRules.textContent = game.rules;
+    if (quickNext) quickNext.textContent = "השילוב הבא";
+    renderAlchemy();
+    return;
+  }
+  if (quickNext) quickNext.textContent = "משימה חדשה";
+  if (quickDone) quickDone.hidden = false;
+  clearQuickControls();
   const entry = pickDifferent(activeQuickGame, game.challenges);
   activeQuickEntry = entry;
 
@@ -169,6 +395,8 @@ function openQuickGame(id) {
   if (!game || !quickPanel) return;
   activeQuickGame = id;
   activeQuickEntry = null;
+  if (id === "double") doubleState = { deck: shuffled(gameCore.createDobbleDeck()), round: 0, score: 0, feedback: "", displayRound: -1, displayCards: [] };
+  if (id === "alchemy") alchemyState.currentIndex = currentAlchemyIndex();
   quickTitle.textContent = game.title;
   quickRules.textContent = game.rules;
   quickPanel.hidden = false;
@@ -194,12 +422,39 @@ document.querySelectorAll("a.launch").forEach((link) => {
   link.addEventListener("click", () => track("tra_game_opened", { href: link.getAttribute("href"), mode: "full" }));
 });
 
-quickNext?.addEventListener("click", renderChallenge);
+quickNext?.addEventListener("click", () => {
+  if (activeQuickGame === "double") {
+    doubleState.round = (doubleState.round + 1) % 57;
+    doubleState.feedback = "דילגתם לקלפים הבאים.";
+    renderDouble();
+    return;
+  }
+  if (activeQuickGame === "alchemy") {
+    const next = findAlchemyIndex((alchemyState.currentIndex + 1) % games.alchemy.challenges.length);
+    if (next < 0) { renderAlchemy(); return; }
+    alchemyState.currentIndex = next;
+    saveAlchemy();
+  }
+  renderChallenge();
+});
 quickClose?.addEventListener("click", closeQuickGame);
 quickDone?.addEventListener("click", () => {
   if (activeQuickGame === "alchemy" && activeQuickEntry?.answer) {
-    quickChallenge.textContent = `${activeQuickEntry.prompt} = ${activeQuickEntry.answer}`;
-    track("tra_alchemy_answer_revealed", { combination: activeQuickEntry.prompt, answer: activeQuickEntry.answer });
+    const entry = activeQuickEntry;
+    const solvedIndex = alchemyState.currentIndex;
+    alchemyState.discoveries[String(solvedIndex)] = { prompt: entry.prompt, answer: entry.answer, method: "reveal" };
+    saveAlchemy();
+    quickChallenge.textContent = `${entry.prompt} = ${entry.answer}`;
+    quickDone.hidden = true;
+    const progress = quickControls.querySelector(".quick-feedback");
+    if (progress) renderAlchemyProgress(progress);
+    const book = quickControls.querySelector(".alchemy-book");
+    if (book) renderAlchemyBookInto(book);
+    const input = quickControls.querySelector(".alchemy-guess input");
+    const result = quickControls.querySelector(".alchemy-guess + .quick-feedback");
+    if (input) input.disabled = true;
+    if (result) result.textContent = `נחשף: ${entry.answer}`;
+    track("tra_alchemy_answer_revealed", { combination: entry.prompt, answer: entry.answer });
     return;
   }
   closeQuickGame();

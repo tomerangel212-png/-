@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const requiredFiles = [
-  "index.html","games.html","games.js","games-hub.js",
+  "index.html","games.html","games.js","games-hub.js","games-core.js","games-core-check.js",
   "hitster.html","hitster-mobile.html","hitster-888.html","hitster-888-en.html","hitster-kfar-bloom-2026-demo.html","hitster-tra-tokens.html",
   "hitster-original.js","hitster-alltime-888.json","hitster-888-check.js",
   "casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",

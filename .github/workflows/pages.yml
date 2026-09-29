@@ -25,6 +25,8 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check hitster-original.js
+          node --check games-core.js
+          node --check games-core-check.js
           node --check hitster-888-check.js
           node --check hitster-audio-check.js
           node --check hitster-flagship-check.js
@@ -45,6 +47,7 @@ jobs:
           node hitster-888-check.js
           node hitster-audio-check.js
           node hitster-flagship-check.js
+          node games-core-check.js
           node site-smoke-check.js
           node site-route-integrity-check.js
           node tra-games-quality-check.js
