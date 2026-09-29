@@ -41,7 +41,7 @@ for(const data of [base,extra,fix]){
 }
 if(!fs.existsSync("tra-music-station.html"))throw new Error("station HTML missing");
 const html=fs.readFileSync("tra-music-station.html","utf8");
-for(const needle of ["999 שירים","333","tra-music-station-extra-555.json","tra-music-station-corrections-5.json","resolveApple","scoreCandidate","itunes.apple.com/search","itunes.apple.com/lookup","selectPlayable","stationRunning","advanceAfterPlayback","PREVIEW_SECONDS","PREVIEW_SECONDS*1000","previewElapsedSeconds","previewUrl","בלי להציג מועמדים שנפסלו"]){if(!html.includes(needle))throw new Error(`station HTML missing ${needle}`);}
+for(const needle of ["AUDIO_LOAD_TIMEOUT_MS=8_000","function hasThirtySecondDuration(media)","function loadPreviewIntoPlayer(source,selection)","await loadPreviewIntoPlayer(hit.previewUrl,token)","audio preparation timed out","preview is shorter than 30 seconds","a.playsInline=true","999 שירים","333","tra-music-station-extra-555.json","tra-music-station-corrections-5.json","resolveApple","scoreCandidate","itunes.apple.com/search","itunes.apple.com/lookup","selectPlayable","stationRunning","advanceAfterPlayback","PREVIEW_SECONDS","PREVIEW_SECONDS*1000","previewElapsedSeconds","previewUrl","בלי להציג מועמדים שנפסלו"]){if(!html.includes(needle))throw new Error(`station HTML missing ${needle}`);}
 if(html.includes("return draw("))throw new Error("station must not recursively flash rejected candidates");
 if(!html.includes('addEventListener("ended"'))throw new Error("station must handle preview completion");
 if(html.includes('if(stationRunning)advanceAfterPlayback();'))throw new Error("station must not skip to the next song when a short preview ends early");
