@@ -49,6 +49,10 @@ check("solution reveal is separate", html.includes('id="reveal-solution"') && en
 check("timeline reset exists", html.includes('id="reset-timeline"') && engine.includes("function resetTimeline") && engine.includes("resetTimelineConfirm"));
 check("single timeline card removal is guarded", html.includes("timeline-remove") && engine.includes("function removeTimelineCard") && engine.includes("window.confirm(t.removeConfirm)"));
 check("timeline cards are numbered", html.includes("card-number") && engine.includes('createNode("span", "card-number", String(index + 1))'));
+check("HITSTER 888 prepares audio before the play tap", engine.includes("await prepareCardAudio(card);") && !engine.includes("await playClip(true);") && engine.includes("The preview is ready. Tap"));
+const explicitPlay = engine.slice(engine.indexOf("async function playClip"), engine.indexOf("function checkAnswer"));
+check("HITSTER 888 calls audio.play directly in the explicit tap path", explicitPlay.includes("var playback = audio.play();") && explicitPlay.indexOf("audio.play()") < explicitPlay.indexOf("await playback"));
+check("HITSTER reports media playback failures to PostHog", engine.includes("song_preview_media_error") && engine.includes("song_preview_play_failed"));
 check("engine caches previews when possible", engine.includes("AUDIO_CACHE_NAME") && engine.includes("cachedPreview") && engine.includes("cacheRemotePreview") && engine.includes("navigator.onLine"));
 check("preview lookup tries multiple storefronts", engine.includes('["US", "GB", "IL"]') && engine.includes("lookupPreviewInCountry"));
 check("engine has no external app fallback", !/open\.spotify\.com|youtube\.com|deezer\.com|soundcloud\.com/i.test(engine));
