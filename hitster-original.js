@@ -24,8 +24,10 @@
       online: "🟢 מחובר: קטעים שיושמעו יישמרו לאופליין כשהדפדפן מאפשר זאת.",
       noCard: "לחצו על „קלף חדש + נגן” כדי להתחיל את התור.",
       cardReady: "הקלף מוכן. בחרו מיקום בציר, נגנו/זהו, ואז חשפו את השנה.",
-      cached: "הקטע נשמר גם לאופליין במכשיר הזה.",
-      onlineOnly: "הקטע מתנגן דרך האינטרנט; הדפדפן לא אפשר לשמור אותו לאופליין.",
+      cached: "קטע השמע מוכן לניגון ונשמר גם לאופליין במכשיר הזה.",
+      previewReady: "קטע השמע מוכן. לחצו על „נגנו 30 שניות” כדי להתחיל.",
+      preparingStatus: "מכין שמע לפני הניגון…",
+      onlineOnly: "קטע השמע מוכן לניגון דרך האינטרנט.",
       noPreview: "לא נמצא כרגע קטע תצוגה חוקי. נסו שוב בנגיעה על „נגנו 30 שניות”, או החליפו שיר תמורת ⭐.",
       blocked: "Safari/הדפדפן ביקש נגיעה נוספת. לחצו על „נגנו 30 שניות”.",
       played: "מנגן עד 30 שניות בתוך HITSTER.",
@@ -78,8 +80,10 @@
       online: "🟢 Online: played previews are saved for offline use when the browser allows it.",
       noCard: "Press “New card + play” to start the turn.",
       cardReady: "Card ready. Choose a timeline slot, play/identify it, then reveal the year.",
-      cached: "This preview is also saved for offline play on this device.",
-      onlineOnly: "This preview is playing online; the browser did not allow offline storage.",
+      cached: "The preview is ready and also saved for offline play on this device.",
+      previewReady: "The preview is ready. Tap “Play 30 seconds” to start.",
+      preparingStatus: "Preparing audio…",
+      onlineOnly: "The preview is ready to play online.",
       noPreview: "No legal preview is available right now. Tap “Play 30 seconds” again, or replace the song for ⭐.",
       blocked: "Safari/the browser needs one more tap. Press “Play 30 seconds”.",
       played: "Playing up to 30 seconds inside HITSTER.",
@@ -415,6 +419,7 @@
     deck = payload.cards;
     deck.forEach(function (card) { deckById[card.id] = card; });
     restore();
+    if (currentCard()) prepareCardAudio(currentCard());
     render();
     setStatus(hasProgress(state) ? t.resume : text(t.ready, { team: teamName(state.activeTeamId) }));
     track("hitster_annual_deck_loaded", { cards: deck.length, year_basis: payload.yearBasis, ruleset: "kfar-blum-18" });
@@ -442,7 +447,7 @@
     render();
     setStatus(t.cardReady);
     track("hitster_card_drawn", { card_id: card.id, chart_year: card.chartYear, used_count: state.used.length, team_id: state.activeTeamId });
-    await playClip(true);
+    await prepareCardAudio(card);
   }
   function currentPlacementIsCorrect(card, slot) {
     var cards = sortedTimeline(getTeam());
@@ -547,38 +552,73 @@
       clipTimer = null;
     }, PREVIEW_SECONDS * 1000);
   }
+  async function prepareCardAudio(card) {
+    if (!card || state.current !== card.id) return false;
+    if (preparedCardId === card.id && audio.getAttribute("src")) return true;
+    if (preparing) return false;
+    preparing = true;
+    render();
+    setStatus(t.preparingStatus);
+    try {
+      var preview = await preparePreview(card);
+      if (!preview || state.current !== card.id) {
+        if (state.current === card.id) setStatus(t.noPreview);
+        return false;
+      }
+      if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
+      previewObjectUrl = preview.cached && preview.src.indexOf("blob:") === 0 ? preview.src : null;
+      audio.preload = "auto";
+      audio.playsInline = true;
+      audio.src = preview.src;
+      audio.load();
+      preparedCardId = card.id;
+      setStatus(preview.cached ? t.cached : t.onlineOnly);
+      track("song_preview_ready", {
+        card_id: card.id,
+        chart_year: card.chartYear,
+        delivery: preview.cached ? "cached" : "online",
+        used_count: state.used.length
+      });
+      return true;
+    } catch (error) {
+      if (state.current === card.id) setStatus(navigator.onLine ? t.noPreview : t.offline);
+      track("song_preview_prepare_failed", {
+        card_id: card.id,
+        error_name: error && error.name ? error.name : "Error",
+        error_message: String(error && error.message ? error.message : "").slice(0, 160)
+      });
+      return false;
+    } finally {
+      preparing = false;
+      render();
+    }
+  }
   async function playClip(fromDraw) {
     var card = currentCard();
     if (!card || preparing) return;
     if (preparedCardId !== card.id || !audio.getAttribute("src")) {
-      preparing = true;
-      render();
-      try {
-        var preview = await preparePreview(card);
-        if (!preview || state.current !== card.id) { setStatus(t.noPreview); return; }
-        if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
-        previewObjectUrl = preview.cached && preview.src.indexOf("blob:") === 0 ? preview.src : null;
-        audio.src = preview.src;
-        audio.load();
-        preparedCardId = card.id;
-        setStatus(preview.cached ? t.cached : t.onlineOnly);
-      } catch (error) {
-        setStatus(navigator.onLine ? t.noPreview : t.offline);
-        return;
-      } finally {
-        preparing = false;
-        render();
-      }
+      var ready = await prepareCardAudio(card);
+      if (!ready) return;
     }
     try {
       clearClipTimer();
       audio.currentTime = 0;
-      await audio.play();
+      // The preview is prepared before the user's tap. Start playback directly
+      // inside this click handler so mobile Safari retains user activation.
+      var playback = audio.play();
+      await playback;
       armClipTimer();
       setStatus(t.played);
       track("song_preview_started", { card_id: card.id, chart_year: card.chartYear, seconds: PREVIEW_SECONDS, from_draw: Boolean(fromDraw), used_count: state.used.length });
     } catch (error) {
       setStatus(error && error.name === "NotAllowedError" ? t.blocked : t.noPreview);
+      track("song_preview_play_failed", {
+        card_id: card.id,
+        error_name: error && error.name ? error.name : "Error",
+        error_message: String(error && error.message ? error.message : "").slice(0, 160),
+        ready_state: audio.readyState,
+        media_error_code: audio.error ? audio.error.code : 0
+      });
     }
   }
   function checkAnswer(event) {
@@ -739,6 +779,26 @@
   el("reset-timeline").addEventListener("click", resetTimeline);
   el("continue-game").addEventListener("click", continueGame);
   el("reset-from-start").addEventListener("click", resetFromStart);
+  audio.addEventListener("playing", function () {
+    var card = currentCard();
+    if (!card) return;
+    track("song_preview_playing", { card_id: card.id, chart_year: card.chartYear, ready_state: audio.readyState, network_state: audio.networkState });
+  });
+  audio.addEventListener("stalled", function () {
+    var card = currentCard();
+    if (!card) return;
+    track("song_preview_stalled", { card_id: card.id, ready_state: audio.readyState, network_state: audio.networkState });
+  });
+  audio.addEventListener("error", function () {
+    var card = currentCard();
+    track("song_preview_media_error", {
+      card_id: card ? card.id : null,
+      media_error_code: audio.error ? audio.error.code : 0,
+      ready_state: audio.readyState,
+      network_state: audio.networkState
+    });
+    if (card) setStatus(t.noPreview);
+  });
   audio.addEventListener("timeupdate", function () {
     if (audio.currentTime >= PREVIEW_SECONDS) {
       clearClipTimer();
