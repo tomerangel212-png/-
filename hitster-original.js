@@ -72,7 +72,9 @@
       removeConfirm: "האם אתה בטוח שאתה רוצה להסיר שיר זה מהציר?",
       resetTimelineConfirm: "לאפס את הציר של הקבוצה הזאת? השירים שכבר נוגנו לא יחזרו לחפיסה.",
       resetAllConfirm: "לאפס את כל המשחק? כל הצירים, הכוכבים והיסטוריית 888 הקלפים יימחקו.",
-      noSaved: "אין משחק שמור עדיין. התחילו משחק חדש."
+      noSaved: "לא נמצא משחק שמור. אפשר להתחיל מכאן.",
+      startFresh: "התחילו לשחק",
+      storageUnavailable: "הדפדפן לא מאפשר גישה לשמירה המקומית. המשחק ימשיך, אך ההתקדמות לא תישמר במכשיר הזה."
     },
     en: {
       loading: "Loading the 888-card deck…",
@@ -128,7 +130,9 @@
       removeConfirm: "Are you sure you want to remove this song from the timeline?",
       resetTimelineConfirm: "Reset this team's timeline? Already-played songs will not return to the deck.",
       resetAllConfirm: "Reset the entire game? All timelines, stars and the 888-card play history will be erased.",
-      noSaved: "There is no saved game yet. Start a new game."
+      noSaved: "No saved game was found. You can start here.",
+      startFresh: "Start playing",
+      storageUnavailable: "This browser blocked local saving. You can play, but progress will not be saved on this device."
     }
   };
 
@@ -143,6 +147,7 @@
   var preparedCardId = null;
   var preparing = false;
   var clipTimer = null;
+  var storageIssue = false;
 
   function el(id) { return document.getElementById(id); }
   function setStatus(message) { if (el("status")) el("status").textContent = message; }
@@ -185,7 +190,7 @@
     return Boolean(candidate && ((candidate.used && candidate.used.length) || candidate.current || (candidate.teams || []).some(function (team) { return team.timeline && team.timeline.length; })));
   }
   function sanitizeState(candidate) {
-    if (!candidate || !Array.isArray(candidate.teams) || (candidate.version !== 1 && candidate.version !== 2)) return createInitialState();
+    if (!candidate || !Array.isArray(candidate.teams) || !candidate.teams.length) return createInitialState();
     var valid = Object.create(null);
     deck.forEach(function (card) { valid[card.id] = true; });
     var restored = createInitialState();
@@ -228,11 +233,21 @@
     return restored;
   }
   function restore() {
-    try { state = sanitizeState(JSON.parse(localStorage.getItem(STORAGE_KEY))); }
-    catch (error) { state = createInitialState(); }
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      state = sanitizeState(saved ? JSON.parse(saved) : null);
+    } catch (error) {
+      state = createInitialState();
+      storageIssue = true;
+      track("game_save_read_failed", { error_name: error && error.name ? error.name : "Error" });
+    }
   }
   function persist() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) {}
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    catch (error) {
+      if (!storageIssue) track("game_save_write_failed", { error_name: error && error.name ? error.name : "Error" });
+      storageIssue = true;
+    }
   }
   function clearClipTimer() {
     if (clipTimer) { clearTimeout(clipTimer); clipTimer = null; }
@@ -385,8 +400,9 @@
     if (!screen) return;
     var continueButton = el("continue-game");
     var saved = hasProgress(state);
-    continueButton.disabled = !saved;
-    if (el("start-note")) el("start-note").textContent = saved ? t.resume : t.noSaved;
+    continueButton.disabled = false;
+    continueButton.textContent = saved ? (language === "he" ? "המשך מאיפה שעצרנו" : "Continue where we stopped") : t.startFresh;
+    if (el("start-note")) el("start-note").textContent = storageIssue ? t.storageUnavailable : (saved ? t.resume : t.noSaved);
   }
   function render() {
     if (!state) return;
@@ -423,7 +439,7 @@
     restore();
     if (currentCard()) prepareCardAudio(currentCard());
     render();
-    setStatus(hasProgress(state) ? t.resume : text(t.ready, { team: teamName(state.activeTeamId) }));
+    setStatus(storageIssue ? t.storageUnavailable : (hasProgress(state) ? t.resume : text(t.ready, { team: teamName(state.activeTeamId) })));
     track("hitster_annual_deck_loaded", { cards: deck.length, year_basis: payload.yearBasis, ruleset: "kfar-blum-18" });
   }
   function randomUnusedCard() {
@@ -784,8 +800,12 @@
     if (screen) screen.hidden = true;
   }
   function continueGame() {
-    if (!hasProgress(state)) { setStatus(t.noSaved); return; }
     hideStartScreen();
+    if (!hasProgress(state)) {
+      setStatus(storageIssue ? t.storageUnavailable : text(t.ready, { team: teamName(state.activeTeamId) }));
+      track("game_started", { reset: false, resumed: false, cards: deck.length, ruleset: "kfar-blum-18" });
+      return;
+    }
     setStatus(t.resume);
     track("game_resumed", { used_count: state.used.length, team_id: state.activeTeamId });
   }
