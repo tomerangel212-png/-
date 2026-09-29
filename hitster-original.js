@@ -5,6 +5,8 @@
   var STORAGE_KEY = "hitster-tra-annual-888-v1";
   var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v1";
   var PREVIEW_SECONDS = 30;
+  var PREVIEW_LOOKUP_TIMEOUT_MS = 6000;
+  var PREVIEW_DOWNLOAD_TIMEOUT_MS = 10000;
   var START_STARS = 5;
   var MAX_STARS = 10;
   var WIN_CARDS = 18;
@@ -497,9 +499,28 @@
     rightWords.forEach(function (word) { rightSet[word] = true; });
     return leftWords.filter(function (word) { return rightSet[word]; }).length / Math.max(leftWords.length, rightWords.length);
   }
+  async function fetchWithTimeout(url, options, timeoutMs) {
+    var controller = typeof AbortController === "function" ? new AbortController() : null;
+    var requestOptions = Object.assign({}, options || {});
+    if (controller) requestOptions.signal = controller.signal;
+    var timeoutId;
+    var timeout = new Promise(function (_, reject) {
+      timeoutId = window.setTimeout(function () {
+        if (controller) controller.abort();
+        var error = new Error("Audio request timed out after " + timeoutMs + "ms.");
+        error.name = "TimeoutError";
+        reject(error);
+      }, timeoutMs);
+    });
+    try {
+      return await Promise.race([fetch(url, requestOptions), timeout]);
+    } finally {
+      if (timeoutId) window.clearTimeout(timeoutId);
+    }
+  }
   async function lookupPreviewInCountry(card, country) {
     var url = "https://itunes.apple.com/search?media=music&entity=song&limit=50&country=" + encodeURIComponent(country) + "&term=" + encodeURIComponent(card.title + " " + card.artist);
-    var response = await fetch(url, { cache: "no-store" });
+    var response = await fetchWithTimeout(url, { cache: "no-store" }, PREVIEW_LOOKUP_TIMEOUT_MS);
     if (!response.ok) return null;
     var expectedTitle = normalize(card.title), expectedArtist = normalize(card.artist), best = null, bestScore = 0;
     var payload = await response.json(), candidates = Array.isArray(payload.results) ? payload.results : [];
@@ -515,18 +536,24 @@
   async function lookupPreview(card) {
     if (Object.prototype.hasOwnProperty.call(previewMemo, card.id)) return previewMemo[card.id];
     if (!navigator.onLine) return null;
-    var countries = ["US", "GB", "IL"];
+    var countries = ["US", "GB", "IL"], failures = [];
     for (var index = 0; index < countries.length; index += 1) {
       try {
         var found = await lookupPreviewInCountry(card, countries[index]);
         if (found) { previewMemo[card.id] = found; return found; }
-      } catch (error) {}
+      } catch (error) { failures.push(error); }
     }
     previewMemo[card.id] = null;
+    track("song_preview_lookup_failed", {
+      card_id: card.id,
+      countries_checked: countries.length,
+      network_failures: failures.length,
+      error_name: failures.length && failures[failures.length - 1].name ? failures[failures.length - 1].name : null
+    });
     return null;
   }
   async function cacheRemotePreview(card, previewUrl) {
-    var response = await fetch(previewUrl, { mode: "cors", cache: "force-cache" });
+    var response = await fetchWithTimeout(previewUrl, { mode: "cors", cache: "force-cache" }, PREVIEW_DOWNLOAD_TIMEOUT_MS);
     if (!response.ok || response.type === "opaque") return { src: previewUrl, cached: false };
     var copy = response.clone();
     try {
@@ -540,7 +567,14 @@
     var remote = await lookupPreview(card);
     if (!remote) return null;
     try { return await cacheRemotePreview(card, remote); }
-    catch (error) { return { src: remote, cached: false }; }
+    catch (error) {
+      track("song_preview_cache_fallback", {
+        card_id: card.id,
+        error_name: error && error.name ? error.name : "Error",
+        error_message: String(error && error.message ? error.message : "").slice(0, 160)
+      });
+      return { src: remote, cached: false };
+    }
   }
   function armClipTimer() {
     clearClipTimer();
@@ -562,7 +596,10 @@
     try {
       var preview = await preparePreview(card);
       if (!preview || state.current !== card.id) {
-        if (state.current === card.id) setStatus(t.noPreview);
+        if (state.current === card.id) {
+          setStatus(t.noPreview);
+          track("song_preview_prepare_failed", { card_id: card.id, reason: "no_playable_preview", online: Boolean(navigator.onLine) });
+        }
         return false;
       }
       if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
