@@ -18,7 +18,7 @@ for (const file of routes) {
 }
 for (const file of ["hitster-888.html", "hitster-888-en.html"]) {
   const text = fs.readFileSync(file, "utf8");
-  for (const required of ["kfar-blum-888-internal-audio-v4", "30", "18", "5", "10"]) {
+  for (const required of ["kfar-blum-888-internal-audio-v5", "30", "18", "5", "10"]) {
     if (!text.includes(required)) errors.push(`${file}: flagship contract missing ${required}`);
   }
 }
