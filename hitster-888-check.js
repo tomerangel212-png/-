@@ -44,6 +44,9 @@ check("turns rotate automatically", engine.includes("function advanceTurn") && e
 check("skip keeps same turn and replaces card", engine.includes('action: "skip_replace_keep_turn"') && engine.includes("finishCurrent(false)") && engine.includes("await drawCard()"));
 check("played cards are globally unique", engine.includes("state.used.push(card.id)") && engine.includes("randomUnusedCard") && engine.includes("!used[card.id]"));
 check("start screen supports continue and reset", html.includes('id="start-screen"') && html.includes('id="continue-game"') && html.includes('id="reset-from-start"') && english.includes('id="continue-game"'));
+check("continue remains actionable without a saved game", engine.includes("continueButton.disabled = false") && engine.includes("if (!hasProgress(state))") && engine.includes("resumed: false"));
+check("local save failures are reported to the player and telemetry", engine.includes("game_save_read_failed") && engine.includes("game_save_write_failed") && engine.includes("storageUnavailable"));
+check("saved game state from later schema versions can be migrated", !engine.includes("candidate.version !== 1 && candidate.version !== 2"));
 check("year reveal is separate from timeline add", html.includes('id="reveal-year"') && html.includes('id="add-to-timeline"') && engine.includes("currentPlacementCorrect") && engine.includes("addToTimeline"));
 check("solution reveal is separate", html.includes('id="reveal-solution"') && engine.includes("currentSolutionRevealed") && engine.includes("revealSolution"));
 check("timeline reset exists", html.includes('id="reset-timeline"') && engine.includes("function resetTimeline") && engine.includes("resetTimelineConfirm"));
