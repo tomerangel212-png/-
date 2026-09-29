@@ -24,10 +24,10 @@
       online: "🟢 מחובר: קטעים שיושמעו יישמרו לאופליין כשהדפדפן מאפשר זאת.",
       noCard: "לחצו על „קלף חדש + נגן” כדי להתחיל את התור.",
       cardReady: "הקלף מוכן. בחרו מיקום בציר, נגנו/זהו, ואז חשפו את השנה.",
-      cached: "קטע השמע מוכן לניגון ונשמר גם לאופליין במכשיר הזה.",
+      cached: "קטע השמע מוכן. לחצו על „נגנו 30 שניות” כדי להתחיל; הוא נשמר גם לאופליין.",
       previewReady: "קטע השמע מוכן. לחצו על „נגנו 30 שניות” כדי להתחיל.",
       preparingStatus: "מכין שמע לפני הניגון…",
-      onlineOnly: "קטע השמע מוכן לניגון דרך האינטרנט.",
+      onlineOnly: "קטע השמע מוכן. לחצו על „נגנו 30 שניות” כדי להתחיל.",
       noPreview: "לא נמצא כרגע קטע תצוגה חוקי. נסו שוב בנגיעה על „נגנו 30 שניות”, או החליפו שיר תמורת ⭐.",
       blocked: "Safari/הדפדפן ביקש נגיעה נוספת. לחצו על „נגנו 30 שניות”.",
       played: "מנגן עד 30 שניות בתוך HITSTER.",
@@ -80,10 +80,10 @@
       online: "🟢 Online: played previews are saved for offline use when the browser allows it.",
       noCard: "Press “New card + play” to start the turn.",
       cardReady: "Card ready. Choose a timeline slot, play/identify it, then reveal the year.",
-      cached: "The preview is ready and also saved for offline play on this device.",
+      cached: "The preview is ready. Tap “Play 30 seconds” to start; it is saved for offline play too.",
       previewReady: "The preview is ready. Tap “Play 30 seconds” to start.",
       preparingStatus: "Preparing audio…",
-      onlineOnly: "The preview is ready to play online.",
+      onlineOnly: "The preview is ready. Tap “Play 30 seconds” to start.",
       noPreview: "No legal preview is available right now. Tap “Play 30 seconds” again, or replace the song for ⭐.",
       blocked: "Safari/the browser needs one more tap. Press “Play 30 seconds”.",
       played: "Playing up to 30 seconds inside HITSTER.",
@@ -598,7 +598,9 @@
     if (!card || preparing) return;
     if (preparedCardId !== card.id || !audio.getAttribute("src")) {
       var ready = await prepareCardAudio(card);
-      if (!ready) return;
+      if (ready) setStatus(t.previewReady);
+      // Never start playback after an async lookup; wait for a fresh user tap.
+      return;
     }
     try {
       clearClipTimer();
