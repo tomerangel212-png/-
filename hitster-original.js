@@ -69,7 +69,7 @@
       after: "אחרי",
       count: "קלפים",
       stars: "כוכבים",
-      winner: "🏆 {team} ניצחו עם 10 קלפים!",
+      winner: "🏆 {team} ניצחו עם {cards} קלפים!",
       turn: "תור",
       playLabel: "▶ נגנו 30 שניות",
       preparingLabel: "מכין שמע…",
@@ -128,7 +128,7 @@
       after: "After",
       count: "cards",
       stars: "stars",
-      winner: "🏆 {team} wins with 10 cards!",
+      winner: "🏆 {team} wins with {cards} cards!",
       turn: "Turn",
       playLabel: "▶ Play 30 seconds",
       preparingLabel: "Preparing audio…",
@@ -188,6 +188,7 @@
     var teams = configuredTeams || TEAM_DEFS;
     return {
       version: 3,
+      winTarget: WIN_CARDS,
       activeTeamId: teams[0].id,
       teams: teams.map(function (team) { return { id: team.id, name: team.name || team[language], stars: START_STARS, timeline: [] }; }),
       used: [],
@@ -228,6 +229,7 @@
     var valid = Object.create(null);
     deck.forEach(function (card) { valid[card.id] = true; });
     var restored = createInitialState(configuredTeams);
+    restored.winTarget = candidate.winTarget === 15 ? 15 : WIN_CARDS;
     var usedAcrossTimelines = Object.create(null);
     restored.teams.forEach(function (team) {
       var old = candidate.teams.find(function (value) { return value && value.id === team.id; }) || {};
@@ -262,10 +264,10 @@
     restored.currentAwarded = Boolean(candidate.currentAwarded && restored.current);
     if (restored.winnerTeamId) {
       var winner = restored.teams.find(function (team) { return team.id === restored.winnerTeamId; });
-      if (!winner || winner.timeline.length < WIN_CARDS) restored.winnerTeamId = null;
+      if (!winner || winner.timeline.length < restored.winTarget) restored.winnerTeamId = null;
     }
     if (!restored.winnerTeamId) {
-      var reachedTarget = restored.teams.find(function (team) { return team.timeline.length >= WIN_CARDS; });
+      var reachedTarget = restored.teams.find(function (team) { return team.timeline.length >= restored.winTarget; });
       if (reachedTarget) restored.winnerTeamId = reachedTarget.id;
     }
     return restored;
@@ -329,6 +331,8 @@
       return a.chartYear - b.chartYear || a.chartRank - b.chartRank;
     });
   }
+  function winningTarget() { return state && state.winTarget === 15 ? 15 : WIN_CARDS; }
+  function victoryText(teamId) { return text(t.winner, { team: teamName(teamId), cards: winningTarget() }); }
   function isGameLocked() { return Boolean(state && state.winnerTeamId); }
   function canChooseStartingTeam() {
     return state.used.length === 0 && !state.current && state.teams.every(function (team) { return team.timeline.length === 0; });
@@ -350,7 +354,7 @@
       button.setAttribute("aria-pressed", team.id === state.activeTeamId ? "true" : "false");
       button.append(
         createNode("strong", "", teamName(team.id)),
-        createNode("span", "team-score", "⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + WIN_CARDS)
+        createNode("span", "team-score", "⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + winningTarget())
       );
       button.addEventListener("click", function () {
         if (!canChooseStartingTeam()) return;
@@ -366,7 +370,7 @@
     var team = getTeam();
     if (!window.confirm(t.removeConfirm)) return;
     team.timeline = team.timeline.filter(function (id) { return id !== cardId; });
-    if (state.winnerTeamId === team.id && team.timeline.length < WIN_CARDS) state.winnerTeamId = null;
+    if (state.winnerTeamId === team.id && team.timeline.length < winningTarget()) state.winnerTeamId = null;
     persist();
     render();
     setStatus(t.removed);
@@ -374,7 +378,7 @@
   }
   function renderTimeline() {
     var team = getTeam(), host = el("timeline"), title = el("timeline-title");
-    title.textContent = teamName(team.id) + " · " + t.stars + ": ⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + WIN_CARDS;
+    title.textContent = teamName(team.id) + " · " + t.stars + ": ⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + winningTarget();
     clear(host);
     var cards = sortedTimeline(team);
     if (!cards.length) { host.append(createNode("p", "muted", t.timelineEmpty)); return; }
@@ -424,7 +428,7 @@
     el("card-artist").textContent = solutionRevealed ? card.artist : "•••";
     el("card-year").textContent = yearRevealed ? t.source + ": " + card.chartYear : t.yearHidden;
     el("card-source").textContent = solutionRevealed ? "Billboard year-end chart · #" + card.chartRank : "";
-    el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? text(t.winner, { team: teamName(state.winnerTeamId) }) : t.noCard);
+    el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? victoryText(state.winnerTeamId) : t.noCard);
     el("play-clip").hidden = !hasCard;
     el("play-clip").disabled = !hasCard || (preparing && !pendingMediaActivation);
     el("play-clip").textContent = preparing ? t.preparingLabel : t.playLabel;
@@ -445,7 +449,7 @@
     renderSlots(card);
     if (el("winner-banner")) {
       el("winner-banner").hidden = !isGameLocked();
-      el("winner-banner").textContent = isGameLocked() ? text(t.winner, { team: teamName(state.winnerTeamId) }) : "";
+      el("winner-banner").textContent = isGameLocked() ? victoryText(state.winnerTeamId) : "";
     }
   }
   function renderStartScreen() {
@@ -902,12 +906,34 @@
   }
   function checkWinner() {
     var team = getTeam();
-    if (team.timeline.length >= WIN_CARDS) {
+    if (team.timeline.length >= winningTarget()) {
       state.winnerTeamId = team.id;
       return true;
     }
     return false;
   }
+  function continueToFifteen() {
+    if (!state.winnerTeamId || winningTarget() !== 10) return;
+    state.winTarget = 15;
+    state.winnerTeamId = null;
+    advanceTurn();
+    persist(); render();
+    setStatus(language === "he" ? "ממשיכים לשובר שוויון עד 15 קלפים. התור של " + teamName(state.activeTeamId) : "Continuing to 15 cards. Next team: " + teamName(state.activeTeamId));
+    track("hitster_tiebreak_started", { target: 15, team_count: state.teams.length });
+    void primeNextCard();
+  }
+  function showVictory() {
+    if (!state.winnerTeamId) return;
+    var dialog = el("victory-dialog");
+    el("victory-title").textContent = victoryText(state.winnerTeamId);
+    el("victory-continue").hidden = winningTarget() !== 10;
+    if (typeof dialog.showModal === "function") { if (!dialog.open) dialog.showModal(); }
+    else if (winningTarget() === 10) {
+      if (window.confirm(victoryText(state.winnerTeamId) + (language === "he" ? "\nלהמשיך לשובר שוויון עד 15 קלפים?" : "\nContinue to a tiebreak at 15 cards?"))) continueToFifteen();
+    } else window.alert(victoryText(state.winnerTeamId));
+  }
+  el("victory-continue").addEventListener("click", function () { el("victory-dialog").close(); continueToFifteen(); });
+  el("victory-finish").addEventListener("click", function () { el("victory-dialog").close(); });
   function finishCurrent(shouldAdvance) {
     state.current = null;
     state.currentYearRevealed = false;
@@ -931,8 +957,9 @@
     var teamId = team.id;
     var year = card.chartYear;
     finishCurrent(!won);
-    setStatus(won ? text(t.winner, { team: teamName(teamId) }) : t.added);
+    setStatus(won ? victoryText(teamId) : t.added);
     track("card_added_to_timeline", { team_id: teamId, chart_year: year, won: won, timeline_count: team.timeline.length });
+    if (won) showVictory();
   }
   function endWrongTurn() {
     var card = currentCard();
@@ -965,8 +992,9 @@
     var teamId = team.id;
     var year = card.chartYear;
     finishCurrent(!won);
-    setStatus(won ? text(t.winner, { team: teamName(teamId) }) : t.free);
+    setStatus(won ? victoryText(teamId) : t.free);
     track("star_spent", { action: "free_card", team_id: teamId, chart_year: year, stars: team.stars, won: won });
+    if (won) showVictory();
   }
   function resetGame(skipConfirm, configuredTeams) {
     if (!skipConfirm && !window.confirm(t.resetAllConfirm)) return false;
@@ -1005,6 +1033,7 @@
     hideStartScreen();
     setStatus(t.resume);
     track("game_resumed", { used_count: state.used.length, team_id: state.activeTeamId });
+    if (isGameLocked()) { showVictory(); return; }
     var card = currentCard();
     if (card) void prepareCurrentPreview(card);
     else void primeNextCard();
