@@ -30,6 +30,8 @@ jobs:
           node --check games-core.js
           node --check games-core-check.js
           node --check hitster-888-check.js
+          node --check hitster-israeli-check.js
+          node --check build-hitster-israeli-previews.js
           node --check hitster-audio-check.js
           node --check hitster-flagship-check.js
           node --check site-smoke-check.js
@@ -47,6 +49,7 @@ jobs:
           test -s hitster-888-en.html
           test -s offline.html
           node hitster-888-check.js
+          node hitster-israeli-check.js
           node hitster-audio-check.js
           node audio-behavior-check.js
           node tra-music-station-check.js

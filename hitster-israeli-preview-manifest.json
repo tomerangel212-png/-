@@ -1,0 +1,2708 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-30T01:05:19.807Z",
+  "source": "Apple Music catalog, IL storefront, Hebrew locale; title and artist identity checked",
+  "cardsChecked": 300,
+  "previews": {
+    "israel-chart-2002-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/3f/c1/103fc1fe-a258-fbf0-1e24-9decc75756cd/mzaf_17943926279052815395.plus.aac.ep.m4a",
+      "trackId": 1571748876,
+      "title": "מדברים על שלום",
+      "artist": "מוקי",
+      "album": "שמע ישראל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e9/3b/05/e93b050b-3162-ca3d-103c-8367586564c0/mzaf_7751285029732078397.plus.aac.ep.m4a",
+      "trackId": 777521961,
+      "title": "שיר עצוב",
+      "artist": "אביב גפן",
+      "album": "ממנטו מורי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/16/49/10/1649102b-3f76-1ab4-57d4-c0fefa0d7a1c/mzaf_8855570461089755531.plus.aac.ep.m4a",
+      "trackId": 782952758,
+      "title": "רנה",
+      "artist": "אריאל הורוביץ",
+      "album": "רנה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a8/31/cb/a831cbb5-74e9-2613-abc6-3caf5d21784d/mzaf_8315657436214981921.plus.aac.ep.m4a",
+      "trackId": 624516324,
+      "title": "מלנכוליה אהובתי",
+      "artist": "חמי רודנר",
+      "album": "מלנכוליה אהובתי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a9/90/c5/a990c563-6bb5-483f-a5a2-e72a1c3eeead/mzaf_7715420233317321690.plus.aac.ep.m4a",
+      "trackId": 780502554,
+      "title": "שלכת",
+      "artist": "עמיר בניון",
+      "album": "שלכת",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f5/ad/a3/f5ada367-1f0e-b94f-d1c3-a5dbd21417c2/mzaf_9668186913159038443.plus.aac.ep.m4a",
+      "trackId": 1615772176,
+      "title": "בוכה אל הקירות",
+      "artist": "דויד ברוזה",
+      "album": "אל תשאלי אם אני אוהב - אוסף שירי אהבה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c7/5f/85/c75f8590-9a21-4679-b271-6bae5998507b/mzaf_11626264885061451495.plus.aac.ep.m4a",
+      "trackId": 1615743411,
+      "title": "על פי תנועת הרכבות",
+      "artist": "שלמה ארצי",
+      "album": "צימאון",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fa/a3/5a/faa35abe-cdbc-0c29-4d3b-0cf8749e0a17/mzaf_4461550384708917597.plus.aac.ep.m4a",
+      "trackId": 1571748884,
+      "title": "ילדה סוכר",
+      "artist": "מוקי",
+      "album": "שמע ישראל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a4/1e/18/a41e18c5-8ec0-55d9-4ba3-b46541958e89/mzaf_10167023661204077414.plus.aac.ep.m4a",
+      "trackId": 779398342,
+      "title": "בתי קפה",
+      "artist": "עברי לידר",
+      "album": "האנשים החדשים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f8/96/4c/f8964cc9-428a-6ba7-2a9e-4ae7a486ca13/mzaf_9618486968833097196.plus.aac.ep.m4a",
+      "trackId": 1193169133,
+      "title": "מונסון",
+      "artist": "ברי סחרוף",
+      "album": "האחר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f5/e7/80/f5e7803d-4d2c-f9ed-d00d-d231c366dd17/mzaf_1804229769392082934.plus.aac.ep.m4a",
+      "trackId": 880452941,
+      "title": "עדיף",
+      "artist": "דניאל סלומון",
+      "album": "דניאל סלומון",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2002-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/24/d4/77/24d47771-e1ee-022f-66f2-ca4c8e215c6f/mzaf_3302226940807843700.plus.aac.ep.m4a",
+      "trackId": 1571748879,
+      "title": "האדמה בוכה",
+      "artist": "מוקי & יובל בנאי",
+      "album": "שמע ישראל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cc/38/e8/cc38e8a2-6798-ac56-2cf6-1ebc43388dd9/mzaf_7493122406919935683.plus.aac.ep.m4a",
+      "trackId": 778474123,
+      "title": "אם תלך",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "הפרויקט של עידן רייכל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/57/ed/4857eddd-f8d2-1bb6-3d1c-dcf6221036ec/mzaf_2212540582612525926.plus.aac.ep.m4a",
+      "trackId": 778474122,
+      "title": "בואי",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "הפרויקט של עידן רייכל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/16/e6/8a/16e68ad2-dc85-f0fb-5782-6c7364b97faf/mzaf_6674274230047337704.plus.aac.ep.m4a",
+      "trackId": 1193168748,
+      "title": "ארוץ אליך",
+      "artist": "שרון רוטר",
+      "album": "שרון רוטר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0b/e2/12/0be2125f-5ccb-8a7c-51b3-85566fb6a5af/mzaf_8359967007149823469.plus.aac.ep.m4a",
+      "trackId": 778474127,
+      "title": "מדברים בשקט",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "הפרויקט של עידן רייכל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/20/bd/33/20bd33cc-88b0-b0da-648a-07683ca89cdc/mzaf_2783195796782412191.plus.aac.ep.m4a",
+      "trackId": 1392605267,
+      "title": "על הברכיים",
+      "artist": "טל שגב",
+      "album": "על הברכיים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6c/c5/2e/6cc52ee5-17f9-547d-0215-44e302f0365f/mzaf_5737710778864134053.plus.aac.ep.m4a",
+      "trackId": 1572178218,
+      "title": "אהבת נעורי",
+      "artist": "שלום חנוך",
+      "album": "המיטב",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c5/ad/94/c5ad94c8-83ca-85ad-8db3-3973cf56905b/mzaf_15649673597389511174.plus.aac.ep.m4a",
+      "trackId": 1465631269,
+      "title": "לאלף נמר",
+      "artist": "ריטה",
+      "album": "חמצן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5c/78/ce/5c78ce60-5f97-393d-342c-1bfaab3c2499/mzaf_4321391367138101105.plus.aac.ep.m4a",
+      "trackId": 1572175548,
+      "title": "בא והולך",
+      "artist": "דנה ברגר",
+      "album": "תוך כדי תנועה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b0/66/2e/b0662ea0-c2f1-34ab-cfcd-617db5085d0b/mzaf_6350088165357828399.plus.aac.ep.m4a",
+      "trackId": 782999891,
+      "title": "אני יכול (feat. רון שובל)",
+      "artist": "סאבלימינל & הצל",
+      "album": "האור והצל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/aa/d8/90/aad89097-6098-3c97-9361-89d4d3f9f549/mzaf_11890043368885982910.plus.aac.ep.m4a",
+      "trackId": 1879266618,
+      "title": "יצאנו לרקוד",
+      "artist": "הדורבנים",
+      "album": "קובי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4b/07/84/4b078470-88e7-afbd-977a-52174ccacea4/mzaf_1459269599096331075.plus.aac.ep.m4a",
+      "trackId": 1239741964,
+      "title": "הייה לי חבר הייה לי אח",
+      "artist": "דודו טסה",
+      "album": "מתוך בחירה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2003-015": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c6/9c/c1/c69cc1cd-f3b9-c3dd-dd56-788f0c55b0fd/mzaf_15667573761076867438.plus.aac.ep.m4a",
+      "trackId": 890677794,
+      "title": "אין עוד יום",
+      "artist": "רון שובל",
+      "album": "מיכאלה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/74/a2/16/74a21643-6bbb-14d0-c8ad-4576af987ade/mzaf_16377843559384762786.plus.aac.ep.m4a",
+      "trackId": 1572508468,
+      "title": "יום ועוד יומיים",
+      "artist": "שי גבסו",
+      "album": "יש לי אהבה 2",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/28/9a/0e/289a0eff-c3de-cbf7-7ef5-61284f0a44c9/mzaf_7356004120009892828.plus.aac.ep.m4a",
+      "trackId": 632238115,
+      "title": "שירת הסטיקר",
+      "artist": "הדג נחש",
+      "album": "חומר מקומי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/12/f4/7f/12f47f82-a4ed-d0b1-9f23-42b355b9b281/mzaf_9002000978182154453.plus.aac.ep.m4a",
+      "trackId": 1043234154,
+      "title": "עכשיו טוב",
+      "artist": "גלעד שגב",
+      "album": "עכשיו טוב",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/a1/86/09/a1860929-abbd-2c05-543e-1835c06867d1/mzaf_1873640122697889636.plus.aac.ep.m4a",
+      "trackId": 1572508447,
+      "title": "היום",
+      "artist": "אהוד בנאי",
+      "album": "יש לי אהבה 2",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e2/9e/2b/e29e2b19-f578-b8bb-d38b-04baf45e2fa7/mzaf_1595452570633520753.plus.aac.ep.m4a",
+      "trackId": 1572174599,
+      "title": "המילים החסרות",
+      "artist": "שי גבסו",
+      "album": "ארים ראשי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fb/02/9e/fb029e16-7843-9671-9c9d-d6f657a4384a/mzaf_6561876766084172664.plus.aac.ep.m4a",
+      "trackId": 1572174484,
+      "title": "השיר הזה",
+      "artist": "שרונה פיק & דניאלה פיק",
+      "album": "השיר הזה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/02/af/14/02af1444-0c40-42a2-1ab6-981ee25b9ce1/mzaf_17666711362365207006.plus.aac.ep.m4a",
+      "trackId": 1572174804,
+      "title": "איך זה מרגיש",
+      "artist": "כנסיית השכל",
+      "album": "ידיים למעלה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/08/08/450808d1-165a-35e7-9f72-3866b64c3d77/mzaf_7569009332688574631.plus.aac.ep.m4a",
+      "trackId": 915350154,
+      "title": "ידיעה",
+      "artist": "שוטי הנבואה",
+      "album": "האלבומים הראשונים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d3/73/6b/d3736ba2-6c8a-2451-7ee7-c15d180a03be/mzaf_14488730561414726553.plus.aac.ep.m4a",
+      "trackId": 927143580,
+      "title": "תני לי אהבה",
+      "artist": "אבי מסיקה",
+      "album": "מציאות מדומה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3d/46/8c/3d468cb5-68aa-471c-35cb-d7615d94676c/mzaf_4706016764973992188.plus.aac.ep.m4a",
+      "trackId": 1573577433,
+      "title": "פרחים בקנה",
+      "artist": "סאבלימינל, גבריאל בטלר, איציק שמלי, סיוון & הצל",
+      "album": "היצירה שלי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-015": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/94/19/0b/94190b45-478a-dba9-3356-afd5eccb0151/mzaf_10839740864862752702.plus.aac.ep.m4a",
+      "trackId": 1492304710,
+      "title": "מי אוהב אותך יותר ממני?",
+      "artist": "ארקדי דוכין",
+      "album": "יותר ממני - אוסף",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2004-019": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b6/d9/1e/b6d91e7a-9573-a3e8-a346-ddd29c074ec8/mzaf_64024897323579120.plus.aac.ep.m4a",
+      "trackId": 1515609776,
+      "title": "בחום של תל אביב",
+      "artist": "שרית חדד",
+      "album": "חגיגה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2c/66/52/2c665268-2d7b-c2e7-44ff-f5620c99f329/mzaf_14342555473099443543.plus.aac.ep.m4a",
+      "trackId": 641885745,
+      "title": "לשם",
+      "artist": "מירי מסיקה",
+      "album": "מירי מסיקה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8d/cf/95/8dcf9547-7fa1-b45e-a979-8ee7e813b884/mzaf_15352795707310756580.plus.aac.ep.m4a",
+      "trackId": 914961299,
+      "title": "השקט שנשאר",
+      "artist": "שירי מימון",
+      "album": "האלבומים הראשונים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/5c/a7/6b5ca7a0-9c83-d280-9379-bf4c58e31cf5/mzaf_10958207024401089739.plus.aac.ep.m4a",
+      "trackId": 802900326,
+      "title": "רבות הדרכים",
+      "artist": "דניאל סלומון",
+      "album": "רבות הדרכים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/09/4d/cf/094dcffe-f5e4-4824-a934-75dc92f3384e/mzaf_14853465818558527857.plus.aac.ep.m4a",
+      "trackId": 780337976,
+      "title": "ממעמקים",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "ממעמקים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b7/0f/58/b70f58b6-619c-d126-7d43-3348665fda74/mzaf_2764571023827511652.plus.aac.ep.m4a",
+      "trackId": 802900322,
+      "title": "אהבה",
+      "artist": "דניאל סלומון",
+      "album": "רבות הדרכים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/c6/60/75c66024-dfd1-cae0-6380-cf7dbad4fd1b/mzaf_9457608436308619405.plus.aac.ep.m4a",
+      "trackId": 780425179,
+      "title": "זכיתי לאהוב",
+      "artist": "עברי לידר",
+      "album": "זה לא אותו דבר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b8/d7/4c/b8d74cb5-4276-b839-b0ef-8e73b9699049/mzaf_5641613041191218812.plus.aac.ep.m4a",
+      "trackId": 587325888,
+      "title": "תתנו לו צ'אנס",
+      "artist": "מה קשור",
+      "album": "תתנו לו צ'אנס",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d2/7b/70/d27b7067-4e62-77b2-70ed-234406ea6ac9/mzaf_9875977231546932744.plus.aac.ep.m4a",
+      "trackId": 641885733,
+      "title": "באה אליכם",
+      "artist": "מירי מסיקה",
+      "album": "מירי מסיקה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/78/c1/4c/78c14cea-a533-c92e-d3d4-b6c06bf53209/mzaf_8011197482672288269.plus.aac.ep.m4a",
+      "trackId": 1572173966,
+      "title": "אלוהים",
+      "artist": "מוקי",
+      "album": "עוקף מלמעלה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4a/76/d9/4a76d9e2-13d6-8b27-1a08-2aad8842c32d/mzaf_17816367904407688483.plus.aac.ep.m4a",
+      "trackId": 779613896,
+      "title": "אהבה קטנה",
+      "artist": "שירי מימון",
+      "album": "שירי מימון",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/52/b5/61/52b5611f-70fb-7c4b-3f37-230d078d232e/mzaf_16011673735617539415.plus.aac.ep.m4a",
+      "trackId": 780337980,
+      "title": "מילים יפות מאלה",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "ממעמקים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2005-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6d/4a/cb/6d4acb70-1aca-39c7-1877-904294be9070/mzaf_290976442719016531.plus.aac.ep.m4a",
+      "trackId": 860105147,
+      "title": "דוד",
+      "artist": "דודי לוי",
+      "album": "דודי לוי - החיים הם חלום",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/da/ee/85/daee85b6-e4ad-900b-ce85-f2697365f0da/mzaf_17347290494579723787.plus.aac.ep.m4a",
+      "trackId": 356352395,
+      "title": "ואת",
+      "artist": "הראל סקעת",
+      "album": "הראל סקעת",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/39/93/04/3993045d-ed43-482c-cb09-90e98edcdfc8/mzaf_12670260980144562469.plus.aac.ep.m4a",
+      "trackId": 632171318,
+      "title": "הנה אני בא",
+      "artist": "הדג נחש",
+      "album": "בעזרת הג'אם",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/26/c3/7f/26c37f10-6541-3bb1-4156-85d6a4b57e06/mzaf_14037664995737907319.plus.aac.ep.m4a",
+      "trackId": 1447112052,
+      "title": "חושב עליה",
+      "artist": "עידן יניב & ליאור דטאוקר",
+      "album": "חושב עליה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0b/9e/c9/0b9ec9f1-17b5-6ac3-123f-66c54fd3bae1/mzaf_5958942021255881583.plus.aac.ep.m4a",
+      "trackId": 489843471,
+      "title": "איתי",
+      "artist": "קרן פלס",
+      "album": "אם אלה החיים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2d/0b/3c/2d0b3c87-5eaf-5523-971e-462afb27d59b/mzaf_4869062721053121292.plus.aac.ep.m4a",
+      "trackId": 918718270,
+      "title": "גג",
+      "artist": "ג'ירפות",
+      "album": "גג",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/33/6b/3c/336b3cec-b08d-8e35-7a48-971a4f7350aa/mzaf_4260148703379580858.plus.aac.ep.m4a",
+      "trackId": 779420239,
+      "title": "הכוס הכחולה",
+      "artist": "עברי לידר",
+      "album": "יותר טוב כלום מכמעט",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/de/9a/12/de9a1248-a1fb-12ea-35c3-525144509a04/mzaf_1510642334927414503.plus.aac.ep.m4a",
+      "trackId": 1527415994,
+      "title": "שיר בעיפרון",
+      "artist": "בית הבובות & אמיר אטיאס",
+      "album": "המיטב",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8a/e2/e4/8ae2e443-3a28-d49f-712e-9613b64c8a03/mzaf_7269491289816103302.plus.aac.ep.m4a",
+      "trackId": 777522977,
+      "title": "מחר",
+      "artist": "אביב גפן",
+      "album": "עם הזמן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1c/af/ae/1cafaea9-6757-704e-3849-81ec0f57903d/mzaf_18057506850098998027.plus.aac.ep.m4a",
+      "trackId": 356352397,
+      "title": "משהו ממני",
+      "artist": "הראל סקעת",
+      "album": "הראל סקעת",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a4/cb/43/a4cb4369-28ee-4c3d-9001-87a926e35472/mzaf_5560268508529721659.plus.aac.ep.m4a",
+      "trackId": 782949678,
+      "title": "עוד לילה",
+      "artist": "הדורבנים",
+      "album": "לוי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b7/43/f1/b743f1aa-e8cb-5200-0a5f-0f41571fb1a6/mzaf_10431146189605395753.plus.aac.ep.m4a",
+      "trackId": 595378722,
+      "title": "מוכרת לי מפעם",
+      "artist": "דין דין אביב",
+      "album": "סודותיי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2006-015": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/ae/6c/10ae6c41-12a3-387c-445e-a1ef9fcd57d3/mzaf_12547874616684650516.plus.aac.ep.m4a",
+      "trackId": 778433257,
+      "title": "בלי לומר מילה",
+      "artist": "מטרופולין",
+      "album": "מטרופולין",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/29/75/07/29750787-80bc-aa2c-c23f-196173484b8c/mzaf_2163188141735892982.plus.aac.ep.m4a",
+      "trackId": 1526272706,
+      "title": "תראי זה אני",
+      "artist": "סינרגיה",
+      "album": "סינרגיה אקוסטית",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b1/34/a9/b134a967-0037-b19e-9085-5c7c7a3f0ea6/mzaf_12709288798865067366.plus.aac.ep.m4a",
+      "trackId": 1572172188,
+      "title": "המתוקות האחרונות",
+      "artist": "אריק ברמן",
+      "album": "הראשון",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/80/06/af/8006afe6-cc6f-70e8-0aa7-df1864a255b4/mzaf_2878711211435355055.plus.aac.ep.m4a",
+      "trackId": 1526272685,
+      "title": "אשם",
+      "artist": "סינרגיה",
+      "album": "סינרגיה אקוסטית",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/de/22/96/de22963b-bb37-672f-554b-fd2adc3c5065/mzaf_3510025569977855455.plus.aac.ep.m4a",
+      "trackId": 599586306,
+      "title": "אם את עדיין אוהבת אותי",
+      "artist": "בועז שרעבי",
+      "album": "לנשום",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d0/40/46/d04046dc-1e0b-b198-9a64-21a366707e9d/mzaf_5994297417445561198.plus.aac.ep.m4a",
+      "trackId": 1447120116,
+      "title": "את יפה",
+      "artist": "עידן יניב",
+      "album": "חכי לי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4c/a0/6f/4ca06fc2-3a36-e175-27cb-9be8111087aa/mzaf_11198673081672642479.plus.aac.ep.m4a",
+      "trackId": 786192899,
+      "title": "הכאב הזה",
+      "artist": "עברי לידר & נינט טייב",
+      "album": "(בינינו - אוסף שירי אהבה (גרסת אייטיונס",
+      "storefront": "IL",
+      "audioLocale": ""
+    },
+    "israel-chart-2007-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/22/9a/c1/229ac190-2908-1d36-1916-f9e333718996/mzaf_3571177887352766518.plus.aac.ep.m4a",
+      "trackId": 633838886,
+      "title": "עכשיו אתה חוזר בחזרה",
+      "artist": "מירי מסיקה",
+      "album": "שלום לאמונות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a0/f3/7d/a0f37d10-c59b-a541-636d-6b90d32cf7ec/mzaf_11055338786800583448.plus.aac.ep.m4a",
+      "trackId": 1572174797,
+      "title": "ידיים למעלה",
+      "artist": "כנסיית השכל",
+      "album": "ידיים למעלה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/90/36/30/903630dc-f3b9-da21-f6a0-6eb17b2c1223/mzaf_9400270083829353775.plus.aac.ep.m4a",
+      "trackId": 1481205228,
+      "title": "מסע ומתן",
+      "artist": "מוש בן ארי",
+      "album": "מסע ומתן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bb/c1/16/bbc116b4-10b5-1669-7891-6c44b4968f36/mzaf_13676188119531154545.plus.aac.ep.m4a",
+      "trackId": 1572449623,
+      "title": "שווים",
+      "artist": "עילי בוטנר & רן דנקר",
+      "album": "שווים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/99/02/f09902ed-9f07-c086-4972-9bedb6c97270/mzaf_18247049878164450286.plus.aac.ep.m4a",
+      "trackId": 1791842603,
+      "title": "תנו לי לשתות",
+      "artist": "כנסיית השכל",
+      "album": "אוטוביוגרפיה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2007-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/83/78/fe/8378feeb-cdb3-696a-61e7-83380676c3a7/mzaf_5550019964409159264.plus.aac.ep.m4a",
+      "trackId": 1572449607,
+      "title": "לראות את האור",
+      "artist": "אפרת גוש",
+      "album": "הסליחה ואני",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a7/85/32/a78532a3-d9f3-fcbf-f3a4-9439ecdd9a9b/mzaf_13254177151346507109.plus.aac.ep.m4a",
+      "trackId": 1533964053,
+      "title": "דבש (feat. רעות יהודאי)",
+      "artist": "ארי גורלי",
+      "album": "משקל הדירה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e3/c0/34/e3c034fb-6c90-5871-b00c-2d2f65355d33/mzaf_14548194667324313815.plus.aac.ep.m4a",
+      "trackId": 1573568376,
+      "title": "אדם צובר זיכרונות",
+      "artist": "אברהם טל",
+      "album": "עבודה עברית - מחווה ל-60 שנות יצירה מקורית",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/aa/18/ad/aa18ad0d-8c51-354b-0a8f-14c4024002ac/mzaf_11661512327172532161.plus.aac.ep.m4a",
+      "trackId": 1591795452,
+      "title": "אני אש",
+      "artist": "עילי בוטנר & רן דנקר",
+      "album": "אוסף - מילים, לחן, גיטרות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e3/fc/e1/e3fce135-bb25-9996-6c2b-23317022648e/mzaf_9917277630143930994.plus.aac.ep.m4a",
+      "trackId": 1536927729,
+      "title": "שום דבר לא יפגע בי",
+      "artist": "כנסיית השכל",
+      "album": "שום דבר לא יפגע בי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f7/ea/92/f7ea92c8-96ba-b120-ef5e-48c6253de642/mzaf_11967416569475961133.plus.aac.ep.m4a",
+      "trackId": 1831831006,
+      "title": "אגו-טריפ",
+      "artist": "עלמה זהר",
+      "album": "דברי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e6/63/7d/e6637d96-1ade-899e-3c4c-961647f215d4/mzaf_4757019307363545140.plus.aac.ep.m4a",
+      "trackId": 1572449619,
+      "title": "בואי נעזוב",
+      "artist": "עילי בוטנר & רן דנקר",
+      "album": "שווים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/00/25/6d/00256dbf-8edf-777a-6e54-6d0aa4cbed24/mzaf_4667208884521651712.plus.aac.ep.m4a",
+      "trackId": 1572558281,
+      "title": "מבול",
+      "artist": "קרן פלס",
+      "album": "מבול",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/31/4d/4d/314d4d4c-748a-e02b-edd8-6898baa506eb/mzaf_15876662274020132197.plus.aac.ep.m4a",
+      "trackId": 1573572862,
+      "title": "עברתי רק כדי לראות",
+      "artist": "תומר יוסף & בן הנדלר",
+      "album": "עבודה עברית - מחווה ל-60 שנות יצירה מקורית",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview117/v4/53/95/d5/5395d5fd-0d35-693c-efb6-70b327bfee4f/mzaf_3853728269325667503.plus.aac.ep.m4a",
+      "trackId": 275980523,
+      "title": "Chashaveti Shehye' Romanti (I Thought It Will Be Romantic)",
+      "artist": "אוהד חיטמן",
+      "album": "Haregga Haba (The Next Moment)",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-015": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3b/73/71/3b737128-8cb0-0989-983c-5bfeb4bb3074/mzaf_5238170808222976241.plus.aac.ep.m4a",
+      "trackId": 1573572344,
+      "title": "שיר של יום חולין",
+      "artist": "מאור כהן",
+      "album": "עבודה עברית - מחווה ל-60 שנות יצירה מקורית",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-016": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bb/ff/1c/bbff1c38-66ee-acf3-d4cf-92ab7d518913/mzaf_6903048154276062045.plus.aac.ep.m4a",
+      "trackId": 1572449584,
+      "title": "מה שהלב בחר",
+      "artist": "קובי אפללו",
+      "album": "בא מן השתיקה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2008-017": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9e/9a/31/9e9a311a-69eb-1a02-b389-17531dcfd865/mzaf_7759032020017115707.plus.aac.ep.m4a",
+      "trackId": 1257515630,
+      "title": "אישה נאמנה",
+      "artist": "ישי לוי",
+      "album": "אוסף העשור",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d8/4f/8f/d84f8f02-cb74-b422-dbaa-64fcbfeb7249/mzaf_8669069773728429738.plus.aac.ep.m4a",
+      "trackId": 497330430,
+      "title": "עד מחר",
+      "artist": "אביתר בנאי",
+      "album": "לילה כיום יאיר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9d/07/90/9d079075-4b55-6e72-c8ec-c949527524e4/mzaf_3090916457034539171.plus.aac.ep.m4a",
+      "trackId": 786192909,
+      "title": "מקום לצידך",
+      "artist": "דור דניאל",
+      "album": "(בינינו - אוסף שירי אהבה (גרסת אייטיונס",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c8/f7/71/c8f7711b-214b-8b36-0895-83f57a117d0d/mzaf_3199024509436299505.plus.aac.ep.m4a",
+      "trackId": 613890126,
+      "title": "יסמין",
+      "artist": "הפיל הכחול",
+      "album": "מעל המים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/89/a7/74/89a774ea-e920-d71e-5b3d-2e11c4809d58/mzaf_8225792557583507755.plus.aac.ep.m4a",
+      "trackId": 577457231,
+      "title": "הזמן עושה את שלו",
+      "artist": "אברהם טל",
+      "album": "אברהם טל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a5/2d/a4/a52da41e-8ce2-b4c9-d846-dc0c31dbad43/mzaf_10631761979508758864.plus.aac.ep.m4a",
+      "trackId": 594207483,
+      "title": "מהמרחקים",
+      "artist": "גלי עטרי & Sagiv Cohen",
+      "album": "בין האש ובין במים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/27/26/e5/2726e5a1-db28-86ad-b2d4-9de737e07590/mzaf_17338585518767224561.plus.aac.ep.m4a",
+      "trackId": 778491579,
+      "title": "חלומות של אחרים",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "בין קירות ביתי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bf/a4/de/bfa4de15-aec6-2417-a595-99c7c0c50d5c/mzaf_3142608944874308270.plus.aac.ep.m4a",
+      "trackId": 497330406,
+      "title": "אבא",
+      "artist": "אביתר בנאי",
+      "album": "לילה כיום יאיר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8a/ac/70/8aac70e1-6853-9ec1-6e50-6d306800bf0c/mzaf_1435322638514463180.plus.aac.ep.m4a",
+      "trackId": 778491577,
+      "title": "שאריות של החיים",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "בין קירות ביתי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/87/38/21/87382102-e3ac-5cc2-e417-8cd01ff7f7d1/mzaf_9818466415232980369.plus.aac.ep.m4a",
+      "trackId": 497330407,
+      "title": "אותיות פורחות באויר",
+      "artist": "אביתר בנאי",
+      "album": "לילה כיום יאיר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/0b/51/9f0b51b0-4913-2944-6c32-5f697993e08c/mzaf_761794544637112326.plus.aac.ep.m4a",
+      "trackId": 1572433048,
+      "title": "הגשמה עצמית",
+      "artist": "אריק ברמן",
+      "album": "השני",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bd/4b/3d/bd4b3d0b-1442-0df9-93b6-810e2c3b9da6/mzaf_13244316827062106876.plus.aac.ep.m4a",
+      "trackId": 782944850,
+      "title": "בין החלומות",
+      "artist": "דור דניאל",
+      "album": "בין החלומות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2009-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ac/48/cf/ac48cff0-2046-72c3-6843-b85c43af90af/mzaf_11791604221679544640.plus.aac.ep.m4a",
+      "trackId": 381471785,
+      "title": "אנה אפנה (Bonus Track)",
+      "artist": "ארז לב ארי",
+      "album": "שמחת הפרטים הקטנים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1b/77/56/1b77562e-90dc-6d3d-c4b1-c8410bfdb010/mzaf_10832304417288680412.plus.aac.ep.m4a",
+      "trackId": 1572555728,
+      "title": "אורות",
+      "artist": "אברהם טל",
+      "album": "אורות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4e/05/bd/4e05bdae-4f88-ffb9-33ff-070e555fc003/mzaf_1092494455062070793.plus.aac.ep.m4a",
+      "trackId": 1798975050,
+      "title": "אצלך בעולם",
+      "artist": "היהודים",
+      "album": "אצלך בעולם - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0f/a3/1f/0fa31f44-62c5-6cea-46d2-3723b968db2b/mzaf_304672884057553656.plus.aac.ep.m4a",
+      "trackId": 1043504734,
+      "title": "אישה מהשמיים",
+      "artist": "גלעד שגב",
+      "album": "נועדנו",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/75/d2/2a/75d22a90-9dc2-c01e-2b2b-dcbce165a4de/mzaf_16285160502698419992.plus.aac.ep.m4a",
+      "trackId": 1572555729,
+      "title": "מחוזקים לעולם",
+      "artist": "אברהם טל",
+      "album": "אורות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/68/95/58/689558d7-5d03-6a10-f8ad-129593be0f29/mzaf_5639327149790040251.plus.aac.ep.m4a",
+      "trackId": 1572554902,
+      "title": "אה אה אה",
+      "artist": "אפרת גוש",
+      "album": "אה אה אה אהבה - EP",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2a/c1/26/2ac12663-6213-7500-d0a7-f6022e29df06/mzaf_7494493536417365469.plus.aac.ep.m4a",
+      "trackId": 1537369114,
+      "title": "שיר נחמה",
+      "artist": "הדג נחש",
+      "album": "6",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a5/5f/5e/a55f5e30-263b-8ee6-3fc8-36c612a89848/mzaf_4419130236748159893.plus.aac.ep.m4a",
+      "trackId": 1451625055,
+      "title": "תגידו לה",
+      "artist": "דודו אהרון",
+      "album": "20 הלהיטים הגדולים שלי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/a7/e8/1ba7e855-9126-c129-a198-da600ab99f4d/mzaf_15275337997140872453.plus.aac.ep.m4a",
+      "trackId": 497330408,
+      "title": "לילה כיום יאיר",
+      "artist": "אביתר בנאי",
+      "album": "לילה כיום יאיר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/53/33/db/5333db21-bfe2-54da-b069-a11c8d844e86/mzaf_327950956333961551.plus.aac.ep.m4a",
+      "trackId": 1546539756,
+      "title": "תן",
+      "artist": "רוני דלומי",
+      "album": "קצת אחרת",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3c/1a/90/3c1a90c7-71ab-51ff-8cd9-ead40147c362/mzaf_1960488567973822867.plus.aac.ep.m4a",
+      "trackId": 1433907943,
+      "title": "שתדעי",
+      "artist": "שלומי שבת",
+      "album": "שתדעי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/0e/9e/1f/0e9e1f18-8cdb-d261-f02d-02a25ec504b6/mzaf_13335903620871137632.plus.aac.ep.m4a",
+      "trackId": 1582357539,
+      "title": "אל תלכי עכשיו",
+      "artist": "יהודה פוליקר",
+      "album": "אהבה על תנאי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2010-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f7/0b/10/f70b10af-3b66-0041-35c3-8e5c31418524/mzaf_12843594420984111486.plus.aac.ep.m4a",
+      "trackId": 914948680,
+      "title": "אור גדול",
+      "artist": "אמיר דדון",
+      "album": "האלבומים הראשונים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d7/dc/97/d7dc975e-d9df-5899-2ab0-29876e25d172/mzaf_7772377685302887484.plus.aac.ep.m4a",
+      "trackId": 1433661361,
+      "title": "כאב של לוחמים",
+      "artist": "עידן עמדי",
+      "album": "עידן עמדי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/65/d7/a3/65d7a3e0-65e5-31da-e611-59f7fb94aa8f/mzaf_1314001280560047219.plus.aac.ep.m4a",
+      "trackId": 1533293184,
+      "title": "כל מה שיש לי",
+      "artist": "נתן גושן",
+      "album": "נתן גושן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/84/f8/c4/84f8c405-d048-d766-76ba-b8ba04877b38/mzaf_13454541701797408763.plus.aac.ep.m4a",
+      "trackId": 1433904608,
+      "title": "ללכת",
+      "artist": "לירן דנינו",
+      "album": "לירן דנינו",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/56/8a/a0/568aa0fc-fdd6-478a-d4ef-5f388d2eaa22/mzaf_7819982632408445105.plus.aac.ep.m4a",
+      "trackId": 1433904852,
+      "title": "עדיין ריק",
+      "artist": "לירן דנינו",
+      "album": "לירן דנינו",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/41/de/15/41de15fe-4f3f-c3c0-b730-fe59c04ed39d/mzaf_14444031837823933256.plus.aac.ep.m4a",
+      "trackId": 1572555732,
+      "title": "אם את הולכת",
+      "artist": "אברהם טל",
+      "album": "אורות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ba/06/31/ba063177-1656-e180-91d8-5533b1de3859/mzaf_17161663455238248360.plus.aac.ep.m4a",
+      "trackId": 1533293188,
+      "title": "איפה את",
+      "artist": "נתן גושן",
+      "album": "נתן גושן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/50/3d/3b/503d3b10-9c54-5175-e5b4-e6bcd6b88dfb/mzaf_8704147614996160493.plus.aac.ep.m4a",
+      "trackId": 1447045902,
+      "title": "בניתי עלייך",
+      "artist": "עומר אדם",
+      "album": "ילד טוב ילד רע",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/09/81/49/09814946-b95a-190b-6605-2d06fcf451cb/mzaf_9194984858817182302.plus.aac.ep.m4a",
+      "trackId": 1451625046,
+      "title": "בחור רגיש",
+      "artist": "דודו אהרון",
+      "album": "20 הלהיטים הגדולים שלי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5e/a7/83/5ea783bf-0353-4b3a-be73-d475307e0145/mzaf_15141969601594576894.plus.aac.ep.m4a",
+      "trackId": 1610597177,
+      "title": "יום אחד תבקשי",
+      "artist": "שיר לוי",
+      "album": "יום אחד תבקשי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/84/ac/48/84ac486d-2db8-73dc-c281-939348774038/mzaf_17182502182131995438.plus.aac.ep.m4a",
+      "trackId": 632816714,
+      "title": "מלך",
+      "artist": "מירי מסיקה",
+      "album": "מלך",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/02/9c/16/029c1658-18d6-e1bd-fe24-24b63be297b0/mzaf_10120773507292741706.plus.aac.ep.m4a",
+      "trackId": 1451515794,
+      "title": "לא יפרידו בינינו",
+      "artist": "דודו אהרון",
+      "album": "אין כמו אהבה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2011-015": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3b/6d/df/3b6ddfbc-4113-de69-0602-3f6fcd1a3845/mzaf_2306673160640232495.plus.aac.ep.m4a",
+      "trackId": 1240473313,
+      "title": "קחי אותי אלייך",
+      "artist": "משה פרץ",
+      "album": "קחי אותי אלייך - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2e/ab/16/2eab165d-0637-3e26-28a0-57d75e93032d/mzaf_3843525599230273615.plus.aac.ep.m4a",
+      "trackId": 1433922423,
+      "title": "יש לך",
+      "artist": "שלומי שבת",
+      "album": "אחד לנשמה / אחד למסיבה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/52/25/6c/52256c3a-6041-7fdb-7a53-42c5e062ff58/mzaf_2898489058328577980.plus.aac.ep.m4a",
+      "trackId": 910816809,
+      "title": "זיקוקים",
+      "artist": "משה פרץ",
+      "album": "זיקוקים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c0/a3/c3/c0a3c3be-d9d9-9ba2-1d92-457e32686042/mzaf_18176284904922235790.plus.aac.ep.m4a",
+      "trackId": 1533293187,
+      "title": "גבולות הגיון",
+      "artist": "נתן גושן",
+      "album": "נתן גושן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/89/f4/27/89f427d4-4e8b-17de-b507-5d146239c333/mzaf_17141944401889820452.plus.aac.ep.m4a",
+      "trackId": 779428644,
+      "title": "מישהו פעם",
+      "artist": "עברי לידר",
+      "album": "מישהו פעם",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8c/40/f0/8c40f054-b5a1-f60f-a429-a19082500a20/mzaf_18231900608435414097.plus.aac.ep.m4a",
+      "trackId": 511835376,
+      "title": "אלוהיי",
+      "artist": "אברהם טל & שלמה ארצי",
+      "album": "אושר אקספרס",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/82/22/0a/82220aeb-ad9d-a96f-b71c-be2209534382/mzaf_13736934552623998914.plus.aac.ep.m4a",
+      "trackId": 1433661355,
+      "title": "אלייך",
+      "artist": "עידן עמדי",
+      "album": "עידן עמדי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a9/63/a2/a963a270-0e89-9443-3012-aa76faae34f0/mzaf_3387331460019959332.plus.aac.ep.m4a",
+      "trackId": 618092116,
+      "title": "לתת ולקחת",
+      "artist": "דודו טסה & שלמה ארצי",
+      "album": "(תתארו לכם (אוסף משולש",
+      "storefront": "IL",
+      "audioLocale": ""
+    },
+    "israel-chart-2012-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/55/25/7a/55257af5-7f1f-7697-2881-17c48b67096f/mzaf_17504122246825377807.plus.aac.ep.m4a",
+      "trackId": 1615022604,
+      "title": "אחלה חמודה",
+      "artist": "בני בשן & בום פם",
+      "album": "ריקודים על-פי תהום",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/64/74/b9/6474b911-72ec-9c9d-36ef-765ce94fa174/mzaf_610806965163253413.plus.aac.ep.m4a",
+      "trackId": 1221450045,
+      "title": "את",
+      "artist": "ישי לוי",
+      "album": "את",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bf/af/d8/bfafd8dd-8642-54fb-d7a9-13058481cadf/mzaf_3019454341697667696.plus.aac.ep.m4a",
+      "trackId": 511835372,
+      "title": "חוזרים הביתה",
+      "artist": "אריק איינשטיין & שלמה ארצי",
+      "album": "אושר אקספרס",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a0/90/02/a09002d4-c451-0813-a368-c9b1a32fd436/mzaf_16225790417755561986.plus.aac.ep.m4a",
+      "trackId": 1433904606,
+      "title": "כל המילים",
+      "artist": "לירן דנינו",
+      "album": "לירן דנינו",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2012-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c8/1d/cd/c81dcd8e-ae4a-166e-3b22-7ca0610c17b5/mzaf_14713624395949919578.plus.aac.ep.m4a",
+      "trackId": 618091964,
+      "title": "כל יום",
+      "artist": "שלמה ארצי",
+      "album": "(תתארו לכם (אוסף משולש",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5c/73/5c/5c735cad-c863-4339-29d1-1f32e4fe18c0/mzaf_8310446192944029919.plus.aac.ep.m4a",
+      "trackId": 780474220,
+      "title": "בלילה",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "רבע לשש",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/65/55/6b/65556b83-7478-1480-6677-b9570284b803/mzaf_12245818717978466795.plus.aac.ep.m4a",
+      "trackId": 780474218,
+      "title": "עכשיו קרוב",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "רבע לשש",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d3/1d/73/d31d73e8-b9f3-cef2-e81e-0f82a54721c6/mzaf_4983231168956929997.plus.aac.ep.m4a",
+      "trackId": 1433641223,
+      "title": "בזמן האחרון",
+      "artist": "עידן עמדי",
+      "album": "בזמן האחרון",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/ec/ad/15ecad53-b3b2-45b0-3fc7-918a11c3d483/mzaf_2443494186009074380.plus.aac.ep.m4a",
+      "trackId": 589408387,
+      "title": "תם ולא נשלם",
+      "artist": "עילי בוטנר וילדי החוץ & עילי בוטנר",
+      "album": "תם ולא נשלם",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/82/2e/33/822e3392-ec49-09ee-3057-0858fe5bedd6/mzaf_9669310539455894702.plus.aac.ep.m4a",
+      "trackId": 613890852,
+      "title": "זמן להתעורר",
+      "artist": "הדג נחש",
+      "album": "זמן להתעורר - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9e/7f/3d/9e7f3da2-ffda-b7de-1e5a-e91f0a8218a0/mzaf_2964613541343992955.plus.aac.ep.m4a",
+      "trackId": 1433641222,
+      "title": "נגמר",
+      "artist": "עידן עמדי",
+      "album": "בזמן האחרון",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/94/12/8d/94128d32-49f2-86b2-2e54-b8998fbee1d7/mzaf_1786945368266336533.plus.aac.ep.m4a",
+      "trackId": 668506502,
+      "title": "סתם שני אנשים",
+      "artist": "רוני דלומי",
+      "album": "תחזיקו Tahaziku",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a7/4c/81/a74c81b8-3f92-6ac1-806c-0b93e883f37c/mzaf_3947285709041537160.plus.aac.ep.m4a",
+      "trackId": 1433889549,
+      "title": "רצים באוויר",
+      "artist": "גיא ויהל",
+      "album": "גיא ויהל",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/62/55/55/625555ac-ae57-c26e-591f-0b858a616d48/mzaf_2879706610815727698.plus.aac.ep.m4a",
+      "trackId": 583839812,
+      "title": "קטונתי",
+      "artist": "יונתן רזאל",
+      "album": "בין הצלילים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fb/6d/68/fb6d68e9-c622-6da7-84ac-6796a2eac4f5/mzaf_755532753206495532.plus.aac.ep.m4a",
+      "trackId": 618098623,
+      "title": "שושנה",
+      "artist": "אברהם טל",
+      "album": "שושנה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-015": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/07/39/87/0739872e-3eb4-6d5b-9a13-d56866441a1a/mzaf_3022135789363774289.plus.aac.ep.m4a",
+      "trackId": 589408529,
+      "title": "נעים עכשיו",
+      "artist": "עילי בוטנר וילדי החוץ & עילי בוטנר",
+      "album": "תם ולא נשלם",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2013-016": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview62/v4/0a/8f/f0/0a8ff031-268c-3a30-4f47-2108cedea17a/mzaf_1731139530270949208.plus.aac.ep.m4a",
+      "trackId": 611998484,
+      "title": "אני לא מפסיק להתרגש ממך",
+      "artist": "דני רובס",
+      "album": "נוסע על כביש מהיר (הופעה חיה)",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/17/d7/b3/17d7b3ef-07b0-f7c4-2869-053ab6777937/mzaf_8737363152421782470.plus.aac.ep.m4a",
+      "trackId": 807499769,
+      "title": "ילד של אבא",
+      "artist": "מוקי",
+      "album": "לב חופשי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9f/26/82/9f2682e7-913d-9480-f090-b3fa7f297ae3/mzaf_9436046677234597992.plus.aac.ep.m4a",
+      "trackId": 807499765,
+      "title": "לב חופשי",
+      "artist": "מוקי",
+      "album": "לב חופשי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4d/71/72/4d717274-5fff-cfcb-4158-edffc30844f6/mzaf_9552240361030927806.plus.aac.ep.m4a",
+      "trackId": 1383226560,
+      "title": "מתנות קטנות",
+      "artist": "רמי קלינשטיין",
+      "album": "מתנות קטנות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d1/e4/03/d1e403ba-3667-e381-5c1b-f09f23d26366/mzaf_4662265050151086145.plus.aac.ep.m4a",
+      "trackId": 683936574,
+      "title": "יפה כלבנה",
+      "artist": "אביתר בנאי",
+      "album": "יפה כלבנה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f9/c8/6c/f9c86c30-1c35-06c1-47d2-51c2e6d130e4/mzaf_15624417994433537478.plus.aac.ep.m4a",
+      "trackId": 589408530,
+      "title": "קדימה הלאה",
+      "artist": "עילי בוטנר וילדי החוץ & עילי בוטנר",
+      "album": "תם ולא נשלם",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e2/fe/42/e2fe424b-d896-f117-2ce3-7d33f47b1db6/mzaf_16180200079165864435.plus.aac.ep.m4a",
+      "trackId": 680531777,
+      "title": "כמו בחיים",
+      "artist": "מוש בן ארי",
+      "album": "כמו בחיים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d0/fa/16/d0fa16ba-08a8-d462-6e59-ff3e5f424d45/mzaf_18028766094098897217.plus.aac.ep.m4a",
+      "trackId": 780474251,
+      "title": "בקרוב",
+      "artist": "הפרויקט של עידן רייכל",
+      "album": "רבע לשש",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ea/26/21/ea26213b-bae3-f229-7efc-8d2bb2f054e4/mzaf_2572071500520228304.plus.aac.ep.m4a",
+      "trackId": 1433908852,
+      "title": "הרבה ממך נשאר",
+      "artist": "לירן דנינו",
+      "album": "הרבה ממך נשאר - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f3/63/2a/f3632a46-cec7-551c-dcb0-4f9ce043d9af/mzaf_7774126632214823542.plus.aac.ep.m4a",
+      "trackId": 685372350,
+      "title": "כמו כל יום",
+      "artist": "עידן רפאל חביב",
+      "album": "לאבד עניין בזמן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/73/f3/49/73f349a5-4b07-ed40-4262-2cbc9853e7b0/mzaf_8462414319395688578.plus.aac.ep.m4a",
+      "trackId": 1433914075,
+      "title": "שמלה כחולה",
+      "artist": "לירן דנינו",
+      "album": "שמלה כחולה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/50/e3/87/50e3879b-fd8d-8137-5ad0-164e3cd837af/mzaf_16735056865286864381.plus.aac.ep.m4a",
+      "trackId": 1433561396,
+      "title": "עד שתחזור",
+      "artist": "יובל דיין",
+      "album": "לאסוף",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2014-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cd/aa/fb/cdaafbd6-7b04-50cf-98c6-5bf5dd3796c9/mzaf_14268593585811481268.plus.aac.ep.m4a",
+      "trackId": 1433915309,
+      "title": "הלב",
+      "artist": "שלומי שבת",
+      "album": "הלב",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/1f/24/7b1f2477-2d76-3a10-5b51-63c3e79acb8b/mzaf_5229247789939828547.plus.aac.ep.m4a",
+      "trackId": 1547444951,
+      "title": "מתוק כשמרלי",
+      "artist": "אליעד",
+      "album": "סימן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a0/b3/e2/a0b3e220-9d74-5d72-2330-b79f324292bd/mzaf_5773726434081519278.plus.aac.ep.m4a",
+      "trackId": 1049982172,
+      "title": "יהיה בסדר (feat. נצ'י נצ')",
+      "artist": "קפה שחור חזק",
+      "album": "רק לעלות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/61/c0/30/61c0307f-32ee-624d-8082-33bab8769d34/mzaf_15960234979472959911.plus.aac.ep.m4a",
+      "trackId": 993777170,
+      "title": "דרך השלום",
+      "artist": "פאר טסי",
+      "album": "כוחה של אהבה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/05/9c/c9/059cc943-da26-5bcb-b9bd-7cbecd995d66/mzaf_17014566479141372856.plus.aac.ep.m4a",
+      "trackId": 1533436196,
+      "title": "דברי איתי יותר",
+      "artist": "נתן גושן",
+      "album": "דברי איתי יותר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9a/e2/b5/9ae2b579-06c5-d5d9-66cf-66c8fac9b618/mzaf_18068510712136256331.plus.aac.ep.m4a",
+      "trackId": 1528147867,
+      "title": "הכי ישראלי",
+      "artist": "התקווה 6",
+      "album": "הכי ישראלי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/77/c4/e2/77c4e2c7-d8bb-0b97-f648-fb12f20f4751/mzaf_8334322059351655890.plus.aac.ep.m4a",
+      "trackId": 1447242586,
+      "title": "מודה אני",
+      "artist": "עומר אדם",
+      "album": "מודה אני - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b2/c2/dc/b2c2dce7-f1ba-832e-40e0-8fa7550f9685/mzaf_1525423926210328685.plus.aac.ep.m4a",
+      "trackId": 1451510478,
+      "title": "טרמינל 3",
+      "artist": "דודו אהרון",
+      "album": "טרמינל 3",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d9/bd/82/d9bd82bc-3b94-bb42-9a54-ecb56d08ef15/mzaf_9881860279025227612.plus.aac.ep.m4a",
+      "trackId": 952692146,
+      "title": "איך אפשר",
+      "artist": "ג'יין בורדו",
+      "album": "ג'יין בורדו",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1e/58/46/1e5846e1-b5cd-0f9d-a1bf-490c662df0d2/mzaf_17039425727521479206.plus.aac.ep.m4a",
+      "trackId": 1462169978,
+      "title": "חלום של כל גבר",
+      "artist": "סאבלימינל & Gilad Vital",
+      "album": "צבע לחיים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/df/b3/3f/dfb33f32-956b-4b6e-9c28-963fcc029c31/mzaf_7729261371812453797.plus.aac.ep.m4a",
+      "trackId": 1546543787,
+      "title": "איש של לילה",
+      "artist": "רוני דלומי",
+      "album": "איש של לילה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e1/d0/04/e1d0046f-abb5-a0e2-66cf-a330cf98aedd/mzaf_3370748403014499867.plus.aac.ep.m4a",
+      "trackId": 1528147869,
+      "title": "מה שיהיה יהיה",
+      "artist": "התקווה 6",
+      "album": "הכי ישראלי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2015-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fd/1c/c4/fd1cc452-f598-f546-6c15-5fbaa6eb3b7a/mzaf_13848572500834599669.plus.aac.ep.m4a",
+      "trackId": 1537366151,
+      "title": "תן לי מנגינה (feat. אברהם טל)",
+      "artist": "הדג נחש",
+      "album": "שותפים בעם",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d8/a9/01/d8a90154-51ab-3cb1-3fa5-063c36b03bf6/mzaf_8590263134666185587.plus.aac.ep.m4a",
+      "trackId": 1572559753,
+      "title": "החיים שלנו תותים",
+      "artist": "חנן בן ארי",
+      "album": "איזון",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ec/8d/2b/ec8d2b38-8d4c-0267-eab3-b96c95d1e75d/mzaf_7858280550350236043.plus.aac.ep.m4a",
+      "trackId": 1646334328,
+      "title": "דדי דדון - מתוקה מהחיים",
+      "artist": "ארץ נהדרת",
+      "album": "דדי דדון - מתוקה מהחיים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d5/c8/8c/d5c88c99-f891-46c6-49de-bc3f568c98a0/mzaf_11717576620261463254.plus.aac.ep.m4a",
+      "trackId": 1447112097,
+      "title": "היא רק רוצה לרקוד",
+      "artist": "עומר אדם & משה פרץ",
+      "album": "מודה אני",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/72/03/32/7203328e-c0b8-d29b-d9bc-fc6f5964baf7/mzaf_4935841181301282414.plus.aac.ep.m4a",
+      "trackId": 1123663405,
+      "title": "סלסולים",
+      "artist": "סטטיק ובן אל תבורי",
+      "album": "סלסולים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/28/68/6d/28686d3b-b9b4-5863-2734-119bdd2e1909/mzaf_16895366721776526026.plus.aac.ep.m4a",
+      "trackId": 1560168155,
+      "title": "אחרי כל השנים",
+      "artist": "עומר אדם",
+      "album": "אחרי כל השנים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/df/0c/76/df0c76b5-7b77-93b3-6d60-338e22ce8776/mzaf_16513850525922951981.plus.aac.ep.m4a",
+      "trackId": 1148382837,
+      "title": "אור",
+      "artist": "אליעד",
+      "album": "אור",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3d/0c/91/3d0c910c-c44b-5bbb-227a-9ea7c392c4a4/mzaf_3155878834964404101.plus.aac.ep.m4a",
+      "trackId": 1148382841,
+      "title": "מיאמי",
+      "artist": "אליעד",
+      "album": "אור",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/56/6f/7f/566f7f69-1847-9d19-e60d-27b7a243d8c5/mzaf_18062420190554783013.plus.aac.ep.m4a",
+      "trackId": 1064077637,
+      "title": "ברבי",
+      "artist": "סטטיק ובן אל תבורי",
+      "album": "ברבי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cd/08/ed/cd08edb2-d555-4295-8991-1c2f888bd071/mzaf_4535093828742594232.plus.aac.ep.m4a",
+      "trackId": 1260513643,
+      "title": "מסיבה בחיפה",
+      "artist": "איתי לוי, The Ultras & אילון מתנה",
+      "album": "שורדים אהבה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bb/60/76/bb607617-3d4b-e925-4ba4-4f80a7772062/mzaf_1825346493490537591.plus.aac.ep.m4a",
+      "trackId": 1528145331,
+      "title": "קופנגן (feat. Infected Mushroom)",
+      "artist": "התקווה 6",
+      "album": "הכל עוד לפניי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/12/08/01/1208012b-32fc-3110-e3d4-f063ca6eda8f/mzaf_9004254900748030201.plus.aac.ep.m4a",
+      "trackId": 1046809491,
+      "title": "לפני שייגמר",
+      "artist": "עידן רייכל",
+      "album": "היד החמה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2016-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/49/74/d4497481-5e7f-17ef-ef5a-9823f0f16b27/mzaf_15616853703959404361.plus.aac.ep.m4a",
+      "trackId": 1433609386,
+      "title": "בדיוק כמו הירח",
+      "artist": "יובל דיין",
+      "album": "ליבי ער",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/52/00/6f/52006ffb-cd8a-18a0-aefe-27f9ce066242/mzaf_1140031203681285652.plus.aac.ep.m4a",
+      "trackId": 1588488595,
+      "title": "כל הזמן הזה",
+      "artist": "רביד פלוטניק",
+      "album": "שפל וגאות",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6d/4b/d3/6d4bd349-d051-1311-9cc7-6c9b2c876ac3/mzaf_4642774179196419819.plus.aac.ep.m4a",
+      "trackId": 1572558420,
+      "title": "ויקיפדיה",
+      "artist": "חנן בן ארי",
+      "album": "ויקיפדיה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b0/b5/d0/b0b5d07e-6dac-bc78-97b1-3d6dcf6aea3e/mzaf_12490705797625138577.plus.aac.ep.m4a",
+      "trackId": 1243615969,
+      "title": "טודו בום",
+      "artist": "סטטיק ובן אל תבורי",
+      "album": "טודו בום - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ad/94/25/ad942579-3df2-f1e6-3618-9bfeb8fef233/mzaf_5563328737124049274.plus.aac.ep.m4a",
+      "trackId": 1560168590,
+      "title": "בסוף הכל חולף",
+      "artist": "עומר אדם",
+      "album": "אחרי כל השנים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d4/a9/3c/d4a93ce9-1c42-2cb3-92ca-e90b9986f124/mzaf_12017048263428693405.plus.aac.ep.m4a",
+      "trackId": 1255126384,
+      "title": "תמיד חלמתי",
+      "artist": "אליעד",
+      "album": "תמיד חלמתי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/96/b9/1a/96b91a1d-58bb-c4c4-a2c9-67232a6f40d4/mzaf_17568111748428727708.plus.aac.ep.m4a",
+      "trackId": 1447225656,
+      "title": "פעם בחיים",
+      "artist": "עומר אדם",
+      "album": "פעם בחיים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c2/a7/a9/c2a7a948-9e19-b119-7668-9d3809002795/mzaf_6652758596200573662.plus.aac.ep.m4a",
+      "trackId": 1199509502,
+      "title": "זהב",
+      "artist": "סטטיק ובן אל תבורי",
+      "album": "זהב - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/34/9c/ae/349caeac-e5b1-4160-00b0-594d3f18b523/mzaf_17190450909974266579.plus.aac.ep.m4a",
+      "trackId": 1434395662,
+      "title": "אף אחד",
+      "artist": "עדן בן זקן",
+      "album": "תאמין לי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/cd/ec/87/cdec8782-a5d5-7ada-be18-4f4ff17229a3/mzaf_6459870006107663514.plus.aac.ep.m4a",
+      "trackId": 1434301063,
+      "title": "רציתי",
+      "artist": "עדן בן זקן",
+      "album": "רציתי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/7a/4b/d47a4b71-6047-df77-44ea-da23c910daa2/mzaf_15898734180161186690.plus.aac.ep.m4a",
+      "trackId": 1560168584,
+      "title": "סיפור ישן",
+      "artist": "עומר אדם & לירן דנינו",
+      "album": "אחרי כל השנים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/70/56/8d/70568db6-175a-1184-611d-32f5dce0f4e0/mzaf_1944836106563659281.plus.aac.ep.m4a",
+      "trackId": 1245153938,
+      "title": "קרמלה",
+      "artist": "משה פרץ",
+      "album": "בחור חדש",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2017-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/08/64/ee/0864eed9-dab3-25bc-f8e4-c9feceaf87a6/mzaf_3859382221367487503.plus.aac.ep.m4a",
+      "trackId": 1271794000,
+      "title": "י\"א 2",
+      "artist": "טונה",
+      "album": "י\"א 2 - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/92/f5/da/92f5dac9-5399-8d0a-05a2-2d1feeb5a32d/mzaf_10431964588948740460.plus.aac.ep.m4a",
+      "trackId": 1447223851,
+      "title": "שני משוגעים",
+      "artist": "עומר אדם",
+      "album": "שני משוגעים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/d5/43/53d5431d-4c69-60c1-e004-0f2db063a965/mzaf_5279120554860166350.plus.aac.ep.m4a",
+      "trackId": 1447098178,
+      "title": "ואם תבואי אליי",
+      "artist": "עידן רייכל",
+      "album": "ואם תבואי אליי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/15/14/cc/1514cca7-59c5-2fd2-e707-e6b7409019a4/mzaf_14635509226213821825.plus.aac.ep.m4a",
+      "trackId": 1457548948,
+      "title": "שמישהו יעצור אותי",
+      "artist": "עדן חסון",
+      "album": "שמישהו יעצור אותי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/22/88/a9/2288a904-01e3-9dd8-30c5-413be1c09803/mzaf_14967415175012321125.plus.aac.ep.m4a",
+      "trackId": 1447223208,
+      "title": "חברות שלך",
+      "artist": "עומר אדם",
+      "album": "חברות שלך - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a5/0a/eb/a50aebfa-6010-a540-91a1-a91100164445/mzaf_8813211661813595901.plus.aac.ep.m4a",
+      "trackId": 1434298907,
+      "title": "חיים שלי",
+      "artist": "עדן בן זקן",
+      "album": "חיים שלי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/34/cd/55/34cd5531-0556-39f4-d751-352508c84bad/mzaf_16032275553291950285.plus.aac.ep.m4a",
+      "trackId": 1391514351,
+      "title": "הכי קרוב אלייך",
+      "artist": "עילי בוטנר & אברהם אביב אלוש",
+      "album": "הכי קרוב אלייך - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a7/69/b6/a769b6a0-beb4-408c-3b71-1135aa6d1d55/mzaf_1654784918174380468.plus.aac.ep.m4a",
+      "trackId": 1486075521,
+      "title": "שתישרף האהבה",
+      "artist": "איתי לוי",
+      "album": "שתישרף האהבה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e6/07/f6/e607f604-491f-4925-4401-713aa831b8e9/mzaf_6401798267873704485.plus.aac.ep.m4a",
+      "trackId": 1546239804,
+      "title": "אולי נדבר",
+      "artist": "נדב גדג'",
+      "album": "אולי נדבר - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2f/a5/d3/2fa5d30a-594c-e46c-ed44-3cc499ea760d/mzaf_12431568438923428921.plus.aac.ep.m4a",
+      "trackId": 1317775393,
+      "title": "לשוב הביתה",
+      "artist": "ישי ריבו",
+      "album": "לשוב הביתה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c1/c8/cb/c1c8cb2e-cc47-ea25-476d-c8ae513f239c/mzaf_15586629604495409037.plus.aac.ep.m4a",
+      "trackId": 1849636978,
+      "title": "אל תשאלי (מארח את בניה ברבי)",
+      "artist": "גיל ויין & בניה ברבי",
+      "album": "אל תשאלי (מארח את בניה ברבי) - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/89/75/46/8975461a-3ef2-97c7-464c-ec2f2b6e604f/mzaf_3704591871656198112.plus.aac.ep.m4a",
+      "trackId": 1457548951,
+      "title": "ילדים כאלה",
+      "artist": "עדן חסון",
+      "album": "שמישהו יעצור אותי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2018-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7b/63/bf/7b63bfad-79ea-e9e4-c996-248ed577ed00/mzaf_3276840271113760130.plus.aac.ep.m4a",
+      "trackId": 1493110545,
+      "title": "אוהבת אותי אמיתי",
+      "artist": "עומר אדם",
+      "album": "עומר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/7e/b0/96/7eb09673-bc36-b75f-46bc-433c26d1e4c0/mzaf_10185880893653738835.plus.aac.ep.m4a",
+      "trackId": 1466746338,
+      "title": "מסע",
+      "artist": "אליעד",
+      "album": "מסע - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a2/72/14/a2721402-8b82-176b-621c-a6be0f08510d/mzaf_2167050872530542751.plus.aac.ep.m4a",
+      "trackId": 1481458709,
+      "title": "הלב שלי",
+      "artist": "עומר אדם & ישי ריבו",
+      "album": "הלב שלי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9a/99/b9/9a99b944-e82b-cd0f-245b-613ce38eb383/mzaf_9343941297585597397.plus.aac.ep.m4a",
+      "trackId": 1572558976,
+      "title": "אלוף העולם",
+      "artist": "חנן בן ארי",
+      "album": "אלוף העולם - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/02/ca/8f/02ca8f27-1d4b-f830-16ef-2e0cbc8f4307/mzaf_3966534023317524643.plus.aac.ep.m4a",
+      "trackId": 1459981318,
+      "title": "שבט אחים ואחיות",
+      "artist": "שבט אחים ואחיות",
+      "album": "שבט אחים ואחיות - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c6/ba/a1/c6baa1b3-d4a9-e876-f0ae-87c213e11e2a/mzaf_3506019552708197989.plus.aac.ep.m4a",
+      "trackId": 1455821283,
+      "title": "כפיות",
+      "artist": "עדן חסון",
+      "album": "כפיות - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3c/17/e6/3c17e6db-2056-e811-9e69-5fc2de5f65cb/mzaf_855776302370811519.plus.aac.ep.m4a",
+      "trackId": 1448266624,
+      "title": "הזוג הזה",
+      "artist": "Mergui",
+      "album": "הזוג הזה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/21/3c/54/213c54bb-8fc6-2d77-8c65-3bdf4a9052a1/mzaf_11291388554089185306.plus.aac.ep.m4a",
+      "trackId": 1457548968,
+      "title": "אין יותר מועדונים",
+      "artist": "עדן חסון",
+      "album": "שמישהו יעצור אותי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/39/77/a7/3977a78f-fd62-690b-5343-84128833366f/mzaf_8115247069754057263.plus.aac.ep.m4a",
+      "trackId": 1438104867,
+      "title": "תפסת לי מקום",
+      "artist": "בניה ברבי",
+      "album": "תפסת לי מקום - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e8/c7/db/e8c7db7a-b491-3e71-d603-cd0373c7d907/mzaf_1194363053822101339.plus.aac.ep.m4a",
+      "trackId": 1849651013,
+      "title": "צבעים (feat. Ron Buhnik)",
+      "artist": "גיל ויין",
+      "album": "צבעים (feat. Ron Buhnik) - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/37/9d/ec/379dec77-de79-3aa0-0ce3-ef33558082fd/mzaf_5331445389508663699.plus.aac.ep.m4a",
+      "trackId": 1533293660,
+      "title": "באתי לחלום",
+      "artist": "נתן גושן",
+      "album": "באתי לחלום",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/57/1b/80/571b807d-e5fa-783a-9c78-daa224657953/mzaf_4689143931489661563.plus.aac.ep.m4a",
+      "trackId": 1447218181,
+      "title": "רחוק מכולם",
+      "artist": "עומר אדם",
+      "album": "רחוק מכולם - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2019-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ed/9e/30/ed9e30e3-47bb-b310-1aba-3586cab1456d/mzaf_12041856392352243522.plus.aac.ep.m4a",
+      "trackId": 1499265897,
+      "title": "פאוץ'",
+      "artist": "נועה קירל",
+      "album": "פאוץ' - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f3/90/28/f39028fa-35b6-186d-43b3-a724c9d85631/mzaf_17136143271421605876.plus.aac.ep.m4a",
+      "trackId": 1524805948,
+      "title": "שלמים",
+      "artist": "עידן רפאל חביב",
+      "album": "שלמים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/37/2a/32/372a32f9-fe13-238d-01b2-e3164ec8ac02/mzaf_11532692312181509965.plus.aac.ep.m4a",
+      "trackId": 1572558234,
+      "title": "אם תרצי",
+      "artist": "חנן בן ארי",
+      "album": "אם תרצי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b5/34/c4/b534c46c-081f-7bb7-3896-7e3d6edafebf/mzaf_11874003892733825228.plus.aac.ep.m4a",
+      "trackId": 1516833077,
+      "title": "מיליון דולר (feat. Shahar Saul)",
+      "artist": "נועה קירל",
+      "album": "מיליון דולר (feat. Shahar Saul) - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/5c/d3/665cd31d-4e7b-abb4-a2f0-74ec7b9ed44c/mzaf_10431302504064162481.plus.aac.ep.m4a",
+      "trackId": 1512939046,
+      "title": "ואז את תראי",
+      "artist": "דולי ופן, דיקלה, עידן רפאל חביב & מארק אליהו",
+      "album": "ואז את תראי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2c/2b/de/2c2bde3a-03ea-b39a-ce24-717226e6790c/mzaf_13973609442191734138.plus.aac.ep.m4a",
+      "trackId": 1546241561,
+      "title": "זוט עני",
+      "artist": "אלה לי",
+      "album": "זוט עני - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d6/25/bb/d625bbc2-95d3-d45b-b1e7-6f8d5f4ab69c/mzaf_3523155793695475732.plus.aac.ep.m4a",
+      "trackId": 1572558222,
+      "title": "שמש",
+      "artist": "חנן בן ארי",
+      "album": "שמש - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cf/eb/6a/cfeb6acd-3980-4e35-93ce-2e0f6a8e7dec/mzaf_12077205950205836506.plus.aac.ep.m4a",
+      "trackId": 1584236645,
+      "title": "אל תעזבי ידיים",
+      "artist": "עקיבא",
+      "album": "אל תעזבי ידיים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/e9/11/66e911d1-9a8a-b8da-e1f8-4700aa5c0225/mzaf_15342522329544167012.plus.aac.ep.m4a",
+      "trackId": 1488818255,
+      "title": "אגרוף",
+      "artist": "עדן בן זקן",
+      "album": "אגרוף - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/8a/f2/9b/8af29b7d-6c62-94a1-3963-a47e634b2beb/mzaf_5013402840827206125.plus.aac.ep.m4a",
+      "trackId": 1598116866,
+      "title": "סיבובים",
+      "artist": "עדן חסון",
+      "album": "אלבום 2",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a3/51/29/a3512957-5ea8-700d-4727-18e9d859ab37/mzaf_5853685305842868392.plus.aac.ep.m4a",
+      "trackId": 1533293667,
+      "title": "נחכה לך",
+      "artist": "נתן גושן & ישי ריבו",
+      "album": "באתי לחלום",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/06/69/3a/06693a55-83fd-e251-f5e8-3030ad82f379/mzaf_15606766723573825557.plus.aac.ep.m4a",
+      "trackId": 1508643487,
+      "title": "שבוע טוב",
+      "artist": "אברהם טל",
+      "album": "שבוע טוב - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2020-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/17/12/fa/1712fa74-6d3e-738c-f7e6-cd5d56ca5e30/mzaf_9282964956722500996.plus.aac.ep.m4a",
+      "trackId": 1480540209,
+      "title": "בין קודש לחול",
+      "artist": "אמיר דדון & שולי רנד",
+      "album": "בין קודש לחול - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fa/bf/86/fabf8673-7010-a174-6735-0a3766351b48/mzaf_5565988724851911651.plus.aac.ep.m4a",
+      "trackId": 1554870147,
+      "title": "בית משוגעים",
+      "artist": "רן דנקר",
+      "album": "בית משוגעים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/39/95/ea/3995ea76-391d-ad11-2289-745a562b25b4/mzaf_18030518835877425651.plus.aac.ep.m4a",
+      "trackId": 1765280254,
+      "title": "רסיסים",
+      "artist": "רביב כנר",
+      "album": "רסיסים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b9/2d/39/b92d3959-c62e-ca70-e7a6-13191629ec09/mzaf_2517557536938908258.plus.aac.ep.m4a",
+      "trackId": 1572809799,
+      "title": "טרילילי טרללה",
+      "artist": "נועה קירל & אילן פלד",
+      "album": "טרילילי טרללה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a7/e0/ab/a7e0abdd-9176-c9a6-a404-31bee7c95d9a/mzaf_7163966582827327459.plus.aac.ep.m4a",
+      "trackId": 1527070948,
+      "title": "שרק תחייך",
+      "artist": "יובל דיין",
+      "album": "שרק תחייך - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/2e/3b/152e3bf7-e741-053d-0bd4-9be9d0b55921/mzaf_15228237368105319141.plus.aac.ep.m4a",
+      "trackId": 1573733721,
+      "title": "אפס מאמץ",
+      "artist": "סטטיק ובן אל תבורי & נטע ברזילי",
+      "album": "אפס מאמץ - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c2/cc/a5/c2cca53d-e242-e9e0-19e1-dbcf57f88bd2/mzaf_1361366252186459847.plus.aac.ep.m4a",
+      "trackId": 1536723062,
+      "title": "שקיעות אדומות",
+      "artist": "עדן חסון",
+      "album": "שקיעות אדומות - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c0/41/ac/c041ac1b-e4a8-c1c7-1e02-fa3ee2124323/mzaf_4089491633882809079.plus.aac.ep.m4a",
+      "trackId": 1544288959,
+      "title": "רוצה שלום",
+      "artist": "רביב כנר",
+      "album": "רוצה שלום - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8a/6d/19/8a6d1995-ae13-82a9-3b28-39d13594258e/mzaf_4618054883836786872.plus.aac.ep.m4a",
+      "trackId": 1573405157,
+      "title": "ג'וני",
+      "artist": "בר צברי",
+      "album": "רוקנרול בצהריים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f1/f8/90/f1f89078-900d-a47c-e4ad-2d732b8255ca/mzaf_13841009778566020193.plus.aac.ep.m4a",
+      "trackId": 1572558510,
+      "title": "אמן על הילדים",
+      "artist": "חנן בן ארי",
+      "album": "אמן על הילדים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f3/f0/7c/f3f07cb6-6bde-ab42-cb82-3b4562c1828f/mzaf_8501472447182476732.plus.aac.ep.m4a",
+      "trackId": 1556279889,
+      "title": "גדל לי קצת זקן",
+      "artist": "עדן חסון",
+      "album": "גדל לי קצת זקן - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d2/41/13/d2411394-082b-1026-9ffc-12305131a835/mzaf_1720508683989574432.plus.aac.ep.m4a",
+      "trackId": 1564297593,
+      "title": "מועבט",
+      "artist": "עדן בן זקן & איתי גלו",
+      "album": "מועבט - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2021-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6c/c5/46/6cc546b7-21e5-84d0-0aeb-5f72ada5c791/mzaf_3353610391755633446.plus.aac.ep.m4a",
+      "trackId": 1552895096,
+      "title": "סיבת הסיבות",
+      "artist": "ישי ריבו",
+      "album": "סיבת הסיבות - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/8a/ae/e88aaef1-5248-9a8e-2fd0-6845420f6bcc/mzaf_9107716923693805927.plus.aac.ep.m4a",
+      "trackId": 1604407407,
+      "title": "סתלבט בקיבוץ (feat. ג'ימבו ג'יי)",
+      "artist": "Full Trunk",
+      "album": "ממותה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/95/7d/31/957d3137-64ff-19f5-488a-6cd79b362804/mzaf_4837290595454643469.plus.aac.ep.m4a",
+      "trackId": 1637530309,
+      "title": "פנתרה",
+      "artist": "נועה קירל",
+      "album": "פנתרה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c3/40/ce/c340cec9-652d-af5a-0927-6c314d17c0d0/mzaf_10869080427350840770.plus.aac.ep.m4a",
+      "trackId": 1596653059,
+      "title": "ליבינג דה דרים",
+      "artist": "נונו",
+      "album": "ליבינג דה דרים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/53/22/18/53221838-7eb7-d4b8-bfa7-04e70ba8f013/mzaf_10067287131629044567.plus.aac.ep.m4a",
+      "trackId": 1602344232,
+      "title": "לך לישון",
+      "artist": "אנה זק",
+      "album": "לך לישון - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/28/e0/e7/28e0e71b-2371-e106-a471-a838dadcd1ea/mzaf_17167158320286990103.plus.aac.p.m4a",
+      "trackId": 1622023145,
+      "title": "מי זאת",
+      "artist": "אנה זק",
+      "album": "מי זאת - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ed/d1/40/edd14023-b1ad-a725-23ea-1a5848806259/mzaf_1084210478474392859.plus.aac.ep.m4a",
+      "trackId": 1604406814,
+      "title": "דובשנייה",
+      "artist": "שחר סאול, אגם בוחבוט & נורוז",
+      "album": "דובשנייה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5c/64/16/5c64161c-7436-ca97-8b03-1a465b18151c/mzaf_2566756413551685226.plus.aac.ep.m4a",
+      "trackId": 1596884708,
+      "title": "יחפים",
+      "artist": "יסמין מועלם",
+      "album": "יחפים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2e/e2/0c/2ee20caa-d23e-b3f9-5a2a-c7368d905e85/mzaf_4447743453065124103.plus.aac.ep.m4a",
+      "trackId": 1598586248,
+      "title": "היי בייב",
+      "artist": "טונה",
+      "album": "מזרח פרוע",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c5/e9/92/c5e992fd-7beb-99e5-6638-72391f09f33a/mzaf_6588038471468931800.plus.aac.ep.m4a",
+      "trackId": 1588903730,
+      "title": "השמלה החדשה שלי",
+      "artist": "רן דנקר",
+      "album": "השמלה החדשה שלי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0d/49/49/0d494991-23cb-8b8f-ae5f-d1a1d3ef9bd9/mzaf_14900500388141760599.plus.aac.ep.m4a",
+      "trackId": 1589079569,
+      "title": "לא להיות לבד",
+      "artist": "Mergui",
+      "album": "לא להיות לבד",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/24/c1/90/24c190e6-cc0d-7f79-830a-dc55b76f41a2/mzaf_3239308317399809901.plus.aac.ep.m4a",
+      "trackId": 1626073564,
+      "title": "שלושה בנות",
+      "artist": "נועה קירל & גיתית פישר",
+      "album": "שלושה בנות - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2022-016": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0f/8c/e2/0f8ce22f-0228-d653-4ae9-0e5c6116f668/mzaf_13219007193118556369.plus.aac.ep.m4a",
+      "trackId": 1613332767,
+      "title": "פעמון",
+      "artist": "נועה קירל & איתי גלו",
+      "album": "פעמון - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/99/ae/ee/99aeee0a-8538-8dd1-16b8-8644229a37dc/mzaf_9703570469554884766.plus.aac.ep.m4a",
+      "trackId": 1682241029,
+      "title": "ילד מטריה",
+      "artist": "עטרה אוריה",
+      "album": "ילד מטריה - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4e/8e/dd/4e8edd7b-a608-2c18-1e28-89095fd16253/mzaf_8615824835344992052.plus.aac.ep.m4a",
+      "trackId": 1683388703,
+      "title": "תיק קטן",
+      "artist": "נס & סטילה",
+      "album": "תיק קטן - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/28/04/ab/2804abd3-a103-61a9-6c6a-f3b24f55be90/mzaf_5176560827101731156.plus.aac.ep.m4a",
+      "trackId": 1650934078,
+      "title": "אהבה חולה",
+      "artist": "פאר טסי",
+      "album": "רדיו שטח",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/69/2c/a7/692ca797-e81a-bdbd-5514-8e5513f9a417/mzaf_2665274472996750344.plus.aac.ep.m4a",
+      "trackId": 1690376057,
+      "title": "אהבה",
+      "artist": "אושר כהן",
+      "album": "Part II - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ac/c7/1d/acc71d3d-678d-ebb4-4954-8b098b65caca/mzaf_7239016326566238012.plus.aac.p.m4a",
+      "trackId": 1669193302,
+      "title": "רונדלים",
+      "artist": "סטטיק",
+      "album": "לירז",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ce/e6/93/cee6935e-79a4-e811-8528-783269a73252/mzaf_916077363530869673.plus.aac.ep.m4a",
+      "trackId": 1690618222,
+      "title": "עטלף עיוור",
+      "artist": "חנן בן ארי",
+      "album": "יש כאן יותר מזה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/08/b3/ba/08b3babc-9cdc-86a1-deef-2f912695c1bf/mzaf_13347004379802367034.plus.aac.ep.m4a",
+      "trackId": 1688447578,
+      "title": "לאהוב אותך כל יום",
+      "artist": "דולי ופן & עדן חסון",
+      "album": "לאהוב אותך כל יום - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/69/a0/67/69a06767-d54a-2a7a-bf10-0d2e044f28ea/mzaf_11955509570263254923.plus.aac.ep.m4a",
+      "trackId": 1656238187,
+      "title": "עד שתבואי עד אליי",
+      "artist": "עדן חסון",
+      "album": "עד שתבואי עד אליי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/79/30/03/793003b5-5b2e-7958-d3c2-828b9681c12e/mzaf_17152952769032519568.plus.aac.ep.m4a",
+      "trackId": 1690618227,
+      "title": "חוץ מכדורגל",
+      "artist": "חנן בן ארי",
+      "album": "יש כאן יותר מזה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c1/35/9b/c1359b3f-fb79-7af8-d549-d400152cf658/mzaf_10829040761966771728.plus.aac.ep.m4a",
+      "trackId": 1690586820,
+      "title": "פרובוקטיבית",
+      "artist": "נועה קירל, Forever Tel Aviv & Sagi Kariv",
+      "album": "פרובוקטיבית - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/37/e8/17/37e81788-3bf5-8f9d-9f4c-27f6079ea8ab/mzaf_8917459777470256041.plus.aac.ep.m4a",
+      "trackId": 1652671853,
+      "title": "אחותי כבר לא סובלת אותך",
+      "artist": "שירה מרגלית",
+      "album": "אחותי כבר לא סובלת אותך - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2023-016": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/86/29/6f/86296f9a-d156-fcc7-593e-b4b05ce7ad85/mzaf_14847315155497190269.plus.aac.ep.m4a",
+      "trackId": 1687927161,
+      "title": "יהיה טוב",
+      "artist": "יסמין מועלם",
+      "album": "אין עולם",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/35/7d/80/357d8040-53ae-9cc9-8fe1-0b78e3b99cfc/mzaf_10547917208136439910.plus.aac.ep.m4a",
+      "trackId": 1715520394,
+      "title": "חרבו דרבו",
+      "artist": "נס & סטילה",
+      "album": "חרבו דרבו - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4f/0b/c6/4f0bc686-ee47-f7f5-4e71-abf58712c5f4/mzaf_2320801074163081405.plus.aac.ep.m4a",
+      "trackId": 1714238254,
+      "title": "תרקדי (7.10.23)",
+      "artist": "אושר כהן",
+      "album": "תרקדי (7.10.23) - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/86/82/9b/86829bb2-8ca0-e9b5-36d5-da3e570e5141/mzaf_8745941822421398237.plus.aac.ep.m4a",
+      "trackId": 1729163760,
+      "title": "גיבורי על",
+      "artist": "התקווה 6",
+      "album": "גיבורי על - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/b7/10/9fb7101e-0c14-c4dc-38e0-3b4b2e6e46e2/mzaf_4466168382397781768.plus.aac.ep.m4a",
+      "trackId": 1729192849,
+      "title": "מנגן ושר",
+      "artist": "אושר כהן",
+      "album": "The Last Episode - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fe/04/1a/fe041a3a-0e26-4d6c-7b2d-ea9cf226c79c/mzaf_4693615372011991900.plus.aac.ep.m4a",
+      "trackId": 1747313729,
+      "title": "מה יהיה מחר",
+      "artist": "פאר טסי",
+      "album": "רדיו שטח 2",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-007": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d0/38/fb/d038fba9-b5cc-b7d4-4e5d-ca8e824b4771/mzaf_6488764591275139594.plus.aac.ep.m4a",
+      "trackId": 1747313723,
+      "title": "רוז",
+      "artist": "פאר טסי",
+      "album": "רדיו שטח 2",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/01/88/1c/01881cfa-07ce-536f-f77c-d06bf2c6349c/mzaf_11383344893434596098.plus.aac.ep.m4a",
+      "trackId": 1738222478,
+      "title": "נאדי באדי",
+      "artist": "שחר טבוך & אגם בוחבוט",
+      "album": "היי, זה שחר",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/fa/c2/f2/fac2f278-1c3f-a24f-49a3-5f5bbe2a9885/mzaf_4299888683486508748.plus.aac.ep.m4a",
+      "trackId": 1700218665,
+      "title": "לצאת מדיכאון",
+      "artist": "יגל אושרי",
+      "album": "לצאת מדיכאון - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/87/7f/91/877f915e-8d42-0dbc-d908-06df29f26e44/mzaf_2533874447385993076.plus.aac.ep.m4a",
+      "trackId": 1741996609,
+      "title": "פלסטרים",
+      "artist": "אושר כהן",
+      "album": "פלסטרים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c4/8f/ee/c48feea5-aeb5-abb2-9263-e26fc2c1e9c2/mzaf_5145779655126833895.plus.aac.ep.m4a",
+      "trackId": 1758275778,
+      "title": "אין אותי",
+      "artist": "אושר כהן & נועה קירל",
+      "album": "Next Episode - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c0/80/ff/c080ff9c-1906-c90c-a2a0-32c21a22b550/mzaf_10334044120276193850.plus.aac.ep.m4a",
+      "trackId": 1736747533,
+      "title": "רק שלך",
+      "artist": "עומר אדם",
+      "album": "חמישה לילות - EP",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2024-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/a7/88/96a788f4-4089-616f-b807-7548acec2b66/mzaf_5414023611997670565.plus.aac.p.m4a",
+      "trackId": 1746696112,
+      "title": "באמפרים",
+      "artist": "סטילה & נס",
+      "album": "באמפרים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b4/0a/01/b40a013c-7041-340b-fe72-b8ef0cc23305/mzaf_2190950726611092494.plus.aac.ep.m4a",
+      "trackId": 1769105591,
+      "title": "תמיד אוהב אותי",
+      "artist": "ששון איפרם שאולוב",
+      "album": "תמיד אוהב אותי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/07/13/78/07137842-50d4-594a-90c2-bd33ff6bf128/mzaf_15390237672801751274.plus.aac.ep.m4a",
+      "trackId": 1819309871,
+      "title": "מלכת הדור",
+      "artist": "עומר אדם",
+      "album": "תסמינים של פרידה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/33/6c/41/336c41e7-b70a-65a0-2ed2-949a885d2fba/mzaf_10019174001688052288.plus.aac.ep.m4a",
+      "trackId": 1784323856,
+      "title": "סופרמן",
+      "artist": "עידן עמדי",
+      "album": "סופרמן",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/64/d6/8d/64d68d1e-37ce-4ab4-81f4-b53ea5dee382/mzaf_4069485151914186647.plus.aac.ep.m4a",
+      "trackId": 1822978224,
+      "title": "היא לא יודעת למה",
+      "artist": "פאר טסי",
+      "album": "רדיו שטח 3",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-006": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/79/8a/64/798a64af-3633-4b14-204c-7d3d92902af0/mzaf_14707633566072941447.plus.aac.ep.m4a",
+      "trackId": 1861271416,
+      "title": "אם את כבר הולכת",
+      "artist": "נדב חנציס",
+      "album": "אם את כבר הולכת - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/67/57/58/67575861-6159-4cc2-44e5-df548d18495e/mzaf_11817176674760019293.plus.aac.ep.m4a",
+      "trackId": 1775158819,
+      "title": "אהובתי כבר לא רואה אותי",
+      "artist": "עומר אדם",
+      "album": "לחנים שבורים",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/01/ae/16/01ae1630-2b40-0f33-62fb-bcefe8b8b999/mzaf_2312458667732036196.plus.aac.ep.m4a",
+      "trackId": 1779465417,
+      "title": "את לא יודעת כמה שאני אוהב אותך",
+      "artist": "אודיה",
+      "album": "את לא יודעת כמה שאני אוהב אותך - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-010": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d9/4f/6e/d94f6ec4-0bb5-66b2-1f66-d6ada70a5019/mzaf_5296810114659895656.plus.aac.ep.m4a",
+      "trackId": 1799568486,
+      "title": "פרפרים",
+      "artist": "אודיה",
+      "album": "פרפרים - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-011": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/9a/39/539a3943-2ec0-da77-606e-0ecbb1a9bc35/mzaf_1042897715822548119.plus.aac.ep.m4a",
+      "trackId": 1800686636,
+      "title": "רשימת קניות",
+      "artist": "סטילה, נס & אודיה",
+      "album": "רשימת קניות - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b9/1f/70/b91f7084-0db3-e91a-d371-a5f6eba36e01/mzaf_8787267776469700509.plus.aac.p.m4a",
+      "trackId": 1823200924,
+      "title": "פאפי",
+      "artist": "אודיה",
+      "album": "פאפי - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ac/3e/db/ac3edbe8-240b-b0ae-059f-375ad95f66d1/mzaf_7981801848953523746.plus.aac.ep.m4a",
+      "trackId": 1823203119,
+      "title": "אליס",
+      "artist": "אודיה",
+      "album": "אליס - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2025-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d7/a4/5a/d7a45a47-a056-6ef0-9d70-08b705221b58/mzaf_4263044399052513204.plus.aac.ep.m4a",
+      "trackId": 1787574067,
+      "title": "שמש שזורחת עליי",
+      "artist": "רביד פלוטניק",
+      "album": "הדרך לשביל הזהב",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-001": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/df/32/71/df3271c1-2591-667c-79ae-9704cb0af397/mzaf_3507265880347163736.plus.aac.ep.m4a",
+      "trackId": 1876888651,
+      "title": "כולם גנבים",
+      "artist": "אושר כהן",
+      "album": "Life Lately - EP",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-002": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9b/30/7d/9b307d55-b772-ebba-d07d-f89375f5f8ee/mzaf_12534566816093427192.plus.aac.ep.m4a",
+      "trackId": 6768723553,
+      "title": "איך שהיא רוקדת",
+      "artist": "עדן חסון, אופק אדנק & אגם בוחבוט",
+      "album": "איך שהיא רוקדת - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-003": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/58/37/82/5837820a-3d3c-0263-35e5-43268622834e/mzaf_10208094342241906299.plus.aac.ep.m4a",
+      "trackId": 1863977911,
+      "title": "רולקס וקסקט",
+      "artist": "עדן בן זקן",
+      "album": "רולקס וקסקט - EP",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-004": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f4/6d/0b/f46d0bd9-a827-acca-fdca-301db95d6986/mzaf_8830238742752704536.plus.aac.ep.m4a",
+      "trackId": 1822978243,
+      "title": "עוף מוזר",
+      "artist": "פאר טסי",
+      "album": "רדיו שטח 3",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-005": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5a/3f/d3/5a3fd331-4858-1599-afd5-05e053143f0e/mzaf_14997683382537365580.plus.aac.ep.m4a",
+      "trackId": 6769336030,
+      "title": "עשר רמות מעליו",
+      "artist": "אודיה",
+      "album": "השם יעזור",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-008": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e2/31/db/e231db09-b822-da4c-f841-0198002b2376/mzaf_5919602955975995963.plus.aac.ep.m4a",
+      "trackId": 1843189745,
+      "title": "ואן דאם",
+      "artist": "אודיה",
+      "album": "Van da'M - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-009": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/76/cf/20/76cf2021-1dc5-de11-7869-92aecc9c3ed8/mzaf_2599978979192886035.plus.aac.ep.m4a",
+      "trackId": 1819309863,
+      "title": "השיר שאת אהבת",
+      "artist": "עומר אדם",
+      "album": "תסמינים של פרידה",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-012": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f9/ea/f9/f9eaf9bc-1661-6a64-9272-125f349cb3df/mzaf_11268056840409676361.plus.aac.ep.m4a",
+      "trackId": 1872626124,
+      "title": "בית ביפו",
+      "artist": "דודו טסה",
+      "album": "אי",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-013": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bf/66/73/bf6673c8-bfbd-7fd0-0774-522d9e517385/mzaf_8024909417144833352.plus.aac.ep.m4a",
+      "trackId": 6780229531,
+      "title": "אבי הטחול",
+      "artist": "רואי אדם",
+      "album": "אבי הטחול - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-014": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6a/72/96/6a72964c-38f8-5660-7229-a4438507f4b5/mzaf_14357463656333227881.plus.aac.ep.m4a",
+      "trackId": 1867189078,
+      "title": "לב לבן",
+      "artist": "שולי רנד",
+      "album": "לב לבן - Single",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-015": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f5/a0/0b/f5a00b96-6c77-b28b-2104-4eaa900a76ac/mzaf_18406220866880939777.plus.aac.ep.m4a",
+      "trackId": 1834387328,
+      "title": "המבט בעיניך",
+      "artist": "אגם בוחבוט",
+      "album": "21",
+      "storefront": "IL",
+      "audioLocale": "he"
+    },
+    "israel-chart-2026-016": {
+      "url": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9a/a0/29/9aa029da-1bee-63ea-0892-c231282e1cae/mzaf_12824934548874041913.plus.aac.ep.m4a",
+      "trackId": 1877927798,
+      "title": "ריו דה ז'נרו",
+      "artist": "עומר אדם",
+      "album": "חלק מהנצח",
+      "storefront": "IL",
+      "audioLocale": "he"
+    }
+  }
+}

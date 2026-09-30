@@ -1,4 +1,4 @@
-const STATIC_CACHE = "tra-99-99-station-999-tiebreak-v6";
+const STATIC_CACHE = "tra-99-99-station-999-israeli-v7";
 const AUDIO_CACHE = "hitster-tra-preview-audio-v2";
 const STATIC_ASSETS = [
   "./",
@@ -42,6 +42,8 @@ const STATIC_ASSETS = [
   "./tra-audio-runtime.js",
   "./hitster-preview-manifest.json",
   "./hitster-alltime-888.json",
+  "./hitster-israeli-annual.json",
+  "./hitster-israeli-preview-manifest.json",
   "./app.js",
   "./styles.css",
   "./manifest.webmanifest",

@@ -1,0 +1,4970 @@
+{
+  "schemaVersion": 1,
+  "title": "HITSTER TRA · Israeli Galgalatz annual charts",
+  "yearBasis": "chart-year",
+  "sourceNote": "12 eligible Hebrew entries with verified official previews per Galgalatz annual Israeli chart, selected in rank order. Years are chart years, not original release years. Annual facts transcribed from the linked archive; blocked artists and repeated song/artist identities are excluded.",
+  "range": {
+    "from": 2002,
+    "to": 2026
+  },
+  "total": 300,
+  "cards": [
+    {
+      "id": "israel-chart-2002-002",
+      "title": "מדברים על שלום",
+      "artist": "מוקי",
+      "artistAliases": [
+        "Mooki",
+        "מוקי"
+      ],
+      "lookupTitle": "מדברים על שלום",
+      "chartYear": 2002,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-003",
+      "title": "שיר עצוב",
+      "artist": "אביב גפן והתעויוט",
+      "artistAliases": [
+        "Aviv Geffen",
+        "אביב גפן"
+      ],
+      "lookupTitle": "שיר עצוב",
+      "chartYear": 2002,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-004",
+      "title": "רנה",
+      "artist": "אריאל הורוביץ",
+      "artistAliases": [
+        "Ariel Horowitz",
+        "אריאל הורוביץ"
+      ],
+      "lookupTitle": "רנה",
+      "chartYear": 2002,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-005",
+      "title": "מלנכוליה אהובתי",
+      "artist": "חמי רודנר",
+      "artistAliases": [
+        "Chemi Rodner",
+        "Hemi Rudner",
+        "חמי רודנר"
+      ],
+      "lookupTitle": "מלנכוליה אהובתי",
+      "chartYear": 2002,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-006",
+      "title": "שלכת",
+      "artist": "עמיר בניון",
+      "artistAliases": [
+        "Amir Benayoun",
+        "עמיר בניון"
+      ],
+      "lookupTitle": "שלכת",
+      "chartYear": 2002,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-008",
+      "title": "בוכה אל הקירות",
+      "artist": "דויד ברוזה",
+      "artistAliases": [
+        "David Broza",
+        "דויד ברוזה"
+      ],
+      "lookupTitle": "בוכה אל הקירות",
+      "chartYear": 2002,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-009",
+      "title": "על פי תנועת הרכבות",
+      "artist": "שלמה ארצי",
+      "artistAliases": [
+        "Shlomo Artzi",
+        "שלמה ארצי"
+      ],
+      "lookupTitle": "על פי תנועת הרכבות",
+      "chartYear": 2002,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-010",
+      "title": "ילדה סוכר",
+      "artist": "מוקי",
+      "artistAliases": [
+        "Mooki",
+        "מוקי"
+      ],
+      "lookupTitle": "ילדה סוכר",
+      "chartYear": 2002,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-011",
+      "title": "בתי קפה",
+      "artist": "עברי לידר",
+      "artistAliases": [
+        "Ivri Lider",
+        "עברי לידר"
+      ],
+      "lookupTitle": "בתי קפה",
+      "chartYear": 2002,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-012",
+      "title": "מונסון",
+      "artist": "ברי סחרוף",
+      "artistAliases": [
+        "Berry Sakharof",
+        "Berry Sakharoff",
+        "ברי סחרוף"
+      ],
+      "lookupTitle": "מונסון",
+      "chartYear": 2002,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-013",
+      "title": "עדיף",
+      "artist": "דניאל סלומון",
+      "artistAliases": [
+        "Daniel Salomon",
+        "דניאל סלומון"
+      ],
+      "lookupTitle": "עדיף",
+      "chartYear": 2002,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2002-014",
+      "title": "האדמה בוכה",
+      "artist": "מוקי ויובל בנאי",
+      "artistAliases": [
+        "Mooki",
+        "מוקי"
+      ],
+      "lookupTitle": "האדמה בוכה",
+      "chartYear": 2002,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-001",
+      "title": "אם תלך",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "אם תלך",
+      "chartYear": 2003,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-003",
+      "title": "בואי",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "בואי",
+      "chartYear": 2003,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-004",
+      "title": "ארוץ אליך",
+      "artist": "שרון רוטר",
+      "artistAliases": [
+        "Sharon Rotter",
+        "שרון רוטר"
+      ],
+      "lookupTitle": "ארוץ אליך",
+      "chartYear": 2003,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-006",
+      "title": "מדברים בשקט",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "מדברים בשקט",
+      "chartYear": 2003,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-007",
+      "title": "על הברכיים",
+      "artist": "טל שגב",
+      "artistAliases": [
+        "Tal Segev",
+        "טל שגב"
+      ],
+      "lookupTitle": "על הברכיים",
+      "chartYear": 2003,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-008",
+      "title": "אהבת נעורי",
+      "artist": "שלום חנוך",
+      "artistAliases": [
+        "Shalom Hanoch",
+        "שלום חנוך"
+      ],
+      "lookupTitle": "אהבת נעורי",
+      "chartYear": 2003,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-009",
+      "title": "לאלף נמר",
+      "artist": "ריטה",
+      "artistAliases": [
+        "Rita",
+        "ריטה"
+      ],
+      "lookupTitle": "לאלף נמר",
+      "chartYear": 2003,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-011",
+      "title": "בא והולך",
+      "artist": "דנה ברגר",
+      "artistAliases": [
+        "Dana Berger",
+        "דנה ברגר"
+      ],
+      "lookupTitle": "בא והולך",
+      "chartYear": 2003,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-012",
+      "title": "אני יכול",
+      "artist": "רון שובל וסאבלימינל",
+      "artistAliases": [
+        "Ron Shoval",
+        "Subliminal",
+        "סאבלימינל",
+        "רון שובל"
+      ],
+      "lookupTitle": "אני יכול",
+      "chartYear": 2003,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-013",
+      "title": "יצאנו לרקוד",
+      "artist": "הדורבנים",
+      "artistAliases": [
+        "HaDorbanim",
+        "Hadorbanim",
+        "הדורבנים"
+      ],
+      "lookupTitle": "יצאנו לרקוד",
+      "chartYear": 2003,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2003-014",
+      "title": "היה לי חבר היה לי אח",
+      "artist": "דודו טסה",
+      "artistAliases": [
+        "Dudu Tassa",
+        "דודו טסה"
+      ],
+      "lookupTitle": "היה לי חבר היה לי אח",
+      "chartYear": 2003,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)",
+      "titleAliases": [
+        "הייה לי חבר הייה לי אח"
+      ]
+    },
+    {
+      "id": "israel-chart-2003-015",
+      "title": "אין עוד יום",
+      "artist": "רון שובל",
+      "artistAliases": [
+        "Ron Shoval",
+        "רון שובל"
+      ],
+      "lookupTitle": "אין עוד יום",
+      "chartYear": 2003,
+      "chartRank": 15,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-001",
+      "title": "יום ועוד יומיים",
+      "artist": "שי גבסו",
+      "artistAliases": [
+        "Shai Gabso",
+        "שי גבסו"
+      ],
+      "lookupTitle": "יום ועוד יומיים",
+      "chartYear": 2004,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-002",
+      "title": "שירת הסטיקר",
+      "artist": "הדג נחש ואהובה עוזרי",
+      "artistAliases": [
+        "Ahuva Ozeri",
+        "HaDag Nahash",
+        "Hadag Nahash",
+        "אהובה עוזרי",
+        "הדג נחש"
+      ],
+      "lookupTitle": "שירת הסטיקר",
+      "chartYear": 2004,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-003",
+      "title": "עכשיו טוב",
+      "artist": "גלעד שגב",
+      "artistAliases": [
+        "Gilad Segev",
+        "גלעד שגב"
+      ],
+      "lookupTitle": "עכשיו טוב",
+      "chartYear": 2004,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-004",
+      "title": "היום",
+      "artist": "אהוד בנאי",
+      "artistAliases": [
+        "Ehud Banai",
+        "אהוד בנאי"
+      ],
+      "lookupTitle": "היום",
+      "chartYear": 2004,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-007",
+      "title": "המילים החסרות",
+      "artist": "שי גבסו",
+      "artistAliases": [
+        "Shai Gabso",
+        "שי גבסו"
+      ],
+      "lookupTitle": "המילים החסרות",
+      "chartYear": 2004,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-008",
+      "title": "השיר הזה",
+      "artist": "שרונה ודניאלה פיק",
+      "artistAliases": [
+        "Sharona & Daniela Pick",
+        "The Pick Sisters",
+        "שרונה ודניאלה פיק"
+      ],
+      "lookupTitle": "השיר הזה",
+      "chartYear": 2004,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-009",
+      "title": "איך זה מרגיש",
+      "artist": "כנסיית השכל",
+      "artistAliases": [
+        "Knesiyat Hasechel",
+        "כנסיית השכל"
+      ],
+      "lookupTitle": "איך זה מרגיש",
+      "chartYear": 2004,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-010",
+      "title": "ידיעה",
+      "artist": "שוטי הנבואה",
+      "artistAliases": [
+        "Shotei Hanevuah",
+        "שוטי הנבואה"
+      ],
+      "lookupTitle": "ידיעה",
+      "chartYear": 2004,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-011",
+      "title": "תני לי אהבה",
+      "artist": "אבי מסיקה, חגי חייט וראובן שמעון",
+      "artistAliases": [
+        "Avi Mesika",
+        "אבי מסיקה"
+      ],
+      "lookupTitle": "תני לי אהבה",
+      "chartYear": 2004,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-013",
+      "title": "פרחים בקנה",
+      "artist": "סאבלימינל והצל עם משפחת תאקט",
+      "artistAliases": [
+        "Subliminal",
+        "סאבלימינל"
+      ],
+      "lookupTitle": "פרחים בקנה",
+      "chartYear": 2004,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-015",
+      "title": "מי אוהב אותך יותר ממני",
+      "artist": "ארקדי דוכין",
+      "artistAliases": [],
+      "lookupTitle": "מי אוהב אותך יותר ממני",
+      "chartYear": 2004,
+      "chartRank": 15,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2004-019",
+      "title": "בחום של תל אביב",
+      "artist": "שרית חדד",
+      "artistAliases": [],
+      "lookupTitle": "בחום של תל אביב",
+      "chartYear": 2004,
+      "chartRank": 19,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-001",
+      "title": "לשם",
+      "artist": "מירי מסיקה",
+      "artistAliases": [
+        "Miri Mesika",
+        "מירי מסיקה"
+      ],
+      "lookupTitle": "לשם",
+      "chartYear": 2005,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-002",
+      "title": "השקט שנשאר",
+      "artist": "שירי מימון",
+      "artistAliases": [
+        "Shiri Maimon",
+        "שירי מימון"
+      ],
+      "lookupTitle": "השקט שנשאר",
+      "chartYear": 2005,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-003",
+      "title": "רבות הדרכים",
+      "artist": "דניאל סלומון ודנה עדיני",
+      "artistAliases": [
+        "Dana Adini",
+        "Daniel Salomon",
+        "דנה עדיני",
+        "דניאל סלומון"
+      ],
+      "lookupTitle": "רבות הדרכים",
+      "chartYear": 2005,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-004",
+      "title": "ממעמקים",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "ממעמקים",
+      "chartYear": 2005,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-005",
+      "title": "אהבה",
+      "artist": "דניאל סלומון",
+      "artistAliases": [
+        "Daniel Salomon",
+        "דניאל סלומון"
+      ],
+      "lookupTitle": "אהבה",
+      "chartYear": 2005,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-006",
+      "title": "זכיתי לאהוב",
+      "artist": "עברי לידר",
+      "artistAliases": [
+        "Ivri Lider",
+        "עברי לידר"
+      ],
+      "lookupTitle": "זכיתי לאהוב",
+      "chartYear": 2005,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-008",
+      "title": "תתנו לו צ'אנס",
+      "artist": "שלישיית מה קשור",
+      "artistAliases": [
+        "Ma Kashur",
+        "שלישיית מה קשור"
+      ],
+      "lookupTitle": "תתנו לו צ'אנס",
+      "chartYear": 2005,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-009",
+      "title": "באה אליכם",
+      "artist": "מירי מסיקה",
+      "artistAliases": [
+        "Miri Mesika",
+        "מירי מסיקה"
+      ],
+      "lookupTitle": "באה אליכם",
+      "chartYear": 2005,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-010",
+      "title": "אלוהים",
+      "artist": "מוקי",
+      "artistAliases": [
+        "Mooki",
+        "מוקי"
+      ],
+      "lookupTitle": "אלוהים",
+      "chartYear": 2005,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-011",
+      "title": "אהבה קטנה",
+      "artist": "שירי מימון",
+      "artistAliases": [
+        "Shiri Maimon",
+        "שירי מימון"
+      ],
+      "lookupTitle": "אהבה קטנה",
+      "chartYear": 2005,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-012",
+      "title": "מילים יפות מאלה",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "מילים יפות מאלה",
+      "chartYear": 2005,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2005-013",
+      "title": "דוד",
+      "artist": "דודי לוי",
+      "artistAliases": [],
+      "lookupTitle": "דוד",
+      "chartYear": 2005,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-001",
+      "title": "ואת",
+      "artist": "הראל סקעת",
+      "artistAliases": [
+        "Harel Skaat",
+        "הראל סקעת"
+      ],
+      "lookupTitle": "ואת",
+      "chartYear": 2006,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-002",
+      "title": "הנה אני בא",
+      "artist": "הדג נחש",
+      "artistAliases": [
+        "HaDag Nahash",
+        "Hadag Nahash",
+        "הדג נחש"
+      ],
+      "lookupTitle": "הנה אני בא",
+      "chartYear": 2006,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-003",
+      "title": "חושב עליה",
+      "artist": "עידן יניב וליאור דטאוקר",
+      "artistAliases": [
+        "Idan Yaniv",
+        "עידן יניב"
+      ],
+      "lookupTitle": "חושב עליה",
+      "chartYear": 2006,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-004",
+      "title": "איתי",
+      "artist": "קרן פלס",
+      "artistAliases": [
+        "Keren Peles",
+        "קרן פלס"
+      ],
+      "lookupTitle": "איתי",
+      "chartYear": 2006,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-006",
+      "title": "גג",
+      "artist": "ג'ירפות",
+      "artistAliases": [
+        "Girafot",
+        "ג'ירפות"
+      ],
+      "lookupTitle": "גג",
+      "chartYear": 2006,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-007",
+      "title": "הכוס הכחולה",
+      "artist": "עברי לידר",
+      "artistAliases": [
+        "Ivri Lider",
+        "עברי לידר"
+      ],
+      "lookupTitle": "הכוס הכחולה",
+      "chartYear": 2006,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-010",
+      "title": "שיר בעיפרון",
+      "artist": "בית הבובות",
+      "artistAliases": [
+        "Beit HaBubot",
+        "Beit Habubot",
+        "בית הבובות"
+      ],
+      "lookupTitle": "שיר בעיפרון",
+      "chartYear": 2006,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-011",
+      "title": "מחר",
+      "artist": "אביב גפן",
+      "artistAliases": [
+        "Aviv Geffen",
+        "אביב גפן"
+      ],
+      "lookupTitle": "מחר",
+      "chartYear": 2006,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-012",
+      "title": "משהו ממני",
+      "artist": "הראל סקעת",
+      "artistAliases": [
+        "Harel Skaat",
+        "הראל סקעת"
+      ],
+      "lookupTitle": "משהו ממני",
+      "chartYear": 2006,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-013",
+      "title": "עוד לילה",
+      "artist": "הדורבנים",
+      "artistAliases": [
+        "HaDorbanim",
+        "Hadorbanim",
+        "הדורבנים"
+      ],
+      "lookupTitle": "עוד לילה",
+      "chartYear": 2006,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-014",
+      "title": "מוכרת לי מפעם",
+      "artist": "דין דין אביב",
+      "artistAliases": [],
+      "lookupTitle": "מוכרת לי מפעם",
+      "chartYear": 2006,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2006-015",
+      "title": "בלי לומר מילה",
+      "artist": "מטרופולין",
+      "artistAliases": [],
+      "lookupTitle": "בלי לומר מילה",
+      "chartYear": 2006,
+      "chartRank": 15,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-001",
+      "title": "תראי זה אני",
+      "artist": "סינרגיה",
+      "artistAliases": [
+        "Synergia",
+        "סינרגיה"
+      ],
+      "lookupTitle": "תראי זה אני",
+      "chartYear": 2007,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-002",
+      "title": "המתוקות האחרונות",
+      "artist": "אריק ברמן",
+      "artistAliases": [
+        "Eric Berman",
+        "אריק ברמן"
+      ],
+      "lookupTitle": "המתוקות האחרונות",
+      "chartYear": 2007,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-003",
+      "title": "אשם",
+      "artist": "סינרגיה",
+      "artistAliases": [
+        "Synergia",
+        "סינרגיה"
+      ],
+      "lookupTitle": "אשם",
+      "chartYear": 2007,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-004",
+      "title": "אם את עדיין אוהבת אותי",
+      "artist": "בעז שרעבי",
+      "artistAliases": [
+        "Boaz Sharabi",
+        "בעז שרעבי"
+      ],
+      "lookupTitle": "אם את עדיין אוהבת אותי",
+      "chartYear": 2007,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-005",
+      "title": "את יפה",
+      "artist": "עידן יניב",
+      "artistAliases": [
+        "Idan Yaniv",
+        "עידן יניב"
+      ],
+      "lookupTitle": "את יפה",
+      "chartYear": 2007,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-007",
+      "title": "הכאב הזה",
+      "artist": "עברי לידר ונינט טייב",
+      "artistAliases": [
+        "Ivri Lider",
+        "Ninet Tayeb",
+        "נינט טייב",
+        "עברי לידר"
+      ],
+      "lookupTitle": "הכאב הזה",
+      "chartYear": 2007,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-008",
+      "title": "עכשיו אתה חוזר בחזרה",
+      "artist": "מירי מסיקה",
+      "artistAliases": [
+        "Miri Mesika",
+        "מירי מסיקה"
+      ],
+      "lookupTitle": "עכשיו אתה חוזר בחזרה",
+      "chartYear": 2007,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-009",
+      "title": "ידיים למעלה",
+      "artist": "כנסיית השכל",
+      "artistAliases": [
+        "Knesiyat Hasechel",
+        "כנסיית השכל"
+      ],
+      "lookupTitle": "ידיים למעלה",
+      "chartYear": 2007,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-010",
+      "title": "מסע ומתן",
+      "artist": "מוש בן ארי",
+      "artistAliases": [
+        "Mosh Ben Ari",
+        "מוש בן ארי"
+      ],
+      "lookupTitle": "מסע ומתן",
+      "chartYear": 2007,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-011",
+      "title": "שווים",
+      "artist": "רן דנקר ועילי בוטנר",
+      "artistAliases": [
+        "Elai Botner",
+        "Ilai Botner",
+        "Ran Danker",
+        "עילי בוטנר",
+        "רן דנקר"
+      ],
+      "lookupTitle": "שווים",
+      "chartYear": 2007,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-012",
+      "title": "תנו לי לשתות",
+      "artist": "כנסיית השכל",
+      "artistAliases": [
+        "Knesiyat Hasechel",
+        "כנסיית השכל"
+      ],
+      "lookupTitle": "תנו לי לשתות",
+      "chartYear": 2007,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2007-013",
+      "title": "לראות את האור",
+      "artist": "אפרת גוש",
+      "artistAliases": [
+        "Efrat Gosh",
+        "אפרת גוש"
+      ],
+      "lookupTitle": "לראות את האור",
+      "chartYear": 2007,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-001",
+      "title": "דבש",
+      "artist": "ארי גורלי ורעות יהודאי",
+      "artistAliases": [
+        "Ari Gorali",
+        "Arik Gorali",
+        "ארי גורלי"
+      ],
+      "lookupTitle": "דבש",
+      "chartYear": 2008,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-002",
+      "title": "אדם צובר זיכרונות",
+      "artist": "אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "אברהם טל"
+      ],
+      "lookupTitle": "אדם צובר זיכרונות",
+      "chartYear": 2008,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-003",
+      "title": "אני אש",
+      "artist": "רן דנקר ועילי בוטנר",
+      "artistAliases": [
+        "Elai Botner",
+        "Ilai Botner",
+        "Ran Danker",
+        "עילי בוטנר",
+        "רן דנקר"
+      ],
+      "lookupTitle": "אני אש",
+      "chartYear": 2008,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-005",
+      "title": "שום דבר לא יפגע בי",
+      "artist": "כנסיית השכל",
+      "artistAliases": [
+        "Knesiyat Hasechel",
+        "כנסיית השכל"
+      ],
+      "lookupTitle": "שום דבר לא יפגע בי",
+      "chartYear": 2008,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-006",
+      "title": "אגו טריפ",
+      "artist": "עלמה זהר",
+      "artistAliases": [
+        "Alma Zohar",
+        "עלמה זהר"
+      ],
+      "lookupTitle": "אגו טריפ",
+      "chartYear": 2008,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-008",
+      "title": "בואי נעזוב",
+      "artist": "רן דנקר ועילי בוטנר",
+      "artistAliases": [
+        "Elai Botner",
+        "Ilai Botner",
+        "Ran Danker",
+        "עילי בוטנר",
+        "רן דנקר"
+      ],
+      "lookupTitle": "בואי נעזוב",
+      "chartYear": 2008,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-009",
+      "title": "מבול",
+      "artist": "קרן פלס",
+      "artistAliases": [
+        "Keren Peles",
+        "קרן פלס"
+      ],
+      "lookupTitle": "מבול",
+      "chartYear": 2008,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-011",
+      "title": "עברתי רק כדי לראות",
+      "artist": "תומר יוסף ובן הנדלר",
+      "artistAliases": [
+        "Tomer Yosef",
+        "תומר יוסף"
+      ],
+      "lookupTitle": "עברתי רק כדי לראות",
+      "chartYear": 2008,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-014",
+      "title": "חשבתי שיהיה רומנטי",
+      "artist": "אוהד חיטמן",
+      "artistAliases": [
+        "Ohad Hitman",
+        "אוהד חיטמן"
+      ],
+      "lookupTitle": "חשבתי שיהיה רומנטי",
+      "chartYear": 2008,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)",
+      "titleAliases": [
+        "Chashaveti Shehye' Romanti (I Thought It Will Be Romantic)"
+      ]
+    },
+    {
+      "id": "israel-chart-2008-015",
+      "title": "שיר של יום חולין",
+      "artist": "מאור כהן",
+      "artistAliases": [
+        "Maor Cohen",
+        "מאור כהן"
+      ],
+      "lookupTitle": "שיר של יום חולין",
+      "chartYear": 2008,
+      "chartRank": 15,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-016",
+      "title": "מה שהלב בחר",
+      "artist": "קובי אפללו",
+      "artistAliases": [],
+      "lookupTitle": "מה שהלב בחר",
+      "chartYear": 2008,
+      "chartRank": 16,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2008-017",
+      "title": "אישה נאמנה",
+      "artist": "ישי לוי",
+      "artistAliases": [
+        "Ishay Levi",
+        "ישי לוי"
+      ],
+      "lookupTitle": "אישה נאמנה",
+      "chartYear": 2008,
+      "chartRank": 17,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-001",
+      "title": "עד מחר",
+      "artist": "אביתר בנאי",
+      "artistAliases": [
+        "Eviatar Banai",
+        "Evyatar Banai",
+        "אביתר בנאי"
+      ],
+      "lookupTitle": "עד מחר",
+      "chartYear": 2009,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-002",
+      "title": "מקום לצידך",
+      "artist": "דור דניאל",
+      "artistAliases": [
+        "Dor Daniel",
+        "דור דניאל"
+      ],
+      "lookupTitle": "מקום לצידך",
+      "chartYear": 2009,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-003",
+      "title": "יסמין",
+      "artist": "הפיל הכחול",
+      "artistAliases": [
+        "Hapil Hakachol",
+        "הפיל הכחול"
+      ],
+      "lookupTitle": "יסמין",
+      "chartYear": 2009,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-004",
+      "title": "הזמן עושה את שלו",
+      "artist": "אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "אברהם טל"
+      ],
+      "lookupTitle": "הזמן עושה את שלו",
+      "chartYear": 2009,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-005",
+      "title": "מהמרחקים",
+      "artist": "גלי עטרי וסגיב כהן",
+      "artistAliases": [
+        "Gali Atari",
+        "Sagiv Cohen",
+        "גלי עטרי",
+        "סגיב כהן"
+      ],
+      "lookupTitle": "מהמרחקים",
+      "chartYear": 2009,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-006",
+      "title": "חלומות של אחרים",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "חלומות של אחרים",
+      "chartYear": 2009,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-007",
+      "title": "אבא",
+      "artist": "אביתר בנאי",
+      "artistAliases": [
+        "Eviatar Banai",
+        "Evyatar Banai",
+        "אביתר בנאי"
+      ],
+      "lookupTitle": "אבא",
+      "chartYear": 2009,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-008",
+      "title": "שאריות של החיים",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "שאריות של החיים",
+      "chartYear": 2009,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-010",
+      "title": "אותיות פורחות באוויר",
+      "artist": "אביתר בנאי",
+      "artistAliases": [
+        "Eviatar Banai",
+        "Evyatar Banai",
+        "אביתר בנאי"
+      ],
+      "lookupTitle": "אותיות פורחות באוויר",
+      "chartYear": 2009,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)",
+      "titleAliases": [
+        "אותיות פורחות באויר"
+      ]
+    },
+    {
+      "id": "israel-chart-2009-011",
+      "title": "הגשמה עצמית",
+      "artist": "אריק ברמן",
+      "artistAliases": [
+        "Eric Berman",
+        "אריק ברמן"
+      ],
+      "lookupTitle": "הגשמה עצמית",
+      "chartYear": 2009,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-012",
+      "title": "בין החלומות",
+      "artist": "דור דניאל",
+      "artistAliases": [
+        "Dor Daniel",
+        "דור דניאל"
+      ],
+      "lookupTitle": "בין החלומות",
+      "chartYear": 2009,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2009-013",
+      "title": "אנה אפנה",
+      "artist": "ארז לב ארי",
+      "artistAliases": [
+        "Erez Lev Ari",
+        "ארז לב ארי"
+      ],
+      "lookupTitle": "אנה אפנה",
+      "chartYear": 2009,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ס–ה'תשס\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-001",
+      "title": "אורות",
+      "artist": "אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "אברהם טל"
+      ],
+      "lookupTitle": "אורות",
+      "chartYear": 2010,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-002",
+      "title": "אצלך בעולם",
+      "artist": "היהודים",
+      "artistAliases": [
+        "HaYehudim",
+        "Hayehudim",
+        "היהודים"
+      ],
+      "lookupTitle": "אצלך בעולם",
+      "chartYear": 2010,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-003",
+      "title": "אישה מהשמיים",
+      "artist": "גלעד שגב",
+      "artistAliases": [
+        "Gilad Segev",
+        "גלעד שגב"
+      ],
+      "lookupTitle": "אישה מהשמיים",
+      "chartYear": 2010,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-004",
+      "title": "מחוזקים לעולם",
+      "artist": "אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "אברהם טל"
+      ],
+      "lookupTitle": "מחוזקים לעולם",
+      "chartYear": 2010,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-005",
+      "title": "אה אה אה",
+      "artist": "אפרת גוש",
+      "artistAliases": [
+        "Efrat Gosh",
+        "אפרת גוש"
+      ],
+      "lookupTitle": "אה אה אה",
+      "chartYear": 2010,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-006",
+      "title": "שיר נחמה",
+      "artist": "הדג נחש ויהודה קיסר",
+      "artistAliases": [
+        "HaDag Nahash",
+        "Hadag Nahash",
+        "הדג נחש"
+      ],
+      "lookupTitle": "שיר נחמה",
+      "chartYear": 2010,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-008",
+      "title": "תגידו לה",
+      "artist": "דודו אהרון",
+      "artistAliases": [
+        "Dudu Aharon",
+        "דודו אהרון"
+      ],
+      "lookupTitle": "תגידו לה",
+      "chartYear": 2010,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-009",
+      "title": "לילה כיום יאיר",
+      "artist": "אביתר בנאי",
+      "artistAliases": [
+        "Eviatar Banai",
+        "Evyatar Banai",
+        "אביתר בנאי"
+      ],
+      "lookupTitle": "לילה כיום יאיר",
+      "chartYear": 2010,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-010",
+      "title": "תן",
+      "artist": "רוני דלומי",
+      "artistAliases": [
+        "Roni Dalumi",
+        "רוני דלומי"
+      ],
+      "lookupTitle": "תן",
+      "chartYear": 2010,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-012",
+      "title": "שתדעי",
+      "artist": "שלומי שבת",
+      "artistAliases": [
+        "Shlomi Shabat",
+        "שלומי שבת"
+      ],
+      "lookupTitle": "שתדעי",
+      "chartYear": 2010,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-013",
+      "title": "אל תלכי עכשיו",
+      "artist": "יהודה פוליקר",
+      "artistAliases": [],
+      "lookupTitle": "אל תלכי עכשיו",
+      "chartYear": 2010,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2010-014",
+      "title": "אור גדול",
+      "artist": "אמיר דדון",
+      "artistAliases": [
+        "Amir Dadon",
+        "אמיר דדון"
+      ],
+      "lookupTitle": "אור גדול",
+      "chartYear": 2010,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-001",
+      "title": "כאב של לוחמים",
+      "artist": "עידן עמדי",
+      "artistAliases": [
+        "Idan Amedi",
+        "עידן עמדי"
+      ],
+      "lookupTitle": "כאב של לוחמים",
+      "chartYear": 2011,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-003",
+      "title": "כל מה שיש לי",
+      "artist": "נתן גושן",
+      "artistAliases": [
+        "Nathan Goshen",
+        "נתן גושן"
+      ],
+      "lookupTitle": "כל מה שיש לי",
+      "chartYear": 2011,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-004",
+      "title": "ללכת",
+      "artist": "לירן דנינו",
+      "artistAliases": [
+        "Liran Danino",
+        "לירן דנינו"
+      ],
+      "lookupTitle": "ללכת",
+      "chartYear": 2011,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-006",
+      "title": "עדיין ריק",
+      "artist": "לירן דנינו",
+      "artistAliases": [
+        "Liran Danino",
+        "לירן דנינו"
+      ],
+      "lookupTitle": "עדיין ריק",
+      "chartYear": 2011,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-007",
+      "title": "אם את הולכת",
+      "artist": "אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "אברהם טל"
+      ],
+      "lookupTitle": "אם את הולכת",
+      "chartYear": 2011,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-008",
+      "title": "איפה את",
+      "artist": "נתן גושן",
+      "artistAliases": [
+        "Nathan Goshen",
+        "נתן גושן"
+      ],
+      "lookupTitle": "איפה את",
+      "chartYear": 2011,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-010",
+      "title": "בניתי עלייך",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "בניתי עלייך",
+      "chartYear": 2011,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-011",
+      "title": "בחור רגיש",
+      "artist": "דודו אהרון",
+      "artistAliases": [
+        "Dudu Aharon",
+        "דודו אהרון"
+      ],
+      "lookupTitle": "בחור רגיש",
+      "chartYear": 2011,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-012",
+      "title": "יום אחד תבקשי",
+      "artist": "שיר לוי",
+      "artistAliases": [
+        "Shir Levi",
+        "שיר לוי"
+      ],
+      "lookupTitle": "יום אחד תבקשי",
+      "chartYear": 2011,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-013",
+      "title": "מלך",
+      "artist": "מירי מסיקה",
+      "artistAliases": [
+        "Miri Mesika",
+        "מירי מסיקה"
+      ],
+      "lookupTitle": "מלך",
+      "chartYear": 2011,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-014",
+      "title": "לא יפרידו בינינו",
+      "artist": "דודו אהרון",
+      "artistAliases": [
+        "Dudu Aharon",
+        "דודו אהרון"
+      ],
+      "lookupTitle": "לא יפרידו בינינו",
+      "chartYear": 2011,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2011-015",
+      "title": "קחי אותי אלייך",
+      "artist": "משה פרץ",
+      "artistAliases": [
+        "Moshe Peretz",
+        "משה פרץ"
+      ],
+      "lookupTitle": "קחי אותי אלייך",
+      "chartYear": 2011,
+      "chartRank": 15,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-001",
+      "title": "יש לך",
+      "artist": "שלומי שבת",
+      "artistAliases": [
+        "Shlomi Shabat",
+        "שלומי שבת"
+      ],
+      "lookupTitle": "יש לך",
+      "chartYear": 2012,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-002",
+      "title": "זיקוקים",
+      "artist": "משה פרץ",
+      "artistAliases": [
+        "Moshe Peretz",
+        "משה פרץ"
+      ],
+      "lookupTitle": "זיקוקים",
+      "chartYear": 2012,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-004",
+      "title": "גבולות הגיון",
+      "artist": "נתן גושן",
+      "artistAliases": [
+        "Nathan Goshen",
+        "נתן גושן"
+      ],
+      "lookupTitle": "גבולות הגיון",
+      "chartYear": 2012,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-005",
+      "title": "מישהו פעם",
+      "artist": "עברי לידר",
+      "artistAliases": [
+        "Ivri Lider",
+        "עברי לידר"
+      ],
+      "lookupTitle": "מישהו פעם",
+      "chartYear": 2012,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-006",
+      "title": "אלוהיי",
+      "artist": "שלמה ארצי ואברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "Shlomo Artzi",
+        "אברהם טל",
+        "שלמה ארצי"
+      ],
+      "lookupTitle": "אלוהיי",
+      "chartYear": 2012,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-007",
+      "title": "אלייך",
+      "artist": "עידן עמדי",
+      "artistAliases": [
+        "Idan Amedi",
+        "עידן עמדי"
+      ],
+      "lookupTitle": "אלייך",
+      "chartYear": 2012,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-009",
+      "title": "לתת ולקחת",
+      "artist": "שלמה ארצי ודודו טסה",
+      "artistAliases": [
+        "Dudu Tassa",
+        "Shlomo Artzi",
+        "דודו טסה",
+        "שלמה ארצי"
+      ],
+      "lookupTitle": "לתת ולקחת",
+      "chartYear": 2012,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-010",
+      "title": "אחלה חמודה",
+      "artist": "בני בשן ולהקת בום פם",
+      "artistAliases": [
+        "Benny Bashan",
+        "בני בשן"
+      ],
+      "lookupTitle": "אחלה חמודה",
+      "chartYear": 2012,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-011",
+      "title": "את",
+      "artist": "ישי לוי",
+      "artistAliases": [
+        "Ishay Levi",
+        "ישי לוי"
+      ],
+      "lookupTitle": "את",
+      "chartYear": 2012,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-012",
+      "title": "חוזרים הביתה",
+      "artist": "שלמה ארצי ואריק איינשטיין",
+      "artistAliases": [
+        "Arik Einstein",
+        "Shlomo Artzi",
+        "אריק איינשטיין",
+        "שלמה ארצי"
+      ],
+      "lookupTitle": "חוזרים הביתה",
+      "chartYear": 2012,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-013",
+      "title": "כל המילים",
+      "artist": "לירן דנינו",
+      "artistAliases": [
+        "Liran Danino",
+        "לירן דנינו"
+      ],
+      "lookupTitle": "כל המילים",
+      "chartYear": 2012,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2012-014",
+      "title": "כל יום",
+      "artist": "שלמה ארצי",
+      "artistAliases": [
+        "Shlomo Artzi",
+        "שלמה ארצי"
+      ],
+      "lookupTitle": "כל יום",
+      "chartYear": 2012,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-001",
+      "title": "בלילה",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "בלילה",
+      "chartYear": 2013,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-002",
+      "title": "עכשיו קרוב",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "עכשיו קרוב",
+      "chartYear": 2013,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-003",
+      "title": "בזמן האחרון",
+      "artist": "עידן עמדי",
+      "artistAliases": [
+        "Idan Amedi",
+        "עידן עמדי"
+      ],
+      "lookupTitle": "בזמן האחרון",
+      "chartYear": 2013,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-004",
+      "title": "תם ולא נשלם",
+      "artist": "עילי בוטנר וילדי החוץ",
+      "artistAliases": [
+        "Elai Botner",
+        "Ilai Botner",
+        "עילי בוטנר"
+      ],
+      "lookupTitle": "תם ולא נשלם",
+      "chartYear": 2013,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-005",
+      "title": "זמן להתעורר",
+      "artist": "הדג נחש",
+      "artistAliases": [
+        "HaDag Nahash",
+        "Hadag Nahash",
+        "הדג נחש"
+      ],
+      "lookupTitle": "זמן להתעורר",
+      "chartYear": 2013,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-006",
+      "title": "נגמר",
+      "artist": "עידן עמדי",
+      "artistAliases": [
+        "Idan Amedi",
+        "עידן עמדי"
+      ],
+      "lookupTitle": "נגמר",
+      "chartYear": 2013,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-011",
+      "title": "סתם שני אנשים",
+      "artist": "רוני דלומי",
+      "artistAliases": [
+        "Roni Dalumi",
+        "רוני דלומי"
+      ],
+      "lookupTitle": "סתם שני אנשים",
+      "chartYear": 2013,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-012",
+      "title": "רצים באוויר",
+      "artist": "גיא ויהל",
+      "artistAliases": [
+        "Guy & Yahel",
+        "גיא ויהל"
+      ],
+      "lookupTitle": "רצים באוויר",
+      "chartYear": 2013,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-013",
+      "title": "קטנתי",
+      "artist": "יונתן רזאל",
+      "artistAliases": [
+        "Yonatan Razel",
+        "יונתן רזאל"
+      ],
+      "lookupTitle": "קטנתי",
+      "chartYear": 2013,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)",
+      "titleAliases": [
+        "קטונתי"
+      ]
+    },
+    {
+      "id": "israel-chart-2013-014",
+      "title": "שושנה",
+      "artist": "אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "אברהם טל"
+      ],
+      "lookupTitle": "שושנה",
+      "chartYear": 2013,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-015",
+      "title": "נעים עכשיו",
+      "artist": "עילי בוטנר וילדי החוץ",
+      "artistAliases": [
+        "Elai Botner",
+        "Ilai Botner",
+        "עילי בוטנר"
+      ],
+      "lookupTitle": "נעים עכשיו",
+      "chartYear": 2013,
+      "chartRank": 15,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2013-016",
+      "title": "אני לא מפסיק להתרגש ממך",
+      "artist": "דני רובס",
+      "artistAliases": [
+        "Danny Robas",
+        "דני רובס"
+      ],
+      "lookupTitle": "אני לא מפסיק להתרגש ממך",
+      "chartYear": 2013,
+      "chartRank": 16,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-001",
+      "title": "ילד של אבא",
+      "artist": "מוקי",
+      "artistAliases": [
+        "Mooki",
+        "מוקי"
+      ],
+      "lookupTitle": "ילד של אבא",
+      "chartYear": 2014,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-002",
+      "title": "לב חופשי",
+      "artist": "מוקי",
+      "artistAliases": [
+        "Mooki",
+        "מוקי"
+      ],
+      "lookupTitle": "לב חופשי",
+      "chartYear": 2014,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-003",
+      "title": "מתנות קטנות",
+      "artist": "רמי קליינשטיין",
+      "artistAliases": [
+        "Rami Kleinstein",
+        "רמי קליינשטיין"
+      ],
+      "lookupTitle": "מתנות קטנות",
+      "chartYear": 2014,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-004",
+      "title": "יפה כלבנה",
+      "artist": "אביתר בנאי",
+      "artistAliases": [
+        "Eviatar Banai",
+        "Evyatar Banai",
+        "אביתר בנאי"
+      ],
+      "lookupTitle": "יפה כלבנה",
+      "chartYear": 2014,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-006",
+      "title": "קדימה הלאה",
+      "artist": "עילי בוטנר וילדי החוץ",
+      "artistAliases": [
+        "Elai Botner",
+        "Ilai Botner",
+        "עילי בוטנר"
+      ],
+      "lookupTitle": "קדימה הלאה",
+      "chartYear": 2014,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-007",
+      "title": "כמו בחיים",
+      "artist": "מוש בן ארי",
+      "artistAliases": [
+        "Mosh Ben Ari",
+        "מוש בן ארי"
+      ],
+      "lookupTitle": "כמו בחיים",
+      "chartYear": 2014,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-008",
+      "title": "בקרוב",
+      "artist": "הפרויקט של עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "הפרויקט של עידן רייכל",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "בקרוב",
+      "chartYear": 2014,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-010",
+      "title": "הרבה ממך נשאר",
+      "artist": "לירן דנינו",
+      "artistAliases": [
+        "Liran Danino",
+        "לירן דנינו"
+      ],
+      "lookupTitle": "הרבה ממך נשאר",
+      "chartYear": 2014,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-011",
+      "title": "כמו כל יום",
+      "artist": "עידן רפאל חביב",
+      "artistAliases": [
+        "Idan Haviv",
+        "Idan Rafael Haviv",
+        "עידן רפאל חביב"
+      ],
+      "lookupTitle": "כמו כל יום",
+      "chartYear": 2014,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-012",
+      "title": "שמלה כחולה",
+      "artist": "לירן דנינו",
+      "artistAliases": [
+        "Liran Danino",
+        "לירן דנינו"
+      ],
+      "lookupTitle": "שמלה כחולה",
+      "chartYear": 2014,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-013",
+      "title": "עד שתחזור",
+      "artist": "יובל דיין ועידן חביב",
+      "artistAliases": [
+        "Idan Haviv",
+        "Idan Rafael Haviv",
+        "Yuval Dayan",
+        "יובל דיין",
+        "עידן חביב"
+      ],
+      "lookupTitle": "עד שתחזור",
+      "chartYear": 2014,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2014-014",
+      "title": "הלב",
+      "artist": "שלומי שבת",
+      "artistAliases": [
+        "Shlomi Shabat",
+        "שלומי שבת"
+      ],
+      "lookupTitle": "הלב",
+      "chartYear": 2014,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-001",
+      "title": "מתוק כשמרלי",
+      "artist": "אליעד",
+      "artistAliases": [
+        "Eliad",
+        "אליעד"
+      ],
+      "lookupTitle": "מתוק כשמרלי",
+      "chartYear": 2015,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-002",
+      "title": "יהיה בסדר",
+      "artist": "קפה שחור חזק ביחד עם נצ'י נצ'",
+      "artistAliases": [
+        "Nechi Nech",
+        "Ravid Plotnik",
+        "Strong Black Coffee",
+        "נצ'י נצ'",
+        "קפה שחור חזק"
+      ],
+      "lookupTitle": "יהיה בסדר",
+      "chartYear": 2015,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-004",
+      "title": "דרך השלום",
+      "artist": "פאר טסי",
+      "artistAliases": [
+        "Pe'er Tasi",
+        "Peer Tasi",
+        "פאר טסי"
+      ],
+      "lookupTitle": "דרך השלום",
+      "chartYear": 2015,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-006",
+      "title": "דברי איתי יותר",
+      "artist": "נתן גושן",
+      "artistAliases": [
+        "Nathan Goshen",
+        "נתן גושן"
+      ],
+      "lookupTitle": "דברי איתי יותר",
+      "chartYear": 2015,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-007",
+      "title": "הכי ישראלי",
+      "artist": "התקווה 6",
+      "artistAliases": [
+        "Hatikva 6",
+        "התקווה 6"
+      ],
+      "lookupTitle": "הכי ישראלי",
+      "chartYear": 2015,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-008",
+      "title": "מודה אני",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "מודה אני",
+      "chartYear": 2015,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-009",
+      "title": "טרמינל 3",
+      "artist": "דודו אהרון",
+      "artistAliases": [
+        "Dudu Aharon",
+        "דודו אהרון"
+      ],
+      "lookupTitle": "טרמינל 3",
+      "chartYear": 2015,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-010",
+      "title": "איך אפשר שלא",
+      "artist": "ג'יין בורדו",
+      "artistAliases": [
+        "Jane Bordeaux",
+        "ג'יין בורדו"
+      ],
+      "lookupTitle": "איך אפשר שלא",
+      "chartYear": 2015,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)",
+      "titleAliases": [
+        "איך אפשר"
+      ]
+    },
+    {
+      "id": "israel-chart-2015-011",
+      "title": "חלום של כל גבר",
+      "artist": "סאבלימינל ביחד עם גלעד ויטל",
+      "artistAliases": [
+        "Subliminal",
+        "סאבלימינל"
+      ],
+      "lookupTitle": "חלום של כל גבר",
+      "chartYear": 2015,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-012",
+      "title": "איש של לילה",
+      "artist": "רוני דלומי",
+      "artistAliases": [
+        "Roni Dalumi",
+        "רוני דלומי"
+      ],
+      "lookupTitle": "איש של לילה",
+      "chartYear": 2015,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-013",
+      "title": "מה שיהיה יהיה",
+      "artist": "התקווה 6",
+      "artistAliases": [
+        "Hatikva 6",
+        "התקווה 6"
+      ],
+      "lookupTitle": "מה שיהיה יהיה",
+      "chartYear": 2015,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2015-014",
+      "title": "תן לי מנגינה",
+      "artist": "הדג נחש ביחד עם אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "HaDag Nahash",
+        "Hadag Nahash",
+        "אברהם טל",
+        "הדג נחש"
+      ],
+      "lookupTitle": "תן לי מנגינה",
+      "chartYear": 2015,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-001",
+      "title": "החיים שלנו תותים",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "החיים שלנו תותים",
+      "chartYear": 2016,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-002",
+      "title": "מתוקה מהחיים",
+      "artist": "דדי דדון",
+      "artistAliases": [
+        "Dedi Dadon",
+        "ארץ נהדרת",
+        "דדי דדון"
+      ],
+      "lookupTitle": "מתוקה מהחיים",
+      "chartYear": 2016,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)",
+      "titleAliases": [
+        "דדי דדון - מתוקה מהחיים"
+      ]
+    },
+    {
+      "id": "israel-chart-2016-003",
+      "title": "היא רק רוצה לרקוד",
+      "artist": "עומר אדם ומשה פרץ",
+      "artistAliases": [
+        "Moshe Peretz",
+        "Omer Adam",
+        "משה פרץ",
+        "עומר אדם"
+      ],
+      "lookupTitle": "היא רק רוצה לרקוד",
+      "chartYear": 2016,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-004",
+      "title": "סלסולים",
+      "artist": "סטטיק ובן-אל תבורי",
+      "artistAliases": [
+        "Static",
+        "Static & Ben El",
+        "Static & Ben El Tavori",
+        "סטטיק",
+        "סטטיק ו בן-אל תבורי",
+        "סטטיק ובן-אל תבורי"
+      ],
+      "lookupTitle": "סלסולים",
+      "chartYear": 2016,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-005",
+      "title": "אחרי כל השנים",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "אחרי כל השנים",
+      "chartYear": 2016,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-006",
+      "title": "אור",
+      "artist": "אליעד",
+      "artistAliases": [
+        "Eliad",
+        "אליעד"
+      ],
+      "lookupTitle": "אור",
+      "chartYear": 2016,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-008",
+      "title": "מיאמי",
+      "artist": "אליעד",
+      "artistAliases": [
+        "Eliad",
+        "אליעד"
+      ],
+      "lookupTitle": "מיאמי",
+      "chartYear": 2016,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-009",
+      "title": "ברבי",
+      "artist": "סטטיק ובן-אל תבורי",
+      "artistAliases": [
+        "Static",
+        "Static & Ben El",
+        "Static & Ben El Tavori",
+        "סטטיק",
+        "סטטיק ו בן-אל תבורי",
+        "סטטיק ובן-אל תבורי"
+      ],
+      "lookupTitle": "ברבי",
+      "chartYear": 2016,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-010",
+      "title": "מסיבה בחיפה",
+      "artist": "האולטראס, איתי לוי ואילון מתנה",
+      "artistAliases": [
+        "Itay Levi",
+        "The Ultras",
+        "איתי לוי",
+        "האולטראס"
+      ],
+      "lookupTitle": "מסיבה בחיפה",
+      "chartYear": 2016,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-011",
+      "title": "קופנגן",
+      "artist": "התקווה 6 ואינפקטד מאשרום",
+      "artistAliases": [
+        "Hatikva 6",
+        "התקווה 6"
+      ],
+      "lookupTitle": "קופנגן",
+      "chartYear": 2016,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-012",
+      "title": "לפני שייגמר",
+      "artist": "עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "לפני שייגמר",
+      "chartYear": 2016,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2016-014",
+      "title": "בדיוק כמו הירח",
+      "artist": "יובל דיין",
+      "artistAliases": [
+        "Yuval Dayan",
+        "יובל דיין"
+      ],
+      "lookupTitle": "בדיוק כמו הירח",
+      "chartYear": 2016,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-001",
+      "title": "כל הזמן הזה",
+      "artist": "נצ'י נצ'",
+      "artistAliases": [
+        "Nechi Nech",
+        "Ravid Plotnik",
+        "נצ'י נצ'",
+        "רביד פלוטניק"
+      ],
+      "lookupTitle": "כל הזמן הזה",
+      "chartYear": 2017,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-002",
+      "title": "ויקיפדיה",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "ויקיפדיה",
+      "chartYear": 2017,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-003",
+      "title": "טודו בום",
+      "artist": "סטטיק ובן-אל תבורי",
+      "artistAliases": [
+        "Static",
+        "Static & Ben El",
+        "Static & Ben El Tavori",
+        "סטטיק",
+        "סטטיק ו בן-אל תבורי",
+        "סטטיק ובן-אל תבורי"
+      ],
+      "lookupTitle": "טודו בום",
+      "chartYear": 2017,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-004",
+      "title": "בסוף הכל חולף",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "בסוף הכל חולף",
+      "chartYear": 2017,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-005",
+      "title": "תמיד חלמתי",
+      "artist": "אליעד",
+      "artistAliases": [
+        "Eliad",
+        "אליעד"
+      ],
+      "lookupTitle": "תמיד חלמתי",
+      "chartYear": 2017,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-006",
+      "title": "פעם בחיים",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "פעם בחיים",
+      "chartYear": 2017,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-007",
+      "title": "זהב",
+      "artist": "סטטיק ובן-אל תבורי",
+      "artistAliases": [
+        "Static",
+        "Static & Ben El",
+        "Static & Ben El Tavori",
+        "סטטיק",
+        "סטטיק ו בן-אל תבורי",
+        "סטטיק ובן-אל תבורי"
+      ],
+      "lookupTitle": "זהב",
+      "chartYear": 2017,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-008",
+      "title": "אף אחד",
+      "artist": "עדן בן זקן",
+      "artistAliases": [
+        "Eden Ben Zaken",
+        "עדן בן זקן"
+      ],
+      "lookupTitle": "אף אחד",
+      "chartYear": 2017,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-009",
+      "title": "רציתי",
+      "artist": "עדן בן זקן",
+      "artistAliases": [
+        "Eden Ben Zaken",
+        "עדן בן זקן"
+      ],
+      "lookupTitle": "רציתי",
+      "chartYear": 2017,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-011",
+      "title": "סיפור ישן",
+      "artist": "עומר אדם ולירן דנינו",
+      "artistAliases": [
+        "Liran Danino",
+        "Omer Adam",
+        "לירן דנינו",
+        "עומר אדם"
+      ],
+      "lookupTitle": "סיפור ישן",
+      "chartYear": 2017,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-012",
+      "title": "קרמלה",
+      "artist": "משה פרץ",
+      "artistAliases": [
+        "Moshe Peretz",
+        "משה פרץ"
+      ],
+      "lookupTitle": "קרמלה",
+      "chartYear": 2017,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2017-014",
+      "title": "יא\" 2",
+      "artist": "טונה",
+      "artistAliases": [
+        "Tuna",
+        "טונה"
+      ],
+      "lookupTitle": "יא\" 2",
+      "chartYear": 2017,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-001",
+      "title": "שני משוגעים",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "שני משוגעים",
+      "chartYear": 2018,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-003",
+      "title": "ואם תבואי אליי",
+      "artist": "עידן רייכל",
+      "artistAliases": [
+        "Idan Raichel",
+        "The Idan Raichel Project",
+        "עידן רייכל"
+      ],
+      "lookupTitle": "ואם תבואי אליי",
+      "chartYear": 2018,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-004",
+      "title": "שמישהו יעצור אותי",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "שמישהו יעצור אותי",
+      "chartYear": 2018,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-005",
+      "title": "חברות שלך",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "חברות שלך",
+      "chartYear": 2018,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-006",
+      "title": "חיים שלי",
+      "artist": "עדן בן זקן",
+      "artistAliases": [
+        "Eden Ben Zaken",
+        "עדן בן זקן"
+      ],
+      "lookupTitle": "חיים שלי",
+      "chartYear": 2018,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-007",
+      "title": "הכי קרוב אלייך",
+      "artist": "עילי בוטנר ואביב אלוש",
+      "artistAliases": [
+        "Aviv Alush",
+        "Elai Botner",
+        "Ilai Botner",
+        "אביב אלוש",
+        "עילי בוטנר"
+      ],
+      "lookupTitle": "הכי קרוב אלייך",
+      "chartYear": 2018,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-008",
+      "title": "שתישרף האהבה",
+      "artist": "איתי לוי",
+      "artistAliases": [
+        "Itay Levi",
+        "איתי לוי"
+      ],
+      "lookupTitle": "שתישרף האהבה",
+      "chartYear": 2018,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-009",
+      "title": "אולי נדבר",
+      "artist": "נדב גדג'",
+      "artistAliases": [
+        "Nadav Guedj",
+        "נדב גדג'"
+      ],
+      "lookupTitle": "אולי נדבר",
+      "chartYear": 2018,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-010",
+      "title": "לשוב הביתה",
+      "artist": "ישי ריבו",
+      "artistAliases": [
+        "Ishay Ribo",
+        "ישי ריבו"
+      ],
+      "lookupTitle": "לשוב הביתה",
+      "chartYear": 2018,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-011",
+      "title": "אל תשאלי",
+      "artist": "גיל ויין ובניה ברבי",
+      "artistAliases": [
+        "Benaia Barabi",
+        "Gil Vain",
+        "בניה ברבי",
+        "גיל ויין"
+      ],
+      "lookupTitle": "אל תשאלי",
+      "chartYear": 2018,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-012",
+      "title": "ילדים כאלה",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "ילדים כאלה",
+      "chartYear": 2018,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2018-013",
+      "title": "אוהבת אותי אמיתי",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "אוהבת אותי אמיתי",
+      "chartYear": 2018,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-001",
+      "title": "מסע",
+      "artist": "אליעד נחום",
+      "artistAliases": [
+        "Eliad",
+        "אליעד"
+      ],
+      "lookupTitle": "מסע",
+      "chartYear": 2019,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-002",
+      "title": "הלב שלי",
+      "artist": "ישי ריבו",
+      "artistAliases": [
+        "Ishay Ribo",
+        "ישי ריבו"
+      ],
+      "lookupTitle": "הלב שלי",
+      "chartYear": 2019,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-003",
+      "title": "אלוף העולם",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "אלוף העולם",
+      "chartYear": 2019,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-004",
+      "title": "שבט אחים ואחיות",
+      "artist": "אמנים שונים",
+      "artistAliases": [
+        "Israeli Artists",
+        "Various Artists",
+        "אמנים שונים",
+        "שבט אחים ואחיות"
+      ],
+      "lookupTitle": "שבט אחים ואחיות",
+      "chartYear": 2019,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-006",
+      "title": "כפיות",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "כפיות",
+      "chartYear": 2019,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-007",
+      "title": "הזוג הזה",
+      "artist": "מרגי",
+      "artistAliases": [
+        "Mergui",
+        "מרגי"
+      ],
+      "lookupTitle": "הזוג הזה",
+      "chartYear": 2019,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-008",
+      "title": "אין יותר מועדונים",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "אין יותר מועדונים",
+      "chartYear": 2019,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-009",
+      "title": "תפסת לי מקום",
+      "artist": "בניה ברבי",
+      "artistAliases": [
+        "Benaia Barabi",
+        "בניה ברבי"
+      ],
+      "lookupTitle": "תפסת לי מקום",
+      "chartYear": 2019,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-010",
+      "title": "צבעים",
+      "artist": "גיל ויין ורון בוחניק",
+      "artistAliases": [
+        "Gil Vain",
+        "Ron Bohanick",
+        "גיל ויין",
+        "רון בוחניק"
+      ],
+      "lookupTitle": "צבעים",
+      "chartYear": 2019,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-012",
+      "title": "באתי לחלום",
+      "artist": "נתן גושן",
+      "artistAliases": [
+        "Nathan Goshen",
+        "נתן גושן"
+      ],
+      "lookupTitle": "באתי לחלום",
+      "chartYear": 2019,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-013",
+      "title": "רחוק מכולם",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "רחוק מכולם",
+      "chartYear": 2019,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2019-014",
+      "title": "פאוץ",
+      "artist": "נועה קירל",
+      "artistAliases": [
+        "Noa Kirel",
+        "נועה קירל"
+      ],
+      "lookupTitle": "פאוץ",
+      "chartYear": 2019,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ע–ה'תשע\"ט)"
+    },
+    {
+      "id": "israel-chart-2020-001",
+      "title": "שלמים",
+      "artist": "עידן רפאל חביב",
+      "artistAliases": [
+        "Idan Haviv",
+        "Idan Rafael Haviv",
+        "עידן רפאל חביב"
+      ],
+      "lookupTitle": "שלמים",
+      "chartYear": 2020,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-002",
+      "title": "אם תרצי",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "אם תרצי",
+      "chartYear": 2020,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-003",
+      "title": "מיליון דולר",
+      "artist": "נועה קירל בהשתתפות שחר סאול",
+      "artistAliases": [
+        "Noa Kirel",
+        "Shahar Saul",
+        "נועה קירל",
+        "שחר סאול"
+      ],
+      "lookupTitle": "מיליון דולר",
+      "chartYear": 2020,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-004",
+      "title": "ואז את תראי",
+      "artist": "דולי ופן בהשתתפות עידן רפאל חביב, דיקלה ומארק אליהו",
+      "artistAliases": [
+        "Doli & Penn",
+        "Dolly & Penn",
+        "Idan Haviv",
+        "Idan Rafael Haviv",
+        "דולי ופן",
+        "עידן רפאל חביב"
+      ],
+      "lookupTitle": "ואז את תראי",
+      "chartYear": 2020,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-005",
+      "title": "זוט עני",
+      "artist": "אלה לי להב",
+      "artistAliases": [
+        "Ella Lee",
+        "אלה לי להב"
+      ],
+      "lookupTitle": "זוט עני",
+      "chartYear": 2020,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-006",
+      "title": "שמש",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "שמש",
+      "chartYear": 2020,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-007",
+      "title": "אל תעזבי ידיים",
+      "artist": "עקיבא תורג'מן",
+      "artistAliases": [
+        "Akiva",
+        "עקיבא",
+        "עקיבא תורג'מן"
+      ],
+      "lookupTitle": "אל תעזבי ידיים",
+      "chartYear": 2020,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-008",
+      "title": "אגרוף",
+      "artist": "עדן בן זקן",
+      "artistAliases": [
+        "Eden Ben Zaken",
+        "עדן בן זקן"
+      ],
+      "lookupTitle": "אגרוף",
+      "chartYear": 2020,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-009",
+      "title": "סיבובים",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "סיבובים",
+      "chartYear": 2020,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-010",
+      "title": "נחכה לך",
+      "artist": "נתן גושן וישי ריבו",
+      "artistAliases": [
+        "Ishay Ribo",
+        "Nathan Goshen",
+        "ישי ריבו",
+        "נתן גושן"
+      ],
+      "lookupTitle": "נחכה לך",
+      "chartYear": 2020,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-011",
+      "title": "שבוע טוב",
+      "artist": "אברהם טל",
+      "artistAliases": [
+        "Avraham Tal",
+        "אברהם טל"
+      ],
+      "lookupTitle": "שבוע טוב",
+      "chartYear": 2020,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2020-012",
+      "title": "בין קודש לחול",
+      "artist": "אמיר דדון ושולי רנד",
+      "artistAliases": [
+        "Amir Dadon",
+        "Shuli Rand",
+        "אמיר דדון",
+        "שולי רנד"
+      ],
+      "lookupTitle": "בין קודש לחול",
+      "chartYear": 2020,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-001",
+      "title": "בית משוגעים",
+      "artist": "רן דנקר",
+      "artistAliases": [
+        "Ran Danker",
+        "רן דנקר"
+      ],
+      "lookupTitle": "בית משוגעים",
+      "chartYear": 2021,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-002",
+      "title": "רסיסים",
+      "artist": "רביב כנר",
+      "artistAliases": [
+        "Raviv Kaner",
+        "רביב כנר"
+      ],
+      "lookupTitle": "רסיסים",
+      "chartYear": 2021,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-003",
+      "title": "טרילילי טרללה",
+      "artist": "נועה קירל עם אילן פלד",
+      "artistAliases": [
+        "Noa Kirel",
+        "נועה קירל"
+      ],
+      "lookupTitle": "טרילילי טרללה",
+      "chartYear": 2021,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-004",
+      "title": "שרק תחייך",
+      "artist": "יובל דיין",
+      "artistAliases": [
+        "Yuval Dayan",
+        "יובל דיין"
+      ],
+      "lookupTitle": "שרק תחייך",
+      "chartYear": 2021,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-005",
+      "title": "אפס מאמץ",
+      "artist": "סטטיק ובן-אל תבורי עם נטע ברזילי",
+      "artistAliases": [
+        "Static",
+        "Static & Ben El",
+        "Static & Ben El Tavori",
+        "סטטיק",
+        "סטטיק ו בן-אל תבורי",
+        "סטטיק ובן-אל תבורי"
+      ],
+      "lookupTitle": "אפס מאמץ",
+      "chartYear": 2021,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-006",
+      "title": "שקיעות אדומות",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "שקיעות אדומות",
+      "chartYear": 2021,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-007",
+      "title": "רוצה שלום",
+      "artist": "רביב כנר",
+      "artistAliases": [
+        "Raviv Kaner",
+        "רביב כנר"
+      ],
+      "lookupTitle": "רוצה שלום",
+      "chartYear": 2021,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-008",
+      "title": "ג'וני",
+      "artist": "בר צברי",
+      "artistAliases": [
+        "Bar Tzabari",
+        "בר צברי"
+      ],
+      "lookupTitle": "ג'וני",
+      "chartYear": 2021,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-009",
+      "title": "אמן על הילדים",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "אמן על הילדים",
+      "chartYear": 2021,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-011",
+      "title": "גדל לי קצת זקן",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "גדל לי קצת זקן",
+      "chartYear": 2021,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-012",
+      "title": "מועבט",
+      "artist": "עדן בן זקן בהשתתפות איתי גלו",
+      "artistAliases": [
+        "Eden Ben Zaken",
+        "עדן בן זקן"
+      ],
+      "lookupTitle": "מועבט",
+      "chartYear": 2021,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2021-013",
+      "title": "סיבת הסיבות",
+      "artist": "ישי ריבו",
+      "artistAliases": [
+        "Ishay Ribo",
+        "ישי ריבו"
+      ],
+      "lookupTitle": "סיבת הסיבות",
+      "chartYear": 2021,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-001",
+      "title": "סתלבט בקיבוץ",
+      "artist": "פול טראנק וג'ימבו ג'יי",
+      "artistAliases": [
+        "Full Trunk",
+        "Jimbo J",
+        "ג'ימבו ג'יי",
+        "פול טראנק"
+      ],
+      "lookupTitle": "סתלבט בקיבוץ",
+      "chartYear": 2022,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-004",
+      "title": "פנתרה",
+      "artist": "נועה קירל",
+      "artistAliases": [
+        "Noa Kirel",
+        "נועה קירל"
+      ],
+      "lookupTitle": "פנתרה",
+      "chartYear": 2022,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-005",
+      "title": "ליבינג דה דרים",
+      "artist": "נונו",
+      "artistAliases": [
+        "Nunu",
+        "נונו"
+      ],
+      "lookupTitle": "ליבינג דה דרים",
+      "chartYear": 2022,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-006",
+      "title": "לך לישון",
+      "artist": "אנה זק",
+      "artistAliases": [
+        "Anna Zak",
+        "אנה זק"
+      ],
+      "lookupTitle": "לך לישון",
+      "chartYear": 2022,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-007",
+      "title": "מי זאת",
+      "artist": "אנה זק",
+      "artistAliases": [
+        "Anna Zak",
+        "אנה זק"
+      ],
+      "lookupTitle": "מי זאת",
+      "chartYear": 2022,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-008",
+      "title": "דובשנייה",
+      "artist": "שחר סאול, אגם בוחבוט ונורוז",
+      "artistAliases": [
+        "Agam Buhbut",
+        "Shahar Saul",
+        "אגם בוחבוט",
+        "שחר סאול"
+      ],
+      "lookupTitle": "דובשנייה",
+      "chartYear": 2022,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-009",
+      "title": "יחפים",
+      "artist": "יסמין מועלם",
+      "artistAliases": [
+        "Jasmin Moallem",
+        "Yasmin Moallem",
+        "יסמין מועלם"
+      ],
+      "lookupTitle": "יחפים",
+      "chartYear": 2022,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-010",
+      "title": "היי בייב",
+      "artist": "טונה",
+      "artistAliases": [
+        "Tuna",
+        "טונה"
+      ],
+      "lookupTitle": "היי בייב",
+      "chartYear": 2022,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-011",
+      "title": "השמלה החדשה שלי",
+      "artist": "רן דנקר",
+      "artistAliases": [
+        "Ran Danker",
+        "רן דנקר"
+      ],
+      "lookupTitle": "השמלה החדשה שלי",
+      "chartYear": 2022,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-012",
+      "title": "לא להיות לבד",
+      "artist": "מרגי",
+      "artistAliases": [
+        "Mergui",
+        "מרגי"
+      ],
+      "lookupTitle": "לא להיות לבד",
+      "chartYear": 2022,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-013",
+      "title": "שלושה בנות",
+      "artist": "נועה קירל ותותית",
+      "artistAliases": [
+        "Noa Kirel",
+        "נועה קירל"
+      ],
+      "lookupTitle": "שלושה בנות",
+      "chartYear": 2022,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2022-016",
+      "title": "פעמון",
+      "artist": "נועה קירל ואיתי גלו",
+      "artistAliases": [
+        "Noa Kirel",
+        "נועה קירל"
+      ],
+      "lookupTitle": "פעמון",
+      "chartYear": 2022,
+      "chartRank": 16,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-002",
+      "title": "ילד מטריה",
+      "artist": "עטרה אוריה",
+      "artistAliases": [
+        "Atara Oria",
+        "Atra Oria",
+        "עטרה אוריה"
+      ],
+      "lookupTitle": "ילד מטריה",
+      "chartYear": 2023,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-003",
+      "title": "תיק קטן",
+      "artist": "נס וסטילה",
+      "artistAliases": [
+        "Ness & Stilla",
+        "נס וסטילה"
+      ],
+      "lookupTitle": "תיק קטן",
+      "chartYear": 2023,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-004",
+      "title": "אהבה חולה",
+      "artist": "פאר טסי",
+      "artistAliases": [
+        "Pe'er Tasi",
+        "Peer Tasi",
+        "פאר טסי"
+      ],
+      "lookupTitle": "אהבה חולה",
+      "chartYear": 2023,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-005",
+      "title": "אהבה",
+      "artist": "אושר כהן",
+      "artistAliases": [
+        "Osher Cohen",
+        "אושר כהן"
+      ],
+      "lookupTitle": "אהבה",
+      "chartYear": 2023,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-006",
+      "title": "רונדלים",
+      "artist": "סטטיק",
+      "artistAliases": [
+        "Static",
+        "סטטיק"
+      ],
+      "lookupTitle": "רונדלים",
+      "chartYear": 2023,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-007",
+      "title": "עטלף עיוור",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "עטלף עיוור",
+      "chartYear": 2023,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-008",
+      "title": "לאהוב אותך כל יום",
+      "artist": "דולי ופן ועדן חסון",
+      "artistAliases": [
+        "Doli & Penn",
+        "Dolly & Penn",
+        "Eden Hason",
+        "Eden Hasson",
+        "דולי ופן",
+        "עדן חסון"
+      ],
+      "lookupTitle": "לאהוב אותך כל יום",
+      "chartYear": 2023,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-009",
+      "title": "עד שתבואי עד אליי",
+      "artist": "עדן חסון",
+      "artistAliases": [
+        "Eden Hason",
+        "Eden Hasson",
+        "עדן חסון"
+      ],
+      "lookupTitle": "עד שתבואי עד אליי",
+      "chartYear": 2023,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-010",
+      "title": "חוץ מכדורגל",
+      "artist": "חנן בן ארי",
+      "artistAliases": [
+        "Hanan Ben Ari",
+        "חנן בן ארי"
+      ],
+      "lookupTitle": "חוץ מכדורגל",
+      "chartYear": 2023,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-012",
+      "title": "פרובוקטיבית",
+      "artist": "נועה קירל, פוראבר תל אביב ושגיא קריב",
+      "artistAliases": [
+        "Noa Kirel",
+        "נועה קירל"
+      ],
+      "lookupTitle": "פרובוקטיבית",
+      "chartYear": 2023,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-014",
+      "title": "אחותי כבר לא סובלת אותך",
+      "artist": "שירה מרגלית",
+      "artistAliases": [
+        "Shira Margalit",
+        "שירה מרגלית"
+      ],
+      "lookupTitle": "אחותי כבר לא סובלת אותך",
+      "chartYear": 2023,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2023-016",
+      "title": "יהיה טוב",
+      "artist": "יסמין מועלם",
+      "artistAliases": [
+        "Jasmin Moallem",
+        "Yasmin Moallem",
+        "יסמין מועלם"
+      ],
+      "lookupTitle": "יהיה טוב",
+      "chartYear": 2023,
+      "chartRank": 16,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-001",
+      "title": "חרבו דרבו",
+      "artist": "נס וסטילה",
+      "artistAliases": [
+        "Ness & Stilla",
+        "נס וסטילה"
+      ],
+      "lookupTitle": "חרבו דרבו",
+      "chartYear": 2024,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-003",
+      "title": "תרקדי (7.10.23)",
+      "artist": "אושר כהן",
+      "artistAliases": [
+        "Osher Cohen",
+        "אושר כהן"
+      ],
+      "lookupTitle": "תרקדי",
+      "chartYear": 2024,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-004",
+      "title": "גיבורי על",
+      "artist": "התקווה 6",
+      "artistAliases": [
+        "Hatikva 6",
+        "התקווה 6"
+      ],
+      "lookupTitle": "גיבורי על",
+      "chartYear": 2024,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-005",
+      "title": "מנגן ושר",
+      "artist": "אושר כהן",
+      "artistAliases": [
+        "Osher Cohen",
+        "אושר כהן"
+      ],
+      "lookupTitle": "מנגן ושר",
+      "chartYear": 2024,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-006",
+      "title": "מה יהיה מחר",
+      "artist": "פאר טסי",
+      "artistAliases": [
+        "Pe'er Tasi",
+        "Peer Tasi",
+        "פאר טסי"
+      ],
+      "lookupTitle": "מה יהיה מחר",
+      "chartYear": 2024,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-007",
+      "title": "רוז",
+      "artist": "פאר טסי",
+      "artistAliases": [
+        "Pe'er Tasi",
+        "Peer Tasi",
+        "פאר טסי"
+      ],
+      "lookupTitle": "רוז",
+      "chartYear": 2024,
+      "chartRank": 7,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-008",
+      "title": "נאדי באדי",
+      "artist": "שחר טבוך ואגם בוחבוט",
+      "artistAliases": [
+        "Agam Buhbut",
+        "Shahar Tavoch",
+        "אגם בוחבוט",
+        "שחר טבוך"
+      ],
+      "lookupTitle": "נאדי באדי",
+      "chartYear": 2024,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-010",
+      "title": "לצאת מדיכאון",
+      "artist": "יגל אושרי",
+      "artistAliases": [
+        "Yagel Oshri",
+        "יגל אושרי"
+      ],
+      "lookupTitle": "לצאת מדיכאון",
+      "chartYear": 2024,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-011",
+      "title": "פלסטרים",
+      "artist": "אושר כהן",
+      "artistAliases": [
+        "Osher Cohen",
+        "אושר כהן"
+      ],
+      "lookupTitle": "פלסטרים",
+      "chartYear": 2024,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-012",
+      "title": "אין אותי",
+      "artist": "אושר כהן ונועה קירל",
+      "artistAliases": [
+        "Noa Kirel",
+        "Osher Cohen",
+        "אושר כהן",
+        "נועה קירל"
+      ],
+      "lookupTitle": "אין אותי",
+      "chartYear": 2024,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-013",
+      "title": "רק שלך",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "רק שלך",
+      "chartYear": 2024,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2024-014",
+      "title": "באמפרים",
+      "artist": "נס וסטילה",
+      "artistAliases": [
+        "Ness & Stilla",
+        "נס וסטילה"
+      ],
+      "lookupTitle": "באמפרים",
+      "chartYear": 2024,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-001",
+      "title": "תמיד אוהב אותי",
+      "artist": "ששון איפרם שאולוב",
+      "artistAliases": [
+        "Sasson Ifram Shaulov",
+        "Sasson Ifran Shaulov",
+        "ששון איפרם שאולוב"
+      ],
+      "lookupTitle": "תמיד אוהב אותי",
+      "chartYear": 2025,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-002",
+      "title": "מלכת הדור",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "מלכת הדור",
+      "chartYear": 2025,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-003",
+      "title": "סופרמן",
+      "artist": "עידן עמדי",
+      "artistAliases": [
+        "Idan Amedi",
+        "עידן עמדי"
+      ],
+      "lookupTitle": "סופרמן",
+      "chartYear": 2025,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-005",
+      "title": "היא לא יודעת למה",
+      "artist": "פאר טסי",
+      "artistAliases": [
+        "Pe'er Tasi",
+        "Peer Tasi",
+        "פאר טסי"
+      ],
+      "lookupTitle": "היא לא יודעת למה",
+      "chartYear": 2025,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-006",
+      "title": "אם את כבר הולכת",
+      "artist": "נדב חנציס",
+      "artistAliases": [
+        "Nadav Hanzis",
+        "נדב חנציס"
+      ],
+      "lookupTitle": "אם את כבר הולכת",
+      "chartYear": 2025,
+      "chartRank": 6,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-008",
+      "title": "אהובתי כבר לא רואה אותי",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "אהובתי כבר לא רואה אותי",
+      "chartYear": 2025,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-009",
+      "title": "את לא יודעת כמה שאני אוהב אותך",
+      "artist": "אודיה",
+      "artistAliases": [
+        "Odeya",
+        "אודיה"
+      ],
+      "lookupTitle": "את לא יודעת כמה שאני אוהב אותך",
+      "chartYear": 2025,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-010",
+      "title": "פרפרים",
+      "artist": "אודיה",
+      "artistAliases": [
+        "Odeya",
+        "אודיה"
+      ],
+      "lookupTitle": "פרפרים",
+      "chartYear": 2025,
+      "chartRank": 10,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-011",
+      "title": "רשימת קניות",
+      "artist": "נס וסטילה ואודיה",
+      "artistAliases": [
+        "Ness & Stilla",
+        "Odeya",
+        "אודיה",
+        "נס וסטילה"
+      ],
+      "lookupTitle": "רשימת קניות",
+      "chartYear": 2025,
+      "chartRank": 11,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-012",
+      "title": "פאפי",
+      "artist": "אודיה",
+      "artistAliases": [
+        "Odeya",
+        "אודיה"
+      ],
+      "lookupTitle": "פאפי",
+      "chartYear": 2025,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-013",
+      "title": "אליס",
+      "artist": "אודיה",
+      "artistAliases": [
+        "Odeya",
+        "אודיה"
+      ],
+      "lookupTitle": "אליס",
+      "chartYear": 2025,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2025-014",
+      "title": "שמש שזורחת עליי",
+      "artist": "רביד פלוטניק",
+      "artistAliases": [],
+      "lookupTitle": "שמש שזורחת עליי",
+      "chartYear": 2025,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-001",
+      "title": "כולם גנבים",
+      "artist": "אושר כהן",
+      "artistAliases": [
+        "Osher Cohen",
+        "אושר כהן"
+      ],
+      "lookupTitle": "כולם גנבים",
+      "chartYear": 2026,
+      "chartRank": 1,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-002",
+      "title": "איך שהיא רוקדת",
+      "artist": "עדן חסון, אופק אדנק ואגם בוחבוט",
+      "artistAliases": [
+        "Agam Buhbut",
+        "Eden Hason",
+        "Eden Hasson",
+        "אגם בוחבוט",
+        "עדן חסון"
+      ],
+      "lookupTitle": "איך שהיא רוקדת",
+      "chartYear": 2026,
+      "chartRank": 2,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-003",
+      "title": "רולקס וקסקט",
+      "artist": "עדן בן זקן",
+      "artistAliases": [
+        "Eden Ben Zaken",
+        "עדן בן זקן"
+      ],
+      "lookupTitle": "רולקס וקסקט",
+      "chartYear": 2026,
+      "chartRank": 3,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-004",
+      "title": "עוף מוזר",
+      "artist": "פאר טסי",
+      "artistAliases": [
+        "Pe'er Tasi",
+        "Peer Tasi",
+        "פאר טסי"
+      ],
+      "lookupTitle": "עוף מוזר",
+      "chartYear": 2026,
+      "chartRank": 4,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-005",
+      "title": "עשר רמות מעליו",
+      "artist": "אודיה",
+      "artistAliases": [
+        "Odeya",
+        "אודיה"
+      ],
+      "lookupTitle": "עשר רמות מעליו",
+      "chartYear": 2026,
+      "chartRank": 5,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-008",
+      "title": "ואן דאם",
+      "artist": "אודיה",
+      "artistAliases": [
+        "Odeya",
+        "אודיה"
+      ],
+      "lookupTitle": "ואן דאם",
+      "chartYear": 2026,
+      "chartRank": 8,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-009",
+      "title": "השיר שאת אהבת",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "השיר שאת אהבת",
+      "chartYear": 2026,
+      "chartRank": 9,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-012",
+      "title": "בית ביפו",
+      "artist": "דודו טסה",
+      "artistAliases": [
+        "Dudu Tassa",
+        "דודו טסה"
+      ],
+      "lookupTitle": "בית ביפו",
+      "chartYear": 2026,
+      "chartRank": 12,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-013",
+      "title": "אבי הטחול",
+      "artist": "רואי אדם",
+      "artistAliases": [
+        "Roi Adam",
+        "Roy Adam",
+        "רואי אדם"
+      ],
+      "lookupTitle": "אבי הטחול",
+      "chartYear": 2026,
+      "chartRank": 13,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-014",
+      "title": "לב לבן",
+      "artist": "שולי רנד",
+      "artistAliases": [
+        "Shuli Rand",
+        "שולי רנד"
+      ],
+      "lookupTitle": "לב לבן",
+      "chartYear": 2026,
+      "chartRank": 14,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-015",
+      "title": "המבט בעיניך",
+      "artist": "אגם בוחבוט",
+      "artistAliases": [
+        "Agam Buhbut",
+        "אגם בוחבוט"
+      ],
+      "lookupTitle": "המבט בעיניך",
+      "chartYear": 2026,
+      "chartRank": 15,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    },
+    {
+      "id": "israel-chart-2026-016",
+      "title": "ריו דה ז'נרו",
+      "artist": "עומר אדם",
+      "artistAliases": [
+        "Omer Adam",
+        "עומר אדם"
+      ],
+      "lookupTitle": "ריו דה ז'נרו",
+      "chartYear": 2026,
+      "chartRank": 16,
+      "yearBasis": "chart-year",
+      "chartPublisher": "גלגלצ",
+      "source": "המצעד הישראלי השנתי של גלגלצ",
+      "sourceUrl": "https://he.wikipedia.org/wiki/מצעד_הפזמונים_העברי_השנתי_(ה'תש\"ף_ואילך)"
+    }
+  ]
+}
