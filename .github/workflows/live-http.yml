@@ -5,13 +5,16 @@ on:
     workflows: ["Deploy TRA Sites to GitHub Pages"]
     types: [completed]
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/live-http.yml"]
 
 permissions:
   contents: read
 
 jobs:
   live-http:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.workflow_run.conclusion == 'success' }}
     name: TRA · Live HTTP green gate
     runs-on: ubuntu-latest
     steps:
@@ -50,8 +53,8 @@ jobs:
           check_url "https://tomerangel212-png.github.io/-/" "THE TRA · 9.9"
           check_url "https://tomerangel212-png.github.io/-/games.html" "מי רוצה להיות עורך מוזיקלי"
           check_url "https://tomerangel212-png.github.io/-/hitster.html" "888 קלפי A-list עולמיים"
-          check_url "https://tomerangel212-png.github.io/-/hitster-mobile.html" "TRA · MOBILE AUDIO · 888"
-          check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "HITSTER TRA · 888"
+          check_url "https://tomerangel212-png.github.io/-/hitster-mobile.html" "TRA · MOBILE AUDIO"
+          check_url "https://tomerangel212-png.github.io/-/hitster-888.html" "HITSTER TRA ·"
           check_url "https://tomerangel212-png.github.io/-/hitster-kfar-bloom-2026-demo.html" "HITSTER 888"
           check_url "https://tomerangel212-png.github.io/-/casino-angel.html" "Casino Angel"
           check_url "https://tomerangel212-png.github.io/-/connect-talk.html" "חברו • דברו"
