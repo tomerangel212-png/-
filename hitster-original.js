@@ -184,11 +184,12 @@
       window.TRAAudio.capture(eventName, properties || {});
     } catch (error) {}
   }
-  function createInitialState() {
+  function createInitialState(configuredTeams) {
+    var teams = configuredTeams || TEAM_DEFS;
     return {
-      version: 2,
-      activeTeamId: TEAM_DEFS[0].id,
-      teams: TEAM_DEFS.map(function (team) { return { id: team.id, stars: START_STARS, timeline: [] }; }),
+      version: 3,
+      activeTeamId: teams[0].id,
+      teams: teams.map(function (team) { return { id: team.id, name: team.name || team[language], stars: START_STARS, timeline: [] }; }),
       used: [],
       current: null,
       currentYearRevealed: false,
@@ -201,6 +202,8 @@
     };
   }
   function teamName(id) {
+    var team = state && state.teams.find(function (value) { return value.id === id; });
+    if (team && team.name) return team.name;
     var definition = TEAM_DEFS.find(function (team) { return team.id === id; });
     return definition ? definition[language] : id;
   }
@@ -210,10 +213,21 @@
     return Boolean(candidate && ((candidate.used && candidate.used.length) || candidate.current || (candidate.teams || []).some(function (team) { return team.timeline && team.timeline.length; })));
   }
   function sanitizeState(candidate) {
-    if (!candidate || !Array.isArray(candidate.teams) || (candidate.version !== 1 && candidate.version !== 2)) return createInitialState();
+    if (!candidate || !Array.isArray(candidate.teams) || ![1, 2, 3].includes(candidate.version)) return createInitialState();
+    var configuredTeams;
+    if (candidate.version === 3) {
+      if (candidate.teams.length < 2 || candidate.teams.length > 10) return createInitialState();
+      var ids = Object.create(null);
+      configuredTeams = candidate.teams.map(function (team, index) {
+        if (!team || typeof team.id !== "string" || !team.id || ids[team.id]) return null;
+        ids[team.id] = true;
+        return { id: team.id, name: typeof team.name === "string" && team.name.trim() ? team.name.trim().slice(0, 50) : (language === "he" ? "קבוצה " : "Team ") + (index + 1) };
+      });
+      if (configuredTeams.some(function (team) { return !team; })) return createInitialState();
+    }
     var valid = Object.create(null);
     deck.forEach(function (card) { valid[card.id] = true; });
-    var restored = createInitialState();
+    var restored = createInitialState(configuredTeams);
     var usedAcrossTimelines = Object.create(null);
     restored.teams.forEach(function (team) {
       var old = candidate.teams.find(function (value) { return value && value.id === team.id; }) || {};
@@ -231,7 +245,7 @@
     Object.keys(usedAcrossTimelines).forEach(function (id) {
       if (restored.used.indexOf(id) === -1) restored.used.push(id);
     });
-    restored.activeTeamId = TEAM_DEFS.some(function (team) { return team.id === candidate.activeTeamId; }) ? candidate.activeTeamId : TEAM_DEFS[0].id;
+    restored.activeTeamId = restored.teams.some(function (team) { return team.id === candidate.activeTeamId; }) ? candidate.activeTeamId : restored.teams[0].id;
     restored.current = valid[candidate.current] ? candidate.current : null;
     if (restored.current && restored.used.indexOf(restored.current) === -1) restored.used.push(restored.current);
     if (candidate.version === 1) {
@@ -242,7 +256,7 @@
       restored.currentSolutionRevealed = Boolean(candidate.currentSolutionRevealed && restored.current);
       restored.currentPlacementSlot = Number.isInteger(candidate.currentPlacementSlot) ? candidate.currentPlacementSlot : null;
       restored.currentPlacementCorrect = typeof candidate.currentPlacementCorrect === "boolean" ? candidate.currentPlacementCorrect : null;
-      restored.winnerTeamId = TEAM_DEFS.some(function (team) { return team.id === candidate.winnerTeamId; }) ? candidate.winnerTeamId : null;
+      restored.winnerTeamId = restored.teams.some(function (team) { return team.id === candidate.winnerTeamId; }) ? candidate.winnerTeamId : null;
     }
     restored.currentAnswerChecked = Boolean(candidate.currentAnswerChecked && restored.current);
     restored.currentAwarded = Boolean(candidate.currentAwarded && restored.current);
@@ -316,8 +330,8 @@
     return state.used.length === 0 && !state.current && state.teams.every(function (team) { return team.timeline.length === 0; });
   }
   function nextTeamId(currentId) {
-    var index = TEAM_DEFS.findIndex(function (team) { return team.id === currentId; });
-    return TEAM_DEFS[(index + 1 + TEAM_DEFS.length) % TEAM_DEFS.length].id;
+    var index = state.teams.findIndex(function (team) { return team.id === currentId; });
+    return state.teams[(index + 1 + state.teams.length) % state.teams.length].id;
   }
   function advanceTurn() {
     state.activeTeamId = nextTeamId(state.activeTeamId);
@@ -454,6 +468,11 @@
   }
   function render() {
     if (!state) return;
+    var select = el("team-select");
+    clear(select);
+    state.teams.forEach(function (team) {
+      var option = createNode("option", "", teamName(team.id)); option.value = team.id; select.append(option);
+    });
     el("team-select").value = state.activeTeamId;
     renderTeams();
     renderCard();
@@ -945,11 +964,12 @@
     setStatus(won ? text(t.winner, { team: teamName(teamId) }) : t.free);
     track("star_spent", { action: "free_card", team_id: teamId, chart_year: year, stars: team.stars, won: won });
   }
-  function resetGame(skipConfirm) {
+  function resetGame(skipConfirm, configuredTeams) {
     if (!skipConfirm && !window.confirm(t.resetAllConfirm)) return false;
+    if (!skipConfirm) { beginTeamSetup(); return false; }
     clearNextReady();
     stopAudio();
-    state = createInitialState();
+    state = createInitialState(configuredTeams);
     persist();
     render();
     setStatus(t.reset);
@@ -990,9 +1010,50 @@
     hideStartScreen();
   }
   function startNewGame() {
-    resetGame(true);
-    hideStartScreen();
+    beginTeamSetup();
   }
+
+  function beginTeamSetup() {
+    stopAudio({ keepSource: true });
+    el("start-screen").hidden = false;
+    el("start-actions").hidden = true;
+    el("setup-flow").hidden = false;
+    el("setup-count-step").hidden = false;
+    el("setup-names-step").hidden = true;
+    el("setup-team-count").value = String(state.teams.length);
+    el("setup-team-count").focus();
+  }
+  function showTeamNames() {
+    var count = Number(el("setup-team-count").value);
+    if (!Number.isInteger(count) || count < 2 || count > 10) return;
+    var host = el("setup-team-names");
+    var draftNames = Array.from(host.querySelectorAll("input")).map(function (input) { return input.value; });
+    clear(host);
+    for (var index = 0; index < count; index += 1) {
+      var label = createNode("label", "setup-name", (language === "he" ? "קבוצה " : "Team ") + (index + 1));
+      var input = document.createElement("input"); input.type = "text"; input.maxLength = 50;
+      input.name = "team-name"; input.required = true;
+      input.value = draftNames[index] || (language === "he" ? "קבוצה " : "Team ") + (index + 1);
+      input.placeholder = language === "he" ? "למשל: המגניבים" : "For example: The Cool Ones";
+      label.append(input); host.append(label);
+    }
+    el("setup-count-step").hidden = true; el("setup-names-step").hidden = false;
+    host.querySelector("input").focus(); host.querySelector("input").select();
+  }
+  el("setup-count-next").addEventListener("click", showTeamNames);
+  el("setup-back").addEventListener("click", function () { el("setup-names-step").hidden = true; el("setup-count-step").hidden = false; });
+  el("setup-cancel").addEventListener("click", function () {
+    el("setup-flow").hidden = true; el("start-actions").hidden = false; renderStartScreen();
+  });
+  el("setup-names-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    var inputs = Array.from(el("setup-team-names").querySelectorAll("input"));
+    var invalid = inputs.find(function (input) { return !input.value.trim(); });
+    if (invalid) { invalid.focus(); return; }
+    var teams = inputs.map(function (input, index) { return { id: "team-" + (index + 1), name: input.value.trim().slice(0, 50) }; });
+    resetGame(true, teams);
+    el("setup-flow").hidden = true; el("start-actions").hidden = false; hideStartScreen();
+  });
 
   el("team-select").addEventListener("change", function (event) {
     if (!canChooseStartingTeam()) { event.target.value = state.activeTeamId; return; }

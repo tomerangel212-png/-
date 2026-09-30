@@ -1,4 +1,4 @@
-const STATIC_CACHE = "tra-99-99-station-999-audio-bounded-v3";
+const STATIC_CACHE = "tra-99-99-station-999-team-setup-v4";
 const AUDIO_CACHE = "hitster-tra-preview-audio-v2";
 const STATIC_ASSETS = [
   "./",
