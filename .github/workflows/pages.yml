@@ -52,6 +52,7 @@ jobs:
           node hitster-israeli-check.js
           node hitster-audio-check.js
           node audio-behavior-check.js
+          node hitster-recovery-check.js
           node tra-music-station-check.js
           node hitster-flagship-check.js
           node games-core-check.js

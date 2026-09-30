@@ -9,6 +9,9 @@
   var MAX_PREVIEW_CANDIDATES = 8;
   var PREPARATION_BUDGET_MS = 25000;
   var previewManifest = Object.create(null);
+  var previewFailures = Object.create(null);
+  var nextPreparationRetry = null;
+  var preparationRetries = 0;
   var pendingMediaActivation = null;
   var preparationToken = 0;
   var START_STARS = 5;
@@ -309,6 +312,8 @@
     if (!options || !options.keepSource) clearPlayerSource();
   }
   function clearNextReady() {
+    if (nextPreparationRetry) { clearTimeout(nextPreparationRetry); nextPreparationRetry = null; }
+    preparationRetries = 0;
     preparationToken += 1;
     preparing = false;
     previewGeneration += 1;
@@ -750,27 +755,35 @@
   function forgetPreview(card) {
     if (!card) return;
     delete previewMemo[card.id];
-    delete previewManifest[card.id];
+    // A network/media failure is not evidence that a verified URL disappeared.
+    // Keep the manifest so recovery can retry it without another search request.
     void deleteCachedPreview(card);
   }
   async function findAndLoadNextCard(generation) {
     var available = shuffle(unusedCards());
-    var candidates = available.filter(function (card) { return previewManifest[card.id]; }).concat(available.filter(function (card) { return !previewManifest[card.id]; })).slice(0, MAX_PREVIEW_CANDIDATES);
+    var now = Date.now();
+    var eligible = available.filter(function (card) { return !previewFailures[card.id] || previewFailures[card.id] <= now; });
+    var candidates = eligible.filter(function (card) { return previewManifest[card.id]; }).concat(eligible.filter(function (card) { return !previewManifest[card.id]; })).slice(0, MAX_PREVIEW_CANDIDATES);
     for (var index = 0; index < candidates.length; index += 1) {
       if (generation !== previewGeneration || state.current || isGameLocked()) return null;
       var card = candidates[index];
+      // Record attempts before awaiting: a cancelled slow request must not
+      // monopolize the following batch either.
+      previewFailures[card.id] = Date.now() + 30000;
       var preview = null;
       try {
         preview = await resolvePlayablePreview(card);
         if (generation !== previewGeneration || state.current || isGameLocked()) { releasePreview(preview); return null; }
-        if (!preview) { track("hitster_preview_candidate_skipped", { card_id: card.id, reason: "no_preview" }); continue; }
+        if (!preview) { previewFailures[card.id] = Date.now() + 30000; track("hitster_preview_candidate_skipped", { card_id: card.id, reason: "no_preview" }); continue; }
         await loadPreviewIntoPlayer(card, preview);
         if (generation !== previewGeneration || state.current || isGameLocked()) { releasePreview(preview); return null; }
+        delete previewFailures[card.id];
         return { card: card, preview: preview };
       } catch (error) {
         releasePreview(preview);
         if (generation !== previewGeneration) return null;
         forgetPreview(card);
+        previewFailures[card.id] = Date.now() + 30000;
         track("hitster_preview_candidate_skipped", { card_id: card.id, reason: "load_failed", error_name: error && error.name || "Error" });
       }
     }
@@ -780,6 +793,7 @@
     if (!state || state.current || isGameLocked()) return null;
     if (nextReady) return nextReady;
     if (nextReadyPromise) return nextReadyPromise;
+    if (nextPreparationRetry) { clearTimeout(nextPreparationRetry); nextPreparationRetry = null; }
     if (!unusedCards().length) { setStatus(t.noMore); return null; }
     var generation = previewGeneration;
     var operationToken = ++preparationToken;
@@ -798,16 +812,32 @@
         return null;
       }
       nextReady = pick;
-      setStatus(pick ? t.audioReady : t.noPreview);
+      if (pick) preparationRetries = 0;
+      setStatus(pick ? t.audioReady : (language === "he" ? "טעינת השמע התעכבה. בודק קלפים נוספים; החפיסה לא נגמרה." : "Audio loading was delayed. Checking more cards; the deck is not exhausted."));
       return pick;
     } catch (error) {
       if (operationToken !== preparationToken) return null;
       track("song_preview_prepare_failed", { reason: "preparation_budget", error_name: error.name });
-      setStatus(language === "he" ? "השמע לא נטען בזמן. לחצו על קלף חדש כדי לנסות שוב." : "Audio timed out. Press New card to retry.");
+      setStatus(language === "he" ? "טעינת השמע התעכבה. מנסה קלפים נוספים בלי לספור קלף." : "Audio loading was delayed. Retrying more cards without counting a card.");
       return null;
     } finally {
       if (nextReadyPromise === request) nextReadyPromise = null;
-      if (operationToken === preparationToken) { preparing = false; render(); }
+      if (operationToken === preparationToken) {
+        preparing = false; render();
+        if (!nextReady && !state.current && !isGameLocked() && unusedCards().length) {
+          if (preparationRetries < 3) {
+            preparationRetries += 1;
+            var retryGeneration = previewGeneration;
+            nextPreparationRetry = setTimeout(function () {
+              nextPreparationRetry = null;
+              if (retryGeneration === previewGeneration && !state.current) void primeNextCard();
+            }, 1500);
+          } else {
+            preparationRetries = 0;
+            setStatus(language === "he" ? "יש קלפים נוספים בחפיסה, אך השמע לא נטען כרגע. לחצו על קלף חדש כדי לנסות שוב." : "More cards remain, but audio is unavailable right now. Press New card to retry.");
+          }
+        }
+      }
     }
   }
   function armClipTimer() {
