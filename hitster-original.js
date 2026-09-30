@@ -13,7 +13,7 @@
   var preparationToken = 0;
   var START_STARS = 5;
   var MAX_STARS = 10;
-  var WIN_CARDS = 18;
+  var WIN_CARDS = 10;
   var TEAM_DEFS = [
     { id: "ayelet-dudi", he: "איילת ודודי", en: "Ayelet & Dudi" },
     { id: "sharon-naveh", he: "שרון ונוה", en: "Sharon & Naveh" },
@@ -69,7 +69,7 @@
       after: "אחרי",
       count: "קלפים",
       stars: "כוכבים",
-      winner: "🏆 {team} ניצחו עם 18 קלפים!",
+      winner: "🏆 {team} ניצחו עם 10 קלפים!",
       turn: "תור",
       playLabel: "▶ נגנו 30 שניות",
       preparingLabel: "מכין שמע…",
@@ -128,7 +128,7 @@
       after: "After",
       count: "cards",
       stars: "stars",
-      winner: "🏆 {team} wins with 18 cards!",
+      winner: "🏆 {team} wins with 10 cards!",
       turn: "Turn",
       playLabel: "▶ Play 30 seconds",
       preparingLabel: "Preparing audio…",
@@ -263,6 +263,10 @@
     if (restored.winnerTeamId) {
       var winner = restored.teams.find(function (team) { return team.id === restored.winnerTeamId; });
       if (!winner || winner.timeline.length < WIN_CARDS) restored.winnerTeamId = null;
+    }
+    if (!restored.winnerTeamId) {
+      var reachedTarget = restored.teams.find(function (team) { return team.timeline.length >= WIN_CARDS; });
+      if (reachedTarget) restored.winnerTeamId = reachedTarget.id;
     }
     return restored;
   }
@@ -505,7 +509,7 @@
     restore();
     render();
     setStatus(hasProgress(state) ? t.resume : text(t.ready, { team: teamName(state.activeTeamId) }));
-    track("hitster_annual_deck_loaded", { cards: deck.length, year_basis: payload.yearBasis, ruleset: "kfar-blum-18" });
+    track("hitster_annual_deck_loaded", { cards: deck.length, year_basis: payload.yearBasis, ruleset: "kfar-blum-10" });
   }
   function unusedCards() {
     var used = Object.create(null);
@@ -973,7 +977,7 @@
     persist();
     render();
     setStatus(t.reset);
-    track("game_started", { reset: true, cards: deck.length, ruleset: "kfar-blum-18" });
+    track("game_started", { reset: true, cards: deck.length, ruleset: "kfar-blum-10" });
     void primeNextCard();
     return true;
   }

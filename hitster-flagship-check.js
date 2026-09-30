@@ -18,14 +18,14 @@ for (const file of routes) {
 }
 for (const file of ["hitster-888.html", "hitster-888-en.html"]) {
   const text = fs.readFileSync(file, "utf8");
-  for (const required of ["tra-audio-runtime.js", "30", "18", "5", "10"]) {
+  for (const required of ["tra-audio-runtime.js", "30", "5", "10"]) {
     if (!text.includes(required)) errors.push(`${file}: flagship contract missing ${required}`);
   }
 }
 const version = file => fs.readFileSync(file, "utf8").match(/hitster-original\.js\?v=([^"\s]+)/)?.[1];
 if (!version("hitster-888.html") || version("hitster-888.html") !== version("hitster-888-en.html")) errors.push("HITSTER languages must load the same runtime version");
 const runtime = fs.readFileSync("hitster-original.js", "utf8");
-for (const required of ["PREVIEW_SECONDS = 30", "ruleset: \"kfar-blum-18\"", "function primeNextCard", "audio.play()", "keepSource: true", "audio.controls = true"]) {
+for (const required of ["PREVIEW_SECONDS = 30", "ruleset: \"kfar-blum-10\"", "function primeNextCard", "audio.play()", "keepSource: true", "audio.controls = true"]) {
   if (!runtime.includes(required)) errors.push(`hitster-original.js: flagship runtime missing ${required}`);
 }
 if (errors.length) { console.error(errors.join("\n")); process.exit(1); }

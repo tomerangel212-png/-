@@ -4,7 +4,7 @@ function check(name,ok){console.log(`${ok?"PASS":"FAIL"} - ${name}`);if(!ok)fail
 const hit=read("hitster-original.js"), hcheck=read("hitster-888-check.js"), source=read("hitster-source-audit.js");
 const family=read("angel-family-game.html"), dnd=read("tra-dnd.html"), worlds=read("tra-100.html"), wiki=read("wikifamily.html");
 const poetry=read("poetry/index.html"), book=read("poetry/oy-ha-berech.html"), knoke=read("knoke.html"), kfar=read("kfar-blum-2026.html"), music=read("tra-music.html");
-check("HITSTER current Kfar Blum rules are locked",hit.includes("MAX_STARS = 10")&&hit.includes("WIN_CARDS = 18")&&hit.includes("removeConfirm")&&hit.includes("continue-game")&&hit.includes("reset-from-start")&&hit.includes("state.used.push(card.id)"));
+check("HITSTER current Kfar Blum rules are locked",hit.includes("MAX_STARS = 10")&&hit.includes("WIN_CARDS = 10")&&hit.includes("removeConfirm")&&hit.includes("continue-game")&&hit.includes("reset-from-start")&&hit.includes("state.used.push(card.id)"));
 check("HITSTER 888 structural gate matches current rules",hcheck.includes("Kfar Blum star rules")&&hcheck.includes("Kfar Blum win rule"));
 check("HITSTER has independent provenance audit",source.includes("888 cards found on their declared chart-year source pages")&&source.includes("Promise.all"));
 check("Angel Family is standalone, persistent and winnable",family.includes("tra-angel-family-v1")&&family.includes("כל שלושת פרויקטי הליבה הושלמו")&&family.includes("state.round>12"));
