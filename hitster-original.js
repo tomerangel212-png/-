@@ -13,6 +13,7 @@
   var nextPreparationRetry = null;
   var preparationRetries = 0;
   var pendingMediaActivation = null;
+  var requestedPlayback = null;
   var preparationToken = 0;
   var START_STARS = 5;
   var MAX_STARS = 10;
@@ -299,6 +300,7 @@
     audio.pause();
     try { audio.currentTime = 0; } catch (error) {}
     pendingMediaActivation = null;
+    requestedPlayback = null;
     audio.removeAttribute("src");
     try { audio.load(); } catch (error) {}
     preparedCardId = null;
@@ -541,7 +543,7 @@
     }
     return items;
   }
-  function drawCard() {
+  function drawCard(alreadyPlaying) {
     if (state.current || isGameLocked()) return;
     if (pendingMediaActivation) { activatePendingAudio(); return; }
     var ready = nextReady;
@@ -564,7 +566,7 @@
     render();
     setStatus(t.cardReady);
     track("hitster_card_drawn", { card_id: card.id, chart_year: card.chartYear, used_count: state.used.length, team_id: state.activeTeamId });
-    playClip(true);
+    playClip(true, alreadyPlaying);
   }
   function currentPlacementIsCorrect(card, slot) {
     var cards = sortedTimeline(getTeam());
@@ -673,7 +675,9 @@
       if (found) { previewMemo[card.id] = found; return found; }
       if (pass === 0) await wait(350);
     }
-    return null;
+    // A failed search (CORS, timeout or rate limit) must not discard the
+    // verified source that was already available for this card.
+    return previewManifest[card.id] ? previewManifest[card.id].url : null;
   }
   async function cacheRemotePreview(card, previewUrl) {
     try {
@@ -697,7 +701,7 @@
   }
   async function resolvePlayablePreview(card, options) {
     var force = Boolean(options && options.force);
-    if (!force) {
+    if (!force || !navigator.onLine) {
       var local = await window.TRAAudio.bounded(function () { return cachedPreview(card); }, 3000).catch(function () { return null; });
       if (local) return local;
     }
@@ -824,6 +828,7 @@
       if (nextReadyPromise === request) nextReadyPromise = null;
       if (operationToken === preparationToken) {
         preparing = false; render();
+        completeRequestedPlayback();
         if (!nextReady && !state.current && !isGameLocked() && unusedCards().length) {
           if (preparationRetries < 3) {
             preparationRetries += 1;
@@ -878,7 +883,7 @@
       setStatus(navigator.onLine ? t.noPreview : t.offline);
       return false;
     } finally {
-      if (operationToken === preparationToken) { preparing = false; render(); }
+      if (operationToken === preparationToken) { preparing = false; render(); completeRequestedPlayback(); }
     }
   }
   function recoverCurrentPreview(card, error) {
@@ -891,18 +896,46 @@
     stopAudio();
     void prepareCurrentPreview(card, { force: true }).finally(function () { recoveringCardId = null; });
   }
+  function playbackStarted(card, fromDraw) {
+    armClipTimer();
+    if (el("play-clip")) el("play-clip").textContent = language === "he" ? "■ עצרו" : "■ Stop";
+    setStatus(t.played);
+    track("song_preview_started", { card_id: card.id, chart_year: card.chartYear, seconds: PREVIEW_SECONDS, from_draw: Boolean(fromDraw), used_count: state.used.length });
+  }
+  function completeRequestedPlayback() {
+    var intent = requestedPlayback;
+    if (!intent || !intent.started || intent.token !== playerLoadGeneration || preparing || audio.paused) return;
+    if (preparedCardId !== intent.cardId) return;
+    var card = currentCard();
+    if (card && card.id === intent.cardId) {
+      requestedPlayback = null;
+      playbackStarted(card, false);
+    } else if (!card && nextReady && nextReady.card.id === intent.cardId) {
+      requestedPlayback = null;
+      drawCard(true);
+    }
+  }
   function activatePendingAudio() {
     if (!pendingMediaActivation || !audio.src) return;
-    // Real user gesture on the persistent player; do not consume a card yet.
-    var attempt, activationToken = playerLoadGeneration;
-    try { audio.load(); attempt = audio.play(); }
-    catch (error) { track("hitster_audio_activation_failed", { error_name: error.name }); return; }
+    // Keep the user's actual play request alive while metadata finishes loading.
+    // Calling load() here restarts the request; pausing on fulfilment loses the tap.
+    var intent = { token: playerLoadGeneration, cardId: pendingMediaActivation.card.id, started: false };
+    requestedPlayback = intent;
+    var attempt;
+    try { attempt = audio.play(); }
+    catch (error) { requestedPlayback = null; setStatus(t.blocked); track("hitster_audio_activation_failed", { error_name: error.name }); return; }
     Promise.resolve(attempt).then(function () {
-      if (activationToken !== playerLoadGeneration) return;
-      if (!currentCard()) { audio.pause(); try { audio.currentTime = 0; } catch (error) {} }
-    }).catch(function (error) { track("hitster_audio_activation_failed", { error_name: error.name }); });
+      if (intent.token !== playerLoadGeneration || requestedPlayback !== intent) return;
+      intent.started = true;
+      completeRequestedPlayback();
+    }).catch(function (error) {
+      if (requestedPlayback !== intent) return;
+      requestedPlayback = null;
+      setStatus(t.blocked);
+      track("hitster_audio_activation_failed", { error_name: error.name });
+    });
   }
-  function playClip(fromDraw) {
+  function playClip(fromDraw, alreadyPlaying) {
     var card = currentCard();
     if (pendingMediaActivation) { activatePendingAudio(); return; }
     if (!card || preparing) return;
@@ -910,6 +943,7 @@
       void prepareCurrentPreview(card);
       return;
     }
+    if (alreadyPlaying && !audio.paused) { playbackStarted(card, fromDraw); return; }
     if (!audio.paused) {
       stopAudio({ keepSource: true });
       setStatus(t.stopped);
@@ -927,10 +961,7 @@
     }
     Promise.resolve(attempt).then(function () {
       if (playbackToken !== playerLoadGeneration || !state || state.current !== card.id) return;
-      armClipTimer();
-      if (el("play-clip")) el("play-clip").textContent = language === "he" ? "■ עצרו" : "■ Stop";
-      setStatus(t.played);
-      track("song_preview_started", { card_id: card.id, chart_year: card.chartYear, seconds: PREVIEW_SECONDS, from_draw: Boolean(fromDraw), used_count: state.used.length });
+      playbackStarted(card, fromDraw);
     }).catch(function (error) { recoverCurrentPreview(card, error); });
   }
   function checkAnswer(event) {

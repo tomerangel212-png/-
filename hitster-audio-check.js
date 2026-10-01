@@ -13,14 +13,14 @@ const section = (start, end) => {
   return from >= 0 && to >= from ? source.slice(from, to) : "";
 };
 
-const draw = section("function drawCard()", "function currentPlacementIsCorrect");
-const playback = section("function playClip(fromDraw)", "function checkAnswer");
+const draw = section("function drawCard(alreadyPlaying)", "function currentPlacementIsCorrect");
+const playback = section("function playClip(fromDraw, alreadyPlaying)", "function checkAnswer");
 const preflight = section("async function primeNextCard()", "function armClipTimer");
-const retry = section("function recoverCurrentPreview", "function playClip(fromDraw)");
+const retry = section("function recoverCurrentPreview", "function playClip(fromDraw, alreadyPlaying)");
 
 check("defines a fixed 30-second preview", source.includes("var PREVIEW_SECONDS = 30"));
 check("does not draw a card until a preloaded preview exists", draw.includes("var ready = nextReady") && draw.includes("if (!ready)") && !draw.includes("await "));
-check("starts playback synchronously from the draw click", draw.includes("playClip(true)") && playback.includes("attempt = audio.play()"));
+check("starts playback synchronously from the draw click", draw.includes("playClip(true, alreadyPlaying)") && playback.includes("attempt = audio.play()"));
 check("verifies duration before enabling the next card", source.includes("function hasThirtySecondDuration") && source.includes("Number.isFinite(duration)") && source.includes("await loadPreviewIntoPlayer(card, preview)") && preflight.includes("nextReady = pick"));
 check("keeps the source for replaying the same card", playback.includes("stopAudio({ keepSource: true })") && source.includes("function stopAudio(options)"));
 check("cuts every playback at 30 seconds", source.includes("PREVIEW_SECONDS * 1000") && source.includes("audio.currentTime >= PREVIEW_SECONDS"));

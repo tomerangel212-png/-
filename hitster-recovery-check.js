@@ -44,7 +44,7 @@ function section(start, end) { return source.slice(source.indexOf(start), source
     window:{TRAAudio:{bounded:async f=>f()}},
     unusedCards:()=>[{}], isGameLocked:()=>false, render:()=>{}, setStatus:()=>{},
     findAndLoadNextCard:async()=>{attempts++;return null;}, releasePreview:()=>{},
-    clearPlayerSource:()=>{}, track:()=>{},
+    clearPlayerSource:()=>{}, completeRequestedPlayback:()=>{}, track:()=>{},
     setTimeout:f=>{ const id={f}; scheduled.push(id);return id; },
     clearTimeout:id=>{scheduled=scheduled.filter(x=>x!==id);}
   };
@@ -60,3 +60,6 @@ function section(start, end) { return source.slice(source.indexOf(start), source
   console.log("HITSTER recovery OK: transient sources retained, candidate rotation, 35 distinct rounds, bounded retry and reset.");
 })().catch(e=>{console.error(e);process.exit(1);});
 
+
+// Run gesture/metadata race regressions in the existing deployment gate.
+require("./hitster-activation-check.js");
