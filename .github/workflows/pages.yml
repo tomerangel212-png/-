@@ -2,7 +2,7 @@ name: Deploy TRA Sites to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, preview/hitster-start-card-20261003]
     paths-ignore: [".github/workflows/live-http.yml", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
@@ -44,6 +44,7 @@ jobs:
           test -s offline.html
           node chess-formal-regression.mjs
           node hitster-888-check.js
+          node preview/hitster-start/starter-check.js
           node site-smoke-check.js
           node site-route-integrity-check.js
           node tra-games-quality-check.js
