@@ -37,7 +37,7 @@ check("no blocked artists", blocked === 0);
 check("Hebrew game loads annual runtime", html.includes('src="hitster-original.js') && html.includes('id="audio"') && html.includes('preload="metadata"') && html.includes("playsinline"));
 check("English game loads annual runtime", english.includes('<html lang="en" dir="ltr">') && english.includes('src="hitster-original.js') && english.includes('id="audio"') && english.includes("playsinline"));
 check("game hides range until reveal", !html.includes("1950–2023") && html.includes("השנה מוסתרת עד החשיפה"));
-check("engine loads annual deck and 18-second clips", engine.includes('DATA_URL = "./hitster-alltime-888.json"') && engine.includes("PREVIEW_SECONDS = 18") && engine.includes("Math.max(0, PREVIEW_SECONDS - audio.currentTime) * 1000"));
+check("engine loads annual deck and 1800-second clips", engine.includes('DATA_URL = "./hitster-alltime-888.json"') && engine.includes("PREVIEW_SECONDS = 1800;") && engine.includes("Math.max(0, PREVIEW_SECONDS - audio.currentTime) * 1000"));
 check("Kfar Blum star rules", engine.includes("START_STARS = 5") && engine.includes("MAX_STARS = 10") && engine.includes("exact_song_and_artist"));
 check("Kfar Blum win rule", engine.includes("WIN_CARDS = 18") && engine.includes("checkWinner") && html.includes("18 קלפים"));
 check("turns rotate automatically", engine.includes("function advanceTurn") && engine.includes("nextTeamId") && html.includes("1→2→3→4→5→1"));
@@ -71,4 +71,4 @@ if (failures.length) {
   console.error("HITSTER annual 888 quality gate FAILED:\n" + failures.map(item => `- ${item}`).join("\n"));
   process.exit(1);
 }
-console.log("HITSTER annual 888 quality gate PASSED: 888 cards + Kfar Blum behavior contract (continue/reset, global uniqueness, 10-star cap, 18-card win, turn rotation, safe removal, 18-second audio).");
+console.log("HITSTER annual 888 quality gate PASSED: 888 cards + Kfar Blum behavior contract (continue/reset, global uniqueness, 10-star cap, 18-card win, turn rotation, safe removal, 1800-second audio).");
