@@ -4,7 +4,7 @@
   var DATA_URL = "./hitster-alltime-888.json";
   var STORAGE_KEY = "hitster-tra-annual-888-v1";
   var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v1";
-  var PREVIEW_SECONDS = 30;
+  var PREVIEW_SECONDS = 1800;
   var PREVIEW_LOOKUP_TIMEOUT_MS = 6000;
   var PREVIEW_DOWNLOAD_TIMEOUT_MS = 10000;
   var START_STARS = 5;
@@ -26,14 +26,14 @@
       online: "🟢 מחובר: קטעים שיושמעו יישמרו לאופליין כשהדפדפן מאפשר זאת.",
       noCard: "לחצו על „קלף חדש + נגן” כדי להתחיל את התור.",
       cardReady: "הקלף מוכן. בחרו מיקום בציר, נגנו/זהו, ואז חשפו את השנה.",
-      cached: "קטע השמע מוכן. לחצו על „נגנו 30 שניות” כדי להתחיל; הוא נשמר גם לאופליין.",
-      previewReady: "קטע השמע מוכן. לחצו על „נגנו 30 שניות” כדי להתחיל.",
+      cached: "קטע השמע מוכן. לחצו על „נגנו 1800 שניות” כדי להתחיל; הוא נשמר גם לאופליין.",
+      previewReady: "קטע השמע מוכן. לחצו על „נגנו 1800 שניות” כדי להתחיל.",
       preparingStatus: "מכין שמע לפני הניגון…",
-      onlineOnly: "קטע השמע מוכן. לחצו על „נגנו 30 שניות” כדי להתחיל.",
-      noPreview: "לא נמצא כרגע קטע תצוגה חוקי. נסו שוב בנגיעה על „נגנו 30 שניות”, או החליפו שיר תמורת ⭐.",
-      blocked: "Safari/הדפדפן ביקש נגיעה נוספת. לחצו על „נגנו 30 שניות”.",
-      played: "מנגן עד 30 שניות בתוך HITSTER.",
-      stopped: "הסתיימו 30 שניות.",
+      onlineOnly: "קטע השמע מוכן. לחצו על „נגנו 1800 שניות” כדי להתחיל.",
+      noPreview: "לא נמצא כרגע קטע תצוגה חוקי. נסו שוב בנגיעה על „נגנו 1800 שניות”, או החליפו שיר תמורת ⭐.",
+      blocked: "Safari/הדפדפן ביקש נגיעה נוספת. לחצו על „נגנו 1800 שניות”.",
+      played: "מנגן עד 1800 שניות בתוך HITSTER.",
+      stopped: "הניגון הסתיים.",
       yearRevealedRight: "השנה נחשפה — המיקום שבחרתם נכון. אפשר להוסיף את הקלף לציר.",
       yearRevealedWrong: "השנה נחשפה — המיקום לא נכון. הקלף לא נכנס לציר; סיימו את התור.",
       solutionRevealed: "שם השיר והאמן נחשפו. חשיפת הפתרון לא מוסיפה קלף לציר.",
@@ -65,7 +65,7 @@
       stars: "כוכבים",
       winner: "🏆 {team} ניצחו עם 18 קלפים!",
       turn: "תור",
-      playLabel: "▶ נגנו 30 שניות",
+      playLabel: "▶ נגנו 1800 שניות",
       preparingLabel: "מכין שמע…",
       answerOpen: "בדקו שם שיר + אמן",
       answerClosed: "הזיהוי נבדק",
@@ -84,14 +84,14 @@
       online: "🟢 Online: played previews are saved for offline use when the browser allows it.",
       noCard: "Press “New card + play” to start the turn.",
       cardReady: "Card ready. Choose a timeline slot, play/identify it, then reveal the year.",
-      cached: "The preview is ready. Tap “Play 30 seconds” to start; it is saved for offline play too.",
-      previewReady: "The preview is ready. Tap “Play 30 seconds” to start.",
+      cached: "The preview is ready. Tap “Play 1800 seconds” to start; it is saved for offline play too.",
+      previewReady: "The preview is ready. Tap “Play 1800 seconds” to start.",
       preparingStatus: "Preparing audio…",
-      onlineOnly: "The preview is ready. Tap “Play 30 seconds” to start.",
-      noPreview: "No legal preview is available right now. Tap “Play 30 seconds” again, or replace the song for ⭐.",
-      blocked: "Safari/the browser needs one more tap. Press “Play 30 seconds”.",
-      played: "Playing up to 30 seconds inside HITSTER.",
-      stopped: "30 seconds finished.",
+      onlineOnly: "The preview is ready. Tap “Play 1800 seconds” to start.",
+      noPreview: "No legal preview is available right now. Tap “Play 1800 seconds” again, or replace the song for ⭐.",
+      blocked: "Safari/the browser needs one more tap. Press “Play 1800 seconds”.",
+      played: "Playing up to 1800 seconds inside HITSTER.",
+      stopped: "Playback finished.",
       yearRevealedRight: "Year revealed — your chosen slot is correct. You may add the card to the timeline.",
       yearRevealedWrong: "Year revealed — the slot is wrong. The card does not enter the timeline; finish the turn.",
       solutionRevealed: "Song and artist revealed. Revealing the answer does not add the card to the timeline.",
@@ -123,7 +123,7 @@
       stars: "stars",
       winner: "🏆 {team} wins with 18 cards!",
       turn: "Turn",
-      playLabel: "▶ Play 30 seconds",
+      playLabel: "▶ Play 1800 seconds",
       preparingLabel: "Preparing audio…",
       answerOpen: "Check song + artist",
       answerClosed: "Identification checked",
@@ -465,7 +465,7 @@
     render();
     setStatus(t.cardReady);
     track("hitster_card_drawn", { card_id: card.id, chart_year: card.chartYear, used_count: state.used.length, team_id: state.activeTeamId });
-    await prepareCardAudio(card);
+    await playClip(true);
   }
   function currentPlacementIsCorrect(card, slot) {
     var cards = sortedTimeline(getTeam());
@@ -559,7 +559,7 @@
         if (found) { previewMemo[card.id] = found; return found; }
       } catch (error) { failures.push(error); }
     }
-    previewMemo[card.id] = null;
+    // A temporary network failure must remain retryable.
     track("song_preview_lookup_failed", {
       card_id: card.id,
       countries_checked: countries.length,
@@ -600,7 +600,7 @@
       try { audio.currentTime = 0; } catch (error) {}
       setStatus(t.stopped);
       clipTimer = null;
-    }, PREVIEW_SECONDS * 1000);
+    }, Math.max(0, PREVIEW_SECONDS - audio.currentTime) * 1000);
   }
   async function prepareCardAudio(card) {
     if (!card || state.current !== card.id) return false;
@@ -612,6 +612,7 @@
     try {
       var preview = await preparePreview(card);
       if (!preview || state.current !== card.id) {
+        if (preview && preview.src.indexOf("blob:") === 0) URL.revokeObjectURL(preview.src);
         if (state.current === card.id) {
           setStatus(t.noPreview);
           track("song_preview_prepare_failed", { card_id: card.id, reason: "no_playable_preview", online: Boolean(navigator.onLine) });
@@ -651,17 +652,16 @@
     if (!card || preparing) return;
     if (preparedCardId !== card.id || !audio.getAttribute("src")) {
       var ready = await prepareCardAudio(card);
-      if (ready) setStatus(t.previewReady);
-      // Never start playback after an async lookup; wait for a fresh user tap.
-      return;
+      if (!ready || state.current !== card.id) return;
     }
     try {
       clearClipTimer();
       audio.currentTime = 0;
-      // The preview is prepared before the user's tap. Start playback directly
-      // inside this click handler so mobile Safari retains user activation.
+      // Prepared previews play directly in the tap handler. After preparation,
+      // attempt autoplay and retain the visible tap fallback if it is blocked.
       var playback = audio.play();
       await playback;
+      if (state.current !== card.id || preparedCardId !== card.id) return;
       armClipTimer();
       setStatus(t.played);
       track("song_preview_started", { card_id: card.id, chart_year: card.chartYear, seconds: PREVIEW_SECONDS, from_draw: Boolean(fromDraw), used_count: state.used.length });
@@ -841,8 +841,11 @@
   audio.addEventListener("playing", function () {
     var card = currentCard();
     if (!card) return;
+    armClipTimer();
     track("song_preview_playing", { card_id: card.id, chart_year: card.chartYear, ready_state: audio.readyState, network_state: audio.networkState });
   });
+  audio.addEventListener("waiting", clearClipTimer);
+  audio.addEventListener("pause", clearClipTimer);
   audio.addEventListener("stalled", function () {
     var card = currentCard();
     if (!card) return;
