@@ -37,7 +37,7 @@ check("no blocked artists", blocked === 0);
 check("Hebrew game loads annual runtime", html.includes('src="hitster-original.js') && html.includes('id="audio"') && html.includes('preload="metadata"') && html.includes("playsinline"));
 check("English game loads annual runtime", english.includes('<html lang="en" dir="ltr">') && english.includes('src="hitster-original.js') && english.includes('id="audio"') && english.includes("playsinline"));
 check("game hides range until reveal", !html.includes("1950–2023") && html.includes("השנה מוסתרת עד החשיפה"));
-check("engine loads annual deck and 30-second clips", engine.includes('DATA_URL = "./hitster-alltime-888.json"') && engine.includes("PREVIEW_SECONDS = 30") && engine.includes("PREVIEW_SECONDS * 1000"));
+check("engine loads annual deck and 18-second clips", engine.includes('DATA_URL = "./hitster-alltime-888.json"') && engine.includes("PREVIEW_SECONDS = 18") && engine.includes("Math.max(0, PREVIEW_SECONDS - audio.currentTime) * 1000"));
 check("Kfar Blum star rules", engine.includes("START_STARS = 5") && engine.includes("MAX_STARS = 10") && engine.includes("exact_song_and_artist"));
 check("Kfar Blum win rule", engine.includes("WIN_CARDS = 18") && engine.includes("checkWinner") && html.includes("18 קלפים"));
 check("turns rotate automatically", engine.includes("function advanceTurn") && engine.includes("nextTeamId") && html.includes("1→2→3→4→5→1"));
@@ -52,7 +52,7 @@ check("solution reveal is separate", html.includes('id="reveal-solution"') && en
 check("timeline reset exists", html.includes('id="reset-timeline"') && engine.includes("function resetTimeline") && engine.includes("resetTimelineConfirm"));
 check("single timeline card removal is guarded", html.includes("timeline-remove") && engine.includes("function removeTimelineCard") && engine.includes("window.confirm(t.removeConfirm)"));
 check("timeline cards are numbered", html.includes("card-number") && engine.includes('createNode("span", "card-number", String(index + 1))'));
-check("HITSTER 888 prepares audio before the play tap", engine.includes("await prepareCardAudio(card);") && !engine.includes("await playClip(true);") && engine.includes("The preview is ready. Tap"));
+check("HITSTER 888 attempts playback after preparation with a tap fallback", engine.includes("await prepareCardAudio(card);") && engine.includes("await playClip(true);") && engine.includes('error.name === "NotAllowedError" ? t.blocked : t.noPreview') && engine.includes('el("play-clip").addEventListener("click", function () { playClip(false); })'));
 const explicitPlay = engine.slice(engine.indexOf("async function playClip"), engine.indexOf("function checkAnswer"));
 check("HITSTER 888 calls audio.play directly in the explicit tap path", explicitPlay.includes("var playback = audio.play();") && explicitPlay.indexOf("audio.play()") < explicitPlay.indexOf("await playback"));
 check("HITSTER reports media playback failures to PostHog", engine.includes("song_preview_media_error") && engine.includes("song_preview_play_failed"));
@@ -71,4 +71,4 @@ if (failures.length) {
   console.error("HITSTER annual 888 quality gate FAILED:\n" + failures.map(item => `- ${item}`).join("\n"));
   process.exit(1);
 }
-console.log("HITSTER annual 888 quality gate PASSED: 888 cards + Kfar Blum behavior contract (continue/reset, global uniqueness, 10-star cap, 18-card win, turn rotation, safe removal, 30-second audio).");
+console.log("HITSTER annual 888 quality gate PASSED: 888 cards + Kfar Blum behavior contract (continue/reset, global uniqueness, 10-star cap, 18-card win, turn rotation, safe removal, 18-second audio).");
