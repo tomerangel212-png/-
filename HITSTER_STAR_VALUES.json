@@ -1,22 +1,28 @@
 {
   "schemaVersion": 1,
   "project": "TRA HITSTER - Kfar Blum 2026",
-  "status": "specification_only",
+  "status": "approved_scale_with_level_9_pending",
   "runtimeEnabled": false,
   "source": "User-provided conversation transcript, 2026-10-04",
   "tierCount": 10,
   "scaleType": "custom_increasing_rewards_not_constant_ratio",
+  "latestApproval": {
+    "transcriptRange": "00:31:35.400-00:31:48.200",
+    "explicitLevel4Value": 100,
+    "scope": "User approved the ten-tier update and instructed continuation. Apply the last complete proposed ladder to unambiguous levels; do not silently resolve the conflicting level-9 fragments.",
+    "confirmedLevels": [1, 2, 3, 4, 5, 6, 7, 8, 10]
+  },
   "tiers": [
-    { "level": 1, "confirmedValue": 10, "proposedValue": null, "status": "confirmed_anchor" },
-    { "level": 2, "confirmedValue": 20, "proposedValue": null, "status": "confirmed_anchor" },
-    { "level": 3, "confirmedValue": 50, "proposedValue": null, "status": "confirmed_anchor" },
-    { "level": 4, "confirmedValue": null, "proposedValue": 100, "status": "assistant_proposal_not_approved" },
-    { "level": 5, "confirmedValue": 500, "proposedValue": null, "status": "confirmed_anchor" },
-    { "level": 6, "confirmedValue": null, "proposedValue": 1000, "status": "assistant_proposal_not_approved" },
-    { "level": 7, "confirmedValue": null, "proposedValue": 5000, "status": "assistant_proposal_not_approved" },
-    { "level": 8, "confirmedValue": null, "proposedValue": 10000, "status": "assistant_proposal_not_approved" },
-    { "level": 9, "confirmedValue": null, "proposedValue": null, "lastExplicitValue": 50000, "status": "review_after_unassigned_999_correction" },
-    { "level": 10, "confirmedValue": null, "proposedValue": 100000, "status": "assistant_proposal_not_approved" }
+    { "level": 1, "confirmedValue": 10, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 2, "confirmedValue": 20, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 3, "confirmedValue": 50, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 4, "confirmedValue": 100, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 5, "confirmedValue": 500, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 6, "confirmedValue": 1000, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 7, "confirmedValue": 5000, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 8, "confirmedValue": 10000, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 9, "confirmedValue": null, "proposedValue": null, "status": "pending_exact_level_9_value", "lastExplicitValue": 50000 },
+    { "level": 10, "confirmedValue": 100000, "proposedValue": null, "status": "confirmed_in_latest_approval" }
   ],
   "unresolvedInputs": [
     {
@@ -29,7 +35,13 @@
       "value": 20,
       "assignedLevel": null,
       "status": "ambiguous_transcript_fragment",
-      "note": "A fragmented later utterance says one star is worth 2, then 20. Preserve the explicit numbered anchors without treating this fragment as an approved reassignment."
+      "note": "A fragmented later utterance says one star is worth 2, then 20. Preserve explicit numbered anchors without treating this fragment as a reassignment."
+    },
+    {
+      "value": 990,
+      "assignedLevel": null,
+      "status": "unassigned_user_correction",
+      "note": "Later fragments mention level nine and 990, then 990 about a hundred. The only subsequent explicit numbered value is level 4 = 100. Keep level 9 pending rather than guessing."
     }
   ],
   "priorNamedStars": {
@@ -48,11 +60,12 @@
     "finalScoreFormula": null,
     "pendingValuesPolicy": "never_treat_null_as_zero_or_award_unapproved_values",
     "activationRequirements": [
-      "Resolve ambiguous revisions and approve values for all ten tiers.",
+      "Resolve the exact level-9 value without interpreting unassigned fragments as approval.",
       "Define whether tiers describe distinct rewards or a cumulative balance.",
       "Define earning, spending, and final-score effects without double-counting.",
       "Integrate explicitly with the runtime and test saving, reload, redemption, and end-of-game behavior."
-    ]
+    ],
+    "validationCommand": "node hitster-star-values-check.mjs"
   },
   "copyright": "All rights reserved to Tomer Rafael Angel."
 }
