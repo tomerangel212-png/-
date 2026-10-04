@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "project": "TRA / Kfar Blum 2026",
+  "updated_on": "2026-10-04",
+  "document_status": "partial_specification",
+  "runtime_enabled": false,
+  "scope": "Ten star value tiers. This file documents confirmed values and proposals; it does not change existing HITSTER tokens, points, win rules, audio, or saved games.",
+  "source": "User-provided SRT conversation in this chat. User corrections take priority over assistant echoes.",
+  "level_count": 10,
+  "progression": "Non-uniform increasing reward scale; not a constant-ratio exponential sequence.",
+  "levels": [
+    {
+      "level": 1,
+      "status": "confirmed",
+      "confirmed_value": 10,
+      "proposed_value": null
+    },
+    {
+      "level": 2,
+      "status": "confirmed",
+      "confirmed_value": 20,
+      "proposed_value": null
+    },
+    {
+      "level": 3,
+      "status": "confirmed",
+      "confirmed_value": 50,
+      "proposed_value": null
+    },
+    {
+      "level": 4,
+      "status": "proposed",
+      "confirmed_value": null,
+      "proposed_value": 100
+    },
+    {
+      "level": 5,
+      "status": "confirmed",
+      "confirmed_value": 500,
+      "proposed_value": null
+    },
+    {
+      "level": 6,
+      "status": "proposed",
+      "confirmed_value": null,
+      "proposed_value": 1000
+    },
+    {
+      "level": 7,
+      "status": "proposed",
+      "confirmed_value": null,
+      "proposed_value": 5000
+    },
+    {
+      "level": 8,
+      "status": "proposed",
+      "confirmed_value": null,
+      "proposed_value": 10000
+    },
+    {
+      "level": 9,
+      "status": "needs_clarification",
+      "confirmed_value": null,
+      "proposed_value": null,
+      "last_explicit_value": 50000,
+      "note": "50,000 was explicitly accepted; the later 999 correction has no unambiguous target. Keep this tier out of runtime scoring until that correction is mapped."
+    },
+    {
+      "level": 10,
+      "status": "proposed",
+      "confirmed_value": null,
+      "proposed_value": 100000
+    }
+  ],
+  "named_star_values": [
+    {
+      "id": "happy",
+      "label_he": "כוכב שמח",
+      "status": "confirmed",
+      "confirmed_value": 10000,
+      "level": null
+    },
+    {
+      "id": "sad",
+      "label_he": "כוכב עצוב",
+      "status": "confirmed",
+      "confirmed_value": 10000,
+      "level": null
+    },
+    {
+      "id": "bright",
+      "label_he": "כוכב זוהר",
+      "status": "unresolved",
+      "confirmed_value": null,
+      "level": null
+    }
+  ],
+  "unresolved_corrections": [
+    {
+      "value": 999,
+      "target": null,
+      "status": "unresolved",
+      "note": "Later speech says the value is not nine but 999; it does not identify a tier or named star reliably. Do not invent a level 900 or 999 and do not silently overwrite level 9."
+    }
+  ],
+  "other_confirmed_values": {
+    "per_game_declared_value": 10000000,
+    "note": "The user stated ten million per game. A later assistant statement of ten thousand per game was not a user correction. No conversion into points or a score cap has been specified."
+  },
+  "integration_rules": [
+    "Only a confirmed_value with status confirmed may be eligible for a future scoring integration; null never means zero.",
+    "No automatic activation, token-balance migration, or scoring effect from this documentation.",
+    "Proposed values, ambiguous corrections, and historical values are not active scoring configuration.",
+    "Named stars are not mapped to numbered tiers without an explicit user instruction.",
+    "Award conditions, spending rules, and the effect on final rankings remain unspecified."
+  ]
+}

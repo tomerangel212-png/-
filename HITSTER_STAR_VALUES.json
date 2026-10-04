@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "project": "TRA HITSTER - Kfar Blum 2026",
+  "status": "approved_scale_with_level_9_pending",
+  "runtimeEnabled": false,
+  "source": "User-provided conversation transcript, 2026-10-04",
+  "tierCount": 10,
+  "scaleType": "custom_increasing_rewards_not_constant_ratio",
+  "latestApproval": {
+    "transcriptRange": "00:31:35.400-00:31:48.200",
+    "explicitLevel4Value": 100,
+    "scope": "User approved the ten-tier update and instructed continuation. Apply the last complete proposed ladder to unambiguous levels; do not silently resolve the conflicting level-9 fragments.",
+    "confirmedLevels": [1, 2, 3, 4, 5, 6, 7, 8, 10]
+  },
+  "tiers": [
+    { "level": 1, "confirmedValue": 10, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 2, "confirmedValue": 20, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 3, "confirmedValue": 50, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 4, "confirmedValue": 100, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 5, "confirmedValue": 500, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 6, "confirmedValue": 1000, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 7, "confirmedValue": 5000, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 8, "confirmedValue": 10000, "proposedValue": null, "status": "confirmed_in_latest_approval" },
+    { "level": 9, "confirmedValue": null, "proposedValue": null, "status": "pending_exact_level_9_value", "lastExplicitValue": 50000 },
+    { "level": 10, "confirmedValue": 100000, "proposedValue": null, "status": "confirmed_in_latest_approval" }
+  ],
+  "unresolvedInputs": [
+    {
+      "value": 999,
+      "assignedLevel": null,
+      "status": "unassigned_user_correction",
+      "note": "The user said a star value is 999 after discussing level 9. The target level or meaning was not unambiguously established. Do not create level 900 or 999, or silently overwrite level 9."
+    },
+    {
+      "value": 20,
+      "assignedLevel": null,
+      "status": "ambiguous_transcript_fragment",
+      "note": "A fragmented later utterance says one star is worth 2, then 20. Preserve explicit numbered anchors without treating this fragment as a reassignment."
+    },
+    {
+      "value": 990,
+      "assignedLevel": null,
+      "status": "unassigned_user_correction",
+      "note": "Later fragments mention level nine and 990, then 990 about a hundred. The only subsequent explicit numbered value is level 4 = 100. Keep level 9 pending rather than guessing."
+    }
+  ],
+  "priorNamedStars": {
+    "status": "historical_values_mapping_to_numbered_tiers_not_defined",
+    "happy": { "lastExplicitValue": 10000, "assignedLevel": null },
+    "sad": { "lastExplicitValue": 10000, "assignedLevel": null },
+    "note": "These named-star values were explicitly stated before the ten-tier request. They do not automatically define any numbered tier."
+  },
+  "integration": {
+    "mode": "documentation_only_not_loaded_by_game",
+    "preserveExistingTokenBalance": true,
+    "preserveSavedGames": true,
+    "preserveCurrentScoringAndWinConditions": true,
+    "awardRules": null,
+    "redemptionRules": null,
+    "finalScoreFormula": null,
+    "pendingValuesPolicy": "never_treat_null_as_zero_or_award_unapproved_values",
+    "activationRequirements": [
+      "Resolve the exact level-9 value without interpreting unassigned fragments as approval.",
+      "Define whether tiers describe distinct rewards or a cumulative balance.",
+      "Define earning, spending, and final-score effects without double-counting.",
+      "Integrate explicitly with the runtime and test saving, reload, redemption, and end-of-game behavior."
+    ],
+    "validationCommand": "node hitster-star-values-check.mjs"
+  },
+  "copyright": "All rights reserved to Tomer Rafael Angel."
+}

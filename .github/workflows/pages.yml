@@ -25,6 +25,7 @@ jobs:
         uses: actions/checkout@v6
       - name: Check JavaScript syntax
         run: |
+          node --check hitster-audio-regression.cjs
           node --check hitster-original.js
           node --check hitster-888-check.js
           node --check chess-formal-regression.mjs
@@ -43,6 +44,7 @@ jobs:
           test -s hitster-888-en.html
           test -s offline.html
           node chess-formal-regression.mjs
+          node hitster-audio-regression.cjs
           node hitster-888-check.js
           node site-smoke-check.js
           node site-route-integrity-check.js
@@ -50,6 +52,25 @@ jobs:
           node tra-99-quality-check.js
           node tra-9999-quality-check.js
           node tra-perfect-quality-check.js
+      - name: Validate personal HITSTER mode
+        run: |
+          node --check hitster-personal.js
+          node --check hitster-personal-core.js
+          node --check build-hitster-world.cjs
+          node hitster-personal.test.cjs
+      - name: Install browser validation
+        run: |
+          npm install --prefix "$RUNNER_TEMP/tra-e2e" playwright@1.58.2
+          "$RUNNER_TEMP/tra-e2e/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Check personal setup in a mobile browser
+        run: NODE_PATH="$RUNNER_TEMP/tra-e2e/node_modules" node hitster-personal-browser.cjs
+      - name: Upload personal mode preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: hitster-personal-preview
+          path: hitster-personal-mobile.png
+      - name: Build public country chart snapshot
+        run: node build-hitster-world.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
@@ -70,3 +91,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
+

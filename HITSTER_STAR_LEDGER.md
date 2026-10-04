@@ -1,5 +1,16 @@
 # Kfar Blum 2026: ten star types
 
+## Draft integration status — 2026-10-04
+
+This experimental ledger is **not loaded by hitster-mobile.html**. The current
+`HITSTER_STAR_VALUES.json` remains the authoritative specification and has
+`runtimeEnabled: false`; level 9 is explicitly unresolved. The 999 interpretation
+and inactive levels described below are historical assumptions of this isolated
+prototype, not approved live rules. Its arithmetic tests validate the prototype
+only. Integration must first reconcile the ledger with the canonical specification.
+The mobile wrapper retains the current audio cache version and existing game flow.
+The Runtime section below documents the former experimental integration.
+
 This is a manual host ledger, separate from legacy HITSTER tokens and victory rules. It is not a replacement game, authentication system, shared database, or auto-award rule.
 
 The latest spoken correction is interpreted as **Star 9 = 999**, replacing its previously discussed 50,000 value. That interpretation is visible in the UI and in `ruleFor(9).interpretation`. IDs, quantities, and values are separate.
