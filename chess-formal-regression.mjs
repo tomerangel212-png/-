@@ -125,3 +125,7 @@ if(failed.length){
   process.exit(1);
 }
 console.log("FIDE chess executable regression PASSED.");
+
+// Gate deployments on the actual boot path, not only isolated rules.
+const { runChessBootRegression } = await import("./chess-boot-regression.mjs");
+await runChessBootRegression(Chess);
