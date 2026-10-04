@@ -672,10 +672,16 @@
   }
   async function lookupPreviewInCountry(card, country) {
     var url = "https://itunes.apple.com/search?media=music&entity=song&limit=50&country=" + encodeURIComponent(country) + "&term=" + encodeURIComponent(card.title + " " + card.artist);
-    var response = await fetchWithTimeout(url, { cache: "no-store" }, PREVIEW_LOOKUP_TIMEOUT_MS);
-    if (!response.ok) return null;
+    var payload;
+    try {
+      var response = await fetchWithTimeout(url, { cache: "no-store" }, PREVIEW_LOOKUP_TIMEOUT_MS);
+      if (!response.ok) throw new Error("Search HTTP " + response.status);
+      payload = await response.json();
+    } catch (error) {
+      payload = await searchViaScript(url);
+    }
     var expectedTitle = normalize(card.title), expectedArtist = normalize(card.artist), best = null, bestScore = 0;
-    var payload = await response.json(), candidates = Array.isArray(payload.results) ? payload.results : [];
+    var candidates = Array.isArray(payload.results) ? payload.results : [];
     candidates.forEach(function (candidate) {
       if (!candidate || !candidate.previewUrl || !candidate.trackName || !candidate.artistName) return;
       var titleMatch = normalize(candidate.trackName) === expectedTitle ? 1 : overlapScore(candidate.trackName, expectedTitle);
@@ -688,7 +694,7 @@
   async function lookupPreview(card) {
     if (Object.prototype.hasOwnProperty.call(previewMemo, card.id)) return previewMemo[card.id];
     if (!navigator.onLine) return null;
-    var countries = ["US", "GB", "IL"], failures = [];
+    var countries = ["IL", "US", "GB"], failures = [];
     for (var index = 0; index < countries.length; index += 1) {
       try {
         var found = await lookupPreviewInCountry(card, countries[index]);
@@ -719,15 +725,10 @@
     if (local) return local;
     var remote = await lookupPreview(card);
     if (!remote) return null;
-    try { return await cacheRemotePreview(card, remote); }
-    catch (error) {
-      track("song_preview_cache_fallback", {
-        card_id: card.id,
-        error_name: error && error.name ? error.name : "Error",
-        error_message: String(error && error.message ? error.message : "").slice(0, 160)
-      });
-      return { src: remote, cached: false };
-    }
+    // Use the native media URL, as in Kfar Blum; cache in the background.
+    // Playback does not depend on CORS permission to download media bytes.
+    void cacheRemotePreview(card, remote).then(releasePreview).catch(function () {});
+    return { src: remote, cached: false };
   }
   function availableAudioSeconds() {
     var duration = Number(audio && audio.duration);
@@ -1069,6 +1070,60 @@
   });
   window.addEventListener("offline", setConnectionStatus);
   if ("serviceWorker" in navigator) window.addEventListener("load", function () { navigator.serviceWorker.register("./sw.js").catch(function () {}); });
+function searchViaScript(url) {
+    return new Promise(function (resolve, reject) {
+      var key = "__traSearch" + Date.now() + Math.floor(Math.random() * 1000000);
+      var script = document.createElement("script");
+      var timer;
+      function clean() { clearTimeout(timer); delete window[key]; script.remove(); }
+      window[key] = function (payload) { clean(); resolve(payload); };
+      script.onerror = function () { clean(); reject(new Error("Preview search unavailable")); };
+      timer = setTimeout(function () { clean(); reject(new Error("Preview search timed out")); }, PREVIEW_LOOKUP_TIMEOUT_MS);
+      script.src = url + "&callback=" + key;
+      document.head.appendChild(script);
+    });
+  }
+  function installInternalLibrary() {
+    if (!audio || !audio.parentNode) return;
+    var panel = document.createElement("details");
+    var summary = document.createElement("summary");
+    summary.textContent = language === "he" ? "ספריית שמע פנימית · ייבוא קבצים" : "Internal audio library · import files";
+    panel.appendChild(summary);
+    var help = document.createElement("p");
+    help.textContent = language === "he" ? "בחרו קבצי שמע שלכם. שם הקובץ צריך לכלול את שם השיר והאמן כפי שהם בחפיסה. הקבצים נשמרים במכשיר זה; השמעה עד 30 שניות." : "Choose your audio files. Filenames must include the deck song title and artist. Files stay on this device; playback is limited to 30 seconds.";
+    panel.appendChild(help);
+    var input = document.createElement("input");
+    input.type = "file"; input.accept = "audio/*,.mp3,.m4a,.wav,.ogg"; input.multiple = true;
+    panel.appendChild(input);
+    var result = document.createElement("p"); result.setAttribute("role", "status"); panel.appendChild(result);
+    input.addEventListener("change", async function () {
+      if (!deck.length || !("caches" in window)) {
+        result.textContent = language === "he" ? "החפיסה טרם נטענה או שאחסון קבצים אינו זמין." : "Deck not loaded or file storage unavailable.";
+        return;
+      }
+      var saved = 0, unmatched = 0;
+      input.disabled = true;
+      try {
+        var cache = await caches.open(AUDIO_CACHE_NAME);
+        for (var file of Array.from(input.files || [])) {
+          var name = normalize(file.name.replace(/\.[^.]+$/, ""));
+          var matches = deck.filter(function (card) { return name.includes(normalize(card.title)) && name.includes(normalize(card.artist)); });
+          if (matches.length !== 1) { unmatched++; continue; }
+          await cache.put(cardCacheKey(matches[0]), new Response(file, { headers: { "Content-Type": file.type || "audio/mpeg" } }));
+          delete unavailableAudio[matches[0].id]; saved++;
+        }
+        result.textContent = language === "he" ? "נשמרו " + saved + " קבצים. לא הותאמו: " + unmatched : "Saved " + saved + " files. Unmatched: " + unmatched;
+        if (saved) {
+          stopAudio();
+          if (state.current) await prepareCardAudio(currentCard());
+          else await prepareNextAudio();
+        }
+      } catch (error) { result.textContent = language === "he" ? "שמירת הקבצים נכשלה; בדקו מקום פנוי במכשיר." : "Could not save files. Check device storage."; }
+      finally { input.disabled = false; input.value = ""; }
+    });
+    audio.insertAdjacentElement("afterend", panel);
+  }
+  installInternalLibrary();
   loadDeck().catch(function () {
     setStatus(language === "he" ? "לא ניתן לטעון את חפיסת ה־888. בדקו חיבור או רעננו." : "The 888-card deck could not load. Check your connection or refresh.");
     setConnectionStatus();

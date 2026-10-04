@@ -20,6 +20,7 @@ async function harness({ offline = false, cacheIds = [], lookupMissing = false }
     setAttribute(k, v) { this.attrs[k] = v; }
     getAttribute(k) { return this.attrs[k] || null; }
     removeAttribute(k) { delete this.attrs[k]; }
+    appendChild(child) { this.children.push(child); return child; }
     append(...children) { this.children.push(...children); }
     removeChild(child) { this.children.splice(this.children.indexOf(child), 1); }
     insertAdjacentElement(_, node) { this.children.push(node); }

@@ -58,7 +58,7 @@ check("HITSTER 888 calls audio.play directly in the explicit tap path", explicit
 check("HITSTER reports media playback failures to PostHog", engine.includes("song_preview_media_error") && engine.includes("song_preview_play_failed"));
 check("HITSTER bounds preview network requests and reports unavailable audio", engine.includes("PREVIEW_LOOKUP_TIMEOUT_MS = 6000") && engine.includes("PREVIEW_DOWNLOAD_TIMEOUT_MS = 10000") && engine.includes("song_preview_lookup_failed") && engine.includes('reason: "no_playable_preview"'));
 check("engine caches previews when possible", engine.includes("AUDIO_CACHE_NAME") && engine.includes("cachedPreview") && engine.includes("cacheRemotePreview") && engine.includes("navigator.onLine"));
-check("preview lookup tries multiple storefronts", engine.includes('["US", "GB", "IL"]') && engine.includes("lookupPreviewInCountry"));
+check("preview lookup tries multiple storefronts", engine.includes('["IL", "US", "GB"]') && engine.includes("lookupPreviewInCountry"));
 check("engine has no external app fallback", !/open\.spotify\.com|youtube\.com|deezer\.com|soundcloud\.com/i.test(engine));
 check("service worker caches annual deck and mobile entry", serviceWorker.includes('"./hitster-alltime-888.json"') && serviceWorker.includes("AUDIO_CACHE") && serviceWorker.includes('"./hitster-888-en.html"') && serviceWorker.includes('"./hitster-mobile.html"'));
 check("hub explains truthful audio behavior", hub.includes("קטעי שמע נשמרים אחרי השמעה") && hub.includes('href="hitster-mobile.html"') && hub.includes('href="hitster-mobile.html?lang=en"'));
