@@ -13,6 +13,7 @@ html,body{margin:0;width:100%;height:100%;background:#07131d;color:#fff;font-fam
 <body>
 <div id="boot" class="boot"><div><p class="badge">TRA · MOBILE AUDIO · 888</p><h1>🎵 HITSTER</h1><p class="muted">טוען את המשחק. בחירה בין המשך לאיפוס תופיע בתוך HITSTER.</p></div></div>
 <iframe id="game" title="HITSTER TRA 888" allow="autoplay"></iframe>
+<script src="hitster-star-ledger.js?v=star9-999-v1"></script>
 <script>
 (function(){
   var params=new URLSearchParams(location.search);
@@ -23,8 +24,14 @@ html,body{margin:0;width:100%;height:100%;background:#07131d;color:#fff;font-fam
   var frame=document.getElementById("game");
   var boot=document.getElementById("boot");
   var target=language==="en"?"hitster-888-en.html":"hitster-888.html";
+  frame.addEventListener("load",function(){
+    boot.classList.add("hidden");
+    if(entry==="kfar-bloom"&&window.TRAStarLedger){
+      try { window.TRAStarLedger.mount(frame.contentDocument); }
+      catch(error) { console.warn("TRA star ledger could not open; the base game is unchanged.",error); }
+    }
+  });
   frame.src=target+"?entry="+encodeURIComponent(entry);
-  frame.addEventListener("load",function(){boot.classList.add("hidden");});
 })();
 </script>
 </body>

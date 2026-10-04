@@ -1,0 +1,24 @@
+name: HITSTER star ledger tests
+on:
+  push:
+    paths:
+      - 'hitster-star-ledger*'
+      - 'hitster-mobile.html'
+      - '.github/workflows/hitster-star-ledger.yml'
+  pull_request:
+    paths:
+      - 'hitster-star-ledger*'
+      - 'hitster-mobile.html'
+      - '.github/workflows/hitster-star-ledger.yml'
+permissions:
+  contents: read
+jobs:
+  stars:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check hitster-star-ledger.js
+      - run: node --test hitster-star-ledger.test.cjs
