@@ -3,6 +3,8 @@
 (function () {
   var DATA_URL = "./hitster-alltime-888.json";
   var STORAGE_KEY = "hitster-tra-annual-888-v1";
+  var personalConfig = window.TRA_PERSONAL_CONFIG || null;
+  if (personalConfig) STORAGE_KEY = "hitster-tra-personal-game-v1";
   var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v1";
   var PREVIEW_SECONDS = 30;
   var PREVIEW_LOOKUP_TIMEOUT_MS = 6000;
@@ -17,6 +19,7 @@
     { id: "maayan-manuel", he: "מעיין ומנואל", en: "Maayan & Manuel" },
     { id: "irit-natan", he: "אירית ונתן", en: "Irit & Natan" }
   ];
+  if (personalConfig) { TEAM_DEFS = personalConfig.teams; WIN_CARDS = 10; }
   var COPY = {
     he: {
       loading: "טוען את חפיסת ה־888…",
@@ -300,6 +303,7 @@
       button.type = "button";
       button.dataset.reaction = entry[0];
       button.textContent = entry[1];
+      if (personalConfig) button.append(createNode("span", "team-score", (personalConfig.listenScores[team.id] || 0) + " נקודות הקשבה"));
       button.addEventListener("click", function () {
         var card = currentCard();
         if (!card || audio.paused || !liveReactionStartedAt) return;
@@ -463,7 +467,7 @@
     var solutionRevealed = Boolean(hasCard && state.currentSolutionRevealed);
     el("card-title").textContent = solutionRevealed ? card.title : t.hidden;
     el("card-artist").textContent = solutionRevealed ? card.artist : "•••";
-    el("card-year").textContent = yearRevealed ? t.source + ": " + card.chartYear : t.yearHidden;
+    el("card-year").textContent = yearRevealed ? (card.yearBasis === "catalog-release" ? (language === "he" ? "שנת הגרסה בקטלוג" : "Catalog version year") : t.source) + ": " + card.chartYear : t.yearHidden;
     el("card-source").textContent = solutionRevealed ? "Billboard year-end chart · #" + card.chartRank : "";
     el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? text(t.winner, { team: teamName(state.winnerTeamId) }) : t.noCard);
     var audioReady = Boolean(preparedCardId && audio.getAttribute("src"));
@@ -529,6 +533,13 @@
     var payload = await response.json();
     validateDeck(payload);
     deck = payload.cards;
+    if (personalConfig && Array.isArray(personalConfig.cards)) {
+      personalConfig.cards.forEach(function (card) {
+        if (!card || !card.id || !card.title || !card.artist || !Number.isInteger(card.chartYear) || card.chartYear < 1900 || card.chartYear > new Date().getFullYear() || /michael jackson|eyal golan|אייל גולן/i.test(card.artist)) return;
+        deck = deck.filter(function (old) { return old.id !== card.id && (normalize(old.title) !== normalize(card.title) || normalize(old.artist) !== normalize(card.artist)); });
+        deck.push(card);
+      });
+    }
     deck.forEach(function (card) { deckById[card.id] = card; });
     restore();
     render();
@@ -583,7 +594,7 @@
       }
       var available = deck.filter(function (card) { return state.used.indexOf(card.id) === -1 && !unavailableAudio[card.id]; });
       var shuffled = available.map(function (card) { return { card: card, order: Math.random() }; });
-      shuffled.sort(function (a, b) { return Number(Boolean(cachedIds[b.card.id])) - Number(Boolean(cachedIds[a.card.id])) || a.order - b.order; });
+      shuffled.sort(function (a, b) { return Number(Boolean(cachedIds[b.card.id])) - Number(Boolean(cachedIds[a.card.id])) || Number(Boolean(b.card.personal)) - Number(Boolean(a.card.personal)) || a.order - b.order; });
       for (var index = 0; index < Math.min(12, shuffled.length); index += 1) {
         if (generation !== audioGeneration || state.current) return;
         var card = shuffled[index].card;
@@ -723,7 +734,7 @@
   async function preparePreview(card) {
     var local = await cachedPreview(card);
     if (local) return local;
-    var remote = await lookupPreview(card);
+    var remote = card.previewUrl || await lookupPreview(card);
     if (!remote) return null;
     // Use the native media URL, as in Kfar Blum; cache in the background.
     // Playback does not depend on CORS permission to download media bytes.
@@ -1123,6 +1134,7 @@ function searchViaScript(url) {
     });
     audio.insertAdjacentElement("afterend", panel);
   }
+  if (personalConfig) window.addEventListener("tra-listening-score", function () { if (state) renderTeams(); });
   installInternalLibrary();
   loadDeck().catch(function () {
     setStatus(language === "he" ? "לא ניתן לטעון את חפיסת ה־888. בדקו חיבור או רעננו." : "The 888-card deck could not load. Check your connection or refresh.");
