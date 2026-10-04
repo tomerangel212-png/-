@@ -25,6 +25,7 @@ jobs:
           node --check chess-formal-regression.mjs
           node --check games-hub.js
           node --check music-editor.js
+          node --check hitster-audio-regression.cjs
           node --check hitster-original.js
           node --check hitster-888-check.js
           node --check hitster-source-audit.js
@@ -44,7 +45,9 @@ jobs:
       - name: Run executable FIDE chess regression
         run: node chess-formal-regression.mjs
       - name: Enforce annual HITSTER 888 quality gate
-        run: node hitster-888-check.js
+        run: |
+          node hitster-audio-regression.cjs
+          node hitster-888-check.js
       - name: Enforce yellow-to-green digital gate
         run: node yellow-to-green-check.js
       - name: Enforce truthful TRA 15/15 green health gate
