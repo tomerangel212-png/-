@@ -147,6 +147,8 @@
   var preparedCardId = null;
   var preparing = false;
   var clipTimer = null;
+  var liveReactionTimer = null;
+  var liveReactionStartedAt = 0;
   var storageIssue = false;
 
   function el(id) { return document.getElementById(id); }
@@ -252,8 +254,79 @@
   function clearClipTimer() {
     if (clipTimer) { clearTimeout(clipTimer); clipTimer = null; }
   }
+  function stopLiveReactionWindow() {
+    if (liveReactionTimer) { clearInterval(liveReactionTimer); liveReactionTimer = null; }
+    var panel = el("live-reactions");
+    if (panel) panel.hidden = true;
+    liveReactionStartedAt = 0;
+  }
+  function ensureLiveReactionUI() {
+    if (el("live-reactions") || !audio || !audio.parentNode) return;
+    var style = document.createElement("style");
+    style.textContent = ".live-reactions{margin-top:14px;padding:14px;border:1px solid #365064;border-radius:16px;background:#0b1d2a}.live-reactions-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.live-reactions-title{font-weight:900}.live-countdown{font-variant-numeric:tabular-nums;font-weight:900;font-size:1.15rem}.live-reaction-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}.live-reaction-buttons button{min-height:44px;border:1px solid #46647a;border-radius:12px;background:#132c3c;color:#fff;font-weight:800;cursor:pointer}.live-reaction-buttons button:active{transform:scale(.98)}@media(max-width:520px){.live-reaction-buttons{grid-template-columns:1fr 1fr}}";
+    document.head.append(style);
+    var panel = document.createElement("section");
+    panel.id = "live-reactions";
+    panel.className = "live-reactions";
+    panel.hidden = true;
+    var labels = language === "he"
+      ? [["know","מכיר/ה"],["guess","יש לי ניחוש"],["feel","מרגיש/ה את זה"],["new","חדש לי"]]
+      : [["know","I know it"],["guess","I have a guess"],["feel","Feeling it"],["new","New to me"]];
+    var head = document.createElement("div");
+    head.className = "live-reactions-head";
+    var title = document.createElement("span");
+    title.className = "live-reactions-title";
+    title.textContent = language === "he" ? "תגובה חיה בזמן השיר" : "Live reaction during the song";
+    var countdown = document.createElement("span");
+    countdown.id = "live-countdown";
+    countdown.className = "live-countdown";
+    countdown.textContent = PREVIEW_SECONDS + "s";
+    head.append(title, countdown);
+    var buttons = document.createElement("div");
+    buttons.className = "live-reaction-buttons";
+    labels.forEach(function (entry) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.dataset.reaction = entry[0];
+      button.textContent = entry[1];
+      button.addEventListener("click", function () {
+        var card = currentCard();
+        if (!card || audio.paused || !liveReactionStartedAt) return;
+        var elapsed = Math.max(0, Math.min(PREVIEW_SECONDS, Math.round((Date.now() - liveReactionStartedAt) / 1000)));
+        track("hitster_live_reaction", {
+          card_id: card.id,
+          chart_year: card.chartYear,
+          team_id: state.activeTeamId,
+          reaction: entry[0],
+          second: elapsed
+        });
+        button.setAttribute("aria-pressed", "true");
+        setTimeout(function () { button.removeAttribute("aria-pressed"); }, 500);
+        setStatus(language === "he" ? "התגובה נקלטה — ממשיכים להאזין." : "Reaction captured — keep listening.");
+      });
+      buttons.append(button);
+    });
+    panel.append(head, buttons);
+    audio.insertAdjacentElement("afterend", panel);
+  }
+  function startLiveReactionWindow() {
+    ensureLiveReactionUI();
+    var panel = el("live-reactions"), countdown = el("live-countdown");
+    if (!panel || !countdown) return;
+    if (liveReactionTimer) clearInterval(liveReactionTimer);
+    liveReactionStartedAt = Date.now();
+    panel.hidden = false;
+    countdown.textContent = PREVIEW_SECONDS + "s";
+    liveReactionTimer = setInterval(function () {
+      var elapsed = Math.floor((Date.now() - liveReactionStartedAt) / 1000);
+      var remaining = Math.max(0, PREVIEW_SECONDS - elapsed);
+      countdown.textContent = remaining + "s";
+      if (remaining <= 0) stopLiveReactionWindow();
+    }, 250);
+  }
   function stopAudio() {
     clearClipTimer();
+    stopLiveReactionWindow();
     if (!audio) return;
     audio.pause();
     try { audio.currentTime = 0; } catch (error) {}
@@ -600,6 +673,7 @@
       try { audio.currentTime = 0; } catch (error) {}
       setStatus(t.stopped);
       clipTimer = null;
+      stopLiveReactionWindow();
     }, PREVIEW_SECONDS * 1000);
   }
   async function prepareCardAudio(card) {
@@ -663,6 +737,7 @@
       var playback = audio.play();
       await playback;
       armClipTimer();
+      startLiveReactionWindow();
       setStatus(t.played);
       track("song_preview_started", { card_id: card.id, chart_year: card.chartYear, seconds: PREVIEW_SECONDS, from_draw: Boolean(fromDraw), used_count: state.used.length });
     } catch (error) {
