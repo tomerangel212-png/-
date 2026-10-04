@@ -1,0 +1,60 @@
+/* © 2026 Tomer Rafael Angel. All rights reserved. */
+body.chess-page{margin:0;background:#101d29;color:#edf5fa;font-family:Arial,"Noto Sans Hebrew","Noto Sans Arabic","Noto Sans Devanagari",system-ui,sans-serif}
+.chess-page main{padding:clamp(8px,2vw,32px);max-width:1240px;margin:auto}.chess-page .skip-link{position:absolute;inset-inline-start:12px;top:-100px;background:#fff;color:#101d29;padding:16px;z-index:100}.chess-page .skip-link:focus{top:8px}
+#chess.tra-chess-accessible{--surface:#152a39;--text:#f2f7fa;--muted:#c3d4df;--line:#648395;--accent:#c1ffe4;--button:#274354;--light:#f0e2cb;--dark:#8caa98;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(10px,2vw,28px);font:18px/1.55 Arial,"Noto Sans Hebrew","Noto Sans Arabic","Noto Sans Devanagari",system-ui,sans-serif;box-sizing:border-box;max-width:100%;scroll-margin-top:20px;isolation:isolate}
+#chess.tra-chess-accessible *,#chess.tra-chess-accessible *::before,#chess.tra-chess-accessible *::after{box-sizing:border-box}
+#chess.tra-chess-accessible [hidden]{display:none!important}
+#chess.tra-chess-accessible h1,#chess.tra-chess-accessible h2{font-size:clamp(1.6em,4vw,2.25em);line-height:1.15;margin:0 0 .35em}#chess.tra-chess-accessible h3{line-height:1.4;margin:0 0 1em}
+#chess.tra-chess-accessible p{margin:.55em 0 1em}#chess.tra-chess-accessible .chess-heading{display:flex;gap:20px;align-items:center;border:0;padding:0;background:transparent;position:static}
+#chess .chess-mark{font-family:"DejaVu Sans",sans-serif;font-size:3.5em;color:var(--accent);line-height:1}
+#chess .family-note,#chess .small-note{color:var(--muted);font-size:.9em}#chess .family-note{border-inline-start:3px solid var(--accent);padding-inline-start:12px}
+#chess .chess-settings{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:16px;margin:22px 0}
+#chess .chess-settings label{display:flex;flex-direction:column;gap:7px;min-width:0;font-size:.94em;font-weight:700}
+#chess.tra-chess-accessible select,#chess.tra-chess-accessible button,#chess.tra-chess-accessible summary{font:inherit;color:var(--text);line-height:1.35}
+#chess.tra-chess-accessible select,#chess.tra-chess-accessible button{border:1px solid var(--line);border-radius:10px;background:var(--button);min-height:48px;padding:11px 14px;cursor:pointer;max-width:100%;white-space:normal;touch-action:manipulation}
+#chess.tra-chess-accessible select{width:100%;text-overflow:ellipsis}#chess.tra-chess-accessible select option{color:#f2f7fa;background:#152a39}
+#chess.tra-chess-accessible button.primary{color:#102824;background:var(--accent);font-weight:700}
+#chess.tra-chess-accessible button:disabled{opacity:.55;cursor:default}#chess.tra-chess-accessible button:hover:not(:disabled){filter:brightness(1.13)}
+#chess.tra-chess-accessible :focus-visible{outline:3px solid #ffd36c;outline-offset:4px}
+#chess .chess-settings .contrast-control{flex-direction:row;align-items:center;align-self:end;min-height:48px;cursor:pointer}
+#chess .contrast-control input{width:26px;height:26px;accent-color:#3f8062;flex-shrink:0}
+#chess .chess-play-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr);gap:24px;align-items:start}
+#chess .chess-board-area,#chess .chess-side{min-width:0}
+#chess.tra-chess-accessible .clocks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0}
+#chess.tra-chess-accessible .clock{border:1px solid var(--line);padding:10px 12px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;color:var(--text);background:#203c4d;min-width:0}
+#chess.tra-chess-accessible .clock.active{border:3px solid var(--accent);padding:8px 10px}#chess .clock strong{font-variant-numeric:tabular-nums;font-size:.95em;direction:ltr;unicode-bidi:isolate}
+#chess.tra-chess-accessible .chess-status{font-weight:700;min-height:3.1em;display:flex;align-items:center;line-height:1.5;margin:12px 0;padding:4px 0}
+#chess.tra-chess-accessible .board{display:block;direction:ltr;width:100%;max-width:760px;margin:0;border:3px solid #dae9e0;border-radius:3px;overflow:visible;background:#14221e;touch-action:pan-y}
+#chess .chess-row{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));width:100%}
+#chess.tra-chess-accessible .square{position:relative;display:grid;place-items:center;min-width:0;min-height:0;width:100%;aspect-ratio:1;box-sizing:border-box;padding:0;margin:0;border:0;border-radius:0;line-height:1;background:var(--light);font-size:clamp(24px,5vw,58px);overflow:visible;touch-action:manipulation;cursor:pointer;color:#0e201a}
+#chess.tra-chess-accessible .square.dark{background:var(--dark)}#chess.tra-chess-accessible .square.light{background:var(--light)}
+#chess.tra-chess-accessible .square:focus{z-index:2;outline:4px solid #0755b8;outline-offset:-4px;box-shadow:inset 0 0 0 6px #fff}
+#chess.tra-chess-accessible .piece{font-family:"DejaVu Sans","Arial Unicode MS","Segoe UI Symbol",serif;position:relative;z-index:1;font-size:1em;line-height:1.05;pointer-events:auto;user-select:none;transform:translateY(-2%);text-shadow:none}
+#chess.tra-chess-accessible .piece.white{color:#fff;text-shadow:-1px -1px 0 #172a23,1px -1px 0 #172a23,-1px 1px 0 #172a23,1px 1px 0 #172a23}
+#chess.tra-chess-accessible .piece.black{color:#111d18;text-shadow:0 0 1px #fff}
+#chess .square-coordinate{position:absolute;inset:auto auto 2px 3px;font:700 clamp(8px,1.25vw,12px)/1 Arial,sans-serif;color:#17281f;pointer-events:none}
+#chess.tra-chess-accessible .square.selected{box-shadow:inset 0 0 0 4px #102959,inset 0 0 0 6px #fff}
+#chess.tra-chess-accessible .square.legal::after{content:"";position:absolute;width:26%;height:26%;border:3px solid #17281f;box-shadow:0 0 0 2px #fff;border-radius:50%;background:transparent;pointer-events:none}
+#chess.tra-chess-accessible .square.capture{outline:3px dashed #7c0d21;outline-offset:-5px}
+#chess.tra-chess-accessible .square.hinted{box-shadow:inset 0 0 0 5px #7032a7,inset 0 0 0 7px #fff}
+#chess .chess-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#chess .chess-controls button{overflow-wrap:anywhere}
+#chess .chess-history,#chess .chess-export{border:1px solid var(--line);border-radius:10px;margin-top:16px;padding:12px}
+#chess summary{cursor:pointer;min-height:44px;padding:8px 0;font-weight:700}#chess summary::marker{color:var(--accent)}
+#chess #chess-moves{max-height:300px;overflow:auto;margin:8px 0;padding-inline-start:28px}#chess #chess-moves li{margin-bottom:.7em}
+#chess #chess-feedback{min-height:3em;overflow-wrap:anywhere;color:var(--accent)}#chess .piece-lesson{border-inline-start:3px solid var(--line);padding-inline-start:12px;font-size:.95em}
+#chess .piece-lesson:empty{display:none}#chess #chess-copy-text{width:100%;min-height:150px;font:14px/1.6 monospace;color:#152a39;background:#fff;border:2px solid var(--line);margin-top:12px}
+#chess .chess-footer{padding-top:16px;margin-top:20px;border-top:1px solid var(--line)}#chess .chess-footer a{color:var(--accent);display:inline-block;padding:8px 0;min-height:44px}
+#chess .chess-footer p{font-size:.8em;color:var(--muted)}
+#chess .chess-dialog-layer{position:fixed;inset:0;background:#05111ee8;z-index:10000;display:flex;justify-content:center;align-items:center;padding:16px;overflow:auto}
+#chess .chess-dialog{width:min(650px,100%);max-height:90vh;overflow:auto;background:var(--surface);color:var(--text);border:2px solid var(--line);border-radius:16px;padding:24px}
+#chess.tra-chess-accessible[data-display="large"]{font-size:22px}
+#chess.tra-chess-accessible[data-display="tv"]{font-size:26px;padding:30px}#chess[data-display="tv"] .chess-play-layout{grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr)}
+#chess[data-display="tv"] .square{font-size:clamp(28px,5vw,78px)}#chess[data-display="tv"] button:not(.square){min-height:60px}
+#chess.tra-chess-accessible.high-contrast{--surface:#000;--text:#fff;--muted:#fff;--line:#ddd;--accent:#ffff90;--button:#151515;--light:#fff3d9;--dark:#92a99e}
+#chess:fullscreen{width:100vw;height:100vh;overflow:auto;border-radius:0;max-width:none}#chess:fullscreen .chess-play-layout{max-width:1500px;margin-inline:auto}
+@media(max-width:850px){#chess .chess-play-layout,#chess[data-display="tv"] .chess-play-layout{grid-template-columns:1fr}#chess.tra-chess-accessible .board{margin-inline:auto}#chess.tra-chess-accessible .chess-settings{grid-template-columns:repeat(2,minmax(0,1fr))}#chess.tra-chess-accessible[data-display="tv"]{padding:14px}}
+@media(max-width:440px){#chess.tra-chess-accessible{padding:8px;border-radius:12px;font-size:17px}#chess.tra-chess-accessible[data-display="large"],#chess.tra-chess-accessible[data-display="tv"]{font-size:21px;padding:8px}#chess .chess-mark{display:none}#chess .chess-heading{gap:0}#chess .chess-settings{gap:10px}#chess.tra-chess-accessible .chess-settings{grid-template-columns:1fr}#chess .chess-controls{grid-template-columns:1fr 1fr}#chess.tra-chess-accessible .square{font-size:clamp(22px,7vw,31px)}#chess .square-coordinate{font-size:8px}#chess.tra-chess-accessible .board{border-width:2px}#chess .chess-dialog{padding:16px}}
+@media(prefers-reduced-motion:reduce){#chess.tra-chess-accessible *,#chess.tra-chess-accessible *::before,#chess.tra-chess-accessible *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media(forced-colors:active){#chess.tra-chess-accessible .square{forced-color-adjust:none}#chess.tra-chess-accessible :focus-visible{outline:4px solid Highlight}#chess.tra-chess-accessible .piece.white{color:#fff}#chess.tra-chess-accessible .piece.black{color:#000}}
+
+@supports not (aspect-ratio:1){#chess.tra-chess-accessible .square{height:0;padding-top:100%}#chess.tra-chess-accessible .square .piece{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}}
