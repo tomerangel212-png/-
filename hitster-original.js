@@ -5,6 +5,7 @@
   var STORAGE_KEY = "hitster-tra-annual-888-v1";
   var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v1";
   var PREVIEW_SECONDS = 30;
+  var LIVE_REACTION_SECONDS = 180;
   var PREVIEW_LOOKUP_TIMEOUT_MS = 6000;
   var PREVIEW_DOWNLOAD_TIMEOUT_MS = 10000;
   var START_STARS = 5;
@@ -280,7 +281,7 @@
     var countdown = document.createElement("span");
     countdown.id = "live-countdown";
     countdown.className = "live-countdown";
-    countdown.textContent = PREVIEW_SECONDS + "s";
+    countdown.textContent = LIVE_REACTION_SECONDS + "s";
     head.append(title, countdown);
     var buttons = document.createElement("div");
     buttons.className = "live-reaction-buttons";
@@ -292,7 +293,7 @@
       button.addEventListener("click", function () {
         var card = currentCard();
         if (!card || audio.paused || !liveReactionStartedAt) return;
-        var elapsed = Math.max(0, Math.min(PREVIEW_SECONDS, Math.round((Date.now() - liveReactionStartedAt) / 1000)));
+        var elapsed = Math.max(0, Math.min(LIVE_REACTION_SECONDS, Math.round((Date.now() - liveReactionStartedAt) / 1000)));
         track("hitster_live_reaction", {
           card_id: card.id,
           chart_year: card.chartYear,
@@ -316,17 +317,16 @@
     if (liveReactionTimer) clearInterval(liveReactionTimer);
     liveReactionStartedAt = Date.now();
     panel.hidden = false;
-    countdown.textContent = PREVIEW_SECONDS + "s";
+    countdown.textContent = LIVE_REACTION_SECONDS + "s";
     liveReactionTimer = setInterval(function () {
       var elapsed = Math.floor((Date.now() - liveReactionStartedAt) / 1000);
-      var remaining = Math.max(0, PREVIEW_SECONDS - elapsed);
+      var remaining = Math.max(0, LIVE_REACTION_SECONDS - elapsed);
       countdown.textContent = remaining + "s";
       if (remaining <= 0) stopLiveReactionWindow();
     }, 250);
   }
   function stopAudio() {
     clearClipTimer();
-    stopLiveReactionWindow();
     if (!audio) return;
     audio.pause();
     try { audio.currentTime = 0; } catch (error) {}
@@ -673,7 +673,6 @@
       try { audio.currentTime = 0; } catch (error) {}
       setStatus(t.stopped);
       clipTimer = null;
-      stopLiveReactionWindow();
     }, PREVIEW_SECONDS * 1000);
   }
   async function prepareCardAudio(card) {
@@ -788,6 +787,7 @@
     return false;
   }
   function finishCurrent(shouldAdvance) {
+    stopLiveReactionWindow();
     state.current = null;
     state.currentYearRevealed = false;
     state.currentSolutionRevealed = false;
