@@ -5,7 +5,6 @@
   var STORAGE_KEY = "hitster-tra-annual-888-v1";
   var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v1";
   var PREVIEW_SECONDS = 30;
-  var LIVE_REACTION_SECONDS = 180;
   var PREVIEW_LOOKUP_TIMEOUT_MS = 6000;
   var PREVIEW_DOWNLOAD_TIMEOUT_MS = 10000;
   var START_STARS = 5;
@@ -66,7 +65,7 @@
       stars: "כוכבים",
       winner: "🏆 {team} ניצחו עם 18 קלפים!",
       turn: "תור",
-      playLabel: "▶ נגנו 30 שניות",
+      playLabel: "▶ נגנו את כל האודיו הזמין",
       preparingLabel: "מכין שמע…",
       answerOpen: "בדקו שם שיר + אמן",
       answerClosed: "הזיהוי נבדק",
@@ -124,7 +123,7 @@
       stars: "stars",
       winner: "🏆 {team} wins with 18 cards!",
       turn: "Turn",
-      playLabel: "▶ Play 30 seconds",
+      playLabel: "▶ Play all available audio",
       preparingLabel: "Preparing audio…",
       answerOpen: "Check song + artist",
       answerClosed: "Identification checked",
@@ -281,7 +280,7 @@
     var countdown = document.createElement("span");
     countdown.id = "live-countdown";
     countdown.className = "live-countdown";
-    countdown.textContent = LIVE_REACTION_SECONDS + "s";
+    countdown.textContent = availableAudioSeconds() + "s";
     head.append(title, countdown);
     var buttons = document.createElement("div");
     buttons.className = "live-reaction-buttons";
@@ -293,7 +292,8 @@
       button.addEventListener("click", function () {
         var card = currentCard();
         if (!card || audio.paused || !liveReactionStartedAt) return;
-        var elapsed = Math.max(0, Math.min(LIVE_REACTION_SECONDS, Math.round((Date.now() - liveReactionStartedAt) / 1000)));
+        var liveSeconds = availableAudioSeconds();
+        var elapsed = Math.max(0, Math.min(liveSeconds, Math.round((Date.now() - liveReactionStartedAt) / 1000)));
         track("hitster_live_reaction", {
           card_id: card.id,
           chart_year: card.chartYear,
@@ -317,10 +317,11 @@
     if (liveReactionTimer) clearInterval(liveReactionTimer);
     liveReactionStartedAt = Date.now();
     panel.hidden = false;
-    countdown.textContent = LIVE_REACTION_SECONDS + "s";
+    var liveSeconds = availableAudioSeconds();
+    countdown.textContent = liveSeconds + "s";
     liveReactionTimer = setInterval(function () {
       var elapsed = Math.floor((Date.now() - liveReactionStartedAt) / 1000);
-      var remaining = Math.max(0, LIVE_REACTION_SECONDS - elapsed);
+      var remaining = Math.max(0, liveSeconds - elapsed);
       countdown.textContent = remaining + "s";
       if (remaining <= 0) stopLiveReactionWindow();
     }, 250);
@@ -665,15 +666,21 @@
       return { src: remote, cached: false };
     }
   }
+  function availableAudioSeconds() {
+    var duration = Number(audio && audio.duration);
+    return Number.isFinite(duration) && duration > 0 ? Math.ceil(duration) : PREVIEW_SECONDS;
+  }
   function armClipTimer() {
     clearClipTimer();
+    var seconds = availableAudioSeconds();
     clipTimer = setTimeout(function () {
       if (!audio) return;
       audio.pause();
       try { audio.currentTime = 0; } catch (error) {}
       setStatus(t.stopped);
       clipTimer = null;
-    }, PREVIEW_SECONDS * 1000);
+      stopLiveReactionWindow();
+    }, seconds * 1000);
   }
   async function prepareCardAudio(card) {
     if (!card || state.current !== card.id) return false;
@@ -737,8 +744,8 @@
       await playback;
       armClipTimer();
       startLiveReactionWindow();
-      setStatus(t.played);
-      track("song_preview_started", { card_id: card.id, chart_year: card.chartYear, seconds: PREVIEW_SECONDS, from_draw: Boolean(fromDraw), used_count: state.used.length });
+      setStatus(language === "he" ? "מנגן את כל האודיו הזמין בתוך HITSTER." : "Playing all available audio inside HITSTER.");
+      track("song_preview_started", { card_id: card.id, chart_year: card.chartYear, seconds: availableAudioSeconds(), from_draw: Boolean(fromDraw), used_count: state.used.length });
     } catch (error) {
       setStatus(error && error.name === "NotAllowedError" ? t.blocked : t.noPreview);
       track("song_preview_play_failed", {
