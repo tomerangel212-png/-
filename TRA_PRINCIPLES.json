@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "product": "THE TRA",
   "status": "active-draft",
   "target": "9999999999/9999999999",
@@ -150,6 +150,36 @@
       "he": "משתמשים רק באינטגרציות מורשות; אין עקיפת הרשאות, אבטחה או תנאי שימוש.",
       "source": "governance guardrail",
       "category": "trust"
+    },
+    {
+      "id": "history-and-music",
+      "he": "מוזיקה היא חלק מההיסטוריה הראשית של TRA. מתעדים יצירה, אוצרות והאזנה עם מקורות, תאריכים וסטטוס אמיתי.",
+      "en": "Music belongs in the main TRA history. Document creation, curation and listening with sources, dates and accurate status.",
+      "source": "user directive 2026-10-05",
+      "category": "identity"
+    },
+    {
+      "id": "patient-listening",
+      "he": "מקשיבים בסבלנות: מאפשרים זמן, הפסקה, חזרה ובחירת קצב. השמעה מתחילה רק בבחירת המאזין.",
+      "en": "Listen with patience: allow time, pauses, replay and a personal pace. Playback starts only by listener choice.",
+      "source": "user directive 2026-10-05",
+      "category": "accessibility"
+    },
+    {
+      "id": "art-and-try",
+      "he": "יוצרים, מנסים, בודקים ומשפרים. ניסיון וסקיצה מסומנים ככאלה; אין להציגם כתוצאה מוגמרת.",
+      "en": "Create, try, check and improve. Label experiments and sketches honestly.",
+      "source": "user directive 2026-10-05",
+      "category": "quality"
+    },
+    {
+      "id": "generations-and-planning",
+      "he": "במצב הדורות: ילדים, מבוגרים והדור הוותיק עונים בשלב המתאים. תכנון תומר מתמטיקה: 4–20 קבוצות, 10 משתתפים לקבוצה; נתון תכנון אינו נוכחות בפועל.",
+      "en": "In generations mode, children, adults and older adults answer in their respective stages. Tomer Math plans 4–20 groups at 10 participants per group; planned capacity is not actual attendance.",
+      "source": "user directive 2026-10-05",
+      "category": "usability"
     }
-  ]
+  ],
+  "constitution_title": "TRA ART TRY",
+  "signature": "Tomer Angel 2026"
 }
