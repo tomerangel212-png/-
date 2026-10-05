@@ -35,6 +35,11 @@ const server=http.createServer((req,res)=>{
   await page.locator("#start-personal").click();
   await page.waitForFunction(()=>document.querySelector("#setup-modal").hidden);
   await page.waitForFunction(()=>document.querySelectorAll("#teams .team").length===5);
+  assert.equal(await page.locator(".team-lives").count(),5);
+  assert.ok((await page.locator(".team-lives").allTextContents()).every(text=>text.includes("10/10")));
+  await page.locator("#lose-life-team-1").click();
+  assert.ok((await page.locator(".team-lives").first().innerText()).includes("9/10"));
+  assert.ok((await page.locator(".team-lives").nth(1).innerText()).includes("10/10"));
   assert.ok((await page.locator("#personal-note").innerText()).includes("5 גרסאות"));
   assert.equal(await page.locator("#start-screen").isVisible(),false,"No second startup popup");
   assert.equal(await page.locator("#spotify-saved").getAttribute("href"),"https://open.spotify.com/playlist/test");
