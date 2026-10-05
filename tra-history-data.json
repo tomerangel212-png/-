@@ -1,0 +1,2361 @@
+{
+  "title": "History and Music — Tomer Angel 2026",
+  "snapshotDate": "2026-10-05",
+  "repository": "tomerangel212-png/-",
+  "baseCommit": "56a2f1b1fcf5d63b38c5b1fb1037ee217d274e07",
+  "scope": "Repository commit history available in this checkout; not a complete archive of conversations or recordings. Commit dates do not establish live deployment.",
+  "entries": [
+    {
+      "sha": "83a6863c0847b79abc5556bdacc8556f4d33aa9a",
+      "date": "2026-08-06",
+      "title": "Initial commit",
+      "published": true
+    },
+    {
+      "sha": "838eb0185e296dd31daf3312820de2a19b66e2b2",
+      "date": "2026-08-08",
+      "title": "Create initial TRA interactive dashboard",
+      "published": true
+    },
+    {
+      "sha": "705dc92a61bc1777672cdba4058f76aa392a22a2",
+      "date": "2026-08-08",
+      "title": "Upgrade TRA dashboard into practical command center",
+      "published": true
+    },
+    {
+      "sha": "dd40d72353693ad7226394f9bfb48c51cc9bab39",
+      "date": "2026-08-08",
+      "title": "Upgrade tasks to 3x3 priority board",
+      "published": true
+    },
+    {
+      "sha": "963d0105223d952ba7c5090e467b574d1c833345",
+      "date": "2026-08-08",
+      "title": "Launch TRA Games interactive hub with Hitster, chess and speed date",
+      "published": true
+    },
+    {
+      "sha": "c44487b61aa338d2c22345e45412f437c66373ef",
+      "date": "2026-08-08",
+      "title": "Add GitHub Pages deployment workflow",
+      "published": true
+    },
+    {
+      "sha": "ffcd47bdef3a7d3185aee1051c8a40e81b3d5349",
+      "date": "2026-08-08",
+      "title": "Launch KFAR BLOOM 2026 family games site",
+      "published": true
+    },
+    {
+      "sha": "0027ea270877a7936fc8f4d87031a5e4c9618fd3",
+      "date": "2026-08-10",
+      "title": "Simplify TRA home into three clear choices",
+      "published": true
+    },
+    {
+      "sha": "2af21cea22d68b694b972bca18b4a03523f14b7f",
+      "date": "2026-08-12",
+      "title": "Apply THE TRA212416622 to KFAR-BLOOM/2026 landing page",
+      "published": true
+    },
+    {
+      "sha": "e3b02bab5a108e6b88712542c48e87e301350b8f",
+      "date": "2026-08-14",
+      "title": "Publish TRA Games chess arcade",
+      "published": true
+    },
+    {
+      "sha": "9e590906fbb4b4e74622e9f72e87e778b99c05c3",
+      "date": "2026-08-14",
+      "title": "Enable automatic TRA Games publishing",
+      "published": true
+    },
+    {
+      "sha": "ed2e0f5e0bef3352e4eca58d1b8d323f999c665a",
+      "date": "2026-08-14",
+      "title": "Keep one GitHub Pages publisher",
+      "published": true
+    },
+    {
+      "sha": "fefa409c4ee39b3bd67c30585b93928030bd7ea1",
+      "date": "2026-08-14",
+      "title": "Enable GitHub Pages for TRA Games",
+      "published": true
+    },
+    {
+      "sha": "9f104d7e16758373db8dd28312d1f7fd1f56fb41",
+      "date": "2026-08-14",
+      "title": "Fix Pages deployment permissions flow",
+      "published": true
+    },
+    {
+      "sha": "7c58136706b8622740e5bbaa43baefe3c9eab24d",
+      "date": "2026-08-15",
+      "title": "Publish HITSTER TRA 99.9999999999 quality standard",
+      "published": true
+    },
+    {
+      "sha": "06f9c76ea3ea99a02230c8e44da0a2f0fb00ac49",
+      "date": "2026-08-15",
+      "title": "Enforce HITSTER zero-wrong-card data gate",
+      "published": true
+    },
+    {
+      "sha": "914bb434f35f2dbb6f220098e1592e845cf0d8c9",
+      "date": "2026-08-15",
+      "title": "Block Pages deploy when HITSTER quality gate fails",
+      "published": true
+    },
+    {
+      "sha": "cae7fe465ff5eedd743d64f22728ac6ba1887cfe",
+      "date": "2026-08-15",
+      "title": "Document enforced HITSTER release gate",
+      "published": true
+    },
+    {
+      "sha": "81497ceb797e18ef342172a79c32c1d047265d6d",
+      "date": "2026-08-15",
+      "title": "HITSTER TRA Kfar Bloom 2026: 350-card live demo",
+      "published": true
+    },
+    {
+      "sha": "58604adf68afdb025576b3e38cd0322d472f4381",
+      "date": "2026-08-15",
+      "title": "Add HITSTER TRA 1000-song source catalog index",
+      "published": true
+    },
+    {
+      "sha": "eb5ebdd45f019bc5ee54a8a58ee52c188a9d8bf2",
+      "date": "2026-08-15",
+      "title": "Make HITSTER 1000 catalog executable in browser and Node",
+      "published": true
+    },
+    {
+      "sha": "6faf9dd9bee00a6d25e3f0175e123d9b2b0f9387",
+      "date": "2026-08-15",
+      "title": "Enforce HITSTER 1000 catalog tier counts",
+      "published": true
+    },
+    {
+      "sha": "7ed5ec1e3fd10fb4a50f9c95f4a13e1daef13506",
+      "date": "2026-08-15",
+      "title": "Enforce HITSTER 1000 catalog gate before Pages deploy",
+      "published": true
+    },
+    {
+      "sha": "beeab76cffadf7232a2ede81c2885ec3991a7dc6",
+      "date": "2026-08-16",
+      "title": "Add HITSTER TRA 11111 catalog index",
+      "published": true
+    },
+    {
+      "sha": "8829a4eea970ec3147bf65d775cdcfad1b27a978",
+      "date": "2026-08-16",
+      "title": "Add HITSTER 11111 catalog quality gate",
+      "published": true
+    },
+    {
+      "sha": "971dd3529706a827c709d56bf0ac1b07809c14b4",
+      "date": "2026-08-16",
+      "title": "Publish HITSTER TRA 11111 catalog capacity",
+      "published": true
+    },
+    {
+      "sha": "60b33d143ac128dc705a4e7734e80491a5f05a89",
+      "date": "2026-08-16",
+      "title": "Add TRA Game 15 Connect Talk",
+      "published": true
+    },
+    {
+      "sha": "1782c4782143b04cf23b19c81aef139ac2052cf4",
+      "date": "2026-08-16",
+      "title": "Add TRA Game 15 to main page",
+      "published": true
+    },
+    {
+      "sha": "2653fc5918cd1718ceee7d50401c24429699f6f3",
+      "date": "2026-08-16",
+      "title": "Enable GitHub Pages in deploy workflow",
+      "published": true
+    },
+    {
+      "sha": "67fb488c03324c4383767f99302a53928d599eac",
+      "date": "2026-08-17",
+      "title": "Publish Casino Angel family poker game",
+      "published": true
+    },
+    {
+      "sha": "8f58242cb8044c86c441dd5ccfaff66b594c3f38",
+      "date": "2026-08-17",
+      "title": "Fix illegal king moves and enforce strict chess legality",
+      "published": true
+    },
+    {
+      "sha": "ed0a74bbfd2cc787558afdf6f79f5004f46df58a",
+      "date": "2026-08-18",
+      "title": "Publish Tomer Rafael Angel link-in-bio page with PostHog analytics",
+      "published": true
+    },
+    {
+      "sha": "e97973f4cd5e06b33016681ec6686926aa4dc98d",
+      "date": "2026-08-18",
+      "title": "Add production smoke checks before Pages deploy",
+      "published": true
+    },
+    {
+      "sha": "aa5a68f3d8f6c89d36a4dcd06f1b32ba8582a1e0",
+      "date": "2026-08-18",
+      "title": "Harden Pages release with full site smoke checks",
+      "published": true
+    },
+    {
+      "sha": "73d69481c4f5745ad194ead66c21641e62656d61",
+      "date": "2026-08-18",
+      "title": "Add all TRA projects to Tomer Links tree",
+      "published": true
+    },
+    {
+      "sha": "85eeccfffadfb00462a37cdd96a24009550e8896",
+      "date": "2026-08-18",
+      "title": "Add Muzika Mechaberet public page",
+      "published": true
+    },
+    {
+      "sha": "9ec90834b49af64ef3f464184ce549a74f4936d1",
+      "date": "2026-08-18",
+      "title": "Add Shiratomer public page",
+      "published": true
+    },
+    {
+      "sha": "9de7d7799e3be61a382bcd72394edc94bfd11b31",
+      "date": "2026-08-18",
+      "title": "Add Instatomer public page",
+      "published": true
+    },
+    {
+      "sha": "f6d1ee529152a482868c28c02ce1ad42cceb77b7",
+      "date": "2026-08-18",
+      "title": "Activate music, poetry and instrumentals links",
+      "published": true
+    },
+    {
+      "sha": "96c25f8bebd671f7e7881eaecc696633088639a1",
+      "date": "2026-08-18",
+      "title": "Fix Pages deploy permissions: remove forbidden auto-enablement",
+      "published": true
+    },
+    {
+      "sha": "cfae3d67e69bed6b61fbd390edffa1fe237795ee",
+      "date": "2026-08-18",
+      "title": "Add TRA intergenerational game: נסיעה מוזיקלית",
+      "published": true
+    },
+    {
+      "sha": "c85cc967ed7d60a6cb07b4b5abe2e51f98d78007",
+      "date": "2026-08-18",
+      "title": "Add נסיעה מוזיקלית to TRA Games hub",
+      "published": true
+    },
+    {
+      "sha": "d8807b93bb8924f2d0cdef51a7262e56d204c336",
+      "date": "2026-08-18",
+      "title": "Fix deploy: publish site to gh-pages branch without Pages API",
+      "published": true
+    },
+    {
+      "sha": "e0fc104f48a62b88b6afe24cb3f0266eebdb8212",
+      "date": "2026-08-18",
+      "title": "Fix GitHub Pages 404 with official Pages deployment",
+      "published": true
+    },
+    {
+      "sha": "1494a51f8f4c1f5fc69ffd77d4cf543e29fad98c",
+      "date": "2026-08-18",
+      "title": "Stabilize Pages publishing to gh-pages",
+      "published": true
+    },
+    {
+      "sha": "6c296dbbe46778d32517697ef7e221dec0f8dea0",
+      "date": "2026-08-18",
+      "title": "Enable offline mode across TRA links and HITSTER",
+      "published": true
+    },
+    {
+      "sha": "378ed0718f2007ea8b1ad043a36996ba3354438e",
+      "date": "2026-08-18",
+      "title": "Activate offline mode from central TRA links page",
+      "published": true
+    },
+    {
+      "sha": "725607dccdb493c2050939988ff358039e3900cc",
+      "date": "2026-08-18",
+      "title": "Make HITSTER load and play in offline mode",
+      "published": true
+    },
+    {
+      "sha": "ba8a39a88c369a1f02e0b15e3a7b11d3e774c810",
+      "date": "2026-08-18",
+      "title": "Keep TRA offline cache fresh while online",
+      "published": true
+    },
+    {
+      "sha": "3897b6e9a356325cd8c31091c743cc14d53018fb",
+      "date": "2026-08-18",
+      "title": "Fix GitHub Pages deployment with official Pages actions",
+      "published": true
+    },
+    {
+      "sha": "225f458d1eb6667385f6c2654dc58573c1adc9a7",
+      "date": "2026-08-18",
+      "title": "Remove invalid workflow key",
+      "published": true
+    },
+    {
+      "sha": "04fb4e2afe66598ee77bd45a39917973c9134372",
+      "date": "2026-08-18",
+      "title": "Fix chess checkmate handling and regression tests",
+      "published": true
+    },
+    {
+      "sha": "219573054690cc0ea749e0a241eb3a680e83721d",
+      "date": "2026-08-19",
+      "title": "Make Pages deploy independent and update configure-pages",
+      "published": true
+    },
+    {
+      "sha": "c24328d59b63d9bc44b28793295c4749605f8c5e",
+      "date": "2026-08-19",
+      "title": "Separate production quality checks from Pages deploy",
+      "published": true
+    },
+    {
+      "sha": "dcf98bae419c20ce5ef46fbda1c5e440b50f02c0",
+      "date": "2026-08-19",
+      "title": "Add TRA Chess bot selector and profiles",
+      "published": true
+    },
+    {
+      "sha": "a6e95d216e1f20c6eab41701b19f5a8d5e857bcf",
+      "date": "2026-08-19",
+      "title": "Style TRA Chess bot controls",
+      "published": true
+    },
+    {
+      "sha": "a76467f1c87dd420bfa584fe4742d577ea174881",
+      "date": "2026-08-19",
+      "title": "Implement TRA Chess personality bots 20-80",
+      "published": true
+    },
+    {
+      "sha": "fa7d75911a7e9aa0ce55efa52154aafb64b4ee5b",
+      "date": "2026-08-19",
+      "title": "Add TRA Chess to Tomer Links",
+      "published": true
+    },
+    {
+      "sha": "6058798cd2fea59740c0cce59dbb79824542dd93",
+      "date": "2026-08-19",
+      "title": "Feature TRA Chess on main TRA page",
+      "published": true
+    },
+    {
+      "sha": "23b1171091c8b52699ee7398cc19baca86710919",
+      "date": "2026-08-19",
+      "title": "Add TRA Games 100 quality gate",
+      "published": true
+    },
+    {
+      "sha": "6c56d0e6f7afaa284e6d993594ce0e8631a21fe4",
+      "date": "2026-08-19",
+      "title": "Enforce TRA Games 100/100 before deploy",
+      "published": true
+    },
+    {
+      "sha": "37c938a62e1323b3648d852330295e1f058f5a13",
+      "date": "2026-08-19",
+      "title": "Turn TRA Games into 15-game hub",
+      "published": true
+    },
+    {
+      "sha": "2e08759d9f77649fc22a9735a36f8a65d9b4bf53",
+      "date": "2026-08-19",
+      "title": "Add quick-play launcher for TRA Games hub",
+      "published": true
+    },
+    {
+      "sha": "cc4bfe22b611acd3f95d0fbf3e46d2b639d6259b",
+      "date": "2026-08-19",
+      "title": "Style 15-game TRA Games hub",
+      "published": true
+    },
+    {
+      "sha": "28766df09588cfc268be5a646de3fd883ddfd0cf",
+      "date": "2026-08-19",
+      "title": "Guard TRA Games 15-game hub in quality gate",
+      "published": true
+    },
+    {
+      "sha": "2ab6b465ebcc5e82779ef8054bfc057e85054452",
+      "date": "2026-08-19",
+      "title": "Validate TRA Games hub before deploy",
+      "published": true
+    },
+    {
+      "sha": "f4c684c42c52a6c44ff6220f6e2a0f1a80928744",
+      "date": "2026-08-19",
+      "title": "Require TRA Games hub assets in smoke check",
+      "published": true
+    },
+    {
+      "sha": "e2c476d84f008d011edc300807a580b978ece21d",
+      "date": "2026-08-19",
+      "title": "Route TRA Games button to all 15 games",
+      "published": true
+    },
+    {
+      "sha": "70e31ff3e99e19464ddcc8375bcec177ba0831bd",
+      "date": "2026-08-19",
+      "title": "Add unified HITSTER selector for both live games",
+      "published": true
+    },
+    {
+      "sha": "63aa2746d95167875cce14d8fde02527420861c8",
+      "date": "2026-08-19",
+      "title": "Upgrade HITSTER offline support",
+      "published": true
+    },
+    {
+      "sha": "ec08acf305b164ea02963739ddec5fa175105c23",
+      "date": "2026-08-19",
+      "title": "Add HITSTER offline mode and unified selector",
+      "published": true
+    },
+    {
+      "sha": "01e942fcb39ddc9c2ae84ea8bbbd2683dc31b932",
+      "date": "2026-08-19",
+      "title": "Add HITSTER expansion candidates for 444-card deck",
+      "published": true
+    },
+    {
+      "sha": "624621f118119d58df81eecffd6d0b95b40af74b",
+      "date": "2026-08-19",
+      "title": "Expand HITSTER to 444 cards and add New Game reset",
+      "published": true
+    },
+    {
+      "sha": "f2303305ef76466391f7d7a3bf5e07468928e7bf",
+      "date": "2026-08-19",
+      "title": "Show 444-card deck and New Game control",
+      "published": true
+    },
+    {
+      "sha": "2992ed1ff04bce314a7922c3608b6bec941bbcc9",
+      "date": "2026-08-19",
+      "title": "Cache HITSTER 444-card expansion for offline play",
+      "published": true
+    },
+    {
+      "sha": "99da7fd856c4ce7a202cb9085c7263c739fe0da0",
+      "date": "2026-08-19",
+      "title": "Add HITSTER 444-card production gate",
+      "published": true
+    },
+    {
+      "sha": "739cff2d332fac446915375f290659e3218f9559",
+      "date": "2026-08-19",
+      "title": "Enforce HITSTER 444-card gate before deploy",
+      "published": true
+    },
+    {
+      "sha": "e718c76573673d706f2e7902029c30d8125b26c4",
+      "date": "2026-08-19",
+      "title": "Unblock Tomer Links deploy with dedicated publish gate",
+      "published": true
+    },
+    {
+      "sha": "2b780f4fd6d32673111056f0728b0d70ebb359bd",
+      "date": "2026-08-19",
+      "title": "Add live URL and PostHog deploy verification for Tomer Links",
+      "published": true
+    },
+    {
+      "sha": "4270c7004c2ead9183c251dbee3f1b719ec018a8",
+      "date": "2026-08-19",
+      "title": "Fix GitHub Pages configure action version for Tomer Links deploy",
+      "published": true
+    },
+    {
+      "sha": "e5245039ab31be9b71cc74e07d1864b46e398f36",
+      "date": "2026-08-19",
+      "title": "Build HITSTER 444 Hebrew A-list deck from ranked Israeli sources",
+      "published": true
+    },
+    {
+      "sha": "0c0d308e4f3086564f9b6e73d3c580712396b6cf",
+      "date": "2026-08-19",
+      "title": "Fix PostHog deploy health event payload for Tomer Links",
+      "published": true
+    },
+    {
+      "sha": "2119919f9d3fc3cab10f78aba651bebd368de22b",
+      "date": "2026-08-19",
+      "title": "Make HITSTER 444 Hebrew A-list only",
+      "published": true
+    },
+    {
+      "sha": "a3fd23c702ea519fb3bfe58d6fd91f6ea4e8689c",
+      "date": "2026-08-19",
+      "title": "Label HITSTER as 444 Hebrew A-list only",
+      "published": true
+    },
+    {
+      "sha": "c13e67657abb1c2de7b0e4f2507887109ebeff8b",
+      "date": "2026-08-19",
+      "title": "Enforce Hebrew-only A-list HITSTER 444 gate",
+      "published": true
+    },
+    {
+      "sha": "3b4a616848a6e21f4dd08bdd6517dc55a2705951",
+      "date": "2026-08-19",
+      "title": "Cache Hebrew A-list HITSTER deck for offline use",
+      "published": true
+    },
+    {
+      "sha": "153314077d84d46ed6ad7896be77efa13a8747c3",
+      "date": "2026-08-19",
+      "title": "Expand HITSTER to 888 Hebrew A-list cards across four eras",
+      "published": true
+    },
+    {
+      "sha": "3262e513e3ee5a3391a64436715e1ebf34ef6993",
+      "date": "2026-08-19",
+      "title": "Run HITSTER with 888 Hebrew A-list cards",
+      "published": true
+    },
+    {
+      "sha": "f09b7a41d0fbf0bdb303d6cafe1205440219828d",
+      "date": "2026-08-19",
+      "title": "Show 888-card four-era HITSTER layout",
+      "published": true
+    },
+    {
+      "sha": "084447d109dda151df3916e776b09e3d067bfd4e",
+      "date": "2026-08-19",
+      "title": "Isolate Tomer Links Pages deploy from unrelated TRA quality checks",
+      "published": true
+    },
+    {
+      "sha": "973dff4eed6d573652a959c2118d781878204163",
+      "date": "2026-08-19",
+      "title": "Enforce HITSTER 888 = 222×4 quality gate",
+      "published": true
+    },
+    {
+      "sha": "e4de26f94ed00d6e36838df832d2656343f184e0",
+      "date": "2026-08-19",
+      "title": "Cache HITSTER 888 A-list deck offline",
+      "published": true
+    },
+    {
+      "sha": "b3f294a5227d98dc4fc077f5297a3f82a47e0a11",
+      "date": "2026-08-19",
+      "title": "Gate deploy on HITSTER 888 = 222×4",
+      "published": true
+    },
+    {
+      "sha": "60fcdc1473185013df864ec69c964b4a623778fe",
+      "date": "2026-08-19",
+      "title": "Add dedicated Tomer Links deploy workflow",
+      "published": true
+    },
+    {
+      "sha": "efc9bdaed177f7493f73b0e5eab78f8c6d92612c",
+      "date": "2026-08-19",
+      "title": "Align HITSTER hub with 888-card release",
+      "published": true
+    },
+    {
+      "sha": "b996a3a824a65645b17aa0d111bb0a49ca2df242",
+      "date": "2026-08-19",
+      "title": "Publish HITSTER 888 now",
+      "published": true
+    },
+    {
+      "sha": "5aff5b10f3b63780d977b485fb1a0219d6cd91ed",
+      "date": "2026-08-19",
+      "title": "Route TRA Games HITSTER through unified 888 hub",
+      "published": true
+    },
+    {
+      "sha": "a6e741767031d942243ce4415cd67e06ddeb2094",
+      "date": "2026-08-19",
+      "title": "Add correctly named HITSTER 888 release gate",
+      "published": true
+    },
+    {
+      "sha": "60a54e79932fbdf1d0a8f32d69e86eafc3a5ba45",
+      "date": "2026-08-19",
+      "title": "Align deploy checks and public verification to HITSTER 888",
+      "published": true
+    },
+    {
+      "sha": "f6582dbe6cdcf636e088ba97dbc72e08b864a4ba",
+      "date": "2026-08-19",
+      "title": "Require HITSTER 888 production assets in smoke check",
+      "published": true
+    },
+    {
+      "sha": "623af031f6d8f2196decce7512b0aca9822b039f",
+      "date": "2026-08-19",
+      "title": "Guard TRA Games against stale HITSTER counts",
+      "published": true
+    },
+    {
+      "sha": "aa57bb19983b24381e494e17af4102f703e5f846",
+      "date": "2026-08-19",
+      "title": "Remove obsolete HITSTER 444-named quality gate",
+      "published": true
+    },
+    {
+      "sha": "28004e9b02d4d65338f1f9e9221da710a084fe04",
+      "date": "2026-08-19",
+      "title": "Fix production quality workflow for HITSTER 888",
+      "published": true
+    },
+    {
+      "sha": "147d9961e0b90119ab3858fc4f152ccf7661c888",
+      "date": "2026-08-19",
+      "title": "Modernize TRA Pages workflow checkout action",
+      "published": true
+    },
+    {
+      "sha": "fd0cb2d399242a63e717fb3a88632b11ef4c76b1",
+      "date": "2026-08-19",
+      "title": "Modernize Tomer Links Pages workflow checkout action",
+      "published": true
+    },
+    {
+      "sha": "cc58eb33e23ce1b37059c7ac1cee6908bdcda973",
+      "date": "2026-08-19",
+      "title": "Upgrade GitHub Pages setup to Node 24",
+      "published": true
+    },
+    {
+      "sha": "36197d8675a7ae5cd6e4181f5213503b688af9f4",
+      "date": "2026-08-19",
+      "title": "Upgrade Tomer Links Pages setup to Node 24",
+      "published": true
+    },
+    {
+      "sha": "f02db8b3b4d1c7c0b2fc7bca968c3368bba160d7",
+      "date": "2026-08-19",
+      "title": "Harden TRA Chess legality and promotion rules",
+      "published": true
+    },
+    {
+      "sha": "6cca4bf151e40f63a48415b4feada47b5e1cb3b3",
+      "date": "2026-08-19",
+      "title": "Enforce protected-king and full-promotion chess rules",
+      "published": true
+    },
+    {
+      "sha": "97b9e69f1d8c82546aef58f317ea1e746eb1d4c8",
+      "date": "2026-08-19",
+      "title": "Fix en passant regression positions",
+      "published": true
+    },
+    {
+      "sha": "0dd034488e1c111db82a84c964803e81384324c6",
+      "date": "2026-08-19",
+      "title": "Enable GitHub Pages via repository PAT when available",
+      "published": true
+    },
+    {
+      "sha": "99e5175e7bc7598c3d478b5e10deae842aafe233",
+      "date": "2026-08-19",
+      "title": "Enable GitHub Pages automatically for Tomer Links",
+      "published": true
+    },
+    {
+      "sha": "f706304212f58c41a3cfe8666d0b0bdda6f2a1be",
+      "date": "2026-08-19",
+      "title": "Add Who Wants to Be a Music Editor game",
+      "published": true
+    },
+    {
+      "sha": "dae224e2a0b3a5494e530f34d45edf0dcb984a27",
+      "date": "2026-08-19",
+      "title": "Add music editor as TRA game 16",
+      "published": true
+    },
+    {
+      "sha": "4bd382467ff13e393443767dafb64ca930a38b3f",
+      "date": "2026-08-19",
+      "title": "Add Family Musical Journey to main links",
+      "published": true
+    },
+    {
+      "sha": "fc0e04177495e86971bfc0166b3abb5dbbb41f59",
+      "date": "2026-08-19",
+      "title": "Rename music drive as family musical journey",
+      "published": true
+    },
+    {
+      "sha": "b51d62aa58647fe66728faca764206eaee7730ea",
+      "date": "2026-08-19",
+      "title": "Cache music editor game offline",
+      "published": true
+    },
+    {
+      "sha": "2fff5615e37431609abdfe0262f0dc5f8928f8aa",
+      "date": "2026-08-19",
+      "title": "Update TRA Games quality gate for game 16",
+      "published": true
+    },
+    {
+      "sha": "d25e9545646f1994ccc68a19e353b203608741e3",
+      "date": "2026-08-19",
+      "title": "Cover new music games in production smoke check",
+      "published": true
+    },
+    {
+      "sha": "5ad3359ee40fb027627d22a86dba5dd03aa561a6",
+      "date": "2026-08-19",
+      "title": "Fix HITSTER 888 offline cache quality gate",
+      "published": true
+    },
+    {
+      "sha": "79a220e61c37a3b8f7590ee743dc6b84becd7ac1",
+      "date": "2026-08-19",
+      "title": "Expand TRA production quality gate to 100 percent coverage",
+      "published": true
+    },
+    {
+      "sha": "9bdb506b1c8c673988f3988c692cddfe42e38326",
+      "date": "2026-08-19",
+      "title": "Use standard secure GitHub Pages deployment and full public verification",
+      "published": true
+    },
+    {
+      "sha": "84f74b819a430ff431cef504f3cacfc9bcbd53ac",
+      "date": "2026-08-19",
+      "title": "Align Tomer Links deploy with secure Pages workflow",
+      "published": true
+    },
+    {
+      "sha": "9ceaee10c4a1b85ecf67cebcc79f59274fe84ca5",
+      "date": "2026-08-19",
+      "title": "Add Ant Anti 100 chess bot loader",
+      "published": true
+    },
+    {
+      "sha": "d2d11f7e513b954e961032a253257bed54e396d5",
+      "date": "2026-08-19",
+      "title": "Publish Ant Anti 100 chess bot",
+      "published": true
+    },
+    {
+      "sha": "0a61f0ab43650fce1179d8764647565d52cd1eb6",
+      "date": "2026-08-20",
+      "title": "Upgrade TRA Chess ratings to 1000-3000",
+      "published": true
+    },
+    {
+      "sha": "b2b0360317ac38d675a6838676814fb0f6b14c44",
+      "date": "2026-08-20",
+      "title": "Add HITSTER 888 catalog to Music Editor",
+      "published": true
+    },
+    {
+      "sha": "abc3f4ef231ce6d256242540ac83cc47807adc3c",
+      "date": "2026-08-20",
+      "title": "Upgrade Music Editor UI for HITSTER 888",
+      "published": true
+    },
+    {
+      "sha": "490736d36dc86c779c5879d068066a5da2525168",
+      "date": "2026-08-20",
+      "title": "Validate Chess loader and Music Editor 888",
+      "published": true
+    },
+    {
+      "sha": "006816750f59c6c7a56dccc5d68c056860b71ca0",
+      "date": "2026-08-20",
+      "title": "Show canonical TRA Chess ratings",
+      "published": true
+    },
+    {
+      "sha": "a8ee6921d589f320f3adb4567b333052848889de",
+      "date": "2026-08-20",
+      "title": "Add shared conversation question bank",
+      "published": true
+    },
+    {
+      "sha": "e4b2d4bcb05efd10787caec6e43da1c0e0cec238",
+      "date": "2026-08-20",
+      "title": "Load shared conversation questions in games hub",
+      "published": true
+    },
+    {
+      "sha": "f22e01a5784fd88164e23a397ec363a7b4caa294",
+      "date": "2026-08-20",
+      "title": "Use shared question bank for Good Word",
+      "published": true
+    },
+    {
+      "sha": "c46aaaa0f2a3dc37cb3de0dd5a4f33a8e36196ba",
+      "date": "2026-08-20",
+      "title": "Turn Connect Talk into shared question-deck game",
+      "published": true
+    },
+    {
+      "sha": "1ea30dc34b8edb9462a7468e6dc10eeaf6ca8c58",
+      "date": "2026-08-20",
+      "title": "Fix TRA homepage game count to 16",
+      "published": true
+    },
+    {
+      "sha": "64243f5f78cac91c0553e2999a1786c773c12634",
+      "date": "2026-08-20",
+      "title": "Fix HITSTER navigation count",
+      "published": true
+    },
+    {
+      "sha": "1bd8e66c7d7a8b985c0afc525e5349538a6d4967",
+      "date": "2026-08-20",
+      "title": "Improve HITSTER audio compatibility on iOS",
+      "published": true
+    },
+    {
+      "sha": "7eeb3e74909200da36e5f1ab1f2c7f8b5199375c",
+      "date": "2026-08-20",
+      "title": "Preload HITSTER previews before user playback",
+      "published": true
+    },
+    {
+      "sha": "e4f3faea780b40e093fae262f08626d2a4a08964",
+      "date": "2026-08-20",
+      "title": "Strengthen TRA production smoke checks",
+      "published": true
+    },
+    {
+      "sha": "401dc7bab50c98295f6856615020e4201d3bb388",
+      "date": "2026-08-20",
+      "title": "Fix HITSTER: draw card starts 30-second preview automatically",
+      "published": true
+    },
+    {
+      "sha": "b91de18cd4eaf27a6204212a2b43bb185410632e",
+      "date": "2026-08-20",
+      "title": "Fix chess squares at 3cm and reduce layout reflow",
+      "published": true
+    },
+    {
+      "sha": "9a6aa23dec0df27f62da8e25db74ee0d39868897",
+      "date": "2026-08-20",
+      "title": "Fix HITSTER blocked autoplay recovery",
+      "published": true
+    },
+    {
+      "sha": "0900204277d717b649717876374e74a1ef3b4352",
+      "date": "2026-08-20",
+      "title": "Fix HITSTER iOS 30-second audio playback",
+      "published": true
+    },
+    {
+      "sha": "a6e1261ef4f2c9fdfe334ac6f08a21d04d0c0122",
+      "date": "2026-08-20",
+      "title": "Let Safari handle Apple audio range requests",
+      "published": true
+    },
+    {
+      "sha": "a7a4536f55a87ecf606dc6d3cc70502c3ec25c75",
+      "date": "2026-08-20",
+      "title": "Refresh HITSTER 30-second audio client",
+      "published": true
+    },
+    {
+      "sha": "f66987eb6eb7ea6b187b22034fc3dbbe2840157e",
+      "date": "2026-08-20",
+      "title": "Hitster: default to all eras",
+      "published": true
+    },
+    {
+      "sha": "a55ae7fe024e8bd56b180e3cd614e702eafaa64b",
+      "date": "2026-08-20",
+      "title": "Fix HITSTER 888 offline cache quality gate",
+      "published": true
+    },
+    {
+      "sha": "89bae9bc3e4935b8e0d42669ce8955ce5f1b44ea",
+      "date": "2026-08-20",
+      "title": "Fix HITSTER mobile audio smoke checks",
+      "published": true
+    },
+    {
+      "sha": "48e44494a667c5b2f7abd4b8b36ca20d3441c9b3",
+      "date": "2026-08-20",
+      "title": "Fix HITSTER mobile audio preload",
+      "published": true
+    },
+    {
+      "sha": "63137b5c449e9e13b1970f986f66ef077a652606",
+      "date": "2026-08-20",
+      "title": "Add ישראלילה playlist to HITSTER TRA",
+      "published": true
+    },
+    {
+      "sha": "d195e74c95ac41a04bdc2de4a3bd6760da7dab81",
+      "date": "2026-08-20",
+      "title": "Release TRA 9.9 version registry",
+      "published": true
+    },
+    {
+      "sha": "52a1f6f0bc0221147812c41dd9c30a94bb7d0f3b",
+      "date": "2026-08-20",
+      "title": "Preserve TRA version history for 9.9",
+      "published": true
+    },
+    {
+      "sha": "66a0adee8646aa3f0c3e37447b2045fa99cb8634",
+      "date": "2026-08-20",
+      "title": "Mark repository as TRA 9.9",
+      "published": true
+    },
+    {
+      "sha": "c2eeb98ca0e1dcd7fb78fc9f0850508e8627fbfe",
+      "date": "2026-08-20",
+      "title": "Set TRA 9.9 app identity",
+      "published": true
+    },
+    {
+      "sha": "e0b1f3e2b1cff3c05b57c8c08ad5ea4eeeb33ed5",
+      "date": "2026-08-20",
+      "title": "Publish TRA 9.9 on main experience",
+      "published": true
+    },
+    {
+      "sha": "2f84389cddc768d9d701e642dc298093705db3c8",
+      "date": "2026-08-20",
+      "title": "Add TRA 9.9 universal 10/10 quality layer",
+      "published": true
+    },
+    {
+      "sha": "28c4d2c52b21086fe53ac65e7b2fa316eec93611",
+      "date": "2026-08-20",
+      "title": "Define 10/10 quality targets across TRA",
+      "published": true
+    },
+    {
+      "sha": "d0e9bdd28f1f4fcbe8e2c86942cfa1ff104b3930",
+      "date": "2026-08-20",
+      "title": "Add reference-app inspiration principle to TRA 9.9",
+      "published": true
+    },
+    {
+      "sha": "abc0df03365efdecf6afdfbf226b68591ed50dc3",
+      "date": "2026-08-20",
+      "title": "Upgrade HITSTER to 10/10 resilient 888-card availability",
+      "published": true
+    },
+    {
+      "sha": "602d0835089f725555069655fa94298e35c8be67",
+      "date": "2026-08-20",
+      "title": "Rebuild Casino Angel as TRA 9.9 10/10 social poker",
+      "published": true
+    },
+    {
+      "sha": "150f9c0be89fd86e641886744caf036cd7498d02",
+      "date": "2026-08-20",
+      "title": "Upgrade TRA Chess to 10/10 with Review, hints and Ant 3000",
+      "published": true
+    },
+    {
+      "sha": "cdc191c7d7e0778931e33e073b2afd52f3094472",
+      "date": "2026-08-20",
+      "title": "Apply TRA 9.9 quality layer and offline cache to all sites",
+      "published": true
+    },
+    {
+      "sha": "14dab0573095c1241792eedc453c7aab201ab6d2",
+      "date": "2026-08-20",
+      "title": "Style universal TRA 9.9 quality, HITSTER fallback and Chess review",
+      "published": true
+    },
+    {
+      "sha": "a62cd53e145ab136ffc60175c8e57b902b11f384",
+      "date": "2026-08-20",
+      "title": "Set TRA 9.9 quality target and reference-app principle",
+      "published": true
+    },
+    {
+      "sha": "9bfda42847085ac51da42b5444ec5c4b92ca02bc",
+      "date": "2026-08-20",
+      "title": "Add TRA 9.9 10/10 release quality gate",
+      "published": true
+    },
+    {
+      "sha": "eceac02489484af7cc0d966d950b43fe63f13aaf",
+      "date": "2026-08-20",
+      "title": "Make TRA 9.9 10/10 gate part of CI",
+      "published": true
+    },
+    {
+      "sha": "6e41989d1bdbaf03210776fb65c46af6beb9435e",
+      "date": "2026-08-20",
+      "title": "Publish only after TRA 9.9 10/10 gate passes",
+      "published": true
+    },
+    {
+      "sha": "e5e018ca7f35047c9bd82cc8ae1f8c18c7503455",
+      "date": "2026-08-20",
+      "title": "Fix and broaden TRA 9.9 10/10 release gate",
+      "published": true
+    },
+    {
+      "sha": "9de3953dcfba4348d7c346bd65dc55ae037adfbf",
+      "date": "2026-08-20",
+      "title": "Restore explicit HITSTER 888 offline cache version marker",
+      "published": true
+    },
+    {
+      "sha": "0f88af6fd5d1c0c89230ddb0ac999eb4a1fc6fa7",
+      "date": "2026-08-20",
+      "title": "TRA 9.9 — 10/10 release",
+      "published": true
+    },
+    {
+      "sha": "1e4c2d89d703ff576145dc5224dc1cf18aeeddda",
+      "date": "2026-08-20",
+      "title": "Make Safari playback smoke test whitespace-robust",
+      "published": true
+    },
+    {
+      "sha": "45052fc0b60435802d03ac4a5093d5459615a1ea",
+      "date": "2026-08-20",
+      "title": "Verify TRA 9.9 post-merge release state",
+      "published": true
+    },
+    {
+      "sha": "fd2138ed343e427ebebd1a9955315b58275b3ca8",
+      "date": "2026-08-20",
+      "title": "Verify TRA 9.9 release gates",
+      "published": true
+    },
+    {
+      "sha": "03dc87b60f02c85d999c6bf17856da807695487f",
+      "date": "2026-08-20",
+      "title": "Add external live HTTP verification gate",
+      "published": true
+    },
+    {
+      "sha": "61d05e37eeff08107a3bce65f99f679645f2ba8c",
+      "date": "2026-08-20",
+      "title": "Fix live Casino verification target",
+      "published": true
+    },
+    {
+      "sha": "020d110b0759a7a90e7d8bad43f658d747f67a78",
+      "date": "2026-08-20",
+      "title": "TRA 9.9 — make Live HTTP verification green",
+      "published": true
+    },
+    {
+      "sha": "ea2d673a4271527b555eb58cc4492d113485d0bf",
+      "date": "2026-08-20",
+      "title": "Publish: את לא אם ילדי 100.000",
+      "published": true
+    },
+    {
+      "sha": "473948193e246b2a7a4c759a8512d69f66a8178e",
+      "date": "2026-08-20",
+      "title": "Publish standalone HITSTER TRA tokens game",
+      "published": true
+    },
+    {
+      "sha": "e27a6fee279ed7dc0da27a040c543935ecec40d4",
+      "date": "2026-08-20",
+      "title": "archive HITSTER demo before Hebrew 57 publish",
+      "published": true
+    },
+    {
+      "sha": "9fe1649c9cb4018e163519c2037614820ef8c67c",
+      "date": "2026-08-20",
+      "title": "publish Hebrew HITSTER 57 with single-use cards and chai win",
+      "published": true
+    },
+    {
+      "sha": "4ee7b3a97fd79932f472b6806cf8fac6813cd690",
+      "date": "2026-08-20",
+      "title": "fix HITSTER CI: restore dedicated 888 game page",
+      "published": true
+    },
+    {
+      "sha": "2dcffd8ccfd6cb02bc6c3a4e8fe62215a6c82afa",
+      "date": "2026-08-20",
+      "title": "fix HITSTER hub: separate 888 and Kfar Blum 57 modes",
+      "published": true
+    },
+    {
+      "sha": "453d00b38e576ed6538268e458c3283d817eaeec",
+      "date": "2026-08-20",
+      "title": "fix HITSTER gate: validate 888 and 57 as separate modes",
+      "published": true
+    },
+    {
+      "sha": "f630ea2a9c13e34156ffa1a9c2eb61ab37428622",
+      "date": "2026-08-20",
+      "title": "fix smoke checks for separate HITSTER 888 and 57 pages",
+      "published": true
+    },
+    {
+      "sha": "8f8cfecbe092db00956050064dfb1dbafd844151",
+      "date": "2026-08-20",
+      "title": "fix TRA Games gate for dedicated HITSTER 888 page",
+      "published": true
+    },
+    {
+      "sha": "19f1c25a93ae0d97676f20d067d829ac7d2b3c32",
+      "date": "2026-08-20",
+      "title": "fix offline cache for HITSTER 888 plus Kfar Blum 57",
+      "published": true
+    },
+    {
+      "sha": "a9d549686a1f1b93e580df6009379f948b26fba6",
+      "date": "2026-08-20",
+      "title": "fix live HTTP gate: verify only after successful Pages deploy",
+      "published": true
+    },
+    {
+      "sha": "5fd0c8e1d60034fff227ee695ff2f467b7066310",
+      "date": "2026-08-20",
+      "title": "fix Pages verification for HITSTER 888 and Kfar Blum 57",
+      "published": true
+    },
+    {
+      "sha": "ccb275d77d016a3cf09d2be5770a666aca7a66b8",
+      "date": "2026-08-20",
+      "title": "fix TRA 9.9 gate for HITSTER 888 and Kfar Blum 57 separation",
+      "published": true
+    },
+    {
+      "sha": "cd133ef640efd1b730eb084b9e3d16f3c4aa752f",
+      "date": "2026-08-20",
+      "title": "Publish HITSTER TRA stars system",
+      "published": true
+    },
+    {
+      "sha": "c4701aa1bcf8d9b996132c4e106d2d4063523f6d",
+      "date": "2026-08-20",
+      "title": "fix TRA Links: route HITSTER through version hub",
+      "published": true
+    },
+    {
+      "sha": "5039404e4563c2dde0e13c8c4f14c5627d131285",
+      "date": "2026-08-20",
+      "title": "merge latest main stars-system update into HITSTER CI fix",
+      "published": true
+    },
+    {
+      "sha": "237e1353d864f56fe38d35021953415fc9473faa",
+      "date": "2026-08-20",
+      "title": "Merge HITSTER 888/57 CI and deploy verification",
+      "published": true
+    },
+    {
+      "sha": "3038b7d6898387af25c02358630e37a77c0345a1",
+      "date": "2026-08-20",
+      "title": "TRA 9.9: raise quality target to 999/1000",
+      "published": true
+    },
+    {
+      "sha": "2c5628613a431e5233b8d2bff017e72df51e0385",
+      "date": "2026-08-20",
+      "title": "TRA 9.9: enable PWA on home entrypoint",
+      "published": true
+    },
+    {
+      "sha": "5226425f174a55ad6d7322dab73d0deae258216f",
+      "date": "2026-08-20",
+      "title": "TRA 9.9: enable PWA on games entrypoint",
+      "published": true
+    },
+    {
+      "sha": "6f961df9dd2e9f7e1c451463c82ee5f08e8e6ff1",
+      "date": "2026-08-20",
+      "title": "TRA 9.9: refresh offline PWA cache",
+      "published": true
+    },
+    {
+      "sha": "3a84fdf210a8395f6237ad4f47a7767238431945",
+      "date": "2026-08-20",
+      "title": "Launch TRA MVP publicly",
+      "published": true
+    },
+    {
+      "sha": "66580bfda5b4b7114c0a63f6602e134803843189",
+      "date": "2026-08-20",
+      "title": "Fix TRA 9.9 quality gate for official 999/1000 target",
+      "published": true
+    },
+    {
+      "sha": "9341134945df940716611a948d09756f2a8b179f",
+      "date": "2026-08-20",
+      "title": "TRA 9.9: complete Casino Holdem and promotion guard",
+      "published": true
+    },
+    {
+      "sha": "c088be4863db5bf6367e3e9fd46d02f3fa7600c3",
+      "date": "2026-08-20",
+      "title": "Make Casino Angel table neutral",
+      "published": true
+    },
+    {
+      "sha": "c1830464b1c59d0e07d49b82ebd667f11dd86edf",
+      "date": "2026-08-21",
+      "title": "Fix TRA 9.9 quality gate for 999/1000 target",
+      "published": true
+    },
+    {
+      "sha": "d1bdae34593f64a697ad39b227ff1a3f9b77922c",
+      "date": "2026-08-21",
+      "title": "Fix TRA Pages deployment action",
+      "published": true
+    },
+    {
+      "sha": "63a0195c202a46a137ddbf1aa384c3595acf0c63",
+      "date": "2026-08-21",
+      "title": "Make Tomer Links workflow quality-only",
+      "published": true
+    },
+    {
+      "sha": "5048790b1029b62f7782672c950da2e380fac4ad",
+      "date": "2026-08-21",
+      "title": "Merge pull request #18 from tomerangel212-png/fix/tra-pages-single-deploy",
+      "published": true
+    },
+    {
+      "sha": "52c2e5afd4fabc317e4ebcc8dea23498dc478772",
+      "date": "2026-08-23",
+      "title": "Fix TRA 9.9 quality target to 999/1000",
+      "published": true
+    },
+    {
+      "sha": "cc8cf0e743b96aca03bc04fc2b9776376579e73a",
+      "date": "2026-08-23",
+      "title": "Fix TRA 9.9 release target contract (#19)",
+      "published": true
+    },
+    {
+      "sha": "a6f0f889b6c9cd9d509abcdb88d30c4a8fd64339",
+      "date": "2026-08-23",
+      "title": "Define TRA perfect quality target and historical principles",
+      "published": true
+    },
+    {
+      "sha": "8d81ab9febde8baf0af97fcf69fe6a54f112ed9f",
+      "date": "2026-08-23",
+      "title": "Fix perfect-target contract encoding and CI wiring",
+      "published": true
+    },
+    {
+      "sha": "6b5e42e2063768ea1e1000fdb8ab351a0cee6612",
+      "date": "2026-08-23",
+      "title": "Merge PR #21: TRA Perfect quality program",
+      "published": true
+    },
+    {
+      "sha": "736d95346d1429f4698ae87e8e709018365d7d1f",
+      "date": "2026-08-23",
+      "title": "Make /links/ the final canonical TRA link tree",
+      "published": true
+    },
+    {
+      "sha": "290109e18dc2680f7beb510146fb03ecbafb7d7d",
+      "date": "2026-08-23",
+      "title": "Link the homepage to the final TRA tree",
+      "published": true
+    },
+    {
+      "sha": "7247d52077ff7b93f55d700e4a8ac6b9c609c9dc",
+      "date": "2026-08-23",
+      "title": "Redirect legacy links.html to the final link tree",
+      "published": true
+    },
+    {
+      "sha": "cd9d47d58cfa6ae32741266b09358e017cd4dd03",
+      "date": "2026-08-23",
+      "title": "Redirect legacy tree.html to the final link tree",
+      "published": true
+    },
+    {
+      "sha": "00b64281a3de6a3e2c0f2e22307e8f43b8732148",
+      "date": "2026-08-23",
+      "title": "Redirect legacy linktree.html to the final link tree",
+      "published": true
+    },
+    {
+      "sha": "481e595300cb300d116088bde6945bf6d32011b2",
+      "date": "2026-08-23",
+      "title": "Redirect legacy tomer-links.html to the final link tree",
+      "published": true
+    },
+    {
+      "sha": "4aa4dcbd6a4a4d7f8662565ac8592b44c4156376",
+      "date": "2026-08-23",
+      "title": "Cache final link tree and legacy redirects offline",
+      "published": true
+    },
+    {
+      "sha": "3f0b8160f0621a2391c985ea836d6c30ef709dc3",
+      "date": "2026-08-23",
+      "title": "Gate the canonical tree and legacy link redirects",
+      "published": true
+    },
+    {
+      "sha": "0fe60da039ce916b7ac299fa86f419d2af2cc49f",
+      "date": "2026-08-23",
+      "title": "Verify the final public link tree during deployment",
+      "published": true
+    },
+    {
+      "sha": "0a48ee7854e2efadb9758b40f5d1de1dca7bdeb3",
+      "date": "2026-08-23",
+      "title": "Merge PR #22: Publish final TRA link tree",
+      "published": true
+    },
+    {
+      "sha": "e76cdcb0deda0cd358e54cae0eb8515e0a0c8686",
+      "date": "2026-08-23",
+      "title": "Add selectable mobile and desktop experiences to the link tree",
+      "published": true
+    },
+    {
+      "sha": "e92897a1ea45ddc007970da1d44367374848161a",
+      "date": "2026-08-23",
+      "title": "Gate mobile and desktop link-tree experiences",
+      "published": true
+    },
+    {
+      "sha": "2d4e21a9ea7366746ab50d1d3413a96ad82af396",
+      "date": "2026-08-23",
+      "title": "Refresh offline cache for device-aware link tree",
+      "published": true
+    },
+    {
+      "sha": "f21bb9192375f928a04fe09de32d305cbceb54e1",
+      "date": "2026-08-23",
+      "title": "Merge PR #23: Mobile and desktop TRA link tree",
+      "published": true
+    },
+    {
+      "sha": "41320d32f9aecd6aae02da816c0ebd28a1069ead",
+      "date": "2026-08-23",
+      "title": "fix(hitster): verify artist and year metadata",
+      "published": true
+    },
+    {
+      "sha": "49ff4c4a9ad8afd33e1454bc18f46e8ed2bc17f2",
+      "date": "2026-08-23",
+      "title": "fix(hitster): verify artist and year metadata",
+      "published": true
+    },
+    {
+      "sha": "703c1e50e49610f2934567d328f0039e5d13c759",
+      "date": "2026-08-23",
+      "title": "Verify HITSTER artist and song pairs by source-table headers",
+      "published": true
+    },
+    {
+      "sha": "2849ee82fb564934ab90c6bf8cee6ee13a7e5ba1",
+      "date": "2026-08-23",
+      "title": "Block HITSTER cards without verified artist-title pairing",
+      "published": true
+    },
+    {
+      "sha": "1662a8b1fdbd433eb3a91d5c0a06991be5161d67",
+      "date": "2026-08-23",
+      "title": "Allow source-verified self-titled song/artist pairs",
+      "published": true
+    },
+    {
+      "sha": "295151f1c18222a299b5c5020ea4af3ba1132cdc",
+      "date": "2026-08-23",
+      "title": "Document legitimate self-titled artist/song pairs",
+      "published": true
+    },
+    {
+      "sha": "b645a7ada2865691dbd81e6decb33ade93e0a826",
+      "date": "2026-08-23",
+      "title": "chore(pwa): refresh verified HITSTER metadata cache",
+      "published": true
+    },
+    {
+      "sha": "570939f06c4d26ac26f11c5dccc51d2cf86d451e",
+      "date": "2026-08-23",
+      "title": "Add Apple-verified TRA music station",
+      "published": true
+    },
+    {
+      "sha": "a20af8e249ed66b42aaf77a643d3508224ce5fd6",
+      "date": "2026-08-23",
+      "title": "feat(station): expand TRA Station to 444 songs",
+      "published": true
+    },
+    {
+      "sha": "ff8840d21bc0c19b0e2424ff068b7eadd602dea8",
+      "date": "2026-08-23",
+      "title": "feat(station): verify 444 songs at playback",
+      "published": true
+    },
+    {
+      "sha": "fcd58c2485306233e473228f6a077ad7f0f41644",
+      "date": "2026-08-23",
+      "title": "test(station): enforce exact 444-song catalog",
+      "published": true
+    },
+    {
+      "sha": "483b8cfbd93e178281d612cb3f872eec64d5df42",
+      "date": "2026-08-23",
+      "title": "docs(station): advertise 444-song station",
+      "published": true
+    },
+    {
+      "sha": "dc8f38d8d2d7521cf50ef59277d48ce29d0597aa",
+      "date": "2026-08-23",
+      "title": "chore(pwa): refresh cache for TRA Station 444",
+      "published": true
+    },
+    {
+      "sha": "ef258eb0352adbfa43034ac9ccc25fbf09ed56b1",
+      "date": "2026-08-23",
+      "title": "test(station): cover station UI and runtime guard",
+      "published": true
+    },
+    {
+      "sha": "d7b8eb72f7027b32ce9472f5d0e33cf2f08e4f17",
+      "date": "2026-08-23",
+      "title": "Merge pull request #26 from tomerangel212-png/feature/tra-station-444",
+      "published": true
+    },
+    {
+      "sha": "a021d8503e2bfbf7a6107ec1160e2f55e8246edd",
+      "date": "2026-08-24",
+      "title": "fix(pages): make latest deployment win",
+      "published": true
+    },
+    {
+      "sha": "6e0ae17e506c6ba7c829550fba497b20c86ee65a",
+      "date": "2026-08-24",
+      "title": "Merge pull request #27 from tomerangel212-png/fix/pages-latest-wins",
+      "published": true
+    },
+    {
+      "sha": "ff04b97f3abf818603d57b64ba9a7812ecfd95a4",
+      "date": "2026-08-24",
+      "title": "Add scoped Apple Music evidence and parser regression checks",
+      "published": true
+    },
+    {
+      "sha": "57a49c7c1ff13e60bbbbdd68693491e8226d82d0",
+      "date": "2026-08-24",
+      "title": "fix(pages): verify TRA Station 444 before and after deploy",
+      "published": true
+    },
+    {
+      "sha": "624efb4bd6a2282fe14b9b1a77df42a19c34b672",
+      "date": "2026-08-24",
+      "title": "Enforce scoped evidence and behavioral HITSTER checks",
+      "published": true
+    },
+    {
+      "sha": "7f1f66ecbf59fcfeb467771364e10036303a5bdb",
+      "date": "2026-08-24",
+      "title": "Merge pull request #28 from tomerangel212-png/fix/pages-verify-tra-station",
+      "published": true
+    },
+    {
+      "sha": "0db3b863fa1a6d851e5a1e00ef3661087962168b",
+      "date": "2026-08-24",
+      "title": "Document scoped secondary verification policy",
+      "published": true
+    },
+    {
+      "sha": "7ad98068eb23ae6b3c551d4b832def95ccb8c438",
+      "date": "2026-08-24",
+      "title": "Merge PR #24: verify HITSTER song titles against artists",
+      "published": true
+    },
+    {
+      "sha": "3959160924eb22e434f9e7dbebbb1c34f34e5c16",
+      "date": "2026-08-24",
+      "title": "Hide HITSTER year ranges from the game screen",
+      "published": true
+    },
+    {
+      "sha": "cf08932ea31623627081a327d5d1d3415a76e0af",
+      "date": "2026-08-24",
+      "title": "Keep the current HITSTER era secret until reveal",
+      "published": true
+    },
+    {
+      "sha": "324001b35d9da0eae1310d37900d1bbdd15c4542",
+      "date": "2026-08-24",
+      "title": "Guard the hidden-year-range HITSTER rule",
+      "published": true
+    },
+    {
+      "sha": "a3be2db542cb2317eb9cb7026a4d823f3e7fbd0c",
+      "date": "2026-08-24",
+      "title": "Update smoke test for secret HITSTER timeline",
+      "published": true
+    },
+    {
+      "sha": "b61f4300a1f266048e4b23ac8606479a099e51a8",
+      "date": "2026-08-24",
+      "title": "Align TRA release gate with hidden HITSTER range",
+      "published": true
+    },
+    {
+      "sha": "f66d6e76311783be83a7adefa0a55768a32ccbd3",
+      "date": "2026-08-24",
+      "title": "Hide HITSTER year ranges until reveal",
+      "published": true
+    },
+    {
+      "sha": "3d666a824bea178c4192ffcb026d07d84ffba4db",
+      "date": "2026-08-24",
+      "title": "Fix TRA Station playback",
+      "published": true
+    },
+    {
+      "sha": "8d076d0a9424d515bc18b954750343dd052d0b92",
+      "date": "2026-08-24",
+      "title": "fix(hitster): keep playback inside TRA",
+      "published": true
+    },
+    {
+      "sha": "01465271df1343dc6692e24e22805e994b126ee3",
+      "date": "2026-08-24",
+      "title": "fix(hitster): remove external app fallbacks",
+      "published": true
+    },
+    {
+      "sha": "bfff97f94c4577e7ad6c541b8923eeb8a43723be",
+      "date": "2026-08-24",
+      "title": "docs(tra): add Michael-to-Estelle principle",
+      "published": true
+    },
+    {
+      "sha": "099fac6ed79293811033416b4e86379a9f6044b5",
+      "date": "2026-08-24",
+      "title": "test(hitster): enforce internal playback",
+      "published": true
+    },
+    {
+      "sha": "7a487ee98623ae8564f4342a4a982d921b3c6cff",
+      "date": "2026-08-24",
+      "title": "chore(pwa): refresh HITSTER internal-audio cache",
+      "published": true
+    },
+    {
+      "sha": "3672dfb1419453bd693bffbb1d43aba2ac764563",
+      "date": "2026-08-24",
+      "title": "fix(pwa): preserve station and HITSTER cache guards",
+      "published": true
+    },
+    {
+      "sha": "8d25e42648c4330e7e2787c408bdc4c6ab0e3f7d",
+      "date": "2026-08-24",
+      "title": "test(tra): align release gate with internal HITSTER playback",
+      "published": true
+    },
+    {
+      "sha": "851e39c5fb2498a4a3e51051094abf0baa737c83",
+      "date": "2026-08-24",
+      "title": "Verify TRA Pages live",
+      "published": true
+    },
+    {
+      "sha": "913b480c04ff5a082a204418dd3cd25c0da6857c",
+      "date": "2026-08-24",
+      "title": "Add 555 songs for TRA Station 999",
+      "published": true
+    },
+    {
+      "sha": "f7f086581f98c0edccea0000ad61c46411c490f3",
+      "date": "2026-08-24",
+      "title": "Upgrade TRA Station UI and runtime to 999",
+      "published": true
+    },
+    {
+      "sha": "4610e6291d85e0ab42e4e2a56ef5804372d5dba2",
+      "date": "2026-08-24",
+      "title": "Enforce TRA Station 999 quality gate",
+      "published": true
+    },
+    {
+      "sha": "56fb774dfc2c81200bd5ca7103277368055cf07a",
+      "date": "2026-08-24",
+      "title": "Refresh PWA cache for TRA Station 999",
+      "published": true
+    },
+    {
+      "sha": "c9cd312b7371193c4dc836f1ae3927c8cd202d9f",
+      "date": "2026-08-24",
+      "title": "Advertise TRA Station 999 in games hub",
+      "published": true
+    },
+    {
+      "sha": "1cf95f5fd0ada1bd1820b8168d5e9d46f0244af1",
+      "date": "2026-08-24",
+      "title": "Deploy and verify TRA Station 999",
+      "published": true
+    },
+    {
+      "sha": "a946c2bd8408f8e716cd039f4dc124bae490a9b7",
+      "date": "2026-08-24",
+      "title": "Replace five duplicate Kate Bush rows",
+      "published": true
+    },
+    {
+      "sha": "0199912e409b87be5ffa9150f0d368487191e1d4",
+      "date": "2026-08-24",
+      "title": "Merge HITSTER internal playback",
+      "published": true
+    },
+    {
+      "sha": "af08d4f19679a28237e46274344c6150bed098c2",
+      "date": "2026-08-24",
+      "title": "Deduplicate catalog to exactly 999 unique songs",
+      "published": true
+    },
+    {
+      "sha": "937d2c50976e9468a47cdf4a0c38dc3ecf086670",
+      "date": "2026-08-24",
+      "title": "Fix TRA Station 999 dedupe gate",
+      "published": true
+    },
+    {
+      "sha": "c6e4980083dd223c7fa7c82eb360bdffa231583d",
+      "date": "2026-08-24",
+      "title": "Cache TRA Station 999 corrections",
+      "published": true
+    },
+    {
+      "sha": "c893b22ca1b2a59b28bb7f8d9d68af7b9e18f175",
+      "date": "2026-08-24",
+      "title": "Verify all TRA Station 999 catalog files",
+      "published": true
+    },
+    {
+      "sha": "68da6c6cf35b9feeebea971d249acb670e645d80",
+      "date": "2026-08-24",
+      "title": "Run quality gate for 999 unique songs",
+      "published": true
+    },
+    {
+      "sha": "a53eccb2052d622875003dc7d2812e49e05f21b4",
+      "date": "2026-08-24",
+      "title": "Merge HITSTER internal cache with Station 999",
+      "published": true
+    },
+    {
+      "sha": "0e7bca377b09832912eb1546d43fc317adac3938",
+      "date": "2026-08-24",
+      "title": "Sync TRA Station 999 with latest main",
+      "published": true
+    },
+    {
+      "sha": "b41dae147169c4ae2cab28c5d092ac6c0229da1a",
+      "date": "2026-08-24",
+      "title": "Expand TRA Station to 999 songs",
+      "published": true
+    },
+    {
+      "sha": "fe822570eb8e8a744c6c067511f4fd05f184dd51",
+      "date": "2026-08-24",
+      "title": "Add English HITSTER 888 interface without external-app dependency",
+      "published": true
+    },
+    {
+      "sha": "7fc30c627bc2c1889a4ecbea724d4412c4f6b0c9",
+      "date": "2026-08-24",
+      "title": "Unify Kfar Blum HITSTER route at 888",
+      "published": true
+    },
+    {
+      "sha": "306dc725f10a9f07e75b0cc7feee24e22d641a19",
+      "date": "2026-08-24",
+      "title": "Unify legacy HITSTER route at English 888",
+      "published": true
+    },
+    {
+      "sha": "99fb5fcef65e1ecdfa7356a3742f0d4e41e06e75",
+      "date": "2026-08-24",
+      "title": "Unify HITSTER hub at verified 888 routes",
+      "published": true
+    },
+    {
+      "sha": "8f8920087d455c5c5c0ca3d15d426d17ab03dce7",
+      "date": "2026-08-24",
+      "title": "Align HITSTER 888 gate with unified routes",
+      "published": true
+    },
+    {
+      "sha": "dbdbd9f90c2a7b2e5cc1aa09f0e808f5e3246bfd",
+      "date": "2026-08-24",
+      "title": "Update smoke checks for unified HITSTER 888 routes",
+      "published": true
+    },
+    {
+      "sha": "da342c80c6cb35c3ba6ff1dfb2d65d7083db843f",
+      "date": "2026-08-24",
+      "title": "Align TRA Games gate with unified HITSTER 888",
+      "published": true
+    },
+    {
+      "sha": "2fabb1b369ea9d28bff30da407ef1d91f698ed7d",
+      "date": "2026-08-24",
+      "title": "Align TRA 9.9 gate with unified HITSTER 888",
+      "published": true
+    },
+    {
+      "sha": "6a4006f525363ecbd3607d8438b453e45e71df0d",
+      "date": "2026-08-24",
+      "title": "Finalize HITSTER 888 routes",
+      "published": true
+    },
+    {
+      "sha": "1adc2984b2c7f777ff754a40a9eedbd3c4cebd73",
+      "date": "2026-08-24",
+      "title": "Verify unified HITSTER 888 routes after deploy",
+      "published": true
+    },
+    {
+      "sha": "6c847804266577723c5616db35d762b39c2ff7a7",
+      "date": "2026-08-24",
+      "title": "Verify HITSTER 888 Pages release",
+      "published": true
+    },
+    {
+      "sha": "950db893dacbe34d63e4607f7f22fc56c00783bc",
+      "date": "2026-08-24",
+      "title": "Fix play flow",
+      "published": true
+    },
+    {
+      "sha": "bd2c236575aa6f82e92dddfbbbc25fd058c13054",
+      "date": "2026-08-24",
+      "title": "Start button",
+      "published": true
+    },
+    {
+      "sha": "b4ab5504635be91ee213b8047093c66fe03dffde",
+      "date": "2026-08-24",
+      "title": "Test play flow",
+      "published": true
+    },
+    {
+      "sha": "4753011651f5baebe80d51134b2f8320c0d798fb",
+      "date": "2026-08-24",
+      "title": "Fix play test",
+      "published": true
+    },
+    {
+      "sha": "42095be0714d9ca6adb08b6eb1fbb329f83a1377",
+      "date": "2026-08-24",
+      "title": "Fix audio smoke",
+      "published": true
+    },
+    {
+      "sha": "7ef512909bd0d763156560c5e4a138165019e9e2",
+      "date": "2026-08-24",
+      "title": "Fix start gate",
+      "published": true
+    },
+    {
+      "sha": "a88e404da0ecaa3bb1fede11c70c9fec1017f488",
+      "date": "2026-08-25",
+      "title": "Fix TRA audio playback",
+      "published": true
+    },
+    {
+      "sha": "43a63567330e3677b8505dec60c967b168d359d5",
+      "date": "2026-08-25",
+      "title": "Verify every TRA route",
+      "published": true
+    },
+    {
+      "sha": "6785ab120af116a254b1a68639bd894acd20a5f6",
+      "date": "2026-08-26",
+      "title": "Add original HITSTER timeline mechanics",
+      "published": true
+    },
+    {
+      "sha": "4c1283eacc6f83a167ab6abc6139fcc99c13a554",
+      "date": "2026-08-26",
+      "title": "Use original HITSTER placement flow",
+      "published": true
+    },
+    {
+      "sha": "e0088c7381c5b454a45eb2e8fcdb8516c3d8df3d",
+      "date": "2026-08-26",
+      "title": "Match Chess.com move interaction patterns",
+      "published": true
+    },
+    {
+      "sha": "188bf85f21763b1c4a7bcae4acf0aadb0ad89df1",
+      "date": "2026-08-26",
+      "title": "Cache original game runtime offline",
+      "published": true
+    },
+    {
+      "sha": "e2b93a9e80ee9ead0a90bf4d7d30b634576cad2a",
+      "date": "2026-08-26",
+      "title": "Restore HITSTER release gate contract",
+      "published": true
+    },
+    {
+      "sha": "3d5c092ec5da7ca62ae5fd2128be506cb8250270",
+      "date": "2026-08-26",
+      "title": "Keep Station 999 cache marker",
+      "published": true
+    },
+    {
+      "sha": "bdd378c781bdaf90e0f092c3d667e514660cbc4e",
+      "date": "2026-08-26",
+      "title": "Merge original TRA game mechanics",
+      "published": true
+    },
+    {
+      "sha": "e3fc38081af9948f15df8621eeb163f8fe64f4eb",
+      "date": "2026-08-26",
+      "title": "Fix HITSTER annual 888 A-list and playback",
+      "published": true
+    },
+    {
+      "sha": "f26f77f55fbae677ff3c8e1b7925ab0a602251e6",
+      "date": "2026-08-27",
+      "title": "Fix HITSTER gate",
+      "published": true
+    },
+    {
+      "sha": "d2d756d94ef5a4f5a0b9bf38e58d7bfb70b09b26",
+      "date": "2026-08-28",
+      "title": "Add What Country",
+      "published": true
+    },
+    {
+      "sha": "4fe26f522aa4414af22364b321cfb2950ce729a6",
+      "date": "2026-08-28",
+      "title": "Make TRA mobile audio green",
+      "published": true
+    },
+    {
+      "sha": "f879fd1e69aa68a2dffe810b8d0f500b7d615d07",
+      "date": "2026-08-28",
+      "title": "Fix Pages rerun artifact",
+      "published": true
+    },
+    {
+      "sha": "2ba55e639890028edee93e9ef780967a4a7a40a6",
+      "date": "2026-08-28",
+      "title": "Fix repeatable Pages deploys",
+      "published": true
+    },
+    {
+      "sha": "041bf8166760350e652e4ee7ee0d800b9e7c336a",
+      "date": "2026-08-29",
+      "title": "Protect TRA rights",
+      "published": true
+    },
+    {
+      "sha": "143ef50cb26ba7325289ac5b5923da9c28f636a5",
+      "date": "2026-08-29",
+      "title": "Show TRA copyright",
+      "published": true
+    },
+    {
+      "sha": "7284afdbda91c45ce654214bdce3f17b3976f533",
+      "date": "2026-08-29",
+      "title": "3 lives",
+      "published": true
+    },
+    {
+      "sha": "275a8eafe740e8fc4a4c80adb19904a17b71c8ad",
+      "date": "2026-08-29",
+      "title": "Add alchemy answers",
+      "published": true
+    },
+    {
+      "sha": "01c60294e8bd28134addcb101f91ad5f24023fbe",
+      "date": "2026-08-29",
+      "title": "3 correct = +1 life",
+      "published": true
+    },
+    {
+      "sha": "07d2025e14326236989b10d5968a8c36bb45b552",
+      "date": "2026-08-31",
+      "title": "HITSTER 888 Kfar Blum",
+      "published": true
+    },
+    {
+      "sha": "85efa1eba01fcbbef74eb6f872b6411b33ebc1b7",
+      "date": "2026-08-31",
+      "title": "Turn yellow projects green",
+      "published": true
+    },
+    {
+      "sha": "f019a90b1272b7a4fb0919dd816676a8dfa1a3f1",
+      "date": "2026-08-31",
+      "title": "Rebase green upgrades on latest HITSTER",
+      "published": true
+    },
+    {
+      "sha": "69979e6bc367d22602ee115b284a9e08b321b67b",
+      "date": "2026-08-31",
+      "title": "Document green upgrade scope",
+      "published": true
+    },
+    {
+      "sha": "9e774083f333712a785ff49575bcf65db0a0ba66",
+      "date": "2026-08-31",
+      "title": "Complete remaining digital yellow builds",
+      "published": true
+    },
+    {
+      "sha": "f22ed1bcf7fd365ff27989bcfe616fb80fb9056f",
+      "date": "2026-08-31",
+      "title": "Lock real-world green gates",
+      "published": true
+    },
+    {
+      "sha": "eb740845ed2f0b1af1dfb5e7eb39beac9e9afe5a",
+      "date": "2026-08-31",
+      "title": "Add EP source registry",
+      "published": true
+    },
+    {
+      "sha": "de278f36c24bcb9dc12559a7686dd081b00eee32",
+      "date": "2026-08-31",
+      "title": "Define truthful 15 of 15 green health status",
+      "published": true
+    },
+    {
+      "sha": "556e69137aadd1b5f7311b12ac574137df39a138",
+      "date": "2026-08-31",
+      "title": "Add EP production readiness gate",
+      "published": true
+    },
+    {
+      "sha": "cd8d88af57551cc8b5957ba05ea65702540e72bb",
+      "date": "2026-08-31",
+      "title": "Add T&T launch readiness contract",
+      "published": true
+    },
+    {
+      "sha": "852b0407142aeaa3880d379dc1a5b0f0593f7b12",
+      "date": "2026-08-31",
+      "title": "Close Ariana London project objective",
+      "published": true
+    },
+    {
+      "sha": "c8eed89524e9a1280ba24fd05454ce38512d8aa8",
+      "date": "2026-08-31",
+      "title": "Add truthful 15 of 15 green gate",
+      "published": true
+    },
+    {
+      "sha": "90ad9227068ffe2d2053524e3a3126c5b9209335",
+      "date": "2026-08-31",
+      "title": "Enforce truthful 15 of 15 green gate",
+      "published": true
+    },
+    {
+      "sha": "eefa3a28708212d96941f167d9e5af802e83b279",
+      "date": "2026-08-31",
+      "title": "TRA 15/15 truthful green",
+      "published": true
+    },
+    {
+      "sha": "a59c83c90c79fef09164614736185d4e493c3859",
+      "date": "2026-08-31",
+      "title": "Harden TRA 99.99 quality layer",
+      "published": true
+    },
+    {
+      "sha": "f430306f61991dbb3e85a32390ca4a8c8553f10f",
+      "date": "2026-08-31",
+      "title": "Add neutral TRA offline fallback",
+      "published": true
+    },
+    {
+      "sha": "f8638f10ab158c9bccc1d397252736380e3292b5",
+      "date": "2026-08-31",
+      "title": "Fix TRA offline routing and cache freshness",
+      "published": true
+    },
+    {
+      "sha": "eb463380a625e55f617f8884dc8f21fd895afd2e",
+      "date": "2026-08-31",
+      "title": "Promote TRA operational target to 99.99",
+      "published": true
+    },
+    {
+      "sha": "0cd523ead6175ce57bfec68c5a71094db9a11e7b",
+      "date": "2026-08-31",
+      "title": "Define TRA 99.99 evidence contract",
+      "published": true
+    },
+    {
+      "sha": "81d1961777ef11459d9efbb2ad0abb7060ab04f5",
+      "date": "2026-08-31",
+      "title": "Add TRA 99.99 operational quality gate",
+      "published": true
+    },
+    {
+      "sha": "3484ccdb830d52b672f28a5746589ef867bf2e2c",
+      "date": "2026-08-31",
+      "title": "Enforce TRA 99.99 gate in CI",
+      "published": true
+    },
+    {
+      "sha": "5e7f763a0c53223f53eff925d7838561d60a8ddd",
+      "date": "2026-08-31",
+      "title": "Gate TRA Pages deploy at 99.99",
+      "published": true
+    },
+    {
+      "sha": "9c667ba654b342ebbccdede181ed6bc60061490a",
+      "date": "2026-08-31",
+      "title": "Keep Station 999 cache contract",
+      "published": true
+    },
+    {
+      "sha": "38ffdda9117a126ac81e987d5be1c7c1b939d438",
+      "date": "2026-08-31",
+      "title": "Align 99.99 gate with Station cache",
+      "published": true
+    },
+    {
+      "sha": "fc7d9e6bdf5a262f2a5aeb10c59697e5b0577e28",
+      "date": "2026-08-31",
+      "title": "Fix 9.9 quality gate",
+      "published": true
+    },
+    {
+      "sha": "17dd16803e415555b013d7dad63aaee0605c93c1",
+      "date": "2026-08-31",
+      "title": "Publish TRA 99.99 quality fixes",
+      "published": true
+    },
+    {
+      "sha": "41d264f4e11dab19a61f36e6a76db884ebd4783d",
+      "date": "2026-09-02",
+      "title": "Fix chess rules",
+      "published": true
+    },
+    {
+      "sha": "e322b32e39338a84781c777853d10abe96d23d47",
+      "date": "2026-09-03",
+      "title": "Add executable FIDE chess regression",
+      "published": true
+    },
+    {
+      "sha": "b8d8e9b6bc132641b0812367938dc1749c9c7ff1",
+      "date": "2026-09-03",
+      "title": "Complete FIDE draw and timeout rules",
+      "published": true
+    },
+    {
+      "sha": "a8b1c459a6230cfc976aa200610470d9e575ab5a",
+      "date": "2026-09-03",
+      "title": "Gate chess rules with executable regression",
+      "published": true
+    },
+    {
+      "sha": "b5b163fbd9ed852c86ca55a1d3a70f02b55d0e70",
+      "date": "2026-09-03",
+      "title": "Require chess regression before publish",
+      "published": true
+    },
+    {
+      "sha": "694a24f2f672bbb4dce8a36ad73caf58b5335802",
+      "date": "2026-09-03",
+      "title": "Fix executable chess regression loader",
+      "published": true
+    },
+    {
+      "sha": "f70e8b14d320b35668558b8395adb5ce22408c11",
+      "date": "2026-09-03",
+      "title": "Fix FEN-aware repetition regression",
+      "published": true
+    },
+    {
+      "sha": "89138df0187eb5606ffe10a3be5576a8df4bfc3f",
+      "date": "2026-09-03",
+      "title": "Make draw repetition FEN-aware",
+      "published": true
+    },
+    {
+      "sha": "9432d92aa207cdf4d7c42ef12fe559e16f19f0ec",
+      "date": "2026-09-03",
+      "title": "Verify final chess runtime",
+      "published": true
+    },
+    {
+      "sha": "2ce89328fe87f9991a903057bedf865eef8c4f26",
+      "date": "2026-09-03",
+      "title": "Lock verified chess runtime",
+      "published": true
+    },
+    {
+      "sha": "fe80bd2422dce5cd5af1a8057cdf8c197108473a",
+      "date": "2026-09-03",
+      "title": "Merge PR #49: Fix chess rules",
+      "published": true
+    },
+    {
+      "sha": "12150c44d759e461be8ff3d5b750a33caa4c7148",
+      "date": "2026-09-29",
+      "title": "Fix HITSTER 888 mobile audio gesture handling (#50)",
+      "published": true
+    },
+    {
+      "sha": "a9c93afba669afb2348fd2381f011a2fcb9a2a08",
+      "date": "2026-09-29",
+      "title": "Refresh HITSTER 888 audio instructions and cache key (#51)",
+      "published": true
+    },
+    {
+      "sha": "dc8684d458f717f9764d5628d68dd78b7c2ee9ac",
+      "date": "2026-09-29",
+      "title": "Prevent HITSTER 888 audio preparation from hanging (#52)",
+      "published": true
+    },
+    {
+      "sha": "2eb5e88282cad81728cbef015f4981dd02267b33",
+      "date": "2026-09-29",
+      "title": "Refresh HITSTER 888 audio runtime cache key (#53)",
+      "published": true
+    },
+    {
+      "sha": "b065a511e507305950675d513911880088feff96",
+      "date": "2026-09-29",
+      "title": "Fix HITSTER 888 resume and saved game handling",
+      "published": true
+    },
+    {
+      "sha": "a96160b5509e638e6542cb0706173b4a6d77a64c",
+      "date": "2026-09-30",
+      "title": "Fix live HTTP checks for Israeli HITSTER titles without redeploying old game assets",
+      "published": true
+    },
+    {
+      "sha": "7a49ac079369d63dd5f955b9cd2714f42ce24146",
+      "date": "2026-10-02",
+      "title": "Add original song מאז שסבא מת to TRA",
+      "published": true
+    },
+    {
+      "sha": "563fe6b2ce31a7ff2557902d48c683c1032f4ca8",
+      "date": "2026-10-02",
+      "title": "Create Cinnamon Pie TRA recipe hub",
+      "published": true
+    },
+    {
+      "sha": "9d62d3b163c1939b73c8bd94a81207cbb65a238f",
+      "date": "2026-10-02",
+      "title": "Add TRA six access levels with Cinnamon Pie",
+      "published": true
+    },
+    {
+      "sha": "c5b1a354e8120b79c26e567e21c2321b08a57d35",
+      "date": "2026-10-02",
+      "title": "Add Cinnamon Pie TRA to links tree",
+      "published": true
+    },
+    {
+      "sha": "dba136726f8b8d3ca10d12ec8715e7244faa95cc",
+      "date": "2026-10-02",
+      "title": "Add Cinnamon Pie TRA to main site",
+      "published": true
+    },
+    {
+      "sha": "f900cea0b8221bf16cbc322bca66d6b1dba39dfb",
+      "date": "2026-10-02",
+      "title": "Expand Little Alchemist with chemistry explanations and atomic charge examples",
+      "published": true
+    },
+    {
+      "sha": "386f94e35f0f56e09dd55daa64249c75146a7346",
+      "date": "2026-10-02",
+      "title": "Restore required TRA links and existing link telemetry",
+      "published": true
+    },
+    {
+      "sha": "0405ce5e42baa0e368c8a4c99b13867058528210",
+      "date": "2026-10-02",
+      "title": "Merge pull request #55 from tomerangel212-png/codex/alchemy-chemistry-20261002",
+      "published": true
+    },
+    {
+      "sha": "f7f5c49937b222f33b1343955b017c731a4a9871",
+      "date": "2026-10-03",
+      "title": "Add supplied TRA hub Python generator",
+      "published": true
+    },
+    {
+      "sha": "83ff11df08ca71a8be8e120c43332b3cdf63954a",
+      "date": "2026-10-03",
+      "title": "Add generated Hebrew TRA links and chess tournament page",
+      "published": true
+    },
+    {
+      "sha": "919f2ca71db56fce3b2e336fe5e205105c2b9ce8",
+      "date": "2026-10-03",
+      "title": "Merge pull request #57 from tomerangel212-png/add-tra-hub",
+      "published": true
+    },
+    {
+      "sha": "3245d30221a97a55b1a50732c1ec48888532b8c0",
+      "date": "2026-10-04",
+      "title": "Add 30-second live reactions to Kfar Blum Hitster",
+      "published": true
+    },
+    {
+      "sha": "6867bbd34156c8a60653d9b9dd6f2d29985c04a3",
+      "date": "2026-10-04",
+      "title": "Extend Hitster live response window to 3 minutes",
+      "published": true
+    },
+    {
+      "sha": "c53c4b9db560897ae93140e9c74229dbc759f0e5",
+      "date": "2026-10-04",
+      "title": "Play full available audio and match live response duration",
+      "published": true
+    },
+    {
+      "sha": "fc34b65eb3e6d9533b92bc37af4b582fdc25d0d8",
+      "date": "2026-10-04",
+      "title": "Document confirmed TRA star values separately from proposed tiers",
+      "published": true
+    },
+    {
+      "sha": "b59f9c790e6e7eebdcab45e8565d8d88eb29906b",
+      "date": "2026-10-04",
+      "title": "Document ten Hitster star tiers with confirmed values and explicit pending decisions",
+      "published": true
+    },
+    {
+      "sha": "7be62f78e73fb553929cf1e6a79c319e1f550133",
+      "date": "2026-10-04",
+      "title": "Add isolated TRA star-value registry; keep conflicting tier 9 unresolved",
+      "published": true
+    },
+    {
+      "sha": "7412e06e1265d7d5c5453f9d749c7721d0a8128a",
+      "date": "2026-10-04",
+      "title": "Add 16 executable tests for TRA star values and unresolved-value safety",
+      "published": true
+    },
+    {
+      "sha": "311eaf2078bf472b38ba26eed5636560d0b5b93d",
+      "date": "2026-10-04",
+      "title": "Confirm approved star tiers including level 4 = 100; preserve unresolved level 9",
+      "published": true
+    },
+    {
+      "sha": "e9fde6a7be58477ac63f37ad2479db73930cd755",
+      "date": "2026-10-04",
+      "title": "Add executable validation for approved and pending Hitster star values",
+      "published": true
+    },
+    {
+      "sha": "9e1e4ce2df61ab62e7cc5a369e35b1023c6748b9",
+      "date": "2026-10-04",
+      "title": "Add user-requested SaveMP3 external tool link to Hebrew Hitster",
+      "published": true
+    },
+    {
+      "sha": "feff3e4b732896cacb326c5f82dcfd9d0d5f8452",
+      "date": "2026-10-04",
+      "title": "Add Irit and Natan house family escape game with five required items",
+      "published": true
+    },
+    {
+      "sha": "4005fccdacce01ab3bdb5ae9f8400272c5dec552",
+      "date": "2026-10-04",
+      "title": "Link Irit and Natan escape room from Kfar Blum 2026 hub",
+      "published": true
+    },
+    {
+      "sha": "997ecde36962df05873a0542a6254738ce06550a",
+      "date": "2026-10-04",
+      "title": "Add all-ages Irit and Natan family escape mode with five languages and accessible controls",
+      "published": true
+    },
+    {
+      "sha": "0c17e5e4e7d380df725838e3b8d655b9a0914538",
+      "date": "2026-10-04",
+      "title": "Isolate all-ages progress from the original house game save",
+      "published": true
+    },
+    {
+      "sha": "b0f6424608bc351e986f13b01e6e545bb1ab613b",
+      "date": "2026-10-04",
+      "title": "Link all-ages house escape mode from Kfar Blum while retaining original game",
+      "published": true
+    },
+    {
+      "sha": "c2a3cf047f8f3a677bb888a3ff605f80de40ebc8",
+      "date": "2026-10-04",
+      "title": "Fix HITSTER one-tap audio with Play/Pause and Stop controls (#61)",
+      "published": true
+    },
+    {
+      "sha": "08d9f1247d0dcab1af806e3a41d5231d689db1c8",
+      "date": "2026-10-04",
+      "title": "Fix HITSTER preview search fallback and add device audio library import",
+      "published": true
+    },
+    {
+      "sha": "62fae1bee8d9d0e7f9b88445e087f77a565174f5",
+      "date": "2026-10-04",
+      "title": "Add personal five-song HITSTER mode with country charts and manager listening points",
+      "published": true
+    },
+    {
+      "sha": "877dd5cbc59266247d1125525ff0eebd22552e73",
+      "date": "2026-10-05",
+      "title": "Align HITSTER with 10-card fair rounds and 400 behavioral scenarios",
+      "published": true
+    },
+    {
+      "sha": "f3f6490b95e3934572a6ce2bbad7b20a9aaa0217",
+      "date": "2026-10-05",
+      "title": "Add public HITSTER fair-play branch entry to TRA link tree",
+      "published": true
+    },
+    {
+      "sha": "8cab644e703fd77cbb156bb9124f65b2595a2f49",
+      "date": "2026-10-05",
+      "title": "Merge pull request #63 from tomerangel212-png/fix/tra-fair-round-400",
+      "published": true
+    },
+    {
+      "sha": "d4e525c645e859195626559d2ba4fc44f9982cc5",
+      "date": "2026-10-05",
+      "title": "Add host-curated three-generation HITSTER mode with ordered answer gates",
+      "published": false
+    },
+    {
+      "sha": "56a2f1b1fcf5d63b38c5b1fb1037ee217d274e07",
+      "date": "2026-10-05",
+      "title": "Name Tomer Mathematics mode and add ten-person group arithmetic with age counts",
+      "published": false
+    }
+  ]
+}
