@@ -26,6 +26,7 @@ jobs:
           node --check games-hub.js
           node --check music-editor.js
           node --check hitster-audio-regression.cjs
+          node --check hitster-fair-round-regression.cjs
           node --check hitster-original.js
           node --check hitster-888-check.js
           node --check hitster-source-audit.js
@@ -47,6 +48,7 @@ jobs:
       - name: Enforce annual HITSTER 888 quality gate
         run: |
           node hitster-audio-regression.cjs
+          node hitster-fair-round-regression.cjs
           node hitster-888-check.js
       - name: Enforce yellow-to-green digital gate
         run: node yellow-to-green-check.js
