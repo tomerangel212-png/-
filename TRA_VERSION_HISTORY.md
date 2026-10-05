@@ -1,5 +1,15 @@
 # TRA Version History
 
+## TRA ART TRY — forward-port · 2026-10-05
+
+PR68 originally proposed TRA ART TRY, History & Music and patient listening against principles registry 1.1.0. The current implementation preserves those ideas on the later 1.3.0 registry rather than restoring the older registry.
+
+- The original PR68 registry patch is historical and is not the active registry.
+- The living TRA ART TRY page reads the current principles registry.
+- Navigation and documentation from PR68 were forward-ported where still useful.
+- This entry records repository history; it does not claim a deployment or live-site verification.
+
+
 ## TRA Perfect Target — Draft program · 2026-08-23
 
 Not released. This program defines the next measurable target: **9,999,999,999/9,999,999,999**.
