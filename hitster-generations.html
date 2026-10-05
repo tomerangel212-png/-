@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="he" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HITSTER TRA · דורות ופסקולים</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#091923;color:#f4f8fa;font-family:Arial,sans-serif}main{max-width:940px;margin:auto;padding:24px}h1{font-size:clamp(32px,7vw,58px)}section,details{background:#142d3c;border:1px solid #385666;border-radius:20px;padding:20px;margin:18px 0}button,input,select{font:inherit;padding:12px;border-radius:10px;border:1px solid #567181;min-height:46px}button{cursor:pointer;background:#83e2c5;color:#06291e;font-weight:bold}button:disabled{opacity:.4;cursor:default}input,select{max-width:100%;background:#0b202d;color:white}label{display:block;margin:12px 0}nav,.actions{display:flex;flex-wrap:wrap;gap:10px}#turn{font-size:32px;color:#f2cf75}#answer{font-size:28px}a{color:#83e2c5}.muted{color:#c1d0d8;line-height:1.7}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid #385666}.row strong{flex:1;min-width:150px}[hidden]{display:none!important}
+</style><main>
+<a href="hitster-888.html">חזרה ל־HITSTER</a><p>TRA · GENERATIONS & SOUNDTRACKS</p><h1>כל דור והתור שלו</h1>
+<p class="muted">שלב 1: ילדים בלבד ← שלב 2: מבוגרים בלבד ← שלב 3: ותיקים בלבד. המנחה קובע מראש מי שייך לכל קבוצה ואוכף את זכות התשובה.</p>
+<details open id="setup"><summary>הכנת השירים והפסקולים</summary>
+<p class="muted">בחרו קטעי שמע שיש לכם הרשאה להשתמש בהם. הקבצים נשארים במכשיר במהלך פתיחת העמוד; ברענון צריך לבחור אותם שוב. רק קלפים עם שמע נכנסים למשחק. השמעה עד 30 שניות.</p>
+<div id="catalog"></div>
+<form id="add"><h3>הוספת שיר או פסקול</h3><label>שם השיר / הסרט / הסדרה <input id="title" required maxlength="120"></label>
+<label>שלב <select id="group"><option value="0">ילדים</option><option value="1">מבוגרים</option><option value="2">ותיקים</option></select></label>
+<button>הוסף למאגר</button></form></details>
+<section><p id="turn" aria-live="polite"></p><p id="counts"></p><p id="score"></p>
+<label>מי עונה עכשיו? <select id="respondent"><option value="">בחרו קבוצת גיל</option><option value="0">ילדים</option><option value="1">מבוגרים</option><option value="2">ותיקים</option></select></label>
+<p class="muted">השאר מקשיבים בלי לענות או לרמוז. ניקוד ניתן רק לקבוצת הגיל של השלב.</p>
+<div class="actions"><button id="draw">קלף חדש + נגן</button><button id="replay">נגן שוב</button><button id="stop">עצור</button></div>
+<p id="answer">התשובה מוסתרת</p><div class="actions"><button id="reveal">חשוף תשובה</button><button id="correct">תשובה נכונה +1</button><button id="miss">לא זוהה / הבא</button></div>
+<audio id="audio" preload="metadata"></audio><p id="status" role="status"></p></section>
+<nav><button id="advance">מעבר לשלב המבוגרים</button><button id="reset">איפוס משחק</button></nav>
+<p class="muted">השיוך במאגר הוא הצעת פתיחה וניתן לשינוי לפני שהקלף שוחק. סדרות למבוגרים משויכות לשלב המבוגרים. כל קלף מושמע פעם אחת במשחק, מלבד השמעה חוזרת באותו תור.</p>
+<p>© 2026 תומר רפאל אנג׳ל · כל הזכויות שמורות</p></main>
+<script src="hitster-generations.js"></script></html>
