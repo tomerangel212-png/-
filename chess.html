@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101d29">
+<meta name="description" content="שחמט TRA: ממשק פשוט בחמש שפות, למגע ולמקלדת, עם מצב למידה בלי שעון וכתב מוגדל.">
+<title>שחמט TRA</title>
+<link rel="stylesheet" href="chess-accessible.css">
+</head>
+<body class="chess-page">
+<main>
+<section id="chess" class="tra-chess-accessible" aria-label="שחמט TRA">
+<h1>שחמט TRA</h1><p role="status">טוען את השחמט…</p>
+<noscript><p>כדי לשחק יש לאפשר JavaScript בדפדפן. / Enable JavaScript to play.</p></noscript>
+</section>
+</main>
+<script type="module" src="games-loader.js?v=accessible-5-language-v1"></script>
+<script nomodule>document.querySelector('#chess').innerHTML='<h1>שחמט TRA</h1><p>הדפדפן הזה אינו תומך בגרסה הנוכחית. פתחו בדפדפן מעודכן. / Please use a newer browser.</p>';</script>
+</body>
+</html>

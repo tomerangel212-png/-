@@ -1,0 +1,39 @@
+name: TRA Chess accessibility and real-engine checks
+on:
+  pull_request:
+    paths: ["games-loader.js", "chess*.js", "chess*.mjs", "chess*.html", "chess*.css", ".github/workflows/chess-accessible.yml"]
+  push:
+    branches: [main]
+    paths: ["games-loader.js", "chess*.js", "chess*.mjs", "chess*.html", "chess*.css", ".github/workflows/chess-accessible.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chess:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated test dependencies
+        run: |
+          npm install --prefix "$RUNNER_TEMP/tra-chess-check" --ignore-scripts --no-package-lock chess.js@1.4.0 playwright@1.57.0
+          "$RUNNER_TEMP/tra-chess-check/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Run executable rule and language checks
+        env:
+          TRA_CHESS_ENGINE_PATH: ${{ runner.temp }}/tra-chess-check/node_modules/chess.js/dist/esm/chess.js
+        run: node chess-accessible-check.mjs
+      - name: Run five-language browser and layout checks
+        env:
+          TRA_CHESS_TEST_PREFIX: ${{ runner.temp }}/tra-chess-check
+          TRA_CHESS_ENGINE_PATH: ${{ runner.temp }}/tra-chess-check/node_modules/chess.js/dist/esm/chess.js
+        run: node chess-accessible-browser.mjs
+      - name: Save interface screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chess-interface-checks
+          path: chess-test-artifacts/
+          if-no-files-found: ignore
