@@ -1,0 +1,559 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-10-05T02:02:08.417853+00:00",
+  "note": "Editorial starter categories, not inferred listener ages. Years identify these catalog recordings, not necessarily original releases.",
+  "sources": [
+    "https://itunes.apple.com/search?term=%D7%A2%D7%99%D7%93%D7%9F+%D7%A8%D7%99%D7%99%D7%9B%D7%9C&entity=song&country=il&limit=25",
+    "https://itunes.apple.com/search?term=Adele&entity=song&country=il&limit=25",
+    "https://itunes.apple.com/search?term=CoComelon&entity=song&country=il&limit=40",
+    "https://itunes.apple.com/search?term=Super+Simple+Songs&entity=song&country=il&limit=40",
+    "https://itunes.apple.com/search?term=Shlomo+Artzi&entity=song&country=il&limit=25",
+    "https://itunes.apple.com/search?term=Nat+King+Cole&entity=song&country=il&limit=40",
+    "https://itunes.apple.com/search?term=Arik+Einstein&entity=song&country=il&limit=40",
+    "https://itunes.apple.com/search?term=The+Beatles&entity=song&country=il&limit=40",
+    "https://itunes.apple.com/search?term=%D7%A9%D7%99%D7%A8%D7%99+%D7%99%D7%9C%D7%93%D7%99%D7%9D&entity=song&country=il&limit=40",
+    "https://itunes.apple.com/search?term=%D7%9B%D7%95%D7%95%D7%A8%D7%AA&entity=song&country=il&limit=40"
+  ],
+  "cards": [
+    {
+      "id": "apple-1503141927",
+      "title": "פרפר נחמד",
+      "artist": "Orly Vardy",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/91/3c/2d/913c2d77-7040-78be-255d-1acf55fa96db/mzaf_12768594302630380963.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%A4%D7%A8%D7%A4%D7%A8-%D7%A0%D7%97%D7%9E%D7%93/1503141810?i=1503141927&uo=4"
+    },
+    {
+      "id": "apple-1503141915",
+      "title": "חנהלה אופה קטנה",
+      "artist": "Orly Vardy",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c4/21/0a/c4210a76-9081-4828-980a-bfa6b00b72de/mzaf_16097633238879162945.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%97%D7%A0%D7%94%D7%9C%D7%94-%D7%90%D7%95%D7%A4%D7%94-%D7%A7%D7%98%D7%A0%D7%94/1503141810?i=1503141915&uo=4"
+    },
+    {
+      "id": "apple-1503141866",
+      "title": "שני חברים יצאו לדרך - בים בם בום",
+      "artist": "Orly Vardy",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/16/cf/6b/16cf6b8f-d82b-dc34-b59e-7eb03a9e5e28/mzaf_9341776759868829656.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%A9%D7%A0%D7%99-%D7%97%D7%91%D7%A8%D7%99%D7%9D-%D7%99%D7%A6%D7%90%D7%95-%D7%9C%D7%93%D7%A8%D7%9A-%D7%91%D7%99%D7%9D-%D7%91%D7%9D-%D7%91%D7%95%D7%9D/1503141810?i=1503141866&uo=4"
+    },
+    {
+      "id": "apple-1503141860",
+      "title": "איזה יום שמח",
+      "artist": "Orly Vardy",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c9/bf/10/c9bf10b8-9058-cb26-15df-829b536c07b9/mzaf_985173627912486246.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%90%D7%99%D7%96%D7%94-%D7%99%D7%95%D7%9D-%D7%A9%D7%9E%D7%97/1503141810?i=1503141860&uo=4"
+    },
+    {
+      "id": "apple-1503141861",
+      "title": "אין חגיגה",
+      "artist": "Orly Vardy",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/67/6c/c3/676cc32f-7995-778a-11fa-e44456ff4df3/mzaf_15222649383089321027.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%90%D7%99%D7%9F-%D7%97%D7%92%D7%99%D7%92%D7%94/1503141810?i=1503141861&uo=4"
+    },
+    {
+      "id": "apple-1503141925",
+      "title": "מקהלה עליזה",
+      "artist": "Orly Vardy",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/97/92/c1/9792c1ca-ad77-9568-fbd4-ac8e36c5fe60/mzaf_7203460705433819878.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%9E%D7%A7%D7%94%D7%9C%D7%94-%D7%A2%D7%9C%D7%99%D7%96%D7%94/1503141810?i=1503141925&uo=4"
+    },
+    {
+      "id": "apple-1656911329",
+      "title": "רוץ בן סוסים",
+      "artist": "Orly Vardy",
+      "year": 2022,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b1/ad/4c/b1ad4c94-e3f4-d555-e0c9-937042f77677/mzaf_15464062105517756559.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%A8%D7%95%D7%A5-%D7%91%D7%9F-%D7%A1%D7%95%D7%A1%D7%99%D7%9D/1656910743?i=1656911329&uo=4"
+    },
+    {
+      "id": "apple-1571277108",
+      "title": "שבת בבוקר",
+      "artist": "Arik Einstein & Yoni Rechter",
+      "year": 1989,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/47/57/1e/47571e67-5d37-08e7-f712-0f86db271488/mzaf_18082971176586969424.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%A9%D7%91%D7%AA-%D7%91%D7%91%D7%95%D7%A7%D7%A8/1571277100?i=1571277108&uo=4"
+    },
+    {
+      "id": "apple-1571277102",
+      "title": "אדון שוקו",
+      "artist": "Arik Einstein & Yoni Rechter",
+      "year": 1989,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/6a/3a/056a3a8c-2ad0-76c8-a19a-5c425a5bd3b5/mzaf_9768514240386180804.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%90%D7%93%D7%95%D7%9F-%D7%A9%D7%95%D7%A7%D7%95/1571277100?i=1571277102&uo=4"
+    },
+    {
+      "id": "apple-1133159837",
+      "title": "Berale Tze",
+      "artist": "Arik Einstein & Robb Huxley",
+      "year": 1971,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c7/37/28/c7372809-4a63-4c9b-3038-b1319e5e4ec1/mzaf_14075118037101552529.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/berale-tze/1133159180?i=1133159837&uo=4"
+    },
+    {
+      "id": "apple-1584166858",
+      "title": "Wheels on the Bus",
+      "artist": "CoComelon",
+      "year": 2019,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fb/c6/21/fbc6217d-780e-0878-deee-a7f84d9d0821/mzaf_15412699993273463979.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/wheels-on-the-bus/1584166575?i=1584166858&uo=4"
+    },
+    {
+      "id": "apple-1584039472",
+      "title": "Baby Shark",
+      "artist": "CoComelon",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/67/6a/c4/676ac425-2b24-2d4c-a8dc-f5391b310987/mzaf_12752336635398593862.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/baby-shark/1584039361?i=1584039472&uo=4"
+    },
+    {
+      "id": "apple-1584167248",
+      "title": "Itsy Bitsy Spider",
+      "artist": "CoComelon",
+      "year": 2019,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a4/57/c5/a457c5d1-daf9-2c59-9df2-88e9a771ea64/mzaf_10249993509954894324.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/itsy-bitsy-spider/1584166575?i=1584167248&uo=4"
+    },
+    {
+      "id": "apple-1584040167",
+      "title": "Head, Shoulders, Knees And Toes (Classic Version)",
+      "artist": "CoComelon",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1a/dc/4b/1adc4b91-f01d-13a0-73cf-7bf0e636d321/mzaf_4091185001007015267.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/head-shoulders-knees-and-toes-classic-version/1584039361?i=1584040167&uo=4"
+    },
+    {
+      "id": "apple-1584170462",
+      "title": "Five Little Monkeys Jumping on the Bed",
+      "artist": "CoComelon",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e7/c0/45/e7c0450c-9871-579b-7c3f-cffb1a4b2ccc/mzaf_5313893518038733304.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/five-little-monkeys-jumping-on-the-bed/1584169546?i=1584170462&uo=4"
+    },
+    {
+      "id": "apple-1584039960",
+      "title": "B-I-N-G-O (Was His Name-O)",
+      "artist": "CoComelon",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c8/74/95/c874954f-9d96-b1b6-f523-a704296e0256/mzaf_10046962917527838553.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/b-i-n-g-o-was-his-name-o/1584039361?i=1584039960&uo=4"
+    },
+    {
+      "id": "apple-1584164328",
+      "title": "Twinkle Twinkle Little Star",
+      "artist": "CoComelon",
+      "year": 2020,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/de/de/03/dede034e-bbf9-544a-507e-204fc8cc3d75/mzaf_10860755653130903444.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/twinkle-twinkle-little-star/1584163922?i=1584164328&uo=4"
+    },
+    {
+      "id": "apple-1584167099",
+      "title": "Old MacDonald",
+      "artist": "CoComelon",
+      "year": 2019,
+      "audience": "children",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b6/db/33/b6db3334-6196-a56e-53fd-04d9e470b680/mzaf_15650205134916111812.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/old-macdonald/1584166575?i=1584167099&uo=4"
+    },
+    {
+      "id": "apple-1046809491",
+      "title": "Lifney She'Yigamer",
+      "artist": "Idan Raichel",
+      "year": 2015,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/12/08/01/1208012b-32fc-3110-e3d4-f063ca6eda8f/mzaf_15165472864550515524.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/lifney-sheyigamer/1046809478?i=1046809491&uo=4"
+    },
+    {
+      "id": "apple-1350676784",
+      "title": "ואם תבואי אליי",
+      "artist": "Idan Raichel",
+      "year": 2018,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9d/b6/36/9db63600-11c8-9e31-9a37-75c25c856628/mzaf_16351433052914348339.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%95%D7%90%D7%9D-%D7%AA%D7%91%D7%95%D7%90%D7%99-%D7%90%D7%9C%D7%99%D7%99/1350676360?i=1350676784&uo=4"
+    },
+    {
+      "id": "apple-780337976",
+      "title": "Mi'Ma'amakim",
+      "artist": "The Idan Raichel Project",
+      "year": 2005,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/09/4d/cf/094dcffe-f5e4-4824-a934-75dc92f3384e/mzaf_17994752769908834348.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/mimaamakim/780337922?i=780337976&uo=4"
+    },
+    {
+      "id": "apple-778491577",
+      "title": "She'eriot Shel Ha'Chaim",
+      "artist": "The Idan Raichel Project",
+      "year": 2008,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8a/ac/70/8aac70e1-6853-9ec1-6e50-6d306800bf0c/mzaf_12926278762459552043.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/sheeriot-shel-hachaim/778491538?i=778491577&uo=4"
+    },
+    {
+      "id": "apple-1231829659",
+      "title": "אהבה כזו (feat. זהבה בן)",
+      "artist": "Idan Raichel",
+      "year": 2017,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/79/45/13/79451336-e9fb-1bf8-99c2-a31b240f77cd/mzaf_16577496006391404174.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%90%D7%94%D7%91%D7%94-%D7%9B%D7%96%D7%95-feat-%D7%96%D7%94%D7%91%D7%94-%D7%91%D7%9F/1231829658?i=1231829659&uo=4"
+    },
+    {
+      "id": "apple-780474218",
+      "title": "Achshav Karov",
+      "artist": "The Idan Raichel Project",
+      "year": 2013,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/65/55/6b/65556b83-7478-1480-6677-b9570284b803/mzaf_17836521841147253225.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/achshav-karov/780474182?i=780474218&uo=4"
+    },
+    {
+      "id": "apple-403037888",
+      "title": "Set Fire to the Rain",
+      "artist": "Adele",
+      "year": 2011,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b5/4c/48/b54c484a-39ff-a68f-4673-5080b5a144d9/mzaf_3109465133967708144.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/set-fire-to-the-rain/403037872?i=403037888&uo=4"
+    },
+    {
+      "id": "apple-403037927",
+      "title": "Someone Like You",
+      "artist": "Adele",
+      "year": 2011,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cc/7c/82/cc7c82b6-0f0c-a362-952f-6389dbc603ba/mzaf_15156534524546439842.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/someone-like-you/403037872?i=403037927&uo=4"
+    },
+    {
+      "id": "apple-403037877",
+      "title": "Rolling In the Deep",
+      "artist": "Adele",
+      "year": 2010,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/84/ab/e5/84abe549-c9d6-3de2-cdd0-90e9256a637e/mzaf_7958095177960014950.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/rolling-in-the-deep/403037872?i=403037877&uo=4"
+    },
+    {
+      "id": "apple-1051332394",
+      "title": "When We Were Young",
+      "artist": "Adele",
+      "year": 2015,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/77/ca/f1/77caf106-1605-b16c-5147-fadbcb136923/mzaf_7795054630018818250.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/when-we-were-young/1051331933?i=1051332394&uo=4"
+    },
+    {
+      "id": "apple-566322365",
+      "title": "Skyfall",
+      "artist": "Adele",
+      "year": 2012,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6c/48/0e/6c480edc-89f5-a9cf-b309-63c5237efe92/mzaf_3142604484249449871.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/skyfall/566322358?i=566322365&uo=4"
+    },
+    {
+      "id": "apple-1051332387",
+      "title": "Hello",
+      "artist": "Adele",
+      "year": 2015,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0e/a2/a1/0ea2a17f-49b7-8d2c-6645-b27f320de20e/mzaf_14739704916677365626.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/hello/1051331933?i=1051332387&uo=4"
+    },
+    {
+      "id": "apple-618091963",
+      "title": "תתארו לכם",
+      "artist": "Shlomo Artzi",
+      "year": 2007,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a7/51/c7/a751c7f5-8bee-05ec-457c-2031e1883c73/mzaf_2357784898430051966.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%AA%D7%AA%D7%90%D7%A8%D7%95-%D7%9C%D7%9B%D7%9D/618091877?i=618091963&uo=4"
+    },
+    {
+      "id": "apple-618092118",
+      "title": "זה מה שנשאר",
+      "artist": "Shlomo Artzi",
+      "year": 1996,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/7a/fb/117afb52-d538-68ab-f852-489f7942ad78/mzaf_2450768560545919878.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%96%D7%94-%D7%9E%D7%94-%D7%A9%D7%A0%D7%A9%D7%90%D7%A8/618091877?i=618092118&uo=4"
+    },
+    {
+      "id": "apple-484992797",
+      "title": "ירח",
+      "artist": "Shlomo Artzi",
+      "year": 1992,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/cd/dd/4b/cddd4b78-16f9-2e71-5f2a-34bc8199796e/mzaf_2159732774818566938.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%99%D7%A8%D7%97/484992796?i=484992797&uo=4"
+    },
+    {
+      "id": "apple-618092139",
+      "title": "היא לא יודעת מה עובר עליי",
+      "artist": "Shlomo Artzi",
+      "year": 1996,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f7/dd/e6/f7dde6c3-725d-6e55-521d-a9685566e757/mzaf_3087095210214163998.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%94%D7%99%D7%90-%D7%9C%D7%90-%D7%99%D7%95%D7%93%D7%A2%D7%AA-%D7%9E%D7%94-%D7%A2%D7%95%D7%91%D7%A8-%D7%A2%D7%9C%D7%99%D7%99/618091877?i=618092139&uo=4"
+    },
+    {
+      "id": "apple-499531142",
+      "title": "מנגב לך את הדמעות",
+      "artist": "Shlomo Artzi",
+      "year": 1996,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/9e/44/449e44bb-6432-babc-f5e7-e8f7fc6aca32/mzaf_11104164234115695440.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%9E%D7%A0%D7%92%D7%91-%D7%9C%D7%9A-%D7%90%D7%AA-%D7%94%D7%93%D7%9E%D7%A2%D7%95%D7%AA/499531136?i=499531142&uo=4"
+    },
+    {
+      "id": "apple-618091967",
+      "title": "האהבה הישנה",
+      "artist": "Shlomo Artzi",
+      "year": 1996,
+      "audience": "adults",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7c/41/d9/7c41d9fc-dc07-7e24-003e-248c62d83c4c/mzaf_1254690392050100577.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%94%D7%90%D7%94%D7%91%D7%94-%D7%94%D7%99%D7%A9%D7%A0%D7%94/618091877?i=618091967&uo=4"
+    },
+    {
+      "id": "apple-1133158831",
+      "title": "Kama Tov Shebata Habaita",
+      "artist": "Arik Einstein",
+      "year": 1972,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b7/73/39/b77339ab-30d1-f523-a75d-f745c884e01d/mzaf_10093780456616831761.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/kama-tov-shebata-habaita/1133158601?i=1133158831&uo=4"
+    },
+    {
+      "id": "apple-1133159451",
+      "title": "Ani Veata",
+      "artist": "Arik Einstein & Miki Gavrielov",
+      "year": 1971,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e4/25/25/e4252596-1cd5-4b3d-399f-187e53c31e8d/mzaf_7696221469613416518.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/ani-veata/1133158958?i=1133159451&uo=4"
+    },
+    {
+      "id": "apple-1133158504",
+      "title": "Atur Mitzchech",
+      "artist": "Arik Einstein & Avner Kaner",
+      "year": 1977,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d3/54/89/d35489e0-343a-c1e1-a89c-ebb8d35cdbf7/mzaf_2165028948693623996.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/atur-mitzchech/1133158393?i=1133158504&uo=4"
+    },
+    {
+      "id": "apple-1133171903",
+      "title": "Sa Leat",
+      "artist": "Arik Einstein",
+      "year": 2008,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b3/a0/8f/b3a08fe3-1da7-a773-c46c-ea832c92ecaf/mzaf_952123299536541829.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/sa-leat/1133171782?i=1133171903&uo=4"
+    },
+    {
+      "id": "apple-1571283704",
+      "title": "עוף גוזל",
+      "artist": "Arik Einstein",
+      "year": 1987,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6a/be/9c/6abe9c72-63c4-66da-f224-eccca6ec7ead/mzaf_1829484952365847014.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%A2%D7%95%D7%A3-%D7%92%D7%95%D7%96%D7%9C/1571283701?i=1571283704&uo=4"
+    },
+    {
+      "id": "apple-1133159905",
+      "title": "Ksheat Bocha At Lo Yafa",
+      "artist": "Arik Einstein",
+      "year": 1969,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c7/40/d4/c740d4fe-d415-333a-3fad-9e9cd0345554/mzaf_716714394337842597.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/ksheat-bocha-at-lo-yafa/1133159302?i=1133159905&uo=4"
+    },
+    {
+      "id": "apple-1597899526",
+      "title": "היא כל כך יפה",
+      "artist": "kaveret",
+      "year": 1975,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/82/24/57/822457d2-1817-85df-db2f-958c64b295e1/mzaf_16667433513974675239.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%94%D7%99%D7%90-%D7%9B%D7%9C-%D7%9B%D7%9A-%D7%99%D7%A4%D7%94/1597899275?i=1597899526&uo=4"
+    },
+    {
+      "id": "apple-584818001",
+      "title": "נתתי לה חיי",
+      "artist": "kaveret",
+      "year": 1974,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8e/10/0b/8e100b34-1520-a5a6-e7d2-b7dbe9b1a9c2/mzaf_2786309456747470271.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%A0%D7%AA%D7%AA%D7%99-%D7%9C%D7%94-%D7%97%D7%99%D7%99/584817855?i=584818001&uo=4"
+    },
+    {
+      "id": "apple-584832175",
+      "title": "יו יה",
+      "artist": "kaveret",
+      "year": 1973,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/91/3d/0c/913d0ce0-e5d8-12d0-53b0-63d32851d524/mzaf_4101411792344913935.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%99%D7%95-%D7%99%D7%94/584831996?i=584832175&uo=4"
+    },
+    {
+      "id": "apple-1597899516",
+      "title": "גולית",
+      "artist": "kaveret",
+      "year": 1975,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a2/0d/78/a20d7846-7f90-620d-c115-85d806ecb5dc/mzaf_16010537269112143437.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%92%D7%95%D7%9C%D7%99%D7%AA/1597899275?i=1597899516&uo=4"
+    },
+    {
+      "id": "apple-584832173",
+      "title": "המגפיים של ברוך",
+      "artist": "kaveret",
+      "year": 1973,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/83/31/d1/8331d146-49a0-959e-fd29-687e3d6262e4/mzaf_8576031044595519025.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%94%D7%9E%D7%92%D7%A4%D7%99%D7%99%D7%9D-%D7%A9%D7%9C-%D7%91%D7%A8%D7%95%D7%9A/584831996?i=584832173&uo=4"
+    },
+    {
+      "id": "apple-1597899518",
+      "title": "מדינה קטנה",
+      "artist": "kaveret",
+      "year": 1975,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ff/90/b4/ff90b490-8ff3-cd1e-aa39-6e571a779199/mzaf_13300587487714027357.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/%D7%9E%D7%93%D7%99%D7%A0%D7%94-%D7%A7%D7%98%D7%A0%D7%94/1597899275?i=1597899518&uo=4"
+    },
+    {
+      "id": "apple-724357255",
+      "title": "L-O-V-E",
+      "artist": "Nat \"King\" Cole",
+      "year": 1964,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b1/04/80/b1048092-4ab8-300b-080d-d2bfb966227f/mzaf_15757628343976256968.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/l-o-v-e/724356038?i=724357255&uo=4"
+    },
+    {
+      "id": "apple-539446938",
+      "title": "Unforgettable",
+      "artist": "Nat \"King\" Cole",
+      "year": 1951,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3e/69/48/3e69488c-4cf9-5b76-96f6-b7231eee7009/mzaf_14120255381820785253.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/unforgettable/539446930?i=539446938&uo=4"
+    },
+    {
+      "id": "apple-716233720",
+      "title": "Autumn Leaves",
+      "artist": "Nat \"King\" Cole",
+      "year": 1953,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/cf/b4/15cfb473-3e3a-43f4-7bdf-c5ac78a7f32e/mzaf_12469629613899273513.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/autumn-leaves/716233124?i=716233720&uo=4"
+    },
+    {
+      "id": "apple-738560451",
+      "title": "Nature Boy",
+      "artist": "Nat \"King\" Cole",
+      "year": 1961,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/42/ba/8c/42ba8cac-65bb-6c5e-d245-267021e6b5a9/mzaf_9415871336498231130.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/nature-boy/738559970?i=738560451&uo=4"
+    },
+    {
+      "id": "apple-724951832",
+      "title": "When I Fall In Love",
+      "artist": "Nat \"King\" Cole",
+      "year": 1957,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9c/70/f6/9c70f678-17c0-c55b-adde-eefe2e5cce33/mzaf_1962540544977814647.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/when-i-fall-in-love/724951463?i=724951832&uo=4"
+    },
+    {
+      "id": "apple-1444030713",
+      "title": "Mona Lisa",
+      "artist": "Nat \"King\" Cole",
+      "year": 1952,
+      "audience": "elders",
+      "yearBasis": "catalog-release",
+      "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/74/eb/b2/74ebb250-c86b-6707-7b72-6e5559afb91d/mzaf_1835970089659834039.plus.aac.p.m4a",
+      "sourceUrl": "https://music.apple.com/il/album/mona-lisa/1444030068?i=1444030713&uo=4"
+    }
+  ]
+}
