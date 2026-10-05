@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "product": "THE TRA",
   "status": "active-draft",
   "target": "9999999999/9999999999",
@@ -150,6 +150,29 @@
       "he": "משתמשים רק באינטגרציות מורשות; אין עקיפת הרשאות, אבטחה או תנאי שימוש.",
       "source": "governance guardrail",
       "category": "trust"
+    },
+    {
+      "id": "history-and-music",
+      "he": "History & Music / היסטוריה ומוזיקה: מוזיקה היא חלק בלתי נפרד מכל ההיסטוריה של TRA. מחברים מוזיקה לאירועים, תקופות, פרויקטים ורעיונות רק כאשר הקשר מתועד; אין להמציא קשרים.",
+      "en": "Music is an integral part of all TRA history. Connect music to events, periods, projects and ideas only when the connection is documented; never invent a connection.",
+      "source": "user directive 2026-10-05",
+      "category": "history"
+    },
+    {
+      "id": "listen-with-patience",
+      "he": "להקשיב בסבלנות לפני שמגיבים, יוצרים או פועלים. במוזיקה: קודם להקשיב באמת, לתת ליצירה זמן ומרחב, ורק אחר כך לשפוט או להגיב.",
+      "en": "Listen with patience before responding, creating or acting. In music: listen first, give the work time and space, then judge or respond.",
+      "source": "user directive 2026-10-05",
+      "category": "listening"
+    },
+    {
+      "id": "tra-art-try",
+      "he": "TRA ART TRY: אמנות היא גם ניסיון — יוצרים, מקשיבים, בודקים, לומדים ומשפרים תוך שמירה על המקור ועל ההיסטוריה.",
+      "en": "TRA ART TRY: art is also an attempt — create, listen, test, learn and improve while preserving the source and its history.",
+      "source": "user directive 2026-10-05",
+      "category": "art"
     }
-  ]
+  ],
+  "title": "TRA ART TRY",
+  "credit": "Tomer Angel 2026"
 }
