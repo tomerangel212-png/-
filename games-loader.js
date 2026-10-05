@@ -73,6 +73,9 @@ export function resultState(game,clockResult=null,claimedDrawReason=null){
 export function materialEvaluation(game){
   if(game.isCheckmate())return game.turn()==="b"?-100000:100000;
   if(game.isStalemate()||game.isInsufficientMaterial())return 0;
+  return boardEvaluation(game);
+}
+function boardEvaluation(game){
   let score=0;
   game.board().forEach((row,r)=>row.forEach((piece,c)=>{
     if(!piece)return;
@@ -81,6 +84,68 @@ export function materialEvaluation(game){
     score+=sign*(VALUE[piece.type]+(["b","n"].includes(piece.type)?3*centrality:0));
   }));
   return score;
+}
+// Ant-only experiment. A completed iteration is retained when the shared budget
+// expires; a partly searched move must not outrank fully searched alternatives.
+export function chooseAntMove(game,options={}){
+  const now=options.now||(()=>performance.now());
+  const started=now(),maxMs=options.maxMs??120,maxNodes=options.maxNodes??4200;
+  // Reserve time for the last indivisible chess.js operation and undo work.
+  const deadline=started+Math.max(0,maxMs-8);
+  const depth=options.depth??3,qDepth=options.quiescence===false?0:2;
+  const stop=Symbol("search-budget");
+  let nodes=0,completedDepth=0,aborted=false;
+  const order=moves=>moves.sort((a,b)=>((VALUE[b.captured]||0)+(VALUE[b.promotion]||0))-((VALUE[a.captured]||0)+(VALUE[a.promotion]||0)));
+  const roots=order(game.moves({verbose:true}));
+  let best=roots[0]||null,bestScore=null;
+  function visit(){
+    if(nodes>=maxNodes||now()>=deadline)throw stop;
+    nodes++;
+  }
+  function search(remaining,alpha,beta,quietLeft,ply){
+    visit();
+    const moves=order(game.moves({verbose:true})),check=game.isCheck(),black=game.turn()==="b";
+    if(!moves.length)return check?(black?-100000+ply:100000-ply):0;
+    if(game.isInsufficientMaterial()||halfMoveClock(game)>=150)return 0;
+    const quiet=remaining<=0;
+    if(quiet&&quietLeft===0)return boardEvaluation(game);
+    let score=black?-Infinity:Infinity,candidates=moves;
+    if(quiet&&!check){
+      // Standing still is an evaluation bound only when the king is not in check.
+      score=boardEvaluation(game);
+      if(black)alpha=Math.max(alpha,score);else beta=Math.min(beta,score);
+      if(beta<=alpha)return score;
+      candidates=moves.filter(m=>m.captured||m.promotion);
+    }
+    for(const move of candidates){
+      game.move(moveInput(move));let value;
+      try{value=search(Math.max(0,remaining-1),alpha,beta,quiet?quietLeft-1:quietLeft,ply+1);}finally{game.undo();}
+      score=black?Math.max(score,value):Math.min(score,value);
+      if(black)alpha=Math.max(alpha,score);else beta=Math.min(beta,score);
+      if(beta<=alpha)break;
+    }
+    return score;
+  }
+  try{
+    for(let iteration=1;iteration<=depth&&roots.length;iteration++){
+      const black=game.turn()==="b";let candidate=null,score=black?-Infinity:Infinity;
+      let alpha=-Infinity,beta=Infinity;
+      // Previous principal move first; later iterations replace it only when complete.
+      const moves=[best,...roots.filter(m=>m!==best)];
+      for(const move of moves){
+        game.move(moveInput(move));let value;
+        try{value=search(iteration-1,alpha,beta,qDepth,1);}finally{game.undo();}
+        if(!candidate||(black?value>score:value<score)){
+          candidate=move;score=value;
+          // With no completed iteration yet, keep only a fully evaluated root.
+          if(completedDepth===0){best=candidate;bestScore=score;}
+        }
+        if(black)alpha=Math.max(alpha,score);else beta=Math.min(beta,score);
+      }
+      best=candidate;bestScore=score;completedDepth=iteration;
+    }
+  }catch(error){if(error!==stop)throw error;aborted=true;}
+  return {move:best,score:bestScore,nodes,completedDepth,aborted,elapsedMs:now()-started};
 }
 function safePreferences(){try{return JSON.parse(localStorage.getItem(PREF_KEY)||"{}")||{};}catch{return {};}}
 function writePreferences(value){try{localStorage.setItem(PREF_KEY,JSON.stringify(value));}catch{/* Gameplay does not depend on storage. */}}
@@ -282,6 +347,7 @@ export function startChess(Chess,COPY,shell){
     return Number.isFinite(best)?best:materialEvaluation(game);
   }
   function chooseMove(profile){
+    if(profile.style==="perfect-counter")return chooseAntMove(chess).move;
     const moves=orderedMoves(chess);if(!moves.length)return null;
     const black=chess.turn()==="b",budget={nodes:0,max:1200+profile.level*600,deadline:performance.now()+120};let best=null;
     for(const move of moves){
