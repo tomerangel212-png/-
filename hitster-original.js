@@ -5,6 +5,10 @@
   var STORAGE_KEY = "hitster-tra-annual-888-v1";
   var personalConfig = window.TRA_PERSONAL_CONFIG || null;
   if (personalConfig) STORAGE_KEY = "hitster-tra-personal-game-v1";
+  var generationsMode = !personalConfig && /(?:\?|&)mode=generations(?:&|$)/.test(window.location.search || "");
+  var generationsConfig = window.TRA_GENERATIONS_CONFIG;
+  if (generationsMode) STORAGE_KEY = "hitster-tra-generations-v1";
+  var generationConfirmed = false;
   var AUDIO_CACHE_NAME = "hitster-tra-preview-audio-v1";
   var PREVIEW_SECONDS = 30;
   var PREVIEW_LOOKUP_TIMEOUT_MS = 6000;
@@ -188,6 +192,9 @@
   function createInitialState() {
     return {
       version: 2,
+      generationTurns: 0,
+      generationStage: 0,
+      generationStageTurns: 0,
       activeTeamId: TEAM_DEFS[0].id,
       teams: TEAM_DEFS.map(function (team) { return { id: team.id, stars: START_STARS, timeline: [] }; }),
       used: [],
@@ -216,6 +223,9 @@
     var valid = Object.create(null);
     deck.forEach(function (card) { valid[card.id] = true; });
     var restored = createInitialState();
+    restored.generationTurns = Number.isSafeInteger(candidate.generationTurns) && candidate.generationTurns >= 0 ? candidate.generationTurns : 0;
+    restored.generationStage = [0, 1, 2].indexOf(candidate.generationStage) !== -1 ? candidate.generationStage : 0;
+    restored.generationStageTurns = Number.isSafeInteger(candidate.generationStageTurns) && candidate.generationStageTurns >= 0 ? candidate.generationStageTurns : 0;
     var usedAcrossTimelines = Object.create(null);
     restored.teams.forEach(function (team) {
       var old = candidate.teams.find(function (value) { return value && value.id === team.id; }) || {};
@@ -365,6 +375,55 @@
     if (previewObjectUrl) { URL.revokeObjectURL(previewObjectUrl); previewObjectUrl = null; }
   }
   function currentCard() { return state && state.current ? cardFor(state.current) : null; }
+  function generationStage() { return state.generationStage; }
+  function generationGroup(card) {
+    if (generationsConfig.childrenIds.indexOf(card.id) !== -1 || generationsConfig.children.some(function (child) { return child.id === card.id; })) return 0;
+    return generationsConfig.adultIds.indexOf(card.id) !== -1 ? 1 : (generationsConfig.olderIds.indexOf(card.id) !== -1 ? 2 : -1);
+  }
+  function eligibleCard(card) { return !generationsMode || generationGroup(card) === generationStage(); }
+  function generationAllowed() {
+    if (!generationsMode || generationConfirmed) return true;
+    setStatus(language === "he" ? "המנחה צריך לאשר שרק בני הדור הפעיל עונים בתור הזה." : "The host must confirm that only the active generation answers this turn.");
+    return false;
+  }
+  function renderGenerations() {
+    if (!generationsMode) return;
+    var panel = el("generation-panel");
+    if (!panel) {
+      panel = createNode("section", "panel rules"); panel.id = "generation-panel";
+      var heading = createNode("h2"); heading.id = "generation-heading";
+      heading.setAttribute("aria-live", "polite");
+      var help = createNode("p", "", language === "he" ? "ילדים → מבוגרים → הדור הוותיק. המנחה מעביר דרגה בסוף סבב מלא. רק הדור הפעיל עונה וממקם בציר; השאר מקשיבים בלי רמזים. החלוקה לקבוצות גיל נעשית יחד לפני המשחק, ללא הזנת גיל." : "Children → adults → older adults. The host advances the stage after a full round. Only the active generation answers and places cards; others listen without hints. Agree on age groups before playing; no ages are collected.");
+      var label = createNode("label");
+      label.style = "display:block;padding:12px;min-height:44px;cursor:pointer";
+      var input = createNode("input"); input.id = "generation-confirm"; input.type = "checkbox";
+      input.addEventListener("change", function () { generationConfirmed = Boolean(input.checked); render(); });
+      var caption = createNode("span"); caption.id = "generation-confirm-label";
+      label.append(input, caption); panel.append(heading, help, label);
+      var next = createNode("button", "action", language === "he" ? "מעבר לדרגה הבאה · בסוף סבב" : "Next stage · at the end of a round");
+      next.id = "generation-next"; next.type = "button";
+      next.addEventListener("click", function () {
+        if (state.current || preparing || generationStage() >= 2 || !state.generationStageTurns || state.generationStageTurns % TEAM_DEFS.length) return;
+        if (!window.confirm(language === "he" ? "לעבור לדרגה הבאה? לא חוזרים לדרגה הקודמת במשחק הזה." : "Advance to the next stage? This game will not return to the previous stage.")) return;
+        stopAudio(); state.generationStage += 1; state.generationStageTurns = 0; generationConfirmed = false;
+        persist(); render(); void prepareNextAudio();
+      });
+      panel.append(next);
+      el("teams").insertAdjacentElement("afterend", panel);
+    }
+    var stage = generationStage();
+    el("generation-next").hidden = stage === 2;
+    el("generation-next").disabled = Boolean(state.current || preparing || !state.generationStageTurns || state.generationStageTurns % TEAM_DEFS.length);
+    var labels = language === "he" ? ["ילדים", "מבוגרים", "הדור הוותיק"] : ["Children", "Adults", "Older adults"];
+    el("generation-heading").textContent = (language === "he" ? "דרגה " : "Stage ") + (stage + 1) + "/3 · " + labels[stage] + (language === "he" ? " בלבד עונים" : " only may answer");
+    el("generation-confirm-label").textContent = language === "he" ? " אני מאשר/ת כמנחה: רק " + labels[stage] + " עונים בתור הזה" : " As host, I confirm: only " + labels[stage] + " answer this turn";
+    el("generation-confirm").checked = generationConfirmed;
+    if (!generationConfirmed) ["answer-open", "reveal-year", "add-to-timeline", "free-card", "placement-select"].forEach(function (id) { el(id).disabled = true; });
+    else {
+      el("placement-select").disabled = false;
+      el("add-to-timeline").disabled = false;
+    }
+  }
   function setConnectionStatus() {
     if (!el("connection")) return;
     el("connection").textContent = navigator.onLine ? t.online : t.offline;
@@ -488,7 +547,7 @@
     el("card-title").textContent = solutionRevealed ? card.title : t.hidden;
     el("card-artist").textContent = solutionRevealed ? card.artist : "•••";
     el("card-year").textContent = yearRevealed ? (card.yearBasis === "catalog-release" ? (language === "he" ? "שנת הגרסה בקטלוג" : "Catalog version year") : t.source) + ": " + card.chartYear : t.yearHidden;
-    el("card-source").textContent = solutionRevealed ? "Billboard year-end chart · #" + card.chartRank : "";
+    el("card-source").textContent = solutionRevealed ? (card.yearBasis === "catalog-release" ? card.source : "Billboard year-end chart · #" + card.chartRank) : "";
     el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? winnerMessage() : t.noCard);
     var audioReady = Boolean(preparedCardId && audio.getAttribute("src"));
     el("play-clip").disabled = preparing || playbackPending || (!audioReady && isGameLocked());
@@ -530,6 +589,7 @@
     renderTimeline();
     renderStartScreen();
     setConnectionStatus();
+    renderGenerations();
   }
   function validateDeck(payload) {
     if (!payload || payload.total !== 888 || !Array.isArray(payload.cards) || payload.cards.length !== 888) throw new Error("The annual deck must contain exactly 888 cards.");
@@ -553,6 +613,16 @@
     var payload = await response.json();
     validateDeck(payload);
     deck = payload.cards;
+    if (generationsMode) {
+      if (!generationsConfig || !Array.isArray(generationsConfig.children) || !Array.isArray(generationsConfig.childrenIds)) throw new Error("Generations catalog missing");
+      deck = deck.concat(generationsConfig.children);
+      if (el("generation-language")) el("generation-language").setAttribute("href", (language === "he" ? "hitster-888-en.html" : "hitster-888.html") + "?mode=generations");
+      if (el("game-heading")) el("game-heading").textContent = language === "he" ? "HITSTER · שלושה דורות" : "HITSTER · Three Generations";
+      if (el("game-description")) el("game-description").textContent = language === "he" ? "שירי ילדים → שירי מבוגרים → שירי הדור הוותיק. בכל דרגה רק הדור המתאים עונה. השנה נשארת מוסתרת עד החשיפה." : "Children’s songs → adult songs → older-generation songs. Only the active generation answers. The year stays hidden until reveal.";
+      t.noMore = language === "he" ? "אין עוד קלפים זמינים בדרגה הזאת." : "No unused cards remain in this stage.";
+      t.reset = language === "he" ? "מצב שלושה דורות אופס. מתחילים שוב בשירי ילדים." : "Three Generations reset. Start with children's songs.";
+      t.resetAllConfirm = language === "he" ? "לאפס את מצב שלושה דורות? הצירים, הכוכבים וההתקדמות במצב הזה יימחקו." : "Reset Three Generations? Its timelines, stars and progress will be cleared.";
+    }
     if (personalConfig && Array.isArray(personalConfig.cards)) {
       personalConfig.cards.forEach(function (card) {
         if (!card || !card.id || !card.title || !card.artist || !Number.isInteger(card.chartYear) || card.chartYear < 1900 || card.chartYear > new Date().getFullYear() || /michael jackson|eyal golan|אייל גולן/i.test(card.artist)) return;
@@ -571,7 +641,7 @@
   function randomUnusedCard() {
     var used = Object.create(null);
     state.used.forEach(function (id) { used[id] = true; });
-    var available = deck.filter(function (card) { return !used[card.id]; });
+    var available = deck.filter(function (card) { return !used[card.id] && eligibleCard(card); });
     return available.length ? available[Math.floor(Math.random() * available.length)] : null;
   }
   async function drawCard() {
@@ -584,6 +654,7 @@
     if (!card) return null;
     nextAudioCard = null;
     state.current = card.id;
+    generationConfirmed = false;
     state.currentYearRevealed = false;
     state.currentSolutionRevealed = false;
     state.currentAnswerChecked = false;
@@ -612,7 +683,7 @@
           });
         } catch (error) {}
       }
-      var available = deck.filter(function (card) { return state.used.indexOf(card.id) === -1 && !unavailableAudio[card.id]; });
+      var available = deck.filter(function (card) { return eligibleCard(card) && state.used.indexOf(card.id) === -1 && !unavailableAudio[card.id]; });
       var shuffled = available.map(function (card) { return { card: card, order: Math.random() }; });
       shuffled.sort(function (a, b) { return Number(Boolean(cachedIds[b.card.id])) - Number(Boolean(cachedIds[a.card.id])) || Number(Boolean(b.card.personal)) - Number(Boolean(a.card.personal)) || a.order - b.order; });
       for (var index = 0; index < Math.min(12, shuffled.length); index += 1) {
@@ -641,6 +712,7 @@
     return (!before || before.chartYear <= card.chartYear) && (!after || after.chartYear >= card.chartYear);
   }
   function revealYear() {
+    if (!generationAllowed()) return;
     var card = currentCard();
     if (!card || state.currentYearRevealed) return;
     var raw = el("placement-select").value;
@@ -716,7 +788,9 @@
     candidates.forEach(function (candidate) {
       if (!candidate || !candidate.previewUrl || !candidate.trackName || !candidate.artistName) return;
       var titleMatch = normalize(candidate.trackName) === expectedTitle ? 1 : overlapScore(candidate.trackName, expectedTitle);
-      var artistMatch = normalize(candidate.artistName) === expectedArtist ? 1 : overlapScore(candidate.artistName, expectedArtist);
+      var artistMatch = Math.max.apply(null, [card.artist].concat(card.artistAliases || []).map(function (artist) {
+        return normalize(candidate.artistName) === normalize(artist) ? 1 : overlapScore(candidate.artistName, artist);
+      }));
       var score = titleMatch * 72 + artistMatch * 28;
       if (titleMatch >= 0.62 && artistMatch >= 0.25 && score > bestScore) { best = candidate.previewUrl; bestScore = score; }
     });
@@ -884,11 +958,12 @@
   }
   function checkAnswer(event) {
     event.preventDefault();
+    if (!generationAllowed()) return;
     var card = currentCard();
     if (!card || state.currentSolutionRevealed || state.currentAnswerChecked) { setStatus(t.oneAttempt); return; }
     var enteredTitle = el("answer-title").value, enteredArtist = el("answer-artist").value;
     if (!String(enteredTitle).trim() || !String(enteredArtist).trim()) { setStatus(t.inputNeeded); return; }
-    var exact = normalize(enteredTitle) === normalize(card.title) && normalize(enteredArtist) === normalize(card.artist);
+    var exact = normalize(enteredTitle) === normalize(card.title) && [card.artist].concat(card.artistAliases || []).some(function (artist) { return normalize(enteredArtist) === normalize(artist); });
     state.currentAnswerChecked = true;
     if (exact) {
       var team = getTeam();
@@ -912,6 +987,7 @@
     });
   }
   function checkWinner() {
+    if (generationsMode && (generationStage() < 2 || state.generationStageTurns < TEAM_DEFS.length)) return false;
     var winners = qualifyingTeams();
     if (winners.length && nextTeamId(state.activeTeamId) === state.roundStartTeamId) {
       state.winnerTeamId = winners[0].id;
@@ -921,6 +997,8 @@
   }
   function finishCurrent(shouldAdvance) {
     stopLiveReactionWindow();
+    generationConfirmed = false;
+    if (generationsMode && shouldAdvance) { state.generationTurns += 1; state.generationStageTurns += 1; }
     state.current = null;
     state.currentYearRevealed = false;
     state.currentSolutionRevealed = false;
@@ -938,6 +1016,7 @@
     return Boolean(won);
   }
   function addToTimeline() {
+    if (!generationAllowed()) return;
     var card = currentCard();
     if (!card || !state.currentYearRevealed || state.currentPlacementCorrect !== true) { setStatus(t.addNeedCorrect); return; }
     var team = getTeam();
@@ -970,6 +1049,7 @@
     await drawCard();
   }
   function freeCard() {
+    if (!generationAllowed()) return;
     var card = currentCard(), team = getTeam();
     if (!card || state.currentYearRevealed || state.currentSolutionRevealed) return;
     if (team.stars < 3) { setStatus(t.freeNeed); return; }
@@ -985,6 +1065,7 @@
     if (!skipConfirm && !window.confirm(t.resetAllConfirm)) return false;
     stopAudio();
     state = createInitialState();
+    generationConfirmed = false;
     persist();
     render();
     unavailableAudio = Object.create(null);
@@ -1004,6 +1085,7 @@
     track("timeline_reset", { team_id: team.id, used_count: state.used.length });
   }
   function openAnswer() {
+    if (!generationAllowed()) return;
     if (!currentCard() || state.currentSolutionRevealed || state.currentAnswerChecked) return;
     el("answer-panel").hidden = false;
     el("answer-title").focus();
@@ -1045,7 +1127,7 @@
   el("answer-form").addEventListener("submit", checkAnswer);
   el("answer-cancel").addEventListener("click", function () { el("answer-panel").hidden = true; });
   el("placement-select").addEventListener("change", function (event) {
-    if (!state.currentYearRevealed) { state.currentPlacementSlot = Number(event.target.value); persist(); }
+    if (generationAllowed() && !state.currentYearRevealed) { state.currentPlacementSlot = Number(event.target.value); persist(); }
   });
   el("add-to-timeline").addEventListener("click", addToTimeline);
   el("finish-turn").addEventListener("click", endWrongTurn);

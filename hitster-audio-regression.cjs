@@ -6,7 +6,7 @@ const vm = require("node:vm");
 const engine = fs.readFileSync("hitster-original.js", "utf8");
 const deck = JSON.parse(fs.readFileSync("hitster-alltime-888.json", "utf8"));
 const settle = async () => { for (let i = 0; i < 35; i++) await new Promise(setImmediate); };
-async function harness({ offline = false, cacheIds = [], lookupMissing = false, language = "he", personalConfig = null, savedState = null } = {}) {
+async function harness({ offline = false, cacheIds = [], lookupMissing = false, language = "he", personalConfig = null, savedState = null, generations = false } = {}) {
   const nodes = new Map(), stores = new Map(), mediaCache = new Map(), timers = new Map();
   let gesture = false, timerId = 0, playCalls = 0, networkCalls = 0, rejectPlay = false, deferLookup = null;
   class Element {
@@ -36,11 +36,11 @@ async function harness({ offline = false, cacheIds = [], lookupMissing = false, 
       this.paused = false; this.emit("playing"); return Promise.resolve();
     }
   }
-  if (savedState) stores.set(personalConfig ? "hitster-tra-personal-game-v1" : "hitster-tra-annual-888-v1", JSON.stringify(savedState));
+  if (savedState) stores.set(generations ? "hitster-tra-generations-v1" : personalConfig ? "hitster-tra-personal-game-v1" : "hitster-tra-annual-888-v1", JSON.stringify(savedState));
   const html = fs.readFileSync("hitster-888.html", "utf8");
   for (const match of html.matchAll(/id="([^"]+)"/g)) { const node = new Element(); node.id = match[1]; }
   const document = { documentElement: { lang: language }, head: new Element(), getElementById: id => nodes.get(id), createElement: tag => new Element(tag) };
-  const location = { href: "https://hitster.test/hitster-888.html" };
+  const location = { search: generations ? "?mode=generations" : "", href: "https://hitster.test/hitster-888.html" };
   for (const id of cacheIds) mediaCache.set(new URL("./__hitster_preview_cache__/" + id, location.href).href, new Response("audio", { headers: { "content-type": "audio/mp4" } }));
   const cache = { keys: async () => [...mediaCache.keys()].map(url => new Request(url)), match: async req => mediaCache.get(req.url)?.clone(), delete: async req => mediaCache.delete(req.url), put: async (req, response) => mediaCache.set(req.url, response.clone()) };
   const alerts = [];
@@ -51,12 +51,13 @@ async function harness({ offline = false, cacheIds = [], lookupMissing = false, 
     if (deferLookup) await deferLookup;
     if (String(url).includes("itunes.apple.com")) {
       const term = new URL(url).searchParams.get("term");
-      const card = deck.cards.find(c => c.title + " " + c.artist === term);
+      const card = deck.cards.concat(window.TRA_GENERATIONS_CONFIG?.children || []).find(c => c.title + " " + c.artist === term);
       return new Response(JSON.stringify({ results: lookupMissing ? [] : [{ trackName: card.title, artistName: card.artist, previewUrl: "https://media.test/" + card.id }] }));
     }
     return new Response("audio", { headers: { "content-type": "audio/mp4" } });
   } };
   vm.createContext(context);
+  if (generations) vm.runInContext(fs.readFileSync("hitster-generations.js", "utf8"), context);
   const exposed = engine.replace('  loadDeck().catch(function () {', '  window.test = { state: () => state, staged: () => nextAudioCard, reset: resetGame, prepare: prepareNextAudio, finish: finishCurrent, add: addToTimeline, wrong: endWrongTurn, free: freeCard, sanitize: sanitizeState, render: render, remove: removeTimelineCard, resetTimeline: resetTimeline, name: teamName };\n  loadDeck().catch(function () {');
   vm.runInContext(exposed, context);
   await settle();
@@ -114,3 +115,4 @@ if (require.main === module) (async () => {
   assert.equal(emptyOffline.calls().networkCalls, 0);
   console.log("HITSTER audio regression PASSED: one-tap play, pause/resume, stop/replay, 30s cap, no repeats, failed playback, reset, offline cache, unavailable audio.");
 })().catch(error => { console.error(error); process.exitCode = 1; });
+
