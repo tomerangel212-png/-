@@ -11,6 +11,7 @@
   var PREVIEW_DOWNLOAD_TIMEOUT_MS = 10000;
   var START_STARS = 5;
   var MAX_STARS = 10;
+  var START_LIVES = 10;
   var WIN_CARDS = 18;
   var TEAM_DEFS = [
     { id: "ayelet-dudi", he: "איילת ודודי", en: "Ayelet & Dudi" },
@@ -54,7 +55,7 @@
       freeNeed: "צריך לפחות ⭐⭐⭐ לכרטיס חינם.",
       free: "כרטיס חינם: ⭐⭐⭐ הוחלפו בקלף שנוסף אוטומטית לציר.",
       noMore: "כל 888 הקלפים כבר נוגנו במשחק הזה.",
-      reset: "הכול אופס: 5 ⭐ לכל קבוצה, צירים ריקים וכל 888 הקלפים זמינים מחדש.",
+      reset: "הכול אופס: 10 חיים ו־5 ⭐ לכל קבוצה, צירים ריקים וכל 888 הקלפים זמינים מחדש.",
       timelineReset: "ציר הזמן של הקבוצה אופס. שירים שכבר נוגנו עדיין לא יחזרו לחפיסה.",
       removed: "הקלף הוסר מהציר. הוא נשאר מסומן כשיר שכבר נוגן ולא יחזור לחפיסה.",
       source: "שנת מצעד",
@@ -66,6 +67,10 @@
       after: "אחרי",
       count: "קלפים",
       stars: "כוכבים",
+      lives: "חיים",
+      loseLife: "הפחת חיים",
+      restoreLife: "החזר חיים",
+      livesUpdated: "{team}: {lives} חיים.",
       winner: "🏆 {team} ניצחו עם 18 קלפים!",
       turn: "תור",
       playLabel: "▶ נגן / המשך",
@@ -78,7 +83,7 @@
       answerClosed: "הזיהוי נבדק",
       removeConfirm: "האם אתה בטוח שאתה רוצה להסיר שיר זה מהציר?",
       resetTimelineConfirm: "לאפס את הציר של הקבוצה הזאת? השירים שכבר נוגנו לא יחזרו לחפיסה.",
-      resetAllConfirm: "לאפס את כל המשחק? כל הצירים, הכוכבים והיסטוריית 888 הקלפים יימחקו.",
+      resetAllConfirm: "לאפס את כל המשחק? החיים יחזרו ל־10 לכל קבוצה; כל הצירים, הכוכבים והיסטוריית 888 הקלפים יימחקו.",
       noSaved: "לא נמצא משחק שמור. אפשר להתחיל מכאן.",
       startFresh: "התחילו לשחק",
       storageUnavailable: "הדפדפן לא מאפשר גישה לשמירה המקומית. המשחק ימשיך, אך ההתקדמות לא תישמר במכשיר הזה."
@@ -116,7 +121,7 @@
       freeNeed: "You need at least ⭐⭐⭐ three stars for a free card.",
       free: "Free card: ⭐⭐⭐ were exchanged for an automatic timeline card.",
       noMore: "All 888 cards have already been played in this game.",
-      reset: "Everything reset: 5 ⭐ per team, empty timelines, and all 888 cards available again.",
+      reset: "Everything reset: 10 lives and 5 ⭐ per team, empty timelines, and all 888 cards available again.",
       timelineReset: "This team's timeline was reset. Already-played songs still will not return to the deck.",
       removed: "Card removed from the timeline. It remains marked as played and will not return to the deck.",
       source: "Chart year",
@@ -128,6 +133,10 @@
       after: "After",
       count: "cards",
       stars: "stars",
+      lives: "lives",
+      loseLife: "Remove a life",
+      restoreLife: "Restore a life",
+      livesUpdated: "{team}: {lives} lives.",
       winner: "🏆 {team} wins with 18 cards!",
       turn: "Turn",
       playLabel: "▶ Play / resume",
@@ -140,7 +149,7 @@
       answerClosed: "Identification checked",
       removeConfirm: "Are you sure you want to remove this song from the timeline?",
       resetTimelineConfirm: "Reset this team's timeline? Already-played songs will not return to the deck.",
-      resetAllConfirm: "Reset the entire game? All timelines, stars and the 888-card play history will be erased.",
+      resetAllConfirm: "Reset the entire game? Each team returns to 10 lives; all timelines, stars and the 888-card play history will be erased.",
       noSaved: "No saved game was found. You can start here.",
       startFresh: "Start playing",
       storageUnavailable: "This browser blocked local saving. You can play, but progress will not be saved on this device."
@@ -183,9 +192,9 @@
   }
   function createInitialState() {
     return {
-      version: 2,
+      version: 3,
       activeTeamId: TEAM_DEFS[0].id,
-      teams: TEAM_DEFS.map(function (team) { return { id: team.id, stars: START_STARS, timeline: [] }; }),
+      teams: TEAM_DEFS.map(function (team) { return { id: team.id, stars: START_STARS, lives: START_LIVES, timeline: [] }; }),
       used: [],
       current: null,
       currentYearRevealed: false,
@@ -204,7 +213,7 @@
   function getTeam() { return state.teams.find(function (team) { return team.id === state.activeTeamId; }); }
   function cardFor(id) { return deckById[id] || null; }
   function hasProgress(candidate) {
-    return Boolean(candidate && ((candidate.used && candidate.used.length) || candidate.current || (candidate.teams || []).some(function (team) { return team.timeline && team.timeline.length; })));
+    return Boolean(candidate && ((candidate.used && candidate.used.length) || candidate.current || (candidate.teams || []).some(function (team) { return (team.timeline && team.timeline.length) || (Number.isInteger(team.lives) && team.lives !== START_LIVES); })));
   }
   function sanitizeState(candidate) {
     if (!candidate || !Array.isArray(candidate.teams) || !candidate.teams.length) return createInitialState();
@@ -216,6 +225,7 @@
       var old = candidate.teams.find(function (value) { return value && value.id === team.id; }) || {};
       var starValue = Number(old.stars);
       team.stars = Math.max(0, Math.min(MAX_STARS, Number.isFinite(starValue) ? starValue : START_STARS));
+      team.lives = Number.isInteger(old.lives) ? Math.max(0, Math.min(START_LIVES, old.lives)) : START_LIVES;
       team.timeline = Array.isArray(old.timeline) ? old.timeline.filter(function (id) {
         if (!valid[id] || usedAcrossTimelines[id]) return false;
         usedAcrossTimelines[id] = true;
@@ -385,17 +395,33 @@
   function advanceTurn() {
     state.activeTeamId = nextTeamId(state.activeTeamId);
   }
+  function changeTeamLives(teamId, delta) {
+    var team = state.teams.find(function (value) { return value.id === teamId; });
+    if (!team || (delta !== -1 && delta !== 1)) return;
+    var next = Math.max(0, Math.min(START_LIVES, team.lives + delta));
+    if (next === team.lives) return;
+    team.lives = next;
+    persist();
+    render();
+    setStatus(text(t.livesUpdated, { team: teamName(team.id), lives: team.lives }));
+    var focusId = (delta < 0 ? "lose-life-" : "restore-life-") + team.id;
+    var control = el(focusId);
+    if (control && control.disabled) control = el((delta < 0 ? "restore-life-" : "lose-life-") + team.id);
+    if (control) control.focus();
+  }
   function renderTeams() {
     var host = el("teams");
     clear(host);
     state.teams.forEach(function (team) {
+      var group = createNode("div", "team-group");
       var button = createNode("button", "team" + (team.id === state.activeTeamId ? " active" : ""), "");
       button.type = "button";
       button.disabled = !canChooseStartingTeam();
       button.setAttribute("aria-pressed", team.id === state.activeTeamId ? "true" : "false");
       button.append(
         createNode("strong", "", teamName(team.id)),
-        createNode("span", "team-score", "⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + WIN_CARDS)
+        createNode("span", "team-score", "⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + WIN_CARDS),
+        createNode("span", "team-lives", "♥ " + team.lives + "/" + START_LIVES + " " + t.lives)
       );
       button.addEventListener("click", function () {
         if (!canChooseStartingTeam()) return;
@@ -404,7 +430,18 @@
         persist();
         render();
       });
-      host.append(button);
+      var controls = createNode("div", "life-controls");
+      [-1, 1].forEach(function (delta) {
+        var control = createNode("button", "life-control", delta < 0 ? "− ♥" : "+ ♥");
+        control.id = (delta < 0 ? "lose-life-" : "restore-life-") + team.id;
+        control.type = "button";
+        control.disabled = delta < 0 ? team.lives === 0 : team.lives === START_LIVES;
+        control.setAttribute("aria-label", (delta < 0 ? t.loseLife : t.restoreLife) + " · " + teamName(team.id));
+        control.addEventListener("click", function () { changeTeamLives(team.id, delta); });
+        controls.append(control);
+      });
+      group.append(button, controls);
+      host.append(group);
     });
   }
   function removeTimelineCard(cardId) {
@@ -419,7 +456,7 @@
   }
   function renderTimeline() {
     var team = getTeam(), host = el("timeline"), title = el("timeline-title");
-    title.textContent = teamName(team.id) + " · " + t.stars + ": ⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + WIN_CARDS;
+    title.textContent = teamName(team.id) + " · ♥ " + team.lives + " " + t.lives + " · " + t.stars + ": ⭐ " + team.stars + "/" + MAX_STARS + " · " + team.timeline.length + "/" + WIN_CARDS;
     clear(host);
     var cards = sortedTimeline(team);
     if (!cards.length) { host.append(createNode("p", "muted", t.timelineEmpty)); return; }

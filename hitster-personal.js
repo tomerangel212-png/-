@@ -72,7 +72,7 @@
       }
       $("setup-modal").hidden=true;$("game-main").inert=false;$("game-main").removeAttribute("aria-hidden");
       renderScores();
-      const script=document.createElement("script");script.src="hitster-original.js?v=personal-v1";
+      const script=document.createElement("script");script.src="hitster-original.js?v=ten-lives-v1";
       script.onerror=()=>{$("personal-note").textContent+=" טעינת המשחק נכשלה. רעננו את הדף.";};
       document.body.appendChild(script);
       $("play-clip").focus();
