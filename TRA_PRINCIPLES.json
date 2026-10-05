@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.2.0",
+  "registry_version": "1.3.0",
   "product": "THE TRA",
   "status": "active-draft",
   "target": "9999999999/9999999999",
@@ -231,6 +231,13 @@
       "en": "Music is a space for listening, connection and creation — not background noise. Give the song time before reacting.",
       "source": "user directive 2026-10-05",
       "category": "music"
+    },
+    {
+      "id": "full-hebrew-niqqud",
+      "he": "נִקּוּד מָלֵא בְּעִבְרִית: כָּל טֶקְסְט עִבְרִי הַמֻּצָּג לַמִּשְׁתַּמֵּשׁ בְּמִשְׂחֲקֵי TRA, בָּאֲפְלִיקַצְיוֹת וּבָאֲתָרִים יִכָּתֵב בְּנִקּוּד מָלֵא. חֲרִיגִים רַק בְּמָקוֹם שֶׁנִּקּוּד עָלוּל לִפְגֹּעַ בְּקֹד, URL, מַפְתְּחוֹת, מְזַהִים, שֵׁמוֹת קְבָצִים אוֹ זֶהוּת מוּתָג.",
+      "en": "Full Hebrew niqqud: all user-facing Hebrew text across TRA games, apps and websites should use full vocalization. Exceptions are limited to places where niqqud could break code, URLs, keys, identifiers, filenames or brand identity.",
+      "source": "user directive 2026-10-05",
+      "category": "language-accessibility"
     }
   ],
   "title": "TRA ART TRY",
