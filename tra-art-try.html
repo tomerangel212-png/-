@@ -1,36 +1,13 @@
 <!doctype html>
-<html lang="he" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TRA ART TRY — History & Music — Tomer Angel 2026</title>
-<meta name="description" content="TRA ART TRY — TRA constitution, History & Music, and patient listening. Tomer Angel 2026.">
-<style>
-:root{color-scheme:dark;--bg:#0b0b0d;--card:#151519;--text:#f4f4f5;--muted:#b7b7c0;--line:#303038;--accent:#d7b56d}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.65}
-header,main,footer{width:min(980px,92vw);margin:auto} header{padding:64px 0 28px;border-bottom:1px solid var(--line)}
-h1{font-size:clamp(2.3rem,7vw,5rem);line-height:.95;margin:0 0 16px;letter-spacing:-.04em}
-.kicker{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase}.sub{color:var(--muted);font-size:1.1rem}
-.rule{margin:28px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
-.rule strong{color:var(--accent)} main{padding:32px 0 70px}
-pre{white-space:pre-wrap;word-wrap:break-word;font:inherit;margin:0;background:transparent;color:var(--text)}
-footer{padding:24px 0 48px;border-top:1px solid var(--line);color:var(--muted)}
-a{color:var(--accent)}
-</style>
-</head>
-<body>
-<header>
-<div class="kicker">Tomer Angel · 2026</div>
-<h1>TRA ART TRY</h1>
-<div class="sub">History & Music · היסטוריה ומוזיקה</div>
-<div class="rule"><strong>Listen with patience.</strong><br>מקשיבים בסבלנות לפני שמגיבים, משנים או שופטים. מוזיקה מקבלת זמן להישמע.</div>
-</header>
-<main><pre id="constitution">טוען את חוקת TRA ART TRY…</pre></main>
-<footer>TRA ART TRY · History & Music · Tomer Angel 2026</footer>
-<script>
-fetch('./TRA-ART-TRY.md?ts='+Date.now())
- .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.text()})
- .then(t=>document.getElementById('constitution').textContent=t)
- .catch(()=>document.getElementById('constitution').textContent='החוקה פורסמה בקובץ TRA-ART-TRY.md, אך טעינת הטקסט בעמוד נכשלה.');
-</script>
-</body></html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17151f"><title>TRA ART TRY — Tomer Angel 2026</title>
+<style>:root{font-family:Arial,"Noto Sans Hebrew",sans-serif;color:#f8f5ee;background:#17151f}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#40324c,#17151f 46%);min-height:100vh}main{max-width:1050px;margin:auto;padding:28px 20px 70px}a{color:#b9f1dc}.hero{padding:48px 0 30px}.eyebrow{letter-spacing:.1em;color:#efc987;font-weight:800}h1{font-size:clamp(3rem,10vw,7rem);line-height:.92;margin:14px 0}.lead{font-size:1.2rem;max-width:46rem;line-height:1.7}.panel{background:#ffffff0d;border:1px solid #ffffff25;border-radius:24px;padding:24px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.principle{background:#ffffff0b;border:1px solid #ffffff1f;border-radius:18px;padding:18px;line-height:1.55}.tag{font-size:.78rem;color:#efc987;text-transform:uppercase}audio{width:100%;margin:12px 0}.quote{font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;line-height:1.35}code{color:#efc987}footer{margin-top:34px;border-top:1px solid #ffffff25;padding-top:22px;color:#c9c2cf}.error{color:#ffd2c8}</style></head>
+<body><main><nav><a href="./">TRA Home</a> · <a href="./history-and-music.html">History & Music</a></nav>
+<section class="hero"><div class="eyebrow">TOMER ANGEL · 2026</div><h1>TRA ART TRY</h1><p class="lead">אמנות כדרך עבודה: מקור → שימור → הקשבה → ניסיון → בדיקה → שיפור. לא מוחקים את הקיים; מוסיפים שכבה חדשה רק אחרי שמקשיבים.</p></section>
+<section class="panel"><div class="eyebrow">LISTEN WITH PATIENCE</div><p class="quote">מקשיבים לפני שעובדים או מדברים.<br><span lang="en">Listen first. Give the music time.</span></p>
+<p>🎵 סשן שחרור — השמע הקיים ב־TRA History & Music.</p><audio controls preload="metadata" src="assets/audio/tra-release-session-2026.m4a">Your browser does not support audio.</audio>
+<p>לא מדלגים אוטומטית, לא שופטים בשניות הראשונות ולא ממציאים משמעות. מאזינים בסבלנות, בודקים מקור והקשר, ואז מגיבים.</p></section>
+<section class="panel"><div class="eyebrow">TRA CONSTITUTION</div><h2>📜 החוקה החיה — כל העקרונות</h2><p>העקרונות נטענים ישירות מ־<code>TRA_PRINCIPLES.json</code>. כך TRA ART TRY מוסיף שכבה בלי להחליף או למחוק את החוקה הקיימת.</p><div id="principles" class="grid" aria-live="polite"></div><p id="status"></p></section>
+<section class="panel"><div class="eyebrow">ART TRY LOOP</div><h2>Source → Preserve → Listen → Try → Verify → Improve</h2><p>כל ניסיון אמנותי מתחיל במקור, שומר עליו, מקשיב בסבלנות, מנסה שינוי קטן, בודק אותו ורק אז מתקדם לגרסה חדשה.</p></section>
+<footer>© 2026 Tomer Rafael Angel · All Rights Reserved<br>תכלית · רלוונטיות · איכות · נגישות</footer></main>
+<script>fetch("TRA_PRINCIPLES.json").then(r=>{if(!r.ok)throw Error();return r.json()}).then(d=>{const root=document.getElementById("principles");d.principles.forEach(p=>{const e=document.createElement("article");e.className="principle";const t=document.createElement("div");t.className="tag";t.textContent=p.category||"principle";const x=document.createElement("div");x.textContent=p.he;e.append(t,x);root.append(e)});document.getElementById("status").textContent=d.principles.length+" principles · registry "+d.registry_version}).catch(()=>{document.getElementById("status").className="error";document.getElementById("status").textContent="לא ניתן לטעון כרגע את החוקה. נסו לרענן."});</script></body></html>
