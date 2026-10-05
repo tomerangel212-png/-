@@ -171,6 +171,24 @@
       "en": "TRA ART TRY: art is also an attempt — create, listen, test, learn and improve while preserving the source and its history.",
       "source": "user directive 2026-10-05",
       "category": "art"
+    },
+    {
+      "id": "listen-before-action",
+      "he": "מקשיבים לפני שעובדים או מדברים: נותנים לאדם, למוזיקה ולמציאות זמן להתגלות לפני שמגיבים.",
+      "source": "user directive 2026-10-05",
+      "category": "listening"
+    },
+    {
+      "id": "patient-listening",
+      "he": "Listen with patience — בהאזנה לא ממהרים לדלג, לשפוט או למלא את השקט; מקשיבים בסבלנות ואז מחליטים.",
+      "source": "user directive 2026-10-05",
+      "category": "music"
+    },
+    {
+      "id": "art-try",
+      "he": "TRA ART TRY: יצירה היא ניסוי אחראי — יוצרים, מאזינים, בודקים, משפרים ושומרים את המקור.",
+      "source": "user directive 2026-10-05",
+      "category": "creation"
     }
   ],
   "title": "TRA ART TRY",
