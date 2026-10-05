@@ -26,6 +26,7 @@ const STATIC_ASSETS = [
   "./tra-100.html",
   "./wikifamily.html",
   "./tra-music.html",
+  "./tra-art-try.html",
   "./tra-music-station.html",
   "./tra-music-station.json",
   "./tra-music-station-extra-555.json",
