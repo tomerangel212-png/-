@@ -23,6 +23,12 @@
   }
   function start() {
     if (lists.some(function (list) { return !list.length; })) return;
+    var seen = new Set();
+    for (var list of lists) for (var file of list) {
+      var identity = file.name + "|" + file.size + "|" + file.lastModified;
+      if (seen.has(identity)) { $("status").textContent = "אותו קובץ נבחר יותר מפעם אחת. בחרו שירים שונים לכל דרגה."; return; }
+      seen.add(identity);
+    }
     stage = 0; index = 0; scores = [0, 0, 0]; $("setup").hidden = true; $("results").hidden = true; $("game").hidden = false; render();
   }
   function answer(correct) {
