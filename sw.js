@@ -1,4 +1,4 @@
-const STATIC_CACHE = "tra-99-99-station-999-chess-formal-rules-v4-hitster-fair-round";
+const STATIC_CACHE = "tra-99-99-station-999-chess-formal-rules-v5-hitster-fair-round-ten-lives";
 const AUDIO_CACHE = "hitster-tra-preview-audio-v1";
 const STATIC_ASSETS = [
   "./",
