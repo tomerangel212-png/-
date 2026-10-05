@@ -48,5 +48,17 @@ $("reset").onclick=function(){if(!confirm("לאפס את הניקוד והיסט
 $("add").onsubmit=function(e){e.preventDefault();var title=$("title").value.trim();if(!title)return;if(cards.some(function(c){return c.title.toLowerCase()===title.toLowerCase();})){status("השם כבר במאגר");return;}cards.push({id:++serial,title:title,group:Number($("group").value),url:null});$("title").value="";catalog();render();};
 audio.ontimeupdate=function(){if(audio.currentTime>=30)stop();};
 audio.onended=function(){status("הקטע הסתיים");};
+
+function renderParticipants(){
+var n=Number($("team-count").value), total=n*10;
+$("participant-total").textContent=total+" משתתפים · 10 בכל קבוצה";
+var fields=["count-children","count-adults","count-seniors"].map($);
+var valid=fields.every(function(f){return f.value!==""&&Number.isInteger(Number(f.value))&&Number(f.value)>=0&&Number(f.value)<=200;});
+if(!valid){$("allocation-status").textContent="הזינו מספרים שלמים בין 0 ל־200 בכל קבוצת גיל.";return;}
+var assigned=fields.reduce(function(sum,f){return sum+Number(f.value);},0), remaining=total-assigned;
+$("allocation-status").textContent=remaining===0?"החלוקה מלאה: "+assigned+" משתתפים":remaining>0?"שויכו "+assigned+" מתוך "+total+"; נותרו "+remaining+" לשיוך.":"חריגה של "+(-remaining)+" משתתפים. עדכנו את החלוקה או את מספר הקבוצות.";
+}
+["team-count","count-children","count-adults","count-seniors"].forEach(function(id){$(id).addEventListener("input",renderParticipants);});
+renderParticipants();
 catalog();render();
 }());
