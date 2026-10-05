@@ -38,7 +38,7 @@ const checks = [
     !hitsterMobile.includes("play.click()")&&
     hitster888.includes("חוקי כפר בלום")&&
     hitster888.includes('id="continue-game"')&&
-    hitster888.includes("18 קלפים")&&
+    hitster888.includes("10 קלפים")&&
     hitsterEnglish.includes("KFAR BLUM RULES")&&hitsterEnglish.includes('src="hitster-original.js')&&
     hitsterKfar.includes('location.replace("hitster-mobile.html?entry=kfar-bloom")')},
   {name:"Every game card has a play control",pass:(gamesHtml.match(/class="launch(?: [^"]*)?"/g)||[]).length>=17},

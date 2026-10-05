@@ -39,7 +39,7 @@ check("English game loads annual runtime", english.includes('<html lang="en" dir
 check("game hides range until reveal", !html.includes("1950–2023") && html.includes("השנה מוסתרת עד החשיפה"));
 check("engine loads annual deck and 30-second clips", engine.includes('DATA_URL = "./hitster-alltime-888.json"') && engine.includes("PREVIEW_SECONDS = 30") && engine.includes("PREVIEW_SECONDS * 1000"));
 check("Kfar Blum star rules", engine.includes("START_STARS = 5") && engine.includes("MAX_STARS = 10") && engine.includes("exact_song_and_artist"));
-check("Kfar Blum win rule", engine.includes("WIN_CARDS = 18") && engine.includes("checkWinner") && html.includes("18 קלפים"));
+check("Kfar Blum win rule", engine.includes("WIN_CARDS = 10") && engine.includes("checkWinner") && html.includes("10 קלפים"));
 check("turns rotate automatically", engine.includes("function advanceTurn") && engine.includes("nextTeamId") && html.includes("1→2→3→4→5→1"));
 check("skip keeps same turn and replaces card", engine.includes('action: "skip_replace_keep_turn"') && engine.includes("finishCurrent(false)") && engine.includes("await drawCard()"));
 check("played cards are globally unique", engine.includes("state.used.push(card.id)") && engine.includes("randomUnusedCard") && engine.includes("!used[card.id]"));
@@ -71,4 +71,4 @@ if (failures.length) {
   console.error("HITSTER annual 888 quality gate FAILED:\n" + failures.map(item => `- ${item}`).join("\n"));
   process.exit(1);
 }
-console.log("HITSTER annual 888 quality gate PASSED: 888 cards + Kfar Blum behavior contract (continue/reset, global uniqueness, 10-star cap, 18-card win, turn rotation, safe removal, 30-second audio).");
+console.log("HITSTER annual 888 quality gate PASSED: 888 cards + Kfar Blum behavior contract (continue/reset, global uniqueness, 10-star cap, 10-card fair-round win, turn rotation, safe removal, 30-second audio).");

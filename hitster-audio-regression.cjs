@@ -6,7 +6,7 @@ const vm = require("node:vm");
 const engine = fs.readFileSync("hitster-original.js", "utf8");
 const deck = JSON.parse(fs.readFileSync("hitster-alltime-888.json", "utf8"));
 const settle = async () => { for (let i = 0; i < 35; i++) await new Promise(setImmediate); };
-async function harness({ offline = false, cacheIds = [], lookupMissing = false } = {}) {
+async function harness({ offline = false, cacheIds = [], lookupMissing = false, language = "he", personalConfig = null, savedState = null } = {}) {
   const nodes = new Map(), stores = new Map(), mediaCache = new Map(), timers = new Map();
   let gesture = false, timerId = 0, playCalls = 0, networkCalls = 0, rejectPlay = false, deferLookup = null;
   class Element {
@@ -36,13 +36,15 @@ async function harness({ offline = false, cacheIds = [], lookupMissing = false }
       this.paused = false; this.emit("playing"); return Promise.resolve();
     }
   }
+  if (savedState) stores.set(personalConfig ? "hitster-tra-personal-game-v1" : "hitster-tra-annual-888-v1", JSON.stringify(savedState));
   const html = fs.readFileSync("hitster-888.html", "utf8");
   for (const match of html.matchAll(/id="([^"]+)"/g)) { const node = new Element(); node.id = match[1]; }
-  const document = { documentElement: { lang: "he" }, head: new Element(), getElementById: id => nodes.get(id), createElement: tag => new Element(tag) };
+  const document = { documentElement: { lang: language }, head: new Element(), getElementById: id => nodes.get(id), createElement: tag => new Element(tag) };
   const location = { href: "https://hitster.test/hitster-888.html" };
   for (const id of cacheIds) mediaCache.set(new URL("./__hitster_preview_cache__/" + id, location.href).href, new Response("audio", { headers: { "content-type": "audio/mp4" } }));
   const cache = { keys: async () => [...mediaCache.keys()].map(url => new Request(url)), match: async req => mediaCache.get(req.url)?.clone(), delete: async req => mediaCache.delete(req.url), put: async (req, response) => mediaCache.set(req.url, response.clone()) };
-  const window = { location, caches: {}, addEventListener() {}, confirm: () => true, setTimeout: (fn, ms) => { timers.set(++timerId, { fn, ms }); return timerId; }, clearTimeout: id => timers.delete(id) };
+  const alerts = [];
+  const window = { TRA_PERSONAL_CONFIG: personalConfig, alert: message => alerts.push(message), location, caches: {}, addEventListener() {}, confirm: () => true, setTimeout: (fn, ms) => { timers.set(++timerId, { fn, ms }); return timerId; }, clearTimeout: id => timers.delete(id) };
   const context = { document, window, navigator: { onLine: !offline }, localStorage: { getItem: k => stores.get(k) || null, setItem: (k, v) => stores.set(k, v) }, caches: { open: async () => cache }, URL, Request, AbortController, console, setTimeout: window.setTimeout, clearTimeout: window.clearTimeout, setInterval: () => ++timerId, clearInterval() {}, fetch: async url => {
     if (url === "./hitster-alltime-888.json") return new Response(JSON.stringify(deck));
     networkCalls++;
@@ -55,12 +57,13 @@ async function harness({ offline = false, cacheIds = [], lookupMissing = false }
     return new Response("audio", { headers: { "content-type": "audio/mp4" } });
   } };
   vm.createContext(context);
-  const exposed = engine.replace('  loadDeck().catch(function () {', '  window.test = { state: () => state, staged: () => nextAudioCard, reset: resetGame, prepare: prepareNextAudio, finish: finishCurrent };\n  loadDeck().catch(function () {');
+  const exposed = engine.replace('  loadDeck().catch(function () {', '  window.test = { state: () => state, staged: () => nextAudioCard, reset: resetGame, prepare: prepareNextAudio, finish: finishCurrent, add: addToTimeline, wrong: endWrongTurn, free: freeCard, sanitize: sanitizeState, render: render, remove: removeTimelineCard, resetTimeline: resetTimeline, name: teamName };\n  loadDeck().catch(function () {');
   vm.runInContext(exposed, context);
   await settle();
-  return { nodes, timers, window, cache, state: () => window.test.state(), click(id) { gesture = true; nodes.get(id).emit("click"); gesture = false; }, calls: () => ({ playCalls, networkCalls }), block: value => rejectPlay = value, defer: promise => deferLookup = promise };
+  return { nodes, timers, window, cache, alerts, stores, state: () => window.test.state(), click(id) { gesture = true; nodes.get(id).emit("click"); gesture = false; }, calls: () => ({ playCalls, networkCalls }), block: value => rejectPlay = value, defer: promise => deferLookup = promise };
 }
-(async () => {
+module.exports = { harness, settle, deck };
+if (require.main === module) (async () => {
   const h = await harness();
   const audio = h.nodes.get("audio");
   assert.ok(h.window.test.staged());

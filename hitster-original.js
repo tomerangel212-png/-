@@ -11,7 +11,7 @@
   var PREVIEW_DOWNLOAD_TIMEOUT_MS = 10000;
   var START_STARS = 5;
   var MAX_STARS = 10;
-  var WIN_CARDS = 18;
+  var WIN_CARDS = 10;
   var TEAM_DEFS = [
     { id: "ayelet-dudi", he: "איילת ודודי", en: "Ayelet & Dudi" },
     { id: "sharon-naveh", he: "שרון ונוה", en: "Sharon & Naveh" },
@@ -66,7 +66,9 @@
       after: "אחרי",
       count: "קלפים",
       stars: "כוכבים",
-      winner: "🏆 {team} ניצחו עם 18 קלפים!",
+      winner: "הקבוצה המנצחת היא: {team}\nאתם אלופי ההיטסטר המשפחתי",
+      winners: "הקבוצות המנצחות הן: {team}\nאתם אלופי ההיטסטר המשפחתי",
+      finalRound: "הגענו ל־10 קלפים. משלימים את הסבב כדי שלכל קבוצה תהיה הזדמנות שווה.",
       turn: "תור",
       playLabel: "▶ נגן / המשך",
       startAudioLabel: "▶ קלף חדש + נגן",
@@ -128,7 +130,9 @@
       after: "After",
       count: "cards",
       stars: "stars",
-      winner: "🏆 {team} wins with 18 cards!",
+      winner: "The winning team is: {team}\nYou are the family HITSTER champions",
+      winners: "The winning teams are: {team}\nYou are the family HITSTER champions",
+      finalRound: "10 cards reached. Finish the round so every team has an equal opportunity.",
       turn: "Turn",
       playLabel: "▶ Play / resume",
       startAudioLabel: "▶ New card + play",
@@ -194,7 +198,8 @@
       currentAwarded: false,
       currentPlacementSlot: null,
       currentPlacementCorrect: null,
-      winnerTeamId: null
+      winnerTeamId: null,
+      roundStartTeamId: TEAM_DEFS[0].id
     };
   }
   function teamName(id) {
@@ -229,6 +234,9 @@
       if (restored.used.indexOf(id) === -1) restored.used.push(id);
     });
     restored.activeTeamId = TEAM_DEFS.some(function (team) { return team.id === candidate.activeTeamId; }) ? candidate.activeTeamId : TEAM_DEFS[0].id;
+    // Old saves did not record the starting team. Give everyone a complete
+    // round from the saved active team rather than guess who already played.
+    restored.roundStartTeamId = TEAM_DEFS.some(function (team) { return team.id === candidate.roundStartTeamId; }) ? candidate.roundStartTeamId : restored.activeTeamId;
     restored.current = valid[candidate.current] ? candidate.current : null;
     if (candidate.version === 1) {
       restored.currentYearRevealed = Boolean(candidate.currentRevealed && restored.current);
@@ -375,6 +383,17 @@
     });
   }
   function isGameLocked() { return Boolean(state && state.winnerTeamId); }
+  function qualifyingTeams() { return state.teams.filter(function (team) { return team.timeline.length >= WIN_CARDS; }); }
+  function winnerMessage() {
+    var winners = qualifyingTeams();
+    return text(winners.length > 1 ? t.winners : t.winner, { team: winners.map(function (team) { return teamName(team.id); }).join(language === "he" ? " ו־" : " & ") });
+  }
+  function refreshCompletedWinners() {
+    if (state.winnerTeamId) {
+      var winners = qualifyingTeams();
+      state.winnerTeamId = winners.length ? winners[0].id : null;
+    }
+  }
   function canChooseStartingTeam() {
     return state.used.length === 0 && !state.current && state.teams.every(function (team) { return team.timeline.length === 0; });
   }
@@ -400,6 +419,7 @@
       button.addEventListener("click", function () {
         if (!canChooseStartingTeam()) return;
         state.activeTeamId = team.id;
+        state.roundStartTeamId = team.id;
         el("team-select").value = team.id;
         persist();
         render();
@@ -411,7 +431,7 @@
     var team = getTeam();
     if (!window.confirm(t.removeConfirm)) return;
     team.timeline = team.timeline.filter(function (id) { return id !== cardId; });
-    if (state.winnerTeamId === team.id && team.timeline.length < WIN_CARDS) state.winnerTeamId = null;
+    refreshCompletedWinners();
     persist();
     render();
     setStatus(t.removed);
@@ -469,7 +489,7 @@
     el("card-artist").textContent = solutionRevealed ? card.artist : "•••";
     el("card-year").textContent = yearRevealed ? (card.yearBasis === "catalog-release" ? (language === "he" ? "שנת הגרסה בקטלוג" : "Catalog version year") : t.source) + ": " + card.chartYear : t.yearHidden;
     el("card-source").textContent = solutionRevealed ? "Billboard year-end chart · #" + card.chartRank : "";
-    el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? text(t.winner, { team: teamName(state.winnerTeamId) }) : t.noCard);
+    el("card-phase").textContent = hasCard ? t.cardReady : (isGameLocked() ? winnerMessage() : t.noCard);
     var audioReady = Boolean(preparedCardId && audio.getAttribute("src"));
     el("play-clip").disabled = preparing || playbackPending || (!audioReady && isGameLocked());
     el("play-clip").textContent = preparing ? t.preparingLabel : (!audio.paused ? t.pauseLabel : (hasCard ? t.playLabel : t.startAudioLabel));
@@ -489,7 +509,7 @@
     renderSlots(card);
     if (el("winner-banner")) {
       el("winner-banner").hidden = !isGameLocked();
-      el("winner-banner").textContent = isGameLocked() ? text(t.winner, { team: teamName(state.winnerTeamId) }) : "";
+      el("winner-banner").textContent = isGameLocked() ? winnerMessage() : "";
     }
   }
   function renderStartScreen() {
@@ -544,7 +564,7 @@
     restore();
     render();
     setStatus(storageIssue ? t.storageUnavailable : (hasProgress(state) ? t.resume : text(t.ready, { team: teamName(state.activeTeamId) })));
-    track("hitster_annual_deck_loaded", { cards: deck.length, year_basis: payload.yearBasis, ruleset: "kfar-blum-18" });
+    track("hitster_annual_deck_loaded", { cards: deck.length, year_basis: payload.yearBasis, ruleset: "kfar-blum-10-fair-round" });
     if (currentCard()) await prepareCardAudio(currentCard());
     else await prepareNextAudio();
   }
@@ -892,9 +912,9 @@
     });
   }
   function checkWinner() {
-    var team = getTeam();
-    if (team.timeline.length >= WIN_CARDS) {
-      state.winnerTeamId = team.id;
+    var winners = qualifyingTeams();
+    if (winners.length && nextTeamId(state.activeTeamId) === state.roundStartTeamId) {
+      state.winnerTeamId = winners[0].id;
       return true;
     }
     return false;
@@ -909,21 +929,23 @@
     state.currentPlacementSlot = null;
     state.currentPlacementCorrect = null;
     stopAudio();
+    var won = shouldAdvance && checkWinner();
     if (shouldAdvance && !isGameLocked()) advanceTurn();
     persist();
     render();
     void prepareNextAudio();
+    if (won && typeof window.alert === "function") window.alert(winnerMessage());
+    return Boolean(won);
   }
   function addToTimeline() {
     var card = currentCard();
     if (!card || !state.currentYearRevealed || state.currentPlacementCorrect !== true) { setStatus(t.addNeedCorrect); return; }
     var team = getTeam();
     insertCurrentCorrectly();
-    var won = checkWinner();
     var teamId = team.id;
     var year = card.chartYear;
-    finishCurrent(!won);
-    setStatus(won ? text(t.winner, { team: teamName(teamId) }) : t.added);
+    var won = finishCurrent(true);
+    setStatus(won ? winnerMessage() : (qualifyingTeams().length ? t.finalRound : t.added));
     track("card_added_to_timeline", { team_id: teamId, chart_year: year, won: won, timeline_count: team.timeline.length });
   }
   function endWrongTurn() {
@@ -931,8 +953,8 @@
     if (!card || !state.currentYearRevealed || state.currentPlacementCorrect !== false) return;
     var teamId = state.activeTeamId;
     var year = card.chartYear;
-    finishCurrent(true);
-    setStatus(t.turnEnded);
+    var won = finishCurrent(true);
+    setStatus(won ? winnerMessage() : (qualifyingTeams().length ? t.finalRound : t.turnEnded));
     track("turn_finished_without_card", { team_id: teamId, chart_year: year });
   }
   async function skipCard() {
@@ -953,11 +975,10 @@
     if (team.stars < 3) { setStatus(t.freeNeed); return; }
     team.stars -= 3;
     insertCurrentCorrectly();
-    var won = checkWinner();
     var teamId = team.id;
     var year = card.chartYear;
-    finishCurrent(!won);
-    setStatus(won ? text(t.winner, { team: teamName(teamId) }) : t.free);
+    var won = finishCurrent(true);
+    setStatus(won ? winnerMessage() : (qualifyingTeams().length ? t.finalRound : t.free));
     track("star_spent", { action: "free_card", team_id: teamId, chart_year: year, stars: team.stars, won: won });
   }
   function resetGame(skipConfirm) {
@@ -969,14 +990,14 @@
     unavailableAudio = Object.create(null);
     void prepareNextAudio();
     setStatus(t.reset);
-    track("game_started", { reset: true, cards: deck.length, ruleset: "kfar-blum-18" });
+    track("game_started", { reset: true, cards: deck.length, ruleset: "kfar-blum-10-fair-round" });
     return true;
   }
   function resetTimeline() {
     var team = getTeam();
     if (!window.confirm(t.resetTimelineConfirm)) return;
     team.timeline = [];
-    if (state.winnerTeamId === team.id) state.winnerTeamId = null;
+    refreshCompletedWinners();
     persist();
     render();
     setStatus(t.timelineReset);
@@ -996,7 +1017,7 @@
     hideStartScreen();
     if (!hasProgress(state)) {
       setStatus(storageIssue ? t.storageUnavailable : text(t.ready, { team: teamName(state.activeTeamId) }));
-      track("game_started", { reset: false, resumed: false, cards: deck.length, ruleset: "kfar-blum-18" });
+      track("game_started", { reset: false, resumed: false, cards: deck.length, ruleset: "kfar-blum-10-fair-round" });
       return;
     }
     setStatus(t.resume);
@@ -1010,6 +1031,7 @@
   el("team-select").addEventListener("change", function (event) {
     if (!canChooseStartingTeam()) { event.target.value = state.activeTeamId; return; }
     state.activeTeamId = event.target.value;
+    state.roundStartTeamId = event.target.value;
     persist();
     render();
   });
