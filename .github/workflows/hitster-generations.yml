@@ -1,0 +1,28 @@
+name: HITSTER Three Generations
+on:
+  pull_request:
+    paths: ['hitster-generation*', '.github/workflows/hitster-generations.yml']
+  push:
+    branches: [main]
+    paths: ['hitster-generation*', '.github/workflows/hitster-generations.yml']
+permissions:
+  contents: read
+jobs:
+  generations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: |
+          node --check hitster-generations-ui.js
+          node hitster-generation-rounds-check.js
+      - name: Browser dependencies
+        run: |
+          npm install --prefix "$RUNNER_TEMP/generations" playwright@1.58.2
+          "$RUNNER_TEMP/generations/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Mobile interactions (mock media)
+        run: NODE_PATH="$RUNNER_TEMP/generations/node_modules" node hitster-generations-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hitster-three-generations-preview
+          path: hitster-generations-mobile.png
