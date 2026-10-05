@@ -11,6 +11,20 @@
 <section class="hero"><div>TRA · TRa · Tra</div><h1>TRA Languages</h1><p>לִמּוּד שָׂפוֹת דֶּרֶךְ הַקְשָׁבָה → מִלָּה → מִשְׁפָּט → שְׁלִיפָה → חֲזָרָה.</p><p lang="en" dir="ltr">Learn by listening, recalling, checking and repeating at your own pace.</p></section>
 <section class="card"><label>שְׂפַת הַלִּמּוּד <select id="lang"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="it">Italiano</option></select></label><p class="muted">הַתְחָלָה פְּשׁוּטָה: מִלִּים וּמִשְׁפָּטִים יוֹמְיוֹמִיִּים. הַהִתְקַדְּמוּת נִשְׁמֶרֶת בַּמַּכְשִׁיר.</p></section>
 <section class="card" id="lesson"><div id="step"></div><div class="word" id="word"></div><p id="prompt"></p><div id="choices"></div><button id="speak">🔊 שְׁמַע / Listen</button> <button id="next" disabled>הַבָּא / Next</button><p id="feedback" role="status" aria-live="polite"></p><progress id="progress" max="5" value="0"></progress></section>
+<section class="card"><h2>🌍 מַפַּת שָׂפָה · Language Map</h2>
+<p>הַמִּבְנֶה פָּתוּחַ: שָׂפָה → נִיב / מִבְטָא → כְּתָב → גְּרָפֵמָה → IPA / צְלִיל → צֵרוּף → מִלָּה.</p>
+<div class="grid">
+<label>שָׂפָה / Language<input id="mapLanguage" value="עברית / Hebrew"></label>
+<label>נִיב אוֹ מִבְטָא / Dialect or accent<input id="mapDialect" value="עברית ישראלית / Israeli Hebrew"></label>
+<label>אוֹת / Grapheme<input id="grapheme" value="ת"></label>
+<label>צֵרוּף / Sequence<input id="sequence" value="חר"></label>
+<label>IPA / Sound<input id="ipa" value="t"></label>
+<label>מִלָּה / Word<input id="exampleWord" value="תּוֹדָה"></label>
+</div>
+<button id="addSound">＋ הוֹסֵף לַמַּפָּה</button>
+<div id="soundMap" aria-live="polite"></div>
+<p class="muted">דֻּגְמָאוֹת לִיחִידוֹת שֶׁהַמַּעֲרֶכֶת יְכוֹלָה לְתַעֵד: ת · ט · ח · חר · ר · ע · ער · רעיו… הַמַּעֲרֶכֶת מַבְדִּילָה בֵּין אוֹת, צֵרוּף וְצְלִיל.</p>
+</section>
 <section class="card"><h2>🎵 Rhythm Recall</h2><p>אֱמֹר אֶת הַמִּלָּה בְּקֶצֶב קָבוּעַ: 1–2–3–4. אַחַר כָּךְ סְגֹר אֶת הַתַּרְגּוּם וּשְׁלֹף אוֹתָהּ מֵהַזִּכָּרוֹן.</p></section>
 <footer>© 2026 Tomer Rafael Angel · TRA · All Rights Reserved</footer>
 <script>
@@ -26,5 +40,8 @@ function lesson(){const a=sets[$("lang").value],q=a[i];answered=false;$("next").
 function answer(b,ok){if(answered)return;answered=true;b.classList.add(ok?"ok":"bad");if(ok){score++;$("feedback").textContent="✓ נָכוֹן / Correct"}else $("feedback").textContent="לֹא הַפַּעַם — הַתְּשׁוּבָה: "+sets[$("lang").value][i][1];$("next").disabled=false}
 $("next").onclick=()=>{i++;if(i>=5){localStorage.setItem("traLanguagesLastScore",score);$("lesson").innerHTML="<h2>הַשִּׁעוּר הֻשְׁלַם 🎵</h2><p>Score: "+score+"/5</p><button onclick='location.reload()'>שִׁעוּר חָדָשׁ</button>";return}lesson()};
 $("speak").onclick=()=>{if(!("speechSynthesis" in window)){$("feedback").textContent="הַקְרָאָה אֵינָהּ זְמִינָה בַּמַּכְשִׁיר הַזֶּה.";return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(sets[$("lang").value][i][0]);u.lang={en:"en-US",es:"es-ES",fr:"fr-FR",it:"it-IT"}[$("lang").value];speechSynthesis.speak(u)};
-$("lang").onchange=()=>{i=0;score=0;lesson()};lesson();
+const mapKey="traLanguagesSoundMap";
+function renderMap(){const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");$("soundMap").innerHTML=rows.length?"<ol>"+rows.map(r=>"<li><b>"+r.g+"</b> · "+r.seq+" · /"+r.ipa+"/ · "+r.word+"<br><span class='muted'>"+r.lang+" · "+r.dialect+"</span></li>").join("")+"</ol>":"<p class='muted'>עֲדַיִן לֹא נוֹסְפוּ יְחִידוֹת אִישִׁיּוֹת.</p>"}
+$("addSound").onclick=()=>{const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");rows.push({lang:$("mapLanguage").value,dialect:$("mapDialect").value,g:$("grapheme").value,seq:$("sequence").value,ipa:$("ipa").value,word:$("exampleWord").value});localStorage.setItem(mapKey,JSON.stringify(rows));renderMap()};
+$("lang").onchange=()=>{i=0;score=0;lesson()};renderMap();lesson();
 </script></main></body></html>
