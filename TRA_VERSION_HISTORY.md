@@ -1,5 +1,10 @@
 # TRA Version History
 
+## TRA ART TRY — 2026-10-05
+
+Added the public constitution and patient listening to the existing Release Session recording. Preserved all previous principles and History & Music. Registry version 1.1.0; this entry records the change, not a successful deployment.
+
+
 ## TRA Perfect Target — Draft program · 2026-08-23
 
 Not released. This program defines the next measurable target: **9,999,999,999/9,999,999,999**.
