@@ -31,7 +31,10 @@ const requiredPrinciples = [
   "offline-parity","every-device-eligible","simple-for-every-generation",
   "minimum-effort-maximum-result","fair-neutral-systems","respectful-disagreement",
   "privacy-security-consent","publish-only-after-green","no-empty-experience",
-  "human-approval-before-release","authorized-integrations-only"
+  "human-approval-before-release","authorized-integrations-only",
+  "history-and-music","listen-with-patience","tra-art-try","upgrade-preserve-existing",
+  "reliable-trustworthy-honest","cross-check-before-claim","sharp-clear-communication",
+  "hebrew-first-bilingual","music-before-noise"
 ];
 
 check("Legacy 10/10 quality contract remains preserved", version.quality_target === "10/10" && quality.target === 10);
