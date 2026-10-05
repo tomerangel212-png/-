@@ -16,3 +16,7 @@ The next TRA target is **9,999,999,999/9,999,999,999**. It is an evidence-based 
 - Quality contract: `TRA_QUALITY.json`
 - Verification: `node tra-perfect-quality-check.js`
 - Merge and publication require explicit human approval.
+
+## TRA ART TRY · Tomer Angel 2026
+
+The public constitution is `tra-art-try.html`, backed by `TRA_PRINCIPLES.json`. History and Music is part of the main TRA record. Listen with patience; preserve sources and previous versions.
