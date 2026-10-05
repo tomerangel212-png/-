@@ -20,6 +20,8 @@
 <label>צֵרוּף / Sequence<input id="sequence" value="חר"></label>
 <label>IPA / Sound<input id="ipa" value="t"></label>
 <label>מִלָּה / Word<input id="exampleWord" value="תּוֹדָה"></label>
+<label>קָטֵגוֹרְיָה / Category<select id="catalogCategory"><option value="archive">אַרְכִיּוֹן / Archive</option><option value="language">שָׂפָה / Language</option><option value="model">מוֹדֶל / Model</option><option value="learning">לְמִידָה / Learning</option><option value="adaptation">אַדַפְּטַצְיָה / Adaptation</option></select></label>
+<label>מִסְפַּר / Count<input id="catalogCount" type="number" min="0" step="1" value="1"></label>
 </div>
 <button id="addSound">＋ הוֹסֵף לַמַּפָּה</button>
 <div id="soundMap" aria-live="polite"></div>
@@ -41,7 +43,7 @@ function answer(b,ok){if(answered)return;answered=true;b.classList.add(ok?"ok":"
 $("next").onclick=()=>{i++;if(i>=5){localStorage.setItem("traLanguagesLastScore",score);$("lesson").innerHTML="<h2>הַשִּׁעוּר הֻשְׁלַם 🎵</h2><p>Score: "+score+"/5</p><button onclick='location.reload()'>שִׁעוּר חָדָשׁ</button>";return}lesson()};
 $("speak").onclick=()=>{if(!("speechSynthesis" in window)){$("feedback").textContent="הַקְרָאָה אֵינָהּ זְמִינָה בַּמַּכְשִׁיר הַזֶּה.";return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(sets[$("lang").value][i][0]);u.lang={en:"en-US",es:"es-ES",fr:"fr-FR",it:"it-IT"}[$("lang").value];speechSynthesis.speak(u)};
 const mapKey="traLanguagesSoundMap";
-function renderMap(){const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");$("soundMap").innerHTML=rows.length?"<ol>"+rows.map(r=>"<li><b>"+r.g+"</b> · "+r.seq+" · /"+r.ipa+"/ · "+r.word+"<br><span class='muted'>"+r.lang+" · "+r.dialect+"</span></li>").join("")+"</ol>":"<p class='muted'>עֲדַיִן לֹא נוֹסְפוּ יְחִידוֹת אִישִׁיּוֹת.</p>"}
-$("addSound").onclick=()=>{const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");rows.push({lang:$("mapLanguage").value,dialect:$("mapDialect").value,g:$("grapheme").value,seq:$("sequence").value,ipa:$("ipa").value,word:$("exampleWord").value});localStorage.setItem(mapKey,JSON.stringify(rows));renderMap()};
+function renderMap(){const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");$("soundMap").innerHTML=rows.length?"<ol>"+rows.map(r=>"<li><b>"+r.g+"</b> · "+r.seq+" · /"+r.ipa+"/ · "+r.word+"<br><span class='muted'>"+r.lang+" · "+r.dialect+" · "+(r.category||"language")+" · #"+(r.count||1)+"</span></li>").join("")+"</ol>":"<p class='muted'>עֲדַיִן לֹא נוֹסְפוּ יְחִידוֹת אִישִׁיּוֹת.</p>"}
+$("addSound").onclick=()=>{const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");rows.push({lang:$("mapLanguage").value,dialect:$("mapDialect").value,g:$("grapheme").value,seq:$("sequence").value,ipa:$("ipa").value,word:$("exampleWord").value,category:$("catalogCategory").value,count:Number($("catalogCount").value)||1,archive:true,model:"TRa Languages",learning:"recall",adaptation:"extensible"});localStorage.setItem(mapKey,JSON.stringify(rows));renderMap()};
 $("lang").onchange=()=>{i=0;score=0;lesson()};renderMap();lesson();
 </script></main></body></html>
