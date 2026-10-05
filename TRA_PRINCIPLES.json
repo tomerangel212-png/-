@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.1.0",
+  "registry_version": "1.2.0",
   "product": "THE TRA",
   "status": "active-draft",
   "target": "9999999999/9999999999",
@@ -189,6 +189,48 @@
       "he": "TRA ART TRY: יצירה היא ניסוי אחראי — יוצרים, מאזינים, בודקים, משפרים ושומרים את המקור.",
       "source": "user directive 2026-10-05",
       "category": "creation"
+    },
+    {
+      "id": "upgrade-preserve-existing",
+      "he": "שדרוג תוך שמירה על הקיים: משפרים בלי למחוק ידע, עקרונות או גרסאות שעובדות.",
+      "en": "Upgrade while preserving what already works.",
+      "source": "user directive 2026-10-05",
+      "category": "versioning"
+    },
+    {
+      "id": "reliable-trustworthy-honest",
+      "he": "אמינות, מהימנות ויושר קודמים למהירות ולרושם.",
+      "en": "Reliability, trustworthiness and honesty come before speed or impression.",
+      "source": "user directive 2026-10-05",
+      "category": "truth"
+    },
+    {
+      "id": "cross-check-before-claim",
+      "he": "מצליבים מידע לפני קביעה; כשאין ודאות אומרים זאת במפורש.",
+      "en": "Cross-check before making a claim; state uncertainty clearly.",
+      "source": "user directive 2026-10-05",
+      "category": "truth"
+    },
+    {
+      "id": "sharp-clear-communication",
+      "he": "חד וברור: מסר קצר כשאפשר, מדויק תמיד.",
+      "en": "Be sharp and clear: concise when possible, precise always.",
+      "source": "user directive 2026-10-05",
+      "category": "communication"
+    },
+    {
+      "id": "hebrew-first-bilingual",
+      "he": "עברית היא שפת הבית; English מצטרפת כשזה מוסיף דיוק, נגישות או ערך.",
+      "en": "Hebrew first; use English when it adds precision, accessibility or value.",
+      "source": "user directive 2026-10-05",
+      "category": "accessibility"
+    },
+    {
+      "id": "music-before-noise",
+      "he": "מוזיקה היא מרחב להקשבה, חיבור ויצירה — לא רעש רקע. נותנים לשיר זמן לפני תגובה.",
+      "en": "Music is a space for listening, connection and creation — not background noise. Give the song time before reacting.",
+      "source": "user directive 2026-10-05",
+      "category": "music"
     }
   ],
   "title": "TRA ART TRY",
