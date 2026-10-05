@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRA Languages · Tomer Angel 2026</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b1720;color:#f7f7f2;font:18px/1.65 system-ui,Arial,sans-serif}main{max-width:900px;margin:auto;padding:24px}a{color:#8fe5cf}.hero,.card{background:#132b37;border:1px solid #315363;border-radius:22px;padding:22px;margin:16px 0}h1{font-size:clamp(40px,9vw,76px);margin:.2em 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}button,select,input{font:inherit;min-height:48px;border-radius:12px;border:1px solid #527080;padding:10px 14px}button{cursor:pointer;background:#f0cd73;color:#17212a;font-weight:800}.choice{width:100%;margin:5px 0;text-align:start}.ok{outline:3px solid #72e1c3}.bad{outline:3px solid #ff9c8d}.muted{color:#bdd0d8}.word{font-size:clamp(34px,8vw,64px);font-weight:900;margin:.3em 0}progress{width:100%;height:18px}:focus-visible{outline:4px solid #fff;outline-offset:3px}
+</style></head>
+<body><main>
+<nav><a href="links/">עֵץ TRA</a> · <a href="tra-art-try.html">TRA ART TRY</a></nav>
+<section class="hero"><div>TRA · TRa · Tra</div><h1>TRA Languages</h1><p>לִמּוּד שָׂפוֹת דֶּרֶךְ הַקְשָׁבָה → מִלָּה → מִשְׁפָּט → שְׁלִיפָה → חֲזָרָה.</p><p lang="en" dir="ltr">Learn by listening, recalling, checking and repeating at your own pace.</p></section>
+<section class="card"><label>שְׂפַת הַלִּמּוּד <select id="lang"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="it">Italiano</option></select></label><p class="muted">הַתְחָלָה פְּשׁוּטָה: מִלִּים וּמִשְׁפָּטִים יוֹמְיוֹמִיִּים. הַהִתְקַדְּמוּת נִשְׁמֶרֶת בַּמַּכְשִׁיר.</p></section>
+<section class="card" id="lesson"><div id="step"></div><div class="word" id="word"></div><p id="prompt"></p><div id="choices"></div><button id="speak">🔊 שְׁמַע / Listen</button> <button id="next" disabled>הַבָּא / Next</button><p id="feedback" role="status" aria-live="polite"></p><progress id="progress" max="5" value="0"></progress></section>
+<section class="card"><h2>🎵 Rhythm Recall</h2><p>אֱמֹר אֶת הַמִּלָּה בְּקֶצֶב קָבוּעַ: 1–2–3–4. אַחַר כָּךְ סְגֹר אֶת הַתַּרְגּוּם וּשְׁלֹף אוֹתָהּ מֵהַזִּכָּרוֹן.</p></section>
+<footer>© 2026 Tomer Rafael Angel · TRA · All Rights Reserved</footer>
+<script>
+const sets={
+en:[["Hello","שָׁלוֹם"],["Thank you","תּוֹדָה"],["Music","מוּזִיקָה"],["Friend","חָבֵר"],["I am learning","אֲנִי לוֹמֵד"]],
+es:[["Hola","שָׁלוֹם"],["Gracias","תּוֹדָה"],["Música","מוּזִיקָה"],["Amigo","חָבֵר"],["Estoy aprendiendo","אֲנִי לוֹמֵד"]],
+fr:[["Bonjour","שָׁלוֹם"],["Merci","תּוֹדָה"],["Musique","מוּזִיקָה"],["Ami","חָבֵר"],["J’apprends","אֲנִי לוֹמֵד"]],
+it:[["Ciao","שָׁלוֹם"],["Grazie","תּוֹדָה"],["Musica","מוּזִיקָה"],["Amico","חָבֵר"],["Sto imparando","אֲנִי לוֹמֵד"]]
+};
+let i=0,score=0,answered=false;
+const $=id=>document.getElementById(id);
+function lesson(){const a=sets[$("lang").value],q=a[i];answered=false;$("next").disabled=true;$("feedback").textContent="";$("step").textContent="שָׁלָב "+(i+1)+" / 5";$("word").textContent=q[0];$("prompt").textContent="מַה הַמַּשְׁמָעוּת?";const opts=[q[1],...a.filter((_,n)=>n!==i).map(x=>x[1])].sort(()=>Math.random()-.5).slice(0,3);if(!opts.includes(q[1]))opts[0]=q[1];$("choices").innerHTML="";opts.sort(()=>Math.random()-.5).forEach(x=>{let b=document.createElement("button");b.className="choice";b.textContent=x;b.onclick=()=>answer(b,x===q[1]);$("choices").appendChild(b)});$("progress").value=i}
+function answer(b,ok){if(answered)return;answered=true;b.classList.add(ok?"ok":"bad");if(ok){score++;$("feedback").textContent="✓ נָכוֹן / Correct"}else $("feedback").textContent="לֹא הַפַּעַם — הַתְּשׁוּבָה: "+sets[$("lang").value][i][1];$("next").disabled=false}
+$("next").onclick=()=>{i++;if(i>=5){localStorage.setItem("traLanguagesLastScore",score);$("lesson").innerHTML="<h2>הַשִּׁעוּר הֻשְׁלַם 🎵</h2><p>Score: "+score+"/5</p><button onclick='location.reload()'>שִׁעוּר חָדָשׁ</button>";return}lesson()};
+$("speak").onclick=()=>{if(!("speechSynthesis" in window)){$("feedback").textContent="הַקְרָאָה אֵינָהּ זְמִינָה בַּמַּכְשִׁיר הַזֶּה.";return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(sets[$("lang").value][i][0]);u.lang={en:"en-US",es:"es-ES",fr:"fr-FR",it:"it-IT"}[$("lang").value];speechSynthesis.speak(u)};
+$("lang").onchange=()=>{i=0;score=0;lesson()};lesson();
+</script></main></body></html>
