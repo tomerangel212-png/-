@@ -178,6 +178,26 @@
         "personal_stories_imported": false,
         "credentials_asserted": false
       }
+    },
+    {
+      "id": "TRA-20261006-budget-50-20-030",
+      "title": "50/20/30 real-money budgeting guideline",
+      "title_he": "עֶקְרוֹן 50 · 20 · 030 / 50/20/30",
+      "en": "Principle 50 · 20 · 030 / 50/20/30: for real-money budgeting, use 50% for needs and essentials, 20% for savings, future goals and investing, and 30% for wants, culture, music and leisure. The notation 030 is preserved as the label for the 30% part. This is a flexible guideline, not a rigid law; adapt the ratios to actual income and needs. It does not change the rules of virtual TRA Tokens.",
+      "he": "עֶקְרוֹן 50 · 20 · 030 / 50/20/30: בְּתִקְצוּב כַּסְפִּי, 50% מְיֻעָדִים לִצְרָכִים וְלַהֶכְרֵחִי, 20% לְחִסָּכוֹן, לָעָתִיד וּלְהַשְׁקָעָה, וְ־30% לִרְצוֹנוֹת, לְתַרְבּוּת, לְמוּזִיקָה וְלִפְנַאי. הַכְּתִיבָה 030 נִשְׁמֶרֶת כְּסִמּוּן שֶׁל 30%. זֶהוּ כְּלָל מַנְחֶה וְגָמִישׁ, לֹא חוֹק קָשִׁיחַ; מַתְאִימִים אֶת הַיַּחֲסִים לַמְּצִיאוּת, לַהַכְנָסָה וְלַצְּרָכִים. הָעִקָּרוֹן חָל עַל תִּקְצוּב כֶּסֶף אֲמִתִּי וְאֵינוֹ מְשַׁנֶּה אֶת כְּלָלֵי אֲסִימוֹנֵי TRA הַוִּירְטוּאָלִיִּים.",
+      "status": "documented_requirement",
+      "runtime_verified": false,
+      "rules": {
+        "needs_percent": 50,
+        "future_percent": 20,
+        "life_percent": 30,
+        "notation_thirty": "030",
+        "sum_percent": 100,
+        "flexible_guideline": true,
+        "applies_to": "real-money-budgeting",
+        "applies_to_virtual_tokens": false,
+        "forced_spending": false
+      }
     }
   ],
   "synced_with_main_commit": "85480ad512d2d7209d7b846063c5827497515ace"
