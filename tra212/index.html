@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="TRA212 — Tomer Angel. Preserved project knowledge, principles and links.">
+<title>TRA212 · Tomer Angel</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#10161d;color:#eef3f7;font:17px/1.65 Arial,sans-serif}.wrap{max-width:1100px;margin:auto;padding:28px 20px}a{color:#91e4ce}a:focus,button:focus,input:focus,select:focus{outline:3px solid #ffc878;outline-offset:3px}header{border-bottom:1px solid #40505e;padding-bottom:24px}h1{font-size:48px;line-height:1.15;margin:8px 0}h2{margin-top:32px}h3{margin:0 0 8px;font-size:21px}p{margin:8px 0}.muted{color:#bac9d4}.controls{padding:18px 0}label{display:block;margin-bottom:6px}input,select,button{font:inherit;max-width:100%;padding:11px;border:1px solid #728593;border-radius:8px;background:#18232e;color:#eef3f7}input[type=search]{width:100%}select{min-width:220px}button{cursor:pointer}nav a{display:inline-block;padding:7px 0;margin-left:18px}.card{padding:20px;margin:14px 0;border:1px solid #40505e;border-radius:12px;background:#18232e;overflow-wrap:anywhere}.meta{font-size:14px;color:#bac9d4}.badge{display:inline-block;padding:2px 9px;border:1px solid #728593;border-radius:20px;font-size:14px}.notice{padding:16px;border-right:4px solid #ffc878;background:#24303b}.route{display:inline-block;margin:4px 0 4px 16px;padding:5px 0}footer{border-top:1px solid #40505e;margin-top:36px;padding-top:20px;font-size:14px}.skip{position:absolute;top:-200px}.skip:focus{top:8px;background:#10161d;padding:8px;z-index:1}[hidden]{display:none!important}@media(max-width:480px){.wrap{padding:20px 14px}h1{font-size:38px}.card{padding:16px}input,select,button{width:100%}}@media print{body{background:white;color:black}.card{background:white;border-color:#777;break-inside:avoid}.controls,.skip{display:none}a,.muted,.meta{color:inherit}}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">דִּלּוּג לַתֹּכֶן</a>
+<main class="wrap" id="content">
+<header>
+<p class="muted" lang="en" dir="ltr">TRA · Tomer Angel</p>
+<h1 lang="en" dir="ltr">TRA212</h1>
+<p>הַיֶּדַע, הָעֶקְרוֹנוֹת וְהַפְּרוֹיֶקְטִים — בְּמָקוֹם אֶחָד.</p>
+<p lang="en" dir="ltr">One index. Original sources preserved. Each project stays distinct.</p>
+<nav aria-label="נִוּוּט רָאשִׁי">
+<a href="../links/">עֵץ הַקִּשּׁוּרִים</a>
+<a href="../tra-art-try.html">חֻקַּת TRA</a>
+<a href="../history-and-music.html" lang="en" dir="ltr">History &amp; Music</a>
+<a href="../TRA_PRINCIPLES.json">מִרְשַׁם הָעֶקְרוֹנוֹת</a>
+<a href="catalog.json" download lang="en" dir="ltr">JSON</a>
+</nav>
+</header>
+<p class="notice">זֶהוּ קָטָלוֹג יֶדַע וְקִשּׁוּרִים, לֹא אִשּׁוּר שֶׁכָּל תְּכוּנָה פּוֹעֶלֶת. מֵידָע אִישִׁי וְחֶשְׁבּוֹנוֹת פְּרָטִיִּים לֹא יֻבְּאוּ לְכָאן.</p>
+<div class="controls">
+<label for="search">חִפּוּשׂ בָּעִבְרִית אוֹ בְּאַנְגְּלִית</label>
+<input id="search" type="search" autocomplete="off" placeholder="TRA · Music · שָׂפוֹת" disabled>
+<label for="kind">סוּג תֹּכֶן</label>
+<select id="kind" disabled><option value="all">הַכֹּל</option><option value="projects">פְּרוֹיֶקְטִים</option><option value="records">רְשׁוּמוֹת מָקוֹר</option><option value="additions">תּוֹסָפוֹת</option><option value="open_questions">שְׁאֵלוֹת פְּתוּחוֹת</option></select>
+</div>
+<p id="status" role="status" aria-live="polite">טוֹעֵן אֶת הַקָּטָלוֹג…</p>
+<p class="muted" id="scope"></p>
+<details id="offline"><summary>טְעִינָה מִקֹּבֶץ / <span lang="en" dir="ltr">Offline</span></summary>
+<p>לְלֹא רֶשֶׁת, פְּתַח אֶת הָעַמּוּד וּבְחַר אֶת קֹבֶץ הַקָּטָלוֹג שֶׁשָּׁמַרְתָּ. הַקֹּבֶץ נִקְרָא בַּמַּכְשִׁיר וְאֵינוֹ נִשְׁלָח לְשׁוּם שֵׁרוּת.</p>
+<label for="catalog-file">קֹבֶץ <span lang="en" dir="ltr">catalog.json</span></label><input type="file" id="catalog-file" accept=".json,application/json">
+</details>
+<noscript><p>הַקִּשּׁוּרִים שֶׁלְּמַעְלָה וְקֹבֶץ הַנְּתוּנִים זְמִינִים גַּם לְלֹא JavaScript.</p></noscript>
+<div id="results"></div>
+<section id="routes" hidden><h2>עוֹד מֵעֵץ הַקִּשּׁוּרִים</h2><div id="route-list"></div></section>
+<footer><p lang="en" dir="ltr">© 2026 Tomer Rafael Angel. All rights reserved. Third-party works retain their own rights and attribution.</p><p>הַמָּקוֹר נִשְׁמָר. הָעִדְכּוּן מוֹסִיף, לֹא מוֹחֵק.</p></footer>
+</main>
+<script>
+(function () {
+'use strict';
+var data = null, search = document.getElementById('search'), kind = document.getElementById('kind');
+var status = document.getElementById('status'), results = document.getElementById('results');
+var labels = {projects:'פְּרוֹיֶקְטִים',records:'רְשׁוּמוֹת מָקוֹר',additions:'תּוֹסָפוֹת',open_questions:'שְׁאֵלוֹת פְּתוּחוֹת'};
+var allowed = ['catalog.json','../','../tra-art-try.html','../history-and-music.html','../hitster.html','../games.html#chess','../tomer-jeep.html','../tra-languages.html','../teak.html','../links/index.html#branch-tra-navigation','../links/index.html#branch-tra-weather','../games.html','../cinnamon-pie-tra.html','../tra-six-levels.html','../music-editor.html','../connect-talk.html','../music-drive.html','../hitster-888.html?branch=fair-play','../hitster-generations.html','../songs/','../poetry/','../instrumentals/'];
+function node(tag, text, parent, lang) {
+ var el = document.createElement(tag); if (text != null) el.textContent = String(text);
+ if (lang) { el.lang = lang; el.dir = lang === 'he' ? 'rtl' : 'ltr'; }
+ if (parent) parent.appendChild(el); return el;
+}
+function normalize(text) { return String(text).toLowerCase().replace(/[\u0591-\u05bd\u05bf-\u05c7]/g,''); }
+function safeLink(href, label, parent) {
+ if (allowed.indexOf(href) < 0) return;
+ var a = node('a',label,parent,'en'); a.href = href; a.className = 'route';
+}
+function validate(obj) {
+ if (!obj || obj.schema_version !== '1.0.0' || obj.hub !== 'TRA212') throw new Error('schema');
+ var groups = ['records','projects','additions','open_questions','additional_routes'], ids = {}, i, j, item;
+ for (i=0;i<groups.length;i++) {
+  if (!Array.isArray(obj[groups[i]]) || obj[groups[i]].length>500) throw new Error('collection');
+  for (j=0;j<obj[groups[i]].length;j++) {
+   item=obj[groups[i]][j]; if (!item || typeof item !== 'object') throw new Error('item');
+   if (groups[i]!=='additional_routes') {
+    if (typeof item.id!=='string' || !item.id || ids[item.id]) throw new Error('id');
+    ids[item.id]=true;
+   }
+  }
+ }
+ return obj;
+}
+function render() {
+ if (!data) return;
+ results.textContent=''; var groups=['projects','records','additions','open_questions'];
+ var query=normalize(search.value), total=0, i,j,group,items,item,section,card,shown,title,meta;
+ for (i=0;i<groups.length;i++) {
+  group=groups[i]; if (kind.value!=='all' && kind.value!==group) continue;
+  items=data[group]; section=document.createElement('section'); shown=0; node('h2',labels[group],section,'he');
+  for (j=0;j<items.length;j++) {
+   item=items[j]; if (query && normalize(JSON.stringify(item)).indexOf(query)<0) continue;
+   shown++; total++; card=node('article',null,section);card.className='card';
+   title=item.title||item.name||item.topic||item.id;node('h3',title,card,'en');
+   if (item.en) node('p',item.en,card,'en'); if (item.he) node('p',item.he,card,'he');
+   if (item.description) node('p',item.description,card,'en');
+   if (group==='open_questions') {node('p','Snapshot date: '+item.as_of,card,'en');node('p','Known: '+item.known,card,'en');node('p','Not verified: '+item.unknown,card,'en');node('p','Next evidence: '+item.next_evidence,card,'en');}
+   meta=node('p',item.id+' · '+String(item.status||'not_checked').replace(/_/g,' '),card,'en');meta.className='meta';
+   if (item.source_record) node('p','Source snapshot: '+data.source_snapshot.title+' · '+item.source_record,card,'en').className='meta';
+   if (item.href) safeLink(item.href,'Open source / project',card);
+  }
+  if (shown) results.appendChild(section);
+ }
+ status.textContent=total ? String(total)+' תּוֹצָאוֹת' : 'לֹא נִמְצְאוּ תּוֹצָאוֹת.';
+ var routeList=document.getElementById('route-list'); routeList.textContent='';
+ var showRoutes=kind.value==='all' || kind.value==='projects';
+ for (i=0;i<data.additional_routes.length;i++) {
+  item=data.additional_routes[i];
+  if (showRoutes && (!query || normalize(item.label).indexOf(query)>=0)) safeLink(item.href,item.label,routeList);
+ }
+ document.getElementById('routes').hidden=!routeList.children.length;
+}
+function accept(text) {
+ var parsed=validate(JSON.parse(text)); data=parsed;
+ search.disabled=false;kind.disabled=false;
+ document.getElementById('scope').textContent=data.records.length+' רְשׁוּמוֹת מָקוֹר · '+data.projects.length+' פְּרוֹיֶקְטִים · '+data.additions.length+' תּוֹסָפוֹת';render();
+}
+function loadError() {
+ status.textContent='טְעִינַת הַקָּטָלוֹג לֹא הִצְלִיחָה. אֶפְשָׁר לִבְחֹר קֹבֶץ שָׁמוּר אוֹ לְהִשְׁתַּמֵּשׁ בַּקִּשּׁוּרִים שֶׁלְּמַעְלָה.';
+ document.getElementById('offline').open=true;
+}
+search.addEventListener('input',render);kind.addEventListener('change',render);
+document.getElementById('catalog-file').addEventListener('change',function () {
+ var file=this.files && this.files[0]; if (!file) return;
+ if (file.size>1048576) {loadError();return;}
+ var reader=new FileReader();reader.onload=function () {try {accept(reader.result);} catch(e){loadError();}};reader.onerror=loadError;reader.readAsText(file,'UTF-8');
+});
+try {
+ var xhr=new XMLHttpRequest();xhr.open('GET','catalog.json',true);xhr.timeout=12000;
+ xhr.onload=function () {if (xhr.status===200) {try {accept(xhr.responseText);} catch(e){loadError();}} else {loadError();}};
+ xhr.onerror=loadError;xhr.ontimeout=loadError;xhr.send();
+} catch(e) {loadError();}
+}());
+</script>
+</body>
+</html>
