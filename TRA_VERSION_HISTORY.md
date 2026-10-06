@@ -45,3 +45,10 @@ Current release across the TRA system.
 Previous baseline release. Preserved as the direct predecessor of TRA 9.9.
 
 Earlier versions remain preserved through repository history.
+
+## 2026-10-06 — TRA Principles 1.5.0 — עקרון פלטת הצבעים
+- נוספה פלטת סטטוסים קנונית בעברית: ירוק, צהוב/ענבר, אדום, כחול, סגול ואפור.
+- צבע אינו אות יחיד: כל סטטוס חייב גם טקסט/סמל/מבנה נגיש וניגודיות מספקת.
+- אין ״צביעה לירוק״ קוסמטית; מתקנים את הסיבה ומאמתים לפני שינוי הסטטוס.
+- צבעי סטטוס מתארים מערכת או משימה, לא ערך של אדם, קבוצה או קהילה.
+
