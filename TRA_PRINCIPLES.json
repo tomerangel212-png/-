@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.3.0",
+  "registry_version": "1.4.0",
   "product": "THE TRA",
   "status": "active-draft",
   "target": "9999999999/9999999999",
@@ -10,7 +10,14 @@
       "publish"
     ],
     "authorized_integrations_only": true,
-    "bypass_permissions_or_security": false
+    "bypass_permissions_or_security": false,
+    "knowledge_preservation": {
+      "scope": "non-personal-knowledge-only",
+      "personal_data": "exclude",
+      "uncertain_personal_data": "do-not-archive",
+      "precedence": "privacy-before-preservation",
+      "automatic_publication": false
+    }
   },
   "principles": [
     {
@@ -238,6 +245,13 @@
       "en": "Full Hebrew niqqud: all user-facing Hebrew text across TRA games, apps and websites should use full vocalization. Exceptions are limited to places where niqqud could break code, URLs, keys, identifiers, filenames or brand identity.",
       "source": "user directive 2026-10-05",
       "category": "language-accessibility"
+    },
+    {
+      "id": "knowledge-preservation",
+      "he": "עֶקְרוֹן שִׁמּוּר הַיֶּדַע: שׁוֹמְרִים אֶת כָּל הַיֶּדַע שֶׁאֵינוֹ אִישִׁי, עִם הַמְּקוֹרוֹת, הַהֶקְשֵׁר, הַהִיסְטוֹרְיָה וְהַגִּרְסָאוֹת. פְּרָטִים אִישִׁיִּים מֻחְרָגִים מֵהַשְּׁמִירָה. הַפְּרָטִיּוּת קוֹדֶמֶת לְשִׁמּוּר, וְשִׁמּוּר אֵינוֹ אִשּׁוּר לְפִרְסוּם.",
+      "en": "Preserve all non-personal knowledge, including sources, context, history and versions. Exclude personal details from retention. Privacy takes precedence over preservation; retention is not permission to publish.",
+      "source": "user directive 2026-10-06",
+      "category": "privacy-and-versioning"
     }
   ],
   "title": "TRA ART TRY",
