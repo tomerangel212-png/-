@@ -1,0 +1,33 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),vm=require('node:vm');
+const read=name=>fs.readFileSync(path.join(__dirname,name),'utf8');
+const d=JSON.parse(read('additions-2026-10-06.json'));
+const page=read('additions-2026-10-06.html'),index=read('index.html');
+const escape=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');
+assert.equal(d.hub,'TRA212');assert.equal(d.kind,'additive_supplement');assert.equal(d.records.length,10);
+assert.equal(new Set(d.records.map(r=>r.id)).size,10);
+assert.equal(d.privacy.personal_records_imported,false);assert.equal(d.privacy.account_sync,false);
+assert.equal(d.privacy.automatic_external_actions,false);assert.equal(d.preserved.existing_games_modified,false);
+for(const r of d.records){
+ assert(r.id.startsWith('TRA-20261006-'));assert.equal(r.runtime_verified,false);
+ assert(['documented_requirement','requested_not_implemented','editorial_safeguard'].includes(r.status));
+ assert(/[\u0591-\u05c7]/.test(r.he));assert(r.en&&r.title_he);
+ for(const field of ['title_he','he','en']) assert(page.includes(escape(r[field])),r.id+' HTML must mirror JSON '+field);
+ assert(page.includes('id="'+r.id+'"'));
+}
+const tokens=d.records.find(r=>r.id.endsWith('-virtual-tokens')).rules;
+assert.equal(tokens.base_pool,9999);assert.equal(tokens.virtual_only,true);assert.equal(tokens.monetary_value,false);assert.equal(tokens.cash_out,false);
+const ledger=d.records.find(r=>r.id.endsWith('-ledger')).rules;
+assert.equal(ledger.canonical_name_he,'ספר החשבונות של TRA');assert.deepEqual(ledger.transactions,[]);
+assert.deepEqual(ledger.fields,['participant_ref','game_or_source','delta','reason','balance_before','balance_after']);
+assert.equal((page.match(/<article /g)||[]).length,10);assert(page.includes('lang="he" dir="rtl"'));
+assert(!/<script|<iframe|<form|<img\b/i.test(page),'Static supplement must make no active imports or submissions');
+const links=[...page.matchAll(/href="([^"]+)"/g)].map(m=>m[1]);
+assert.deepEqual(links,['index.html','additions-2026-10-06.json','catalog.json']);
+const added='<a href="additions-2026-10-06.html">תּוֹסָפוֹת יֶדַע · 6.10.2026</a>\n';
+assert.equal(index.split(added).length,2);
+const original=Buffer.from(index.replace(added,''));
+const hash=crypto.createHash('sha1').update('blob '+original.length+'\0').update(original).digest('hex');
+assert.equal(hash,'c7ba253ee16c7a412bc3c87f9b3d513a0e3b8c04','Original hub unchanged apart from one additive link');
+for(const m of index.matchAll(/<script>([\s\S]*?)<\/script>/g)) new vm.Script(m[1]);
+console.log('TRA212 supplement: 10 bilingual records; static HTML/JSON parity; virtual-token and privacy boundaries; original hub byte preservation; syntax passed.');
