@@ -5,18 +5,35 @@
 <title>TRA Languages · Tomer Angel 2026</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0b1720;color:#f7f7f2;font:18px/1.65 system-ui,Arial,sans-serif}main{max-width:900px;margin:auto;padding:24px}a{color:#8fe5cf}.hero,.card{background:#132b37;border:1px solid #315363;border-radius:22px;padding:22px;margin:16px 0}h1{font-size:clamp(40px,9vw,76px);margin:.2em 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}button,select,input{font:inherit;min-height:48px;border-radius:12px;border:1px solid #527080;padding:10px 14px}button{cursor:pointer;background:#f0cd73;color:#17212a;font-weight:800}.choice{width:100%;margin:5px 0;text-align:start}.ok{outline:3px solid #72e1c3}.bad{outline:3px solid #ff9c8d}.muted{color:#bdd0d8}.word{font-size:clamp(34px,8vw,64px);font-weight:900;margin:.3em 0}progress{width:100%;height:18px}:focus-visible{outline:4px solid #fff;outline-offset:3px}
+label{display:block}.grid>*{min-width:0}input,select{max-width:100%;width:100%}button:disabled{cursor:not-allowed;opacity:.65}[hidden]{display:none!important}li{overflow-wrap:anywhere}#catalogResults{max-height:28rem;overflow:auto}@media(max-width:480px){main{padding:12px}.card,.hero{padding:16px}.grid{grid-template-columns:1fr}}
 </style></head>
 <body><main>
+<noscript><p>נִדְרָשׁ JavaScript לַמִּשְׂחָק. Lesson data: <a href="data/languages/lesson-packs.json">JSON</a></p></noscript>
 <nav><a href="links/">עֵץ TRA</a> · <a href="tra-art-try.html">TRA ART TRY</a></nav>
 <section class="hero"><div>TRA · TRa · Tra</div><h1>TRA Languages</h1><p>לִמּוּד שָׂפוֹת דֶּרֶךְ הַקְשָׁבָה → מִלָּה → מִשְׁפָּט → שְׁלִיפָה → חֲזָרָה.</p><p lang="en" dir="ltr">Learn by listening, recalling, checking and repeating at your own pace.</p></section>
-<section class="card"><label>שְׂפַת הַלִּמּוּד <select id="lang"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="it">Italiano</option></select></label><p class="muted">הַתְחָלָה פְּשׁוּטָה: מִלִּים וּמִשְׁפָּטִים יוֹמְיוֹמִיִּים. הַהִתְקַדְּמוּת נִשְׁמֶרֶת בַּמַּכְשִׁיר.</p></section>
+<section class="card"><label>שְׂפַת הַלִּמּוּד <select id="lang" disabled aria-describedby="loadStatus"><option>טְעִינָה / Loading…</option></select></label><p class="muted">הַתְחָלָה פְּשׁוּטָה: מִלִּים וּמִשְׁפָּטִים יוֹמְיוֹמִיִּים. הַצִּיּוּן הָאַחֲרוֹן וְהַמַּפָּה הָאִישִׁית נִשְׁמָרִים בַּמַּכְשִׁיר, כַּאֲשֶׁר הַשְּׁמִירָה זְמִינָה.</p></section>
 <section class="card"><div class="grid"><div><b>⭐ Score</b><div id="gameScore">0</div></div><div><b>🔥 Streak</b><div id="gameStreak">0</div></div><div><b>❤️ Lives</b><div id="gameLives">3</div></div></div></section>
-<section class="card" id="lesson"><div id="step"></div><div class="word" id="word"></div><p id="prompt"></p><div id="choices"></div><button id="speak">🔊 שְׁמַע / Listen</button> <button id="next" disabled>הַבָּא / Next</button><p id="feedback" role="status" aria-live="polite"></p><progress id="progress" max="5" value="0"></progress></section>
+<p id="loadStatus" role="status" aria-live="polite">טְעִינַת שִׁעוּר / Loading lesson…</p>
+<button id="retryLesson" hidden>נַסֵּה שׁוּב / Retry lesson</button>
+<section class="card" id="lesson" aria-busy="true"><div id="step"></div><div class="word" id="word"></div><p id="prompt"></p><div id="choices"></div><button id="speak" disabled>🔊 שְׁמַע / Listen</button> <button id="next" disabled>הַבָּא / Next</button><p id="feedback" role="status" aria-live="polite"></p><progress id="progress" aria-label="הִתְקַדְּמוּת / Progress" max="1" value="0"></progress></section>
+<section class="card" aria-labelledby="catalogHeading">
+<h2 id="catalogHeading">קָטָלוֹג שָׂפוֹת / Language catalog</h2>
+<p>זֶהוּ קָטָלוֹג רִאשׁוֹנִי וְחֶלְקִי — לֹא כִּסּוּי שֶׁל כָּל שְׂפוֹת הָאָדָם. רְשׁוּמָה בַּקָּטָלוֹג אֵינָהּ שִׁעוּר פָּעִיל.</p>
+<p lang="en" dir="ltr">Language, macrolanguage, regional locale, dialect and accent are distinct record types. A regional tag is not an accent model. Only lesson packs appear in the learning menu.</p>
+<p id="catalogStatus" role="status" aria-live="polite">טְעִינַת קָטָלוֹג / Loading catalog…</p>
+<button id="retryCatalog" hidden>נַסֵּה שׁוּב / Retry catalog</button>
+<label for="catalogSearch">חִפּוּשׂ בַּקָּטָלוֹג / Search catalog</label>
+<input id="catalogSearch" type="search" dir="auto" disabled>
+<p id="catalogMatches" class="muted" aria-live="polite"></p>
+<ul id="catalogResults" dir="auto"></ul>
+</section>
 <section class="card"><h2>🌍 מַפַּת שָׂפָה · Language Map</h2>
 <p>הַמִּבְנֶה פָּתוּחַ: שָׂפָה → נִיב / מִבְטָא → כְּתָב → גְּרָפֵמָה → IPA / צְלִיל → צֵרוּף → מִלָּה.</p>
 <div class="grid">
-<label>שָׂפָה / Language<input id="mapLanguage" value="עברית / Hebrew"></label>
-<label>נִיב אוֹ מִבְטָא / Dialect or accent<input id="mapDialect" value="עברית ישראלית / Israeli Hebrew"></label>
+<label>מַזְהֵה קָטָלוֹג / Optional catalog ID<input id="mapEntityId" list="catalogIds" dir="ltr" placeholder="language:he"></label>
+<datalist id="catalogIds"></datalist>
+<label>שָׂפָה / Language<input id="mapLanguage" value="עִבְרִית / Hebrew"></label>
+<label>נִיב אוֹ מִבְטָא / Dialect or accent<input id="mapDialect" value="עִבְרִית יִשְׂרְאֵלִית / Israeli Hebrew"></label>
 <label>אוֹת / Grapheme<input id="grapheme" value="ת"></label>
 <label>צֵרוּף / Sequence<input id="sequence" value="חר"></label>
 <label>IPA / Sound<input id="ipa" value="t"></label>
@@ -25,27 +42,12 @@
 <label>מִסְפַּר / Count<input id="catalogCount" type="number" min="0" step="1" value="1"></label>
 </div>
 <button id="addSound">＋ הוֹסֵף לַמַּפָּה</button>
+<p class="muted">הַמַּפָּה אִישִׁית וּמְקוֹמִית. הַזָּנָה חָפְשִׁית אֵינָהּ אִמּוּת לְשׁוֹנִי וְאֵינָהּ מַרְחִיבָה אֶת הַקָּטָלוֹג הַמְּאֻמָּת.</p>
+<p id="mapStatus" role="status" aria-live="polite"></p>
 <div id="soundMap" aria-live="polite"></div>
 <p class="muted">דֻּגְמָאוֹת לִיחִידוֹת שֶׁהַמַּעֲרֶכֶת יְכוֹלָה לְתַעֵד: ת · ט · ח · חר · ר · ע · ער · רעיו… הַמַּעֲרֶכֶת מַבְדִּילָה בֵּין אוֹת, צֵרוּף וְצְלִיל.</p>
 </section>
 <section class="card"><h2>🎵 Rhythm Recall</h2><p>אֱמֹר אֶת הַמִּלָּה בְּקֶצֶב קָבוּעַ: 1–2–3–4. אַחַר כָּךְ סְגֹר אֶת הַתַּרְגּוּם וּשְׁלֹף אוֹתָהּ מֵהַזִּכָּרוֹן.</p></section>
 <footer>© 2026 Tomer Rafael Angel · TRA · All Rights Reserved</footer>
-<script>
-const sets={
-en:[["Hello","שָׁלוֹם"],["Thank you","תּוֹדָה"],["Music","מוּזִיקָה"],["Friend","חָבֵר"],["I am learning","אֲנִי לוֹמֵד"]],
-es:[["Hola","שָׁלוֹם"],["Gracias","תּוֹדָה"],["Música","מוּזִיקָה"],["Amigo","חָבֵר"],["Estoy aprendiendo","אֲנִי לוֹמֵד"]],
-fr:[["Bonjour","שָׁלוֹם"],["Merci","תּוֹדָה"],["Musique","מוּזִיקָה"],["Ami","חָבֵר"],["J’apprends","אֲנִי לוֹמֵד"]],
-it:[["Ciao","שָׁלוֹם"],["Grazie","תּוֹדָה"],["Musica","מוּזִיקָה"],["Amico","חָבֵר"],["Sto imparando","אֲנִי לוֹמֵד"]]
-};
-let i=0,score=0,answered=false,lives=3,streak=0;
-const $=id=>document.getElementById(id);
-function lesson(){const a=sets[$("lang").value],q=a[i];answered=false;$("next").disabled=true;$("feedback").textContent="";$("step").textContent="שָׁלָב "+(i+1)+" / 5";$("word").textContent=q[0];$("prompt").textContent="מַה הַמַּשְׁמָעוּת?";const opts=[q[1],...a.filter((_,n)=>n!==i).map(x=>x[1])].sort(()=>Math.random()-.5).slice(0,3);if(!opts.includes(q[1]))opts[0]=q[1];$("choices").innerHTML="";opts.sort(()=>Math.random()-.5).forEach(x=>{let b=document.createElement("button");b.className="choice";b.textContent=x;b.onclick=()=>answer(b,x===q[1]);$("choices").appendChild(b)});$("progress").value=i}
-function hud(){$("gameScore").textContent=score;$("gameStreak").textContent=streak;$("gameLives").textContent=lives}
-function answer(b,ok){if(answered)return;answered=true;b.classList.add(ok?"ok":"bad");if(ok){score+=10;streak++;$("feedback").textContent="✓ נָכוֹן / Correct · +10"}else{lives=Math.max(0,lives-1);streak=0;$("feedback").textContent="לֹא הַפַּעַם — הַתְּשׁוּבָה: "+sets[$("lang").value][i][1]}hud();$("next").disabled=false;if(lives===0){$("next").textContent="מִשְׂחָק חָדָשׁ / New game"}}
-$("next").onclick=()=>{if(lives===0){location.reload();return}i++;if(i>=5){localStorage.setItem("traLanguagesLastScore",score);$("lesson").innerHTML="<h2>הַמִּשְׂחָק הֻשְׁלַם 🎵</h2><p>Score: "+score+" · Streak: "+streak+" · Lives: "+lives+"</p><button onclick='location.reload()'>מִשְׂחָק חָדָשׁ</button>";return}lesson()};
-$("speak").onclick=()=>{if(!("speechSynthesis" in window)){$("feedback").textContent="הַקְרָאָה אֵינָהּ זְמִינָה בַּמַּכְשִׁיר הַזֶּה.";return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(sets[$("lang").value][i][0]);u.lang={en:"en-US",es:"es-ES",fr:"fr-FR",it:"it-IT"}[$("lang").value];speechSynthesis.speak(u)};
-const mapKey="traLanguagesSoundMap";
-function renderMap(){const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");$("soundMap").innerHTML=rows.length?"<ol>"+rows.map(r=>"<li><b>"+r.g+"</b> · "+r.seq+" · /"+r.ipa+"/ · "+r.word+"<br><span class='muted'>"+r.lang+" · "+r.dialect+" · "+(r.category||"language")+" · #"+(r.count||1)+"</span></li>").join("")+"</ol>":"<p class='muted'>עֲדַיִן לֹא נוֹסְפוּ יְחִידוֹת אִישִׁיּוֹת.</p>"}
-$("addSound").onclick=()=>{const rows=JSON.parse(localStorage.getItem(mapKey)||"[]");rows.push({lang:$("mapLanguage").value,dialect:$("mapDialect").value,g:$("grapheme").value,seq:$("sequence").value,ipa:$("ipa").value,word:$("exampleWord").value,category:$("catalogCategory").value,count:Number($("catalogCount").value)||1,archive:true,model:"TRa Languages",learning:"recall",adaptation:"extensible"});localStorage.setItem(mapKey,JSON.stringify(rows));renderMap()};
-$("lang").onchange=()=>{i=0;score=0;lives=3;streak=0;hud();lesson()};renderMap();hud();lesson();
-</script></main></body></html>
+<script src="tra-languages-data.js" defer></script>
+<script src="tra-languages.js" defer></script></main></body></html>

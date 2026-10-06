@@ -1,0 +1,42 @@
+name: TRA Languages data and browser checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['tra-languages*', 'data/languages/**', '.github/workflows/tra-languages.yml']
+  push:
+    branches: [main]
+    paths: ['tra-languages*', 'data/languages/**', '.github/workflows/tra-languages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  languages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and data-contract regression
+        run: |
+          node --check tra-languages-data.js
+          node --check tra-languages.js
+          node --check tra-languages-browser.cjs
+          node --test tra-languages.test.cjs
+      - name: Install isolated browser test dependency
+        run: |
+          npm install --prefix "$RUNNER_TEMP/tra-languages-e2e" playwright@1.58.2
+          "$RUNNER_TEMP/tra-languages-e2e/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Verify games, data loading, RTL and preserved local notes
+        run: NODE_PATH="$RUNNER_TEMP/tra-languages-e2e/node_modules" node tra-languages-browser.cjs
+      - name: Upload mobile preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tra-languages-mobile
+          path: tra-languages-mobile.png
+          if-no-files-found: ignore

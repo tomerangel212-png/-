@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packs": [
+    {
+      "id": "en",
+      "label": "English",
+      "entityId": "language:en",
+      "path": "lessons/en.json"
+    },
+    {
+      "id": "es",
+      "label": "Español",
+      "entityId": "language:es",
+      "path": "lessons/es.json"
+    },
+    {
+      "id": "fr",
+      "label": "Français",
+      "entityId": "language:fr",
+      "path": "lessons/fr.json"
+    },
+    {
+      "id": "it",
+      "label": "Italiano",
+      "entityId": "language:it",
+      "path": "lessons/it.json"
+    }
+  ]
+}
