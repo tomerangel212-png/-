@@ -8889,5 +8889,26 @@
       "source": "Billboard year-end singles chart",
       "sourceUrl": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2023"
     }
-  ]
+  ],
+  "curationSources": [
+    {
+      "id": "apple-music-tomerangel212",
+      "provider": "Apple Music",
+      "type": "public-profile",
+      "url": "https://music.apple.com/profile/tomerangel212",
+      "role": "curation-signal",
+      "authorityFor": [
+        "personal-taste",
+        "future-candidate-curation"
+      ],
+      "notAuthorityFor": [
+        "chartYear",
+        "chartRank",
+        "releaseYear",
+        "audio-rights"
+      ],
+      "addedOn": "2026-10-06"
+    }
+  ],
+  "curationPolicy": "Curation sources may guide future song candidates, but each playable HITSTER card must retain its own verified factual source. A profile URL does not license audio or override chart-year/rank metadata."
 }
