@@ -1,0 +1,26 @@
+name: TRA212 Catalog Checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "tra212/**"
+      - ".github/workflows/tra212.yml"
+  push:
+    branches: [main, feat/tra212-consolidated-hub-20261006]
+    paths:
+      - "tra212/**"
+      - ".github/workflows/tra212.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Verify TRA212 data, source text and JavaScript syntax
+        run: node tra212/test.cjs
