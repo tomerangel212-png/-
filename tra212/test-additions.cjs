@@ -4,8 +4,8 @@ const read=name=>fs.readFileSync(path.join(__dirname,name),'utf8');
 const d=JSON.parse(read('additions-2026-10-06.json'));
 const page=read('additions-2026-10-06.html'),index=read('index.html');
 const escape=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');
-assert.equal(d.hub,'TRA212');assert.equal(d.kind,'additive_supplement');assert.equal(d.records.length,10);
-assert.equal(new Set(d.records.map(r=>r.id)).size,10);
+assert.equal(d.hub,'TRA212');assert.equal(d.kind,'additive_supplement');assert.equal(d.records.length,11);
+assert.equal(new Set(d.records.map(r=>r.id)).size,11);
 assert.equal(d.privacy.personal_records_imported,false);assert.equal(d.privacy.account_sync,false);
 assert.equal(d.privacy.automatic_external_actions,false);assert.equal(d.preserved.existing_games_modified,false);
 for(const r of d.records){
@@ -20,7 +20,10 @@ assert.equal(tokens.base_pool,9999);assert.equal(tokens.virtual_only,true);asser
 const ledger=d.records.find(r=>r.id.endsWith('-ledger')).rules;
 assert.equal(ledger.canonical_name_he,'ספר החשבונות של TRA');assert.deepEqual(ledger.transactions,[]);
 assert.deepEqual(ledger.fields,['participant_ref','game_or_source','delta','reason','balance_before','balance_after']);
-assert.equal((page.match(/<article /g)||[]).length,10);assert(page.includes('lang="he" dir="rtl"'));
+const budget=d.records.find(r=>r.id.endsWith('-budget-50-20-30')).rules;
+assert.equal(budget.needs_percent,50);assert.equal(budget.future_percent,20);assert.equal(budget.life_percent,30);assert.equal(budget.sum_percent,100);
+assert.equal(budget.flexible_guideline,true);assert.equal(budget.applies_to,'real-money-budgeting');assert.equal(budget.applies_to_virtual_tokens,false);assert.equal(budget.forced_spending,false);
+assert.equal((page.match(/<article /g)||[]).length,11);assert(page.includes('lang="he" dir="rtl"'));
 assert(!/<script|<iframe|<form|<img\b/i.test(page),'Static supplement must make no active imports or submissions');
 const links=[...page.matchAll(/href="([^"]+)"/g)].map(m=>m[1]);
 assert.deepEqual(links,['index.html','additions-2026-10-06.json','catalog.json']);
@@ -30,4 +33,4 @@ const original=Buffer.from(index.replace(added,''));
 const hash=crypto.createHash('sha1').update('blob '+original.length+'\0').update(original).digest('hex');
 assert.equal(hash,'c7ba253ee16c7a412bc3c87f9b3d513a0e3b8c04','Original hub unchanged apart from one additive link');
 for(const m of index.matchAll(/<script>([\s\S]*?)<\/script>/g)) new vm.Script(m[1]);
-console.log('TRA212 supplement: 10 bilingual records; static HTML/JSON parity; virtual-token and privacy boundaries; original hub byte preservation; syntax passed.');
+console.log('TRA212 supplement: 11 bilingual records; static HTML/JSON parity; virtual-token and privacy boundaries; original hub byte preservation; syntax passed.');
