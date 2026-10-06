@@ -26,3 +26,4 @@ const textDigest=crypto.createHash('sha256').update(JSON.stringify(d.records.map
 assert.equal(textDigest,'5359e3fd7fb8ad11bf8798ec7a046aa59231899fdf0aebdd84c24f34f4e435e7','All original IDs and bilingual texts stay unchanged');
 for(const value of ['projects','records','additions','open_questions']) assert(html.includes('<option value="'+value+'">'));
 console.log('TRA212: 34 source records, 15 projects, 8 additions; JSON, IDs, boundaries, niqqud presence and JavaScript syntax passed.');
+require('./test-additions.cjs');
