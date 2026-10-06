@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "en",
+  "entityId": "language:en",
+  "translationLanguage": "he",
+  "speechTag": "en-US",
+  "provenance": {
+    "kind": "preserved-project-content",
+    "url": "https://github.com/tomerangel212-png/-/blob/29a8417021858f7c58d96857661693004ae0b5da/tra-languages.html",
+    "note": "Original five items and Hebrew vocalization preserved; not a newly reviewed full course."
+  },
+  "items": [
+    [
+      "Hello",
+      "שָׁלוֹם"
+    ],
+    [
+      "Thank you",
+      "תּוֹדָה"
+    ],
+    [
+      "Music",
+      "מוּזִיקָה"
+    ],
+    [
+      "Friend",
+      "חָבֵר"
+    ],
+    [
+      "I am learning",
+      "אֲנִי לוֹמֵד"
+    ]
+  ]
+}

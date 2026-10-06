@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "coverage": {
+    "status": "seed",
+    "complete": false,
+    "note": "Selected identification records only. Catalog presence does not imply lessons, an accent model, pronunciation data or device voice support."
+  },
+  "sources": [
+    {
+      "id": "iana",
+      "title": "IANA Language Subtag Registry",
+      "url": "https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry",
+      "version": "File-Date: 2026-09-17",
+      "retrievedOn": "2026-10-06"
+    },
+    {
+      "id": "rfc5646",
+      "title": "RFC 5646: Tags for Identifying Languages",
+      "url": "https://www.rfc-editor.org/rfc/rfc5646",
+      "version": "September 2009",
+      "retrievedOn": "2026-10-06"
+    }
+  ],
+  "entities": [
+    {
+      "id": "language:en",
+      "kind": "language",
+      "name": "English",
+      "bcp47": "en",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:en"
+        }
+      ]
+    },
+    {
+      "id": "language:es",
+      "kind": "language",
+      "name": "Spanish",
+      "bcp47": "es",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:es"
+        }
+      ]
+    },
+    {
+      "id": "language:fr",
+      "kind": "language",
+      "name": "French",
+      "bcp47": "fr",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:fr"
+        }
+      ]
+    },
+    {
+      "id": "language:it",
+      "kind": "language",
+      "name": "Italian",
+      "bcp47": "it",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:it"
+        }
+      ]
+    },
+    {
+      "id": "language:he",
+      "kind": "language",
+      "name": "Hebrew",
+      "bcp47": "he",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:he"
+        }
+      ]
+    },
+    {
+      "id": "language:ar",
+      "kind": "macrolanguage",
+      "name": "Arabic",
+      "bcp47": "ar",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:ar"
+        }
+      ]
+    },
+    {
+      "id": "language:de",
+      "kind": "language",
+      "name": "German",
+      "bcp47": "de",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:de"
+        }
+      ]
+    },
+    {
+      "id": "language:pt",
+      "kind": "language",
+      "name": "Portuguese",
+      "bcp47": "pt",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:pt"
+        }
+      ]
+    },
+    {
+      "id": "language:zh",
+      "kind": "macrolanguage",
+      "name": "Chinese",
+      "bcp47": "zh",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:zh"
+        }
+      ]
+    },
+    {
+      "id": "language:cmn",
+      "kind": "language",
+      "name": "Mandarin Chinese",
+      "bcp47": "cmn",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:cmn"
+        }
+      ],
+      "macrolanguageId": "language:zh"
+    },
+    {
+      "id": "language:yue",
+      "kind": "language",
+      "name": "Yue Chinese",
+      "bcp47": "yue",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:yue"
+        }
+      ],
+      "macrolanguageId": "language:zh"
+    },
+    {
+      "id": "language:ase",
+      "kind": "language",
+      "name": "American Sign Language",
+      "bcp47": "ase",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:ase"
+        }
+      ]
+    },
+    {
+      "id": "locale:en-US",
+      "kind": "locale",
+      "name": "English (United States)",
+      "bcp47": "en-US",
+      "parentId": "language:en",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:en"
+        },
+        {
+          "sourceId": "iana",
+          "record": "region:US"
+        },
+        {
+          "sourceId": "rfc5646",
+          "record": "section 2.2.4"
+        }
+      ],
+      "note": "Composed regional language tag, not a verified dialect or accent model."
+    },
+    {
+      "id": "locale:es-ES",
+      "kind": "locale",
+      "name": "Spanish (Spain)",
+      "bcp47": "es-ES",
+      "parentId": "language:es",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:es"
+        },
+        {
+          "sourceId": "iana",
+          "record": "region:ES"
+        },
+        {
+          "sourceId": "rfc5646",
+          "record": "section 2.2.4"
+        }
+      ],
+      "note": "Composed regional language tag, not a verified dialect or accent model."
+    },
+    {
+      "id": "locale:fr-FR",
+      "kind": "locale",
+      "name": "French (France)",
+      "bcp47": "fr-FR",
+      "parentId": "language:fr",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:fr"
+        },
+        {
+          "sourceId": "iana",
+          "record": "region:FR"
+        },
+        {
+          "sourceId": "rfc5646",
+          "record": "section 2.2.4"
+        }
+      ],
+      "note": "Composed regional language tag, not a verified dialect or accent model."
+    },
+    {
+      "id": "locale:it-IT",
+      "kind": "locale",
+      "name": "Italian (Italy)",
+      "bcp47": "it-IT",
+      "parentId": "language:it",
+      "refs": [
+        {
+          "sourceId": "iana",
+          "record": "language:it"
+        },
+        {
+          "sourceId": "iana",
+          "record": "region:IT"
+        },
+        {
+          "sourceId": "rfc5646",
+          "record": "section 2.2.4"
+        }
+      ],
+      "note": "Composed regional language tag, not a verified dialect or accent model."
+    }
+  ]
+}
