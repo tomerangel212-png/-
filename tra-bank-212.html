@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRA BANK 212</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial;background:#0d1218;color:#f5f7fa}.wrap{max-width:900px;margin:auto;padding:24px}header,.card{background:#151d26;border:1px solid #34404d;border-radius:18px;padding:20px;margin-bottom:16px}h1{margin:.2em 0}.balance{font-size:clamp(30px,8vw,58px);font-weight:800;overflow-wrap:anywhere}.muted{color:#b8c1ca}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}button,input{font:inherit;border-radius:10px;border:1px solid #607080;padding:12px;background:#101821;color:#fff;width:100%}button{cursor:pointer;background:#21364a}button:focus,input:focus{outline:3px solid #f0c86b}.danger{background:#45242a}.tx{padding:10px 0;border-bottom:1px solid #34404d}.plus{font-weight:700}.notice{border-right:5px solid #f0c86b}footer{text-align:center;color:#aab5c0;padding:18px}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style></head>
+<body><main class="wrap">
+<header><div>TRA212 · Tomer Angel</div><h1>🏦 TRA BANK 212</h1><p>מַעֲרֶכֶת פִּינַנְסִית וִירְטוּאָלִית · Virtual Finance System</p></header>
+<section class="card notice"><strong>לֹא בַּנְק אֲמִתִּי.</strong> TRA Tokens הֵם אֲסִימוֹנִים וִירְטוּאָלִיִּים בִּלְבַד: אֵין עֵרֶךְ כַּסְפִּי, אֵין cash-out, אֵין הַפְקָדַת כֶּסֶף אֲמִתִּי וְאֵין הַבְטָחַת תְּשׂוּאָה.</section>
+<section class="card"><div class="muted">יְתֵרָה · Balance</div><div class="balance" id="balance">9,999 TRA</div><p class="muted">מאגר בסיס מקומי. הנתונים נשמרים רק במכשיר הזה.</p></section>
+<section class="grid">
+<div class="card"><h2>➕ קַבֵּל אֲסִימוֹנִים</h2><label>כַּמּוּת<input id="earn" type="number" min="1" step="1" inputmode="numeric"></label><label>סִבָּה<input id="earnReason" maxlength="80" placeholder="למשל: הצלחה במשחק"></label><button id="earnBtn">הוֹסֵף לַסֵּפֶר</button></div>
+<div class="card"><h2>➖ הוֹצֵא אֲסִימוֹנִים</h2><label>כַּמּוּת<input id="spend" type="number" min="1" step="1" inputmode="numeric"></label><label>סִבָּה<input id="spendReason" maxlength="80" placeholder="למשל: פעולה במשחק"></label><button id="spendBtn">רְשֹׁם הוֹצָאָה</button></div>
+</section>
+<section class="card"><h2>📒 סֵפֶר הַחֶשְׁבּוֹנוֹת שֶׁל TRA</h2><p id="empty" class="muted">אֵין תְּנוּעוֹת עֲדַיִן.</p><div id="ledger"></div></section>
+<section class="card"><h2>🛡️ בַּקָּרָה</h2><p>Balance = Opening Balance + Earned Tokens − Spent Tokens</p><button class="danger" id="resetBtn">אִפּוּס מְקוֹמִי</button></section>
+<footer>© 2026 Tomer Rafael Angel · TRA212 · Virtual tokens only</footer>
+</main>
+<script>
+(()=>{'use strict';const START=9999,KEY='tra-bank-212-v1';let state={opening:START,entries:[]};
+const $=id=>document.getElementById(id);function load(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x&&x.opening===START&&Array.isArray(x.entries))state=x}catch(e){}}
+function balance(){return state.entries.reduce((n,x)=>n+x.delta,state.opening)}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function render(){$('balance').textContent=balance().toLocaleString('en-US')+' TRA';$('ledger').textContent='';$('empty').hidden=state.entries.length>0;[...state.entries].reverse().forEach(x=>{const d=document.createElement('div');d.className='tx';const a=document.createElement('strong');a.textContent=(x.delta>0?'+':'')+x.delta.toLocaleString('en-US')+' TRA';d.append(a,document.createTextNode(' · '+x.reason));$('ledger').appendChild(d)})}
+function add(input,reason,sign){const n=Number($(input).value);if(!Number.isSafeInteger(n)||n<=0)return alert('הכנס כמות שלמה וחיובית.');if(sign<0&&n>balance())return alert('אין מספיק TRA Tokens.');const r=$(reason).value.trim()||'ללא סיבה';state.entries.push({delta:sign*n,reason:r.slice(0,80),at:new Date().toISOString()});$(input).value='';$(reason).value='';save()}
+$('earnBtn').onclick=()=>add('earn','earnReason',1);$('spendBtn').onclick=()=>add('spend','spendReason',-1);$('resetBtn').onclick=()=>{if(confirm('לאפס את ספר החשבונות המקומי?')){state={opening:START,entries:[]};save()}};load();render()})();
+</script></body></html>
