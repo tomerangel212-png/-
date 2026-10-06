@@ -590,6 +590,13 @@
     var payload = await response.json();
     validateDeck(payload);
     deck = payload.cards;
+    if (Array.isArray(payload.supplementalCards)) {
+      payload.supplementalCards.forEach(function (card) {
+        if (!card || card.playable !== true || !card.id || !card.title || !card.artist || !Number.isInteger(card.chartYear) || card.chartYear < 1900 || card.chartYear > new Date().getFullYear() || /michael jackson|eyal golan|אייל גולן/i.test(card.artist)) return;
+        deck = deck.filter(function (old) { return old.id !== card.id && (normalize(old.title) !== normalize(card.title) || normalize(old.artist) !== normalize(card.artist)); });
+        deck.push(card);
+      });
+    }
     if (personalConfig && Array.isArray(personalConfig.cards)) {
       personalConfig.cards.forEach(function (card) {
         if (!card || !card.id || !card.title || !card.artist || !Number.isInteger(card.chartYear) || card.chartYear < 1900 || card.chartYear > new Date().getFullYear() || /michael jackson|eyal golan|אייל גולן/i.test(card.artist)) return;
