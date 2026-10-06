@@ -26,3 +26,11 @@ The next TRA target is **9,999,999,999/9,999,999,999**. It is an evidence-based 
 - Version history: [TRA_VERSION_HISTORY.md](TRA_VERSION_HISTORY.md)
 
 TRA ART TRY extends the existing constitution without replacing later principles or versions. History & Music and patient listening remain part of the current TRA record.
+
+## TRA212 · Tomer Angel
+
+[Open TRA212](tra212/) · [Catalog JSON](tra212/catalog.json) · [Scope and verification](docs/ai/tasks/TRA212-20261006.md)
+
+TRA212 adds a searchable Hebrew/English index: 34 preserved knowledge records, 15 project entries and 8 recent additions. Existing principles, source versions and project identities remain separate and unchanged. A catalog entry records knowledge or a source link; it does not certify that every requested feature is implemented or published.
+
+Run `node tra212/test.cjs` to check the catalog and the preserved source-text digest. When automatic data loading is unavailable, open `tra212/index.html` and choose the saved `tra212/catalog.json` through its local-file control. No account data is imported or synchronized.
