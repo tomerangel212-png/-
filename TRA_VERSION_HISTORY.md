@@ -1,5 +1,12 @@
 # TRA Version History
 
+## 2026-10-06 — TRA Principles 1.6.0 — 50 · 20 · 030 / 50/20/30
+- הַסִּמּוּן 030 נִשְׁמָר, וּמֻגְדָּר כְּ־30% בְּתוֹךְ כְּלַל 50/20/30.
+- 50% לִצְרָכִים וְלַהֶכְרֵחִי; 20% לְחִסָּכוֹן, לָעָתִיד וּלְהַשְׁקָעָה; 30% לִרְצוֹנוֹת, לְתַרְבּוּת, לְמוּזִיקָה וְלִפְנַאי.
+- זֶהוּ כְּלָל תִּקְצוּב גָּמִישׁ, לֹא חוֹק קָשִׁיחַ; הַיַּחֲסִים מֻתְאָמִים לַמְּצִיאוּת וְלַצְּרָכִים.
+- הָעִקָּרוֹן חָל עַל כֶּסֶף אֲמִתִּי וְאֵינוֹ מְשַׁנֶּה אֶת כַּלְכָּלַת אֲסִימוֹנֵי TRA הַוִּירְטוּאָלִיִּים.
+- לא נוספו סכומי הכנסה, יתרות או נתונים פיננסיים אישיים.
+
 ## TRA ART TRY — forward-port · 2026-10-05
 
 PR68 originally proposed TRA ART TRY, History & Music and patient listening against principles registry 1.1.0. The current implementation preserves those ideas on the later 1.3.0 registry rather than restoring the older registry.

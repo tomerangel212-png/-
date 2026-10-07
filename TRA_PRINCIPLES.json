@@ -1,5 +1,5 @@
 {
-  "registry_version": "1.5.0",
+  "registry_version": "1.6.0",
   "product": "THE TRA",
   "status": "active-draft",
   "target": "9999999999/9999999999",
@@ -261,10 +261,10 @@
     },
     {
       "id": "principle-50-20-030",
-      "he": "עֶקְרוֹן 50 · 20 · 030: הַסֵּדֶר וְהַמִּסְפָּרִים נִשְׁמָרִים בְּדִיּוּק כְּפִי שֶׁנִּמְסְרוּ. הַמַּשְׁמָעוּת שֶׁל כָּל חֵלֶק עֲדַיִן לֹא הֻגְדְּרָה, וְלָכֵן אֵין לְהַמְצִיא אֲחוּזִים, יַעֲדִים אוֹ כְּלָלֵי הֲמָרָה עַד לְהַגְדָּרָה מְפֹרֶשֶׁת.",
-      "en": "Principle 50 · 20 · 030: preserve the numbers and order exactly as provided. The meaning of each part is not yet defined, so do not invent percentages, targets, or conversion rules until explicitly specified.",
-      "source": "user directive 2026-10-06",
-      "category": "pending-definition"
+      "he": "עֶקְרוֹן 50 · 20 · 030 / 50/20/30: בְּתִקְצוּב כַּסְפִּי, 50% מְיֻעָדִים לִצְרָכִים וְלַהֶכְרֵחִי, 20% לְחִסָּכוֹן, לָעָתִיד וּלְהַשְׁקָעָה, וְ־30% לִרְצוֹנוֹת, לְתַרְבּוּת, לְמוּזִיקָה וְלִפְנַאי. הַכְּתִיבָה 030 נִשְׁמֶרֶת כְּסִמּוּן שֶׁל 30%. זֶהוּ כְּלָל מַנְחֶה וְגָמִישׁ, לֹא חוֹק קָשִׁיחַ; מַתְאִימִים אֶת הַיַּחֲסִים לַמְּצִיאוּת, לַהַכְנָסָה וְלַצְּרָכִים. הָעִקָּרוֹן חָל עַל תִּקְצוּב כֶּסֶף אֲמִתִּי וְאֵינוֹ מְשַׁנֶּה אֶת כְּלָלֵי אֲסִימוֹנֵי TRA הַוִּירְטוּאָלִיִּים.",
+      "en": "Principle 50 · 20 · 030 / 50/20/30: for real-money budgeting, use 50% for needs and essentials, 20% for savings, future goals and investing, and 30% for wants, culture, music and leisure. The notation 030 is preserved as the label for the 30% part. This is a flexible guideline, not a rigid law; adapt the ratios to actual income and needs. It does not change the rules of virtual TRA Tokens.",
+      "source": "user directive 2026-10-06; clarified in follow-up",
+      "category": "finance"
     }
   ],
   "title": "TRA ART TRY",
