@@ -27,6 +27,7 @@ jobs:
           node --check music-editor.js
           node --check hitster-audio-regression.cjs
           node --check hitster-fair-round-regression.cjs
+          node --check tra-bank-212-regression.cjs
           node --check hitster-original.js
           node --check hitster-888-check.js
           node --check hitster-source-audit.js
@@ -46,6 +47,8 @@ jobs:
           node --check sw.js
       - name: Run executable FIDE chess regression
         run: node chess-formal-regression.mjs
+      - name: Run TRA BANK 212 virtual ledger regression
+        run: node tra-bank-212-regression.cjs
       - name: Enforce annual HITSTER 888 quality gate
         run: |
           node hitster-audio-regression.cjs
