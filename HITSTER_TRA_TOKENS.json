@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "project": "TRA HITSTER",
+  "status": "approved",
+  "virtualOnly": true,
+  "cashValue": false,
+  "cashOut": false,
+  "totalTokenSupply": "19168832653797415857116816",
+  "displaySupply": "19,168,832,653,797,415,857,116,816",
+  "ranking": [
+    {"rank": 1, "he": "אַרְד", "en": "Bronze"},
+    {"rank": 2, "he": "כֶּסֶף", "en": "Silver"},
+    {"rank": 3, "he": "בְּדִיל", "en": "Tin"},
+    {"rank": 4, "he": "נְחוֹשֶׁת", "en": "Copper"},
+    {"rank": 5, "he": "ווֹקְמָדָה", "en": "Wokmada"},
+    {"rank": 6, "he": "ווֹבְקִינוֹן", "en": "Wobkinon"}
+  ],
+  "integration": {
+    "mode": "rank_layer",
+    "separateFromStars": true,
+    "preserveExistingStars": true,
+    "preserveExistingWinConditions": true,
+    "ledgerName": "ספר החשבונות של TRA",
+    "ledgerRequired": true,
+    "notes": [
+      "TRA Tokens are virtual-only and have no monetary value.",
+      "The six names are ranking tiers, not separate currencies.",
+      "Stars remain the existing gameplay resource; tokens are an additional progression/reward layer."
+    ]
+  },
+  "catalogValidation": {
+    "crossChecked": [
+      "Apple Music",
+      "Spotify",
+      "Shazam"
+    ],
+    "referenceTrack": {
+      "title": "One Last Time",
+      "artist": "Ariana Grande",
+      "isrc": "USUM71409723",
+      "releaseDate": "2014-08-22"
+    },
+    "purpose": "Sanity-check music metadata sources used around HITSTER; not a claim that all catalog rows were revalidated in this change."
+  },
+  "copyright": "All rights reserved to Tomer Rafael Angel."
+}
