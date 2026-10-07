@@ -20,4 +20,4 @@ assert(!catalog.records.some(r => r.section === 'constitution'));
 const supplement = JSON.parse(fs.readFileSync('tra212/additions-2026-10-06.json','utf8'));
 assert(!supplement.records.some(r => /knowledge-preservation|budget-50-20-030/.test(r.id)));
 assert(!fs.readFileSync('docs/ai/tasks/ORIENTATION-KNOWLEDGE.md','utf8').includes('## Knowledge preservation'));
-console.log('PASS: private documents absent; public navigation and catalog exclude constitution.');
+console.log('PASS: private documents absent from public source; public navigation and catalog exclude constitution.');

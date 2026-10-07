@@ -99,7 +99,7 @@ jobs:
           for path in tra-art-try.html TRA_PRINCIPLES.json TRA-ART-TRY.md; do
             verified=false
             for attempt in 1 2 3 4 5 6; do
-              status=$(curl --silent --show-error --output /tmp/tra-privacy-response --write-out '%{http_code}' "https://tomerangel212-png.github.io/-/$path?privacy-check=${GITHUB_SHA}-${attempt}")
+              status=$(curl --silent --show-error --output /tmp/tra-privacy-response --write-out '%{http_code}' "https://tomerangel212-png.github.io/-/$path")
               if [ "$status" = "404" ]; then
                 echo "$path: HTTP 404"
                 verified=true
@@ -110,7 +110,7 @@ jobs:
             test "$verified" = true
           done
           curl --fail --silent --show-error 'https://tomerangel212-png.github.io/-/links/' > /tmp/tra-public-links
-          if grep -E 'href=["\x27][^"\x27]*(tra-art-try.html|TRA_PRINCIPLES.json|TRA-ART-TRY.md)' /tmp/tra-public-links; then
+          if grep -E 'tra-art-try[.]html|TRA_PRINCIPLES[.]json|TRA-ART-TRY[.]md' /tmp/tra-public-links; then
             echo 'Private document navigation remains public'
             exit 1
           fi
