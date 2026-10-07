@@ -6,6 +6,9 @@ const fix=JSON.parse(fs.readFileSync("tra-music-station-corrections-5.json","utf
 const required=["ישראלי","פופ","רוק","אמריקאי","בריטי"];
 const expected={IL:333,US:333,UK:333};
 if(!base||base.target!==444||!base.groups)throw new Error("station base 444 schema missing");
+const appleProfile=(base.externalProfiles||[]).find(p=>p&&p.platform==="Apple Music"&&p.handle==="tomerangel212");
+if(!appleProfile||appleProfile.url!=="https://music.apple.com/profile/tomerangel212")throw new Error("Tomer Angel Apple Music profile missing from station data");
+if(appleProfile.accountSync!==false||appleProfile.libraryImported!==false)throw new Error("Apple Music profile record must remain link-only without account/library import");
 if(!extra||extra.target!==555||!extra.groups)throw new Error("station extra 555 schema missing");
 if(!fix||fix.target!==5||!fix.groups)throw new Error("station correction 5 schema missing");
 const raw=[];
