@@ -9,6 +9,15 @@ if(!base||base.target!==444||!base.groups)throw new Error("station base 444 sche
 const appleProfile=(base.externalProfiles||[]).find(p=>p&&p.platform==="Apple Music"&&p.handle==="tomerangel212");
 if(!appleProfile||appleProfile.url!=="https://music.apple.com/profile/tomerangel212")throw new Error("Tomer Angel Apple Music profile missing from station data");
 if(appleProfile.accountSync!==false||appleProfile.libraryImported!==false)throw new Error("Apple Music profile record must remain link-only without account/library import");
+if(fs.existsSync("hitster-alltime-888.json")){
+  const hitster=JSON.parse(fs.readFileSync("hitster-alltime-888.json","utf8"));
+  const curation=(hitster.curationSources||[]).find(s=>s&&s.id==="apple-music-tomerangel212");
+  if(curation){
+    if(curation.url!==appleProfile.url)throw new Error("Apple Music profile URL must match between Station and HITSTER curation metadata");
+    if(curation.role!=="curation-signal")throw new Error("HITSTER Apple Music profile must remain a curation signal");
+    if(!Array.isArray(curation.notAuthorityFor)||!curation.notAuthorityFor.includes("chartYear")||!curation.notAuthorityFor.includes("audio-rights"))throw new Error("HITSTER Apple Music curation boundaries must preserve chart/audio limits");
+  }
+}
 if(!extra||extra.target!==555||!extra.groups)throw new Error("station extra 555 schema missing");
 if(!fix||fix.target!==5||!fix.groups)throw new Error("station correction 5 schema missing");
 const raw=[];
