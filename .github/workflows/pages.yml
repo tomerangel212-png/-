@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
     paths-ignore: [".github/workflows/live-http.yml", ".github/workflows/pages.yml"]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -13,7 +15,7 @@ permissions:
   statuses: write
 
 concurrency:
-  group: github-pages
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.event.pull_request.number) || 'github-pages' }}
   cancel-in-progress: true
 
 jobs:
@@ -73,16 +75,26 @@ jobs:
           path: hitster-personal-mobile.png
       - name: Build public country chart snapshot
         run: node build-hitster-world.cjs
+      - name: Test public Pages staging
+        run: node --test scripts/stage-pages.test.cjs
+      - name: Stage public Pages files
+        run: node scripts/stage-pages.cjs "$RUNNER_TEMP/tra-pages-public"
+      - name: Verify staged public routes and private-file exclusions
+        run: |
+          node site-route-integrity-check.js "$RUNNER_TEMP/tra-pages-public"
+          node scripts/stage-pages.cjs --verify "$RUNNER_TEMP/tra-pages-public"
       - name: Configure Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
           name: github-pages-${{ github.run_attempt }}
-          path: .
+          path: ${{ runner.temp }}/tra-pages-public
   deploy:
     name: Deploy TRA to GitHub Pages
     needs: tra-quality
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
