@@ -29,6 +29,13 @@ check("TRA release targets match the official contract", version.quality_target 
 check("Previous version is preserved", version.previous_version === "8.5" && history.includes("TRA 8.5"));
 check("Reference-app principle is recorded", history.includes("Reference-app principle") && history.includes("Zynga Poker") && history.includes("Chess.com") && history.includes("HITSTER"));
 
+const historyHeadings = history.match(/^## .+$/gm) || [];
+const historyDates = historyHeadings.map(heading => heading.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0]).filter(Boolean);
+const registryVersions = historyHeadings.map(heading => heading.match(/\bTRA Principles (\d+\.\d+\.\d+)\b/)?.[1]).filter(Boolean);
+check("Dated history entries are newest first", historyDates.length > 0 && historyDates.every((date, index) => index === 0 || historyDates[index - 1] >= date));
+check("Current principles registry leads the history", historyHeadings[0]?.match(/\bTRA Principles (\d+\.\d+\.\d+)\b/)?.[1] === principles.registry_version);
+check("Principles history versions are newest first", registryVersions.every((entry, index) => index === 0 || registryVersions[index - 1].localeCompare(entry, "en", {numeric: true}) > 0));
+
 const sites = [
   "index.html","games.html","hitster.html","hitster-mobile.html","hitster-888.html","hitster-888-en.html","hitster-kfar-bloom-2026-demo.html","hitster-tra-tokens.html","casino-angel.html","connect-talk.html","music-drive.html","music-editor.html",
   "links/index.html","tra-dashboard/index.html","songs/index.html","poetry/index.html","instrumentals/index.html"
