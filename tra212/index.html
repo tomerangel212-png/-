@@ -19,9 +19,9 @@
 <p lang="en" dir="ltr">One index. Original sources preserved. Each project stays distinct.</p>
 <nav aria-label="נִוּוּט רָאשִׁי">
 <a href="../links/">עֵץ הַקִּשּׁוּרִים</a>
-<a href="../tra-art-try.html">חֻקַּת TRA</a>
+
 <a href="../history-and-music.html" lang="en" dir="ltr">History &amp; Music</a>
-<a href="../TRA_PRINCIPLES.json">מִרְשַׁם הָעֶקְרוֹנוֹת</a>
+
 <a href="catalog.json" download lang="en" dir="ltr">JSON</a>
 <a href="additions-2026-10-06.html">תּוֹסָפוֹת יֶדַע · 6.10.2026</a>
 </nav>
@@ -50,7 +50,7 @@
 var data = null, search = document.getElementById('search'), kind = document.getElementById('kind');
 var status = document.getElementById('status'), results = document.getElementById('results');
 var labels = {projects:'פְּרוֹיֶקְטִים',records:'רְשׁוּמוֹת מָקוֹר',additions:'תּוֹסָפוֹת',open_questions:'שְׁאֵלוֹת פְּתוּחוֹת'};
-var allowed = ['catalog.json','../','../tra-art-try.html','../history-and-music.html','../hitster.html','../games.html#chess','../tomer-jeep.html','../tra-languages.html','../teak.html','../links/index.html#branch-tra-navigation','../links/index.html#branch-tra-weather','../games.html','../cinnamon-pie-tra.html','../tra-six-levels.html','../music-editor.html','../connect-talk.html','../music-drive.html','../hitster-888.html?branch=fair-play','../hitster-generations.html','../songs/','../poetry/','../instrumentals/'];
+var allowed = ['catalog.json','../','../history-and-music.html','../hitster.html','../games.html#chess','../tomer-jeep.html','../tra-languages.html','../teak.html','../links/index.html#branch-tra-navigation','../links/index.html#branch-tra-weather','../games.html','../cinnamon-pie-tra.html','../tra-six-levels.html','../music-editor.html','../connect-talk.html','../music-drive.html','../hitster-888.html?branch=fair-play','../hitster-generations.html','../songs/','../poetry/','../instrumentals/'];
 function node(tag, text, parent, lang) {
  var el = document.createElement(tag); if (text != null) el.textContent = String(text);
  if (lang) { el.lang = lang; el.dir = lang === 'he' ? 'rtl' : 'ltr'; }

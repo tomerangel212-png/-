@@ -1,4 +1,4 @@
-const STATIC_CACHE = "tra-99-99-station-999-chess-formal-rules-v5-hitster-fair-round-ten-lives";
+const STATIC_CACHE = "tra-99-99-station-999-chess-formal-rules-v6-private-constitution";
 const AUDIO_CACHE = "hitster-tra-preview-audio-v1";
 const STATIC_ASSETS = [
   "./",
@@ -26,7 +26,6 @@ const STATIC_ASSETS = [
   "./tra-100.html",
   "./wikifamily.html",
   "./tra-music.html",
-  "./tra-art-try.html",
   "./tra-music-station.html",
   "./tra-music-station.json",
   "./tra-music-station-extra-555.json",
@@ -46,7 +45,6 @@ const STATIC_ASSETS = [
   "./tra-quality.js",
   "./TRA_VERSION.json",
   "./TRA_QUALITY.json",
-  "./TRA_PRINCIPLES.json",
   "./TRA_PERFECT_QUALITY.md"
 ];
 
@@ -102,6 +100,10 @@ self.addEventListener("fetch", function (event) {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
+  if (/\/(?:tra-art-try\.html|TRA_PRINCIPLES\.json|TRA-ART-TRY\.md)$/.test(url.pathname)) {
+    event.respondWith(Promise.resolve(new Response("Not found", { status: 404, headers: { "Cache-Control": "no-store" } })));
+    return;
+  }
   if (event.request.headers.has("range")) return;
 
   if (event.request.mode === "navigate") {

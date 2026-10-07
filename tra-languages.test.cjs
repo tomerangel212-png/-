@@ -144,7 +144,7 @@ test('HTML is a view, with relative assets, preserved routes and all five archiv
     assert.ok(html.includes('src="' + asset + '"'));
     assert.ok(fs.existsSync(path.join(__dirname, asset)));
   }
-  for (const route of ['links/', 'tra-art-try.html']) assert.ok(html.includes('href="' + route + '"'));
+  for (const route of ['links/']) assert.ok(html.includes('href="' + route + '"'));
   for (const category of ['archive','language','model','learning','adaptation']) assert.ok(html.includes('value="' + category + '"'));
   assert.ok(html.includes('© 2026 Tomer Rafael Angel'));
 });

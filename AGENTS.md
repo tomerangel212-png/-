@@ -3,7 +3,7 @@
 These are project working instructions, not authentication, permission enforcement, or an active multi-agent service.
 
 ## Read before acting
-Read `TRA-ART-TRY.md`, the relevant source files, and the active task under `docs/ai/tasks/`. Use `docs/ai/TRA-COLLABORATION.md` for handoffs. Preserve existing project principles and history.
+Read the relevant source files, and the active task under `docs/ai/tasks/`. Use `docs/ai/TRA-COLLABORATION.md` for handoffs. Preserve existing project principles and history.
 
 ## One task, one accountable editor
 Record the task ID, current branch and commit, editor, changed paths, tests, and blockers. Do not overwrite another agent's unreviewed changes. A task owner is a coordination convention, not a technical lock. An independent reviewer checks the exact resulting commit.

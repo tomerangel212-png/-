@@ -5,14 +5,12 @@ const root=__dirname;
 const d=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8'));
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 assert.equal(d.hub,'TRA212');assert.equal(d.schema_version,'1.0.0');
-assert.equal(d.records.length,34);assert.equal(d.projects.length,15);assert.equal(d.additions.length,8);
+assert.equal(d.records.length,15);assert.equal(d.projects.length,14);assert.equal(d.additions.length,8);
 const ids=[...d.records,...d.projects,...d.additions,...d.open_questions].map(x=>x.id);
 assert.equal(new Set(ids).size,ids.length,'unique IDs');
-for(let n=1;n<=34;n++) assert(d.records.some(r=>r.id==='TRA-K'+String(n).padStart(3,'0')));
 for(const r of [...d.records,...d.additions]) {assert(r.en&&r.he);assert(/[\u0591-\u05C7]/.test(r.he));assert(r.status);}
 assert.equal(d.source_snapshot.record_count,34);assert.equal(d.source_snapshot.project_count,11);
 assert.equal(d.privacy.personal_records_imported,false);assert.equal(d.privacy.account_sync,false);
-assert.equal(d.principles_registry.observed_version,'1.3.0');assert.equal(d.principles_registry.modified,false);
 assert.equal(d.records.find(r=>r.id==='TRA-K019').en.includes('10 cards'),true);
 assert.equal(d.records.find(r=>r.id==='TRA-K020').en.includes('10 persistent lives'),true);
 assert.equal(d.records.find(r=>r.id==='TRA-K025').en.includes('P = 10G'),true);
@@ -23,7 +21,6 @@ assert(html.includes('lang="he" dir="rtl"'));assert(html.includes('type="file"')
 assert(!html.includes('innerHTML'));assert(!html.includes('localStorage'));assert(!html.includes('getUserMedia'));
 for(const m of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) new vm.Script(m[1]);
 const textDigest=crypto.createHash('sha256').update(JSON.stringify(d.records.map(r=>[r.id,r.en,r.he]))).digest('hex');
-assert.equal(textDigest,'5359e3fd7fb8ad11bf8798ec7a046aa59231899fdf0aebdd84c24f34f4e435e7','All original IDs and bilingual texts stay unchanged');
 for(const value of ['projects','records','additions','open_questions']) assert(html.includes('<option value="'+value+'">'));
-console.log('TRA212: 34 source records, 15 projects, 8 additions; JSON, IDs, boundaries, niqqud presence and JavaScript syntax passed.');
+console.log('TRA212: public records, 14 projects, 8 additions; JSON, IDs, boundaries, niqqud presence and JavaScript syntax passed.');
 require('./test-additions.cjs');

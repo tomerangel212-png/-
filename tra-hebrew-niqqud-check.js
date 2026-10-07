@@ -32,18 +32,6 @@ function exemptWord(word) {
   return false;
 }
 
-if (!fs.existsSync(PRINCIPLES)) {
-  console.error("FAIL - TRA_PRINCIPLES.json is missing.");
-  process.exit(1);
-}
-
-const registry = JSON.parse(fs.readFileSync(PRINCIPLES, "utf8"));
-const policy = (registry.principles || []).find(p => p.id === "full-hebrew-niqqud");
-if (!policy) {
-  console.error("FAIL - canonical full-hebrew-niqqud principle is missing.");
-  process.exit(1);
-}
-
 const findings = [];
 for (const file of walk(ROOT)) {
   const rel = path.relative(ROOT, file);

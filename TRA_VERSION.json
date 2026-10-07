@@ -63,7 +63,6 @@
   },
   "perfect_target": "9999999999/9999999999",
   "perfect_target_status": "aspirational-until-evidence-complete",
-  "principles_registry": "TRA_PRINCIPLES.json",
   "quality_contract": "TRA_QUALITY.json",
   "release_governance": {
     "merge_requires_human_approval": true,

@@ -11,13 +11,6 @@ Scope: public orientation timetable integration and the requested knowledge-pres
 - Bump `TRA_PRINCIPLES.json` from 1.3.0 to 1.4.0. Retain all 36 existing principles verbatim and add `knowledge-preservation`. Keep existing governance safeguards.
 - Add `scripts/check_orientation.py` for repeatable checks.
 
-## Knowledge preservation
-**עֶקְרוֹן שִׁמּוּר הַיֶּדַע: שׁוֹמְרִים יֶדַע — לֹא פְּרָטִים אִישִׁיִּים.**
-
-Preserve all non-personal knowledge, sources, context, history and versions. Exclude personal details. When classification is uncertain, do not archive until reviewed. Privacy takes precedence over history retention. Retaining knowledge does not authorize publication, copying private conversations, or collecting personal records.
-
-The registry is a policy declaration, not a claim that all historical data stores have been scanned, migrated or purged. This change does not introduce an automatic archival collector.
-
 ## Evidence
 - Reconstructed baseline source bytes matched Git blob SHAs before editing: principles `3425c03f409ad712511dad82c9770528b0cb5b40`; links `3de92fcf5d281b32dbb148b99c1e150b3d703b7d`.
 - `python3 scripts/check_orientation.py`: passed locally.

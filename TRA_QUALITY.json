@@ -113,6 +113,5 @@
     "All CI gates pass on the exact candidate commit",
     "Live HTTP verification passes after publication",
     "Human approval exists before merge and publication"
-  ],
-  "principles_registry": "TRA_PRINCIPLES.json"
+  ]
 }

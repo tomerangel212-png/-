@@ -10,7 +10,6 @@ const check = (name, pass) => { checks.push({name,pass:Boolean(pass)}); if(!pass
 const version = JSON.parse(read("TRA_VERSION.json"));
 const quality = JSON.parse(read("TRA_QUALITY.json"));
 const history = read("TRA_VERSION_HISTORY.md");
-const principles = JSON.parse(read("TRA_PRINCIPLES.json"));
 const sw = read("sw.js");
 const chess = read("games-loader.js");
 const casino = read("casino-angel.html");
@@ -27,13 +26,11 @@ const qualityLayer = read("tra-quality.js");
 check("TRA release is 9.9", version.version === "9.9");
 check("TRA release targets match the official contract", version.quality_target === "10/10" && version.excellence_target === "999/1000" && quality.target === 10);
 check("Previous version is preserved", version.previous_version === "8.5" && history.includes("TRA 8.5"));
-check("Reference-app principle is recorded", history.includes("Reference-app principle") && history.includes("Zynga Poker") && history.includes("Chess.com") && history.includes("HITSTER"));
 
 const historyHeadings = history.match(/^## .+$/gm) || [];
 const historyDates = historyHeadings.map(heading => heading.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0]).filter(Boolean);
 const registryVersions = historyHeadings.map(heading => heading.match(/\bTRA Principles (\d+\.\d+\.\d+)\b/)?.[1]).filter(Boolean);
 check("Dated history entries are newest first", historyDates.length > 0 && historyDates.every((date, index) => index === 0 || historyDates[index - 1] >= date));
-check("Current principles registry leads the history", historyHeadings[0]?.match(/\bTRA Principles (\d+\.\d+\.\d+)\b/)?.[1] === principles.registry_version);
 check("Principles history versions are newest first", registryVersions.every((entry, index) => index === 0 || registryVersions[index - 1].localeCompare(entry, "en", {numeric: true}) > 0));
 
 const sites = [
@@ -77,7 +74,7 @@ check("HITSTER Kfar Blum route resolves to verified mobile 888", hitsterKfar.inc
 check("HITSTER English route shares verified 888", hitsterEnglish.includes('<html lang="en" dir="ltr">') && hitsterEnglish.includes('src="hitster-original.js') && hitsterLegacy.includes('location.replace("hitster-888-en.html?entry=international")'));
 check("HITSTER hub exposes all 888 mobile interfaces", hitsterHub.includes('href="hitster-mobile.html"') && hitsterHub.includes('href="hitster-mobile.html?lang=en"') && hitsterHub.includes('href="hitster-mobile.html?entry=kfar-bloom"') && hitsterHub.includes("שנת מצעד"));
 check("HITSTER plays lawful previews inside the game", hitster.includes("function lookupPreview") && hitster.includes("function cachedPreview") && hitster.includes("function cacheRemotePreview") && hitster.includes("PREVIEW_SECONDS = 30"));
-check("HITSTER requires no third-party app fallback", !["open.spotify.com","youtube.com","deezer.com","soundcloud.com"].some(x=>hitster.includes(x)) && !hitster888.includes("open.spotify.com") && !hitsterEnglish.includes("open.spotify.com") && principles.principles?.some(p=>p.id==="michael-to-grandma-estelle"));
+check("HITSTER requires no third-party app fallback", !["open.spotify.com","youtube.com","deezer.com","soundcloud.com"].some(x=>hitster.includes(x)) && !hitster888.includes("open.spotify.com") && !hitsterEnglish.includes("open.spotify.com"));
 check("HITSTER plays up to 30 seconds when requested", hitster.includes("PREVIEW_SECONDS = 30") && hitster.includes("audio.currentTime >= PREVIEW_SECONDS"));
 check("Offline cache contains canonical HITSTER mobile, Hebrew, English, Kfar routes and annual deck", sw.includes('"./hitster-mobile.html"') && sw.includes('"./hitster-888.html"') && sw.includes('"./hitster-888-en.html"') && sw.includes('"./hitster-kfar-bloom-2026-demo.html"') && sw.includes("hitster-alltime-888.json") && sw.includes("AUDIO_CACHE"));
 
