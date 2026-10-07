@@ -8889,5 +8889,41 @@
       "source": "Billboard year-end singles chart",
       "sourceUrl": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2023"
     }
+  ],
+  "curationSources": [
+    {
+      "id": "apple-music-tomerangel212",
+      "provider": "Apple Music",
+      "type": "public-profile",
+      "url": "https://music.apple.com/profile/tomerangel212",
+      "role": "curation-signal",
+      "authorityFor": [
+        "personal-taste",
+        "future-candidate-curation"
+      ],
+      "notAuthorityFor": [
+        "chartYear",
+        "chartRank",
+        "releaseYear",
+        "audio-rights"
+      ],
+      "addedOn": "2026-10-06"
+    }
+  ],
+  "curationPolicy": "Curation sources may guide future song candidates, but each playable HITSTER card must retain its own verified factual source. A profile URL does not license audio or override chart-year/rank metadata.",
+  "supplementalCards": [
+    {
+      "id": "apple-594061856",
+      "title": "Dreams",
+      "artist": "Fleetwood Mac",
+      "chartYear": 1977,
+      "yearBasis": "release-year",
+      "source": "Apple Music catalog",
+      "appleMusicId": "594061856",
+      "album": "Rumours",
+      "releaseDate": "1977-02-04",
+      "curationSourceId": "apple-music-tomerangel212",
+      "playable": true
+    }
   ]
 }
