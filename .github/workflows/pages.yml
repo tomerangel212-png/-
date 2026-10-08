@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
     paths-ignore: [".github/workflows/live-http.yml", ".github/workflows/pages.yml"]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -13,7 +15,7 @@ permissions:
   statuses: write
 
 concurrency:
-  group: github-pages
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.event.pull_request.number) || 'github-pages' }}
   cancel-in-progress: true
 
 jobs:
@@ -67,22 +69,32 @@ jobs:
       - name: Check personal setup in a mobile browser
         run: NODE_PATH="$RUNNER_TEMP/tra-e2e/node_modules" node hitster-personal-browser.cjs
       - name: Upload personal mode preview
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: hitster-personal-preview
           path: hitster-personal-mobile.png
       - name: Build public country chart snapshot
         run: node build-hitster-world.cjs
+      - name: Test public Pages staging
+        run: node --test scripts/stage-pages.test.cjs
+      - name: Stage public Pages files
+        run: node scripts/stage-pages.cjs "$RUNNER_TEMP/tra-pages-public"
+      - name: Verify staged public routes and private-file exclusions
+        run: |
+          node site-route-integrity-check.js "$RUNNER_TEMP/tra-pages-public"
+          node scripts/stage-pages.cjs --verify "$RUNNER_TEMP/tra-pages-public"
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           name: github-pages-${{ github.run_attempt }}
-          path: .
+          path: ${{ runner.temp }}/tra-pages-public
   deploy:
     name: Deploy TRA to GitHub Pages
     needs: tra-quality
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -90,7 +102,7 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
 
