@@ -51,7 +51,7 @@
   };
   $('local-audio').addEventListener('play', () => { $('player-host').replaceChildren(); $('open-player').textContent = 'פתיחת HITSTER והנגן'; });
   $('local-audio').onerror = () => { $('audio-status').textContent = 'המכשיר לא הצליח לנגן את הקובץ. נסו קובץ שמע בפורמט נתמך.'; };
-  window.addEventListener('pagehide', () => { $('local-audio').pause(); if (localUrl) URL.revokeObjectURL(localUrl); });
+  window.addEventListener('pagehide', event => { $('local-audio').pause(); if (!event.persisted && localUrl) URL.revokeObjectURL(localUrl); });
   fetch('hitster-alltime-888.json').then(response => { if (!response.ok) throw Error(); return response.json(); }).then(data => {
     if (!Array.isArray(data.cards)) throw Error();
     songs = data.cards.filter(song => song && song.title && song.artist && Number.isInteger(song.chartYear) && !/michael jackson|eyal golan|אייל גולן/i.test(song.artist));
