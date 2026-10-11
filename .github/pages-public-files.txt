@@ -126,3 +126,6 @@ tree.html
 versions/hitster-kfar-bloom-2026-demo-20260820-pre-hebrew57.html
 what-country.html
 wikifamily.html
+history-and-music-catalog.html
+history-and-music.js
+tra-history-data.json

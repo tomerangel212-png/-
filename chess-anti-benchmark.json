@@ -1,0 +1,843 @@
+{
+  "baseRef": "ad5c61d13b556f426144f746e3a5a5a27c15774b",
+  "normalPlies": 3,
+  "quiescencePlies": 2,
+  "maxNodes": 4200,
+  "targetMs": 120,
+  "summary": {
+    "positions": 13,
+    "repetitions": 3,
+    "legalChoices": 78,
+    "oldMaxMs": 153.1098539999998,
+    "newMaxMs": 115.69940200000019,
+    "oldMeanMs": 114.14288923076917,
+    "newMeanMs": 111.76829417948731
+  },
+  "oracle": {
+    "name": "Stockfish.js 17.1 lite single",
+    "depth": 12,
+    "perspective": "side to move",
+    "purpose": "Independent small-sample move check, not an Elo estimate"
+  },
+  "rows": [
+    {
+      "repetition": 0,
+      "name": "poisoned-pawn-white",
+      "fen": "3r2k1/8/8/3p4/8/8/8/3Q2K1 w - - 0 1",
+      "old": "d1b3",
+      "new": "d1c2",
+      "oldMs": 129.972627,
+      "newMs": 113.04369000000003,
+      "nodes": 54,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 191,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 221,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "poisoned-pawn-black",
+      "fen": "3q2k1/8/8/8/3P4/8/8/3R2K1 b - - 0 1",
+      "old": "d8e8",
+      "new": "d8e8",
+      "oldMs": 130.01843100000002,
+      "newMs": 112.19920999999994,
+      "nodes": 72,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 148,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 148,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "hanging-queen",
+      "fen": "6k1/8/8/3q4/8/8/8/3R2K1 w - - 0 1",
+      "old": "d1d5",
+      "new": "d1d5",
+      "oldMs": 123.73051399999997,
+      "newMs": 112.59813800000006,
+      "nodes": 48,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 461,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 461,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "mate-one",
+      "fen": "7k/5Q2/6K1/8/8/8/8/8 w - - 0 1",
+      "old": "f7e8",
+      "new": "f7e8",
+      "oldMs": 123.6090109999999,
+      "newMs": 112.81203000000005,
+      "nodes": 175,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "rook-check",
+      "fen": "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1",
+      "old": "g8f8",
+      "new": "g8f8",
+      "oldMs": 69.959654,
+      "newMs": 105.07856700000002,
+      "nodes": 179,
+      "completedDepth": 3,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -679,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -679,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "promotion",
+      "fen": "k7/4P3/8/8/8/8/8/4K3 w - - 0 1",
+      "old": "e7e8q",
+      "new": "e7e8q",
+      "oldMs": 53.209712999999965,
+      "newMs": 112.48480600000016,
+      "nodes": 161,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 881,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 881,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "opening",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "old": "b1c3",
+      "new": "b1c3",
+      "oldMs": 124.88639799999987,
+      "newMs": 113.07522700000004,
+      "nodes": 95,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 11,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 11,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "italian",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "old": "b1c3",
+      "new": "b1c3",
+      "oldMs": 133.8377230000001,
+      "newMs": 113.760491,
+      "nodes": 48,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 15,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 15,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "kiwipete",
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "old": "f3f6",
+      "new": "e2a6",
+      "oldMs": 153.1098539999998,
+      "newMs": 112.23260700000014,
+      "nodes": 24,
+      "completedDepth": 0,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -514,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -74,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "holdout-fools-mate",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2",
+      "old": "d8h4",
+      "new": "d8h4",
+      "oldMs": 128.7930019999999,
+      "newMs": 112.19909300000018,
+      "nodes": 89,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "holdout-black-opening",
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "old": "b8c6",
+      "new": "b8c6",
+      "oldMs": 125.35916999999972,
+      "newMs": 112.99918100000014,
+      "nodes": 73,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -30,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -30,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "holdout-ruy-lopez",
+      "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6",
+      "old": "a4c6",
+      "new": "a4c6",
+      "oldMs": 129.00371899999982,
+      "newMs": 113.62815899999987,
+      "nodes": 60,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 3,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 3,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 0,
+      "name": "holdout-rook-ending",
+      "fen": "6k1/5p2/8/8/8/8/5P2/R5K1 b - - 0 1",
+      "old": "g8h8",
+      "new": "g8h8",
+      "oldMs": 76.46460499999966,
+      "newMs": 112.72647900000038,
+      "nodes": 124,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -470,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -470,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "poisoned-pawn-white",
+      "fen": "3r2k1/8/8/3p4/8/8/8/3Q2K1 w - - 0 1",
+      "old": "d1b3",
+      "new": "d1c2",
+      "oldMs": 127.51753699999972,
+      "newMs": 114.18498,
+      "nodes": 61,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 191,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 221,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "poisoned-pawn-black",
+      "fen": "3q2k1/8/8/8/3P4/8/8/3R2K1 b - - 0 1",
+      "old": "d8e8",
+      "new": "d8e8",
+      "oldMs": 129.5315559999999,
+      "newMs": 112.45867499999986,
+      "nodes": 78,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 148,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 148,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "hanging-queen",
+      "fen": "6k1/8/8/3q4/8/8/8/3R2K1 w - - 0 1",
+      "old": "d1d5",
+      "new": "d1d5",
+      "oldMs": 123.9621519999996,
+      "newMs": 112.28476300000011,
+      "nodes": 57,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 461,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 461,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "mate-one",
+      "fen": "7k/5Q2/6K1/8/8/8/8/8 w - - 0 1",
+      "old": "f7e8",
+      "new": "f7e8",
+      "oldMs": 124.87645100000009,
+      "newMs": 112.3422300000002,
+      "nodes": 178,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "rook-check",
+      "fen": "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1",
+      "old": "g8f8",
+      "new": "g8f8",
+      "oldMs": 62.010574999999335,
+      "newMs": 93.3769229999998,
+      "nodes": 179,
+      "completedDepth": 3,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -679,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -679,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "promotion",
+      "fen": "k7/4P3/8/8/8/8/8/4K3 w - - 0 1",
+      "old": "e7e8q",
+      "new": "e7e8q",
+      "oldMs": 42.09146099999998,
+      "newMs": 112.18001400000048,
+      "nodes": 172,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 881,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 881,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "opening",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "old": "b1c3",
+      "new": "b1c3",
+      "oldMs": 124.99635799999942,
+      "newMs": 112.78173199999947,
+      "nodes": 99,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 11,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 11,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "italian",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "old": "b1c3",
+      "new": "b1c3",
+      "oldMs": 133.16430000000037,
+      "newMs": 112.42731499999991,
+      "nodes": 47,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 15,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 15,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "kiwipete",
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "old": "f3f6",
+      "new": "e2a6",
+      "oldMs": 152.2973950000005,
+      "newMs": 114.9147269999994,
+      "nodes": 25,
+      "completedDepth": 0,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -514,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -74,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "holdout-fools-mate",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2",
+      "old": "d8h4",
+      "new": "d8h4",
+      "oldMs": 129.2515569999996,
+      "newMs": 113.19239900000048,
+      "nodes": 95,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "holdout-black-opening",
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "old": "b8c6",
+      "new": "b8c6",
+      "oldMs": 125.35862400000042,
+      "newMs": 112.34587100000044,
+      "nodes": 79,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -30,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -30,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "holdout-ruy-lopez",
+      "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6",
+      "old": "a4c6",
+      "new": "a4c6",
+      "oldMs": 127.27082900000005,
+      "newMs": 113.52152600000045,
+      "nodes": 60,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 3,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 3,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 1,
+      "name": "holdout-rook-ending",
+      "fen": "6k1/5p2/8/8/8/8/5P2/R5K1 b - - 0 1",
+      "old": "g8h8",
+      "new": "g8h8",
+      "oldMs": 75.86985199999981,
+      "newMs": 112.58076700000038,
+      "nodes": 124,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -470,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -470,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "poisoned-pawn-white",
+      "fen": "3r2k1/8/8/3p4/8/8/8/3Q2K1 w - - 0 1",
+      "old": "d1b3",
+      "new": "d1c2",
+      "oldMs": 126.92535700000008,
+      "newMs": 113.96365200000037,
+      "nodes": 61,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 191,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 221,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "poisoned-pawn-black",
+      "fen": "3q2k1/8/8/8/3P4/8/8/3R2K1 b - - 0 1",
+      "old": "d8e8",
+      "new": "d8e8",
+      "oldMs": 128.00057000000015,
+      "newMs": 112.40547199999946,
+      "nodes": 64,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 148,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 148,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "hanging-queen",
+      "fen": "6k1/8/8/3q4/8/8/8/3R2K1 w - - 0 1",
+      "old": "d1d5",
+      "new": "d1d5",
+      "oldMs": 123.57663600000069,
+      "newMs": 112.25236099999984,
+      "nodes": 58,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 461,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 461,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "mate-one",
+      "fen": "7k/5Q2/6K1/8/8/8/8/8 w - - 0 1",
+      "old": "f7e8",
+      "new": "f7e8",
+      "oldMs": 124.07709299999988,
+      "newMs": 112.53483800000049,
+      "nodes": 176,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "rook-check",
+      "fen": "6k1/5ppp/8/8/8/8/5PPP/4R1K1 b - - 0 1",
+      "old": "g8f8",
+      "new": "g8f8",
+      "oldMs": 60.715218999999706,
+      "newMs": 92.15560800000003,
+      "nodes": 179,
+      "completedDepth": 3,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -679,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -679,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "promotion",
+      "fen": "k7/4P3/8/8/8/8/8/4K3 w - - 0 1",
+      "old": "e7e8q",
+      "new": "e7e8q",
+      "oldMs": 41.53843500000039,
+      "newMs": 113.39896099999987,
+      "nodes": 143,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 881,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 881,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "opening",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "old": "b1c3",
+      "new": "b1c3",
+      "oldMs": 124.14114900000004,
+      "newMs": 112.37932300000011,
+      "nodes": 96,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 11,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 11,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "italian",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "old": "b1c3",
+      "new": "b1c3",
+      "oldMs": 134.93236199999956,
+      "newMs": 113.75194300000021,
+      "nodes": 47,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 15,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 15,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "kiwipete",
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "old": "f3f6",
+      "new": "e2a6",
+      "oldMs": 150.67254200000025,
+      "newMs": 115.69940200000019,
+      "nodes": 25,
+      "completedDepth": 0,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -514,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -74,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "holdout-fools-mate",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2",
+      "old": "d8h4",
+      "new": "d8h4",
+      "oldMs": 129.19805900000028,
+      "newMs": 114.36098300000049,
+      "nodes": 95,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "mate",
+        "value": 1,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "holdout-black-opening",
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "old": "b8c6",
+      "new": "b8c6",
+      "oldMs": 126.15462699999989,
+      "newMs": 112.568768000001,
+      "nodes": 81,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -30,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -30,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "holdout-ruy-lopez",
+      "fen": "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6",
+      "old": "a4c6",
+      "new": "a4c6",
+      "oldMs": 129.10947599999963,
+      "newMs": 112.73472899999979,
+      "nodes": 60,
+      "completedDepth": 1,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": 3,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": 3,
+        "bound": null
+      }
+    },
+    {
+      "repetition": 2,
+      "name": "holdout-rook-ending",
+      "fen": "6k1/5p2/8/8/8/8/5P2/R5K1 b - - 0 1",
+      "old": "g8h8",
+      "new": "g8h8",
+      "oldMs": 72.37808699999914,
+      "newMs": 113.32783300000119,
+      "nodes": 126,
+      "completedDepth": 2,
+      "oldEvaluation": {
+        "type": "cp",
+        "value": -470,
+        "bound": null
+      },
+      "newEvaluation": {
+        "type": "cp",
+        "value": -470,
+        "bound": null
+      }
+    }
+  ]
+}
