@@ -1,9 +1,21 @@
 (function () {
   'use strict';
   const $ = id => document.getElementById(id);
-  let songs = [], entries = [], songLimit = 24, historyLimit = 30, localUrl = null;
+  let songs = [], artists = [], entries = [], songLimit = 24, historyLimit = 30, localUrl = null;
   const norm = value => String(value || '').normalize('NFKC').toLowerCase();
   function link(label, url) { const a = document.createElement('a'); a.textContent = label; a.href = url; return a; }
+  function renderArtists() {
+    const host = $('artist-results');
+    if (!host) return;
+    host.replaceChildren();
+    artists.forEach(artist => {
+      const card = document.createElement('article'), title = document.createElement('h4'), note = document.createElement('p'), actions = document.createElement('div');
+      card.className = 'card'; title.textContent = artist.name; title.dir = 'auto';
+      note.textContent = artist.note; note.dir = 'auto'; actions.className = 'actions';
+      artist.sources.forEach(source => actions.append(link(source.label, source.url)));
+      card.append(title, note, actions); host.append(card);
+    });
+  }
   function renderMusic() {
     const query = norm($('music-search').value), decade = $('decade').value;
     const selected = songs.filter(song => norm(song.title + ' ' + song.artist).includes(query) && (!decade || Math.floor(song.chartYear / 10) * 10 === Number(decade)));
@@ -52,6 +64,12 @@
   $('local-audio').addEventListener('play', () => { $('player-host').replaceChildren(); $('open-player').textContent = 'פתיחת HITSTER והנגן'; });
   $('local-audio').onerror = () => { $('audio-status').textContent = 'המכשיר לא הצליח לנגן את הקובץ. נסו קובץ שמע בפורמט נתמך.'; };
   window.addEventListener('pagehide', event => { $('local-audio').pause(); if (!event.persisted && localUrl) URL.revokeObjectURL(localUrl); });
+  fetch('tra-artists.json').then(response => { if (!response.ok) throw Error(); return response.json(); }).then(data => {
+    if (!Array.isArray(data.artists)) throw Error();
+    artists = data.artists.filter(artist => artist && typeof artist.name === 'string' && typeof artist.note === 'string' && Array.isArray(artist.sources))
+      .map(artist => ({...artist, sources: artist.sources.filter(source => source && typeof source.label === 'string' && typeof source.url === 'string' && source.url.startsWith('https://'))}));
+    renderArtists();
+  }).catch(() => { const host = $('artist-results'); if (host) host.textContent = 'רשימת האמנים לא נטענה.'; });
   fetch('hitster-alltime-888.json').then(response => { if (!response.ok) throw Error(); return response.json(); }).then(data => {
     if (!Array.isArray(data.cards)) throw Error();
     songs = data.cards.filter(song => song && song.title && song.artist && Number.isInteger(song.chartYear) && !/michael jackson|eyal golan|אייל גולן/i.test(song.artist));
