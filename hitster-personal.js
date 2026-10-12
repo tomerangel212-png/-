@@ -4,11 +4,17 @@
   const KEY="tra-personal-five-v1", SCORE_KEY="tra-listening-scores-v1";
   const seeds=[{title:"לו יהי",artist:""},{title:"Take on Me",artist:"a-ha"},{title:"כוח הכבידה",artist:"שגיב ברייטנר"},{title:"כולם גנבים",artist:"אושר כהן"},{title:"One Last Time",artist:"Ariana Grande"}];
   let snapshot={countries:{},seeds:[]}, stored={}, busy=false, history=[], scores={};
-  try {stored=JSON.parse(localStorage.getItem(KEY)||"{}");scores=JSON.parse(localStorage.getItem(SCORE_KEY)||"{}");}catch(error){}
+  function readSavedObject(key) {
+    try {
+      const value=JSON.parse(localStorage.getItem(key)||"{}");
+      return value&&typeof value==="object"&&!Array.isArray(value)?value:{};
+    }catch(error){return {};}
+  }
+  stored=readSavedObject(KEY);scores=readSavedObject(SCORE_KEY);
   const config=window.TRA_PERSONAL_CONFIG={cards:[],teams:Array.from({length:5},(_,i)=>({id:"team-"+(i+1),he:"קבוצה "+(i+1),en:"Team "+(i+1)})),listenScores:{}};
   config.teams.forEach(t=>config.listenScores[t.id]=Number.isFinite(scores[t.id])?scores[t.id]:0);
   $("nickname").value=typeof stored.name==="string"?stored.name:"תומר";
-  const initial=Array.isArray(stored.songs)&&stored.songs.length===5?stored.songs:seeds;
+  const initial=!core.validateSongs(stored.songs)?stored.songs:seeds;
   initial.forEach((s,i)=>{ $("song-"+i).value=s.title||"";$("artist-"+i).value=s.artist||""; });
   ["spotify","apple"].forEach(p=>$(p+"-url").value=typeof stored[p]==="string"?stored[p]:"");
   $("five-form").addEventListener("input",()=>{$("setup-error").textContent="";});

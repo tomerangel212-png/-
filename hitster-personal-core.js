@@ -7,7 +7,7 @@
     if (!Array.isArray(songs) || songs.length !== 5) return "הוסיפו בדיוק חמישה שירים.";
     var seen = new Set();
     for (var song of songs) {
-      if (!song || !normalize(song.title) || song.title.length > 180 || String(song.artist || "").length > 180) return "לכל שיר צריך להיות שם תקין.";
+      if (!song || typeof song.title !== "string" || (song.artist != null && typeof song.artist !== "string") || !normalize(song.title) || song.title.length > 180 || String(song.artist || "").length > 180) return "לכל שיר צריך להיות שם תקין.";
       var key = normalize(song.title);
       if (seen.has(key)) return "בחרו חמישה שירים שונים.";
       seen.add(key);

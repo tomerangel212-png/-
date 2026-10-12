@@ -62,6 +62,7 @@ jobs:
           node --check hitster-personal-core.js
           node --check build-hitster-world.cjs
           node hitster-personal.test.cjs
+          node hitster-personal-storage-regression.cjs
       - name: Install browser validation
         run: |
           npm install --prefix "$RUNNER_TEMP/tra-e2e" playwright@1.58.2
