@@ -35,3 +35,6 @@ Added `history-and-music-browser.cjs` to the existing Pages validation job to ch
 
 Additional changed paths: `.github/workflows/pages.yml`, `history-and-music-browser.cjs`.
 Status: ready for independent review and CI; publication authorized, pending both checks. No physical iPhone audibility or Spotify/Apple Music preview availability is claimed. This addition publishes an artist card and source links; it does not add Roy Kafri recordings to the HITSTER deck.
+
+The pre-publication HTTP check found that the supplied 2019 PDF returns 404. The official chords page (HTTP 200) now links to `/wp-content/uploads/2026/03/רועי-כפרי-אקורדים-14.3.2026.pdf`; replaced the dead public link with this official current PDF and updated its label and regression assertion. The original supplied URL remains in the earlier commit history.
+CI run 39051391576 passed the new Chromium artist/local-audio browser step on candidate a28c1020be477e22346ba0fb5dbac1d0a3acdf56. The final PDF-link adjustment must pass the same checks on its own final commit.
