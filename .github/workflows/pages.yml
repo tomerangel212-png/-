@@ -62,17 +62,22 @@ jobs:
           node --check hitster-personal-core.js
           node --check build-hitster-world.cjs
           node hitster-personal.test.cjs
+          node hitster-personal-storage-regression.cjs
       - name: Install browser validation
         run: |
           npm install --prefix "$RUNNER_TEMP/tra-e2e" playwright@1.58.2
           "$RUNNER_TEMP/tra-e2e/node_modules/.bin/playwright" install --with-deps chromium
       - name: Check personal setup in a mobile browser
         run: NODE_PATH="$RUNNER_TEMP/tra-e2e/node_modules" node hitster-personal-browser.cjs
+      - name: Check History and Music artist card and local audio
+        run: NODE_PATH="$RUNNER_TEMP/tra-e2e/node_modules" node history-and-music-browser.cjs
       - name: Upload personal mode preview
         uses: actions/upload-artifact@v7
         with:
           name: hitster-personal-preview
-          path: hitster-personal-mobile.png
+          path: |
+            hitster-personal-mobile.png
+            history-and-music-artist-mobile.png
       - name: Build public country chart snapshot
         run: node build-hitster-world.cjs
       - name: Test public Pages staging

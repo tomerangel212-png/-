@@ -16,19 +16,52 @@
       card.append(title, note, actions); host.append(card);
     });
   }
+  const filterIds = ['artist', 'decade', 'language', 'genre'];
+  const unknown = '__unclassified__';
+  const metadata = (song, field) => typeof song[field] === 'string' && song[field].trim() ? song[field].trim() : unknown;
+  function syncViewLink() {
+    const url = new URL(location.href);
+    for (const id of ['music-search', ...filterIds]) {
+      const key = id === 'music-search' ? 'q' : id, value = $(id).value;
+      if (value) url.searchParams.set(key, value); else url.searchParams.delete(key);
+    }
+    url.hash = 'music'; $('catalog-view-link').href = url.href;
+  }
+  function restoreView() {
+    const params = new URL(location.href).searchParams;
+    $('music-search').value = params.get('q') || '';
+    for (const id of filterIds) {
+      const value = params.get(id) || '';
+      $(id).value = Array.from($(id).options).some(option => option.value === value) ? value : '';
+    }
+    songLimit = 24; renderMusic();
+  }
+  function populateFilter(id, values) {
+    const counts = new Map(); values.forEach(value => counts.set(value, (counts.get(value) || 0) + 1));
+    Array.from(counts.keys()).sort((a, b) => String(a).localeCompare(String(b), 'he')).forEach(value => {
+      const option = document.createElement('option'); option.value = value;
+      const label = value === unknown ? 'לֹא סֻוַּג' : id === 'decade' ? value + '–' + (Number(value) + 9) : value;
+      option.textContent = label + ' (' + counts.get(value) + ')'; $(id).append(option);
+    });
+  }
   function renderMusic() {
     const query = norm($('music-search').value), decade = $('decade').value;
-    const selected = songs.filter(song => norm(song.title + ' ' + song.artist).includes(query) && (!decade || Math.floor(song.chartYear / 10) * 10 === Number(decade)));
+    const selected = songs.filter(song => norm(song.title + ' ' + song.artist).includes(query)
+      && (!decade || Math.floor(song.chartYear / 10) * 10 === Number(decade))
+      && (!$('artist').value || song.artist === $('artist').value)
+      && (!$('language').value || metadata(song, 'language') === $('language').value)
+      && (!$('genre').value || metadata(song, 'genre') === $('genre').value));
     $('music-results').replaceChildren();
     selected.slice(0, songLimit).forEach(song => {
       const card = document.createElement('article'), title = document.createElement('h3'), artist = document.createElement('p'), year = document.createElement('p'), actions = document.createElement('div');
-      card.className = 'card'; title.textContent = song.title; artist.textContent = song.artist; year.className = 'badge'; year.textContent = 'שנת מצעד · ' + song.chartYear; actions.className = 'actions';
+      card.className = 'card'; title.textContent = song.artist; title.dir = 'auto'; artist.textContent = song.title; artist.dir = 'auto'; year.className = 'badge'; year.textContent = 'שנת מצעד · ' + song.chartYear; actions.className = 'actions';
       actions.append(link('חיפוש ב־Apple Music', 'https://music.apple.com/il/search?term=' + encodeURIComponent(song.title + ' ' + song.artist)));
       if (typeof song.sourceUrl === 'string' && song.sourceUrl.startsWith('https://en.wikipedia.org/')) actions.append(link('מקור הרשומה', song.sourceUrl));
       card.append(year, title, artist, actions); $('music-results').append(card);
     });
     $('music-count').textContent = selected.length + ' שירים נמצאו · מוצגים ' + Math.min(songLimit, selected.length);
     $('more-music').hidden = selected.length <= songLimit;
+    syncViewLink();
   }
   function renderHistory() {
     const query = norm($('history-search').value), selected = entries.filter(entry => norm(entry.title + ' ' + entry.date + ' ' + entry.sha).includes(query));
@@ -44,7 +77,11 @@
     $('history-count').textContent = selected.length + ' שינויים מתועדים · מוצגים ' + Math.min(historyLimit, selected.length) + ' · מהחדש לישן';
     $('more-history').hidden = selected.length <= historyLimit;
   }
-  $('music-search').oninput = $('decade').onchange = () => { songLimit = 24; renderMusic(); };
+  const updateFilters = () => { songLimit = 24; renderMusic(); };
+  $('music-search').oninput = updateFilters;
+  filterIds.forEach(id => { $(id).onchange = updateFilters; });
+  $('reset-filters').onclick = () => { $('music-search').value = ''; filterIds.forEach(id => { $(id).value = ''; }); updateFilters(); };
+  window.addEventListener('popstate', restoreView);
   $('history-search').oninput = () => { historyLimit = 30; renderHistory(); };
   $('more-music').onclick = () => { songLimit += 24; renderMusic(); };
   $('more-history').onclick = () => { historyLimit += 30; renderHistory(); };
@@ -73,8 +110,14 @@
   fetch('hitster-alltime-888.json').then(response => { if (!response.ok) throw Error(); return response.json(); }).then(data => {
     if (!Array.isArray(data.cards)) throw Error();
     songs = data.cards.filter(song => song && song.title && song.artist && Number.isInteger(song.chartYear) && !/michael jackson|eyal golan|אייל גולן/i.test(song.artist));
-    [...new Set(songs.map(song => Math.floor(song.chartYear / 10) * 10))].sort().forEach(decade => { const option = document.createElement('option'); option.value = decade; option.textContent = decade + '–' + (decade + 9); $('decade').append(option); });
-    renderMusic();
+    populateFilter('artist', songs.map(song => song.artist));
+    populateFilter('decade', songs.map(song => Math.floor(song.chartYear / 10) * 10));
+    populateFilter('language', songs.map(song => metadata(song, 'language')));
+    populateFilter('genre', songs.map(song => metadata(song, 'genre')));
+    const missingLanguage = songs.filter(song => metadata(song, 'language') === unknown).length;
+    const missingGenre = songs.filter(song => metadata(song, 'genre') === unknown).length;
+    $('metadata-note').textContent = 'שָׂפָה לֹא סֻוְּגָה: ' + missingLanguage + ' · סִגְנוֹן לֹא סֻוַּג: ' + missingGenre + '. הַסִּנּוּן מְבֻסָּס עַל הַמֵּידָע הַמְּתֹעָד בַּמַּאֲגָר.';
+    restoreView();
   }).catch(() => { $('music-count').textContent = 'הקטלוג לא נטען. אפשר לפתוח את HITSTER מהקישור למעלה ולנסות לרענן.'; });
   fetch('tra-history-data.json').then(response => { if (!response.ok) throw Error(); return response.json(); }).then(data => {
     if (!Array.isArray(data.entries)) throw Error();
