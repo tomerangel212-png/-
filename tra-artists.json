@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "title": "TRA artist index",
+  "artists": [
+    {
+      "id": "roy-kafri",
+      "name": "רועי כפרי",
+      "nameEnglish": "Roy Kafri",
+      "note": "נוסף כאמן. מקורות אקורדים חיצוניים בלבד; לא הועתקו אקורדים או מילות שירים ולא נוספו שירים לחפיסת HITSTER.",
+      "sources": [
+        {
+          "label": "דף האקורדים הרשמי",
+          "url": "https://roykafri.com/portfolio/chords/"
+        },
+        {
+          "label": "PDF אֲקוֹרְדִּים מֵהָאֲתָר הָרִשְׁמִי",
+          "url": "https://roykafri.com/wp-content/uploads/2026/03/%D7%A8%D7%95%D7%A2%D7%99-%D7%9B%D7%A4%D7%A8%D7%99-%D7%90%D7%A7%D7%95%D7%A8%D7%93%D7%99%D7%9D-14.3.2026.pdf"
+        }
+      ]
+    }
+  ]
+}

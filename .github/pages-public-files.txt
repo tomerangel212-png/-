@@ -129,3 +129,4 @@ wikifamily.html
 history-and-music-catalog.html
 history-and-music.js
 tra-history-data.json
+tra-artists.json
